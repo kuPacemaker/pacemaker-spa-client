@@ -1,0 +1,26 @@
+$stepSize: 24px;
+
+@mixin square($size) {
+  $calculated: $stepSize * $size;
+  width: $calculated;
+  height: $calculated;
+}
+
+
+* {
+  box-sizing: inherit;
+  font-family: 'Helvetica Neue LT Pro 55 Roman';
+
+  -ms-user-select: none;
+  -moz-user-select: -moz-none;
+  -khtml-user-select: none;
+  -webkit-user-select: none;
+  user-select: none;
+
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}

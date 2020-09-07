@@ -1,30 +1,23 @@
 import React from 'react';
-import './Footer.css';
+import classnames from 'classnames';
+import './Footer.scss';
 
-const colors = ['red', 'orange', 'yellow', 'green', 'blue', 'indigo', 'violet'];
+const icons = ['Facebook', 'Instargram', 'Youtube'];
 
-const PaletteItem = ({ color, active, onClick }) => {
-  return (
-    <div
-      className={`PaletteItem ${active ? 'active' : ''}`}
-      style={{ backgroundColor: color }}
-      onClick={onClick}
-    />
-  );
+const Icon = ({ type, clickEvent }) => {
+  return <div className={classnames('Icon', type)} onClick={clickEvent} />;
 };
 
-const Footer = ({ selected, onSelect }) => {
+const Footer = () => {
+  const clickEvent = (icon) => {
+    console.log('redirect to ' + icon);
+  };
   return (
-    <div className="Palette">
-      <h2>색깔을 골라골라</h2>
-      <div className="colors">
-        {colors.map((color) => (
-          <PaletteItem
-            color={color}
-            key={color}
-            active={selected === color}
-            onClick={() => onSelect(color)}
-          />
+    <div className="Footer">
+      <span>© Pacemaker. All rights reserved.</span>
+      <div className="IconSet">
+        {icons.map((icon) => (
+          <Icon key={icon} type={icon} onClick={() => clickEvent(icon)} />
         ))}
       </div>
     </div>

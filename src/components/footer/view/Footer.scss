@@ -1,0 +1,41 @@
+@import 'index.scss';
+
+$sidemargine:50px;
+
+.Footer {
+    position: fixed;
+    height: $stepSize * 1.75;
+    width: 100%;
+    bottom: 0;
+
+    span {
+        margin-left: $sidemargine;
+        font-size: 0.75em;
+    }
+
+    .IconSet {
+        position: fixed;
+        display: inline-block;
+        right: $sidemargine;
+        height: $stepSize * 1.3;
+
+        .Icon {
+            @include square(1.1);
+            display: inline-block;
+            margin-left: $stepSize * 0.75;
+            background-size: cover;
+
+            &.Facebook {
+                background-image: url('./resources/images/facebook.png');
+            }
+
+            &.Instargram {
+                background-image: url('./resources/images/instargram.png');
+            }
+
+            &.Youtube {
+                background-image: url('./resources/images/youtube.png');
+            }
+        }
+    }
+}

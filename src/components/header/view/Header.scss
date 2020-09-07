@@ -1,0 +1,11 @@
+@import 'index.scss';
+
+.Header {
+    position: fixed;
+
+    background-color: red;
+
+    height: $stepSize * 2;
+    width: 100%;
+    top: 0;
+}

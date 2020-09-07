@@ -1,5 +1,5 @@
 import React from 'react';
-import './Counter.css';
+import './Counter.scss';
 
 const Counter = ({ value, color, onIncrement, onDecrement, onTest }) => {
   return (

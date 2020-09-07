@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 
-import './index.css';
+import './index.scss';
 import 'resources/font/helvetica/style.css';
 import './resources/font/nanum_gothic/style.css';
 

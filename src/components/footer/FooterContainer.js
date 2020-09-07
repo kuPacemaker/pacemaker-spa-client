@@ -1,13 +1,8 @@
 import React from 'react';
-import { connect } from 'react-redux';
-import { decrement } from 'store/modules/creators/counter';
-import { incrementAsync } from 'store/modules/action/counter';
-import { bindActionCreators } from 'redux'; // 불러오기
-import { getPost } from 'store/modules/action/post';
 
 import Footer from './view/Footer';
 
-const FooterContainer = (prop) => {
+const FooterContainer = () => {
   return <Footer />;
 };
 
