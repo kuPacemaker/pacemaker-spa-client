@@ -1,6 +1,6 @@
 import React from 'react';
 import queryString from 'query-string';
-import PaletteContainer from 'components/waiting/WaitingListContainer';
+import PaletteContainer from 'components/samples/waiting/WaitingListContainer';
 
 const About = ({ location, match }) => {
   const query = queryString.parse(location.search);

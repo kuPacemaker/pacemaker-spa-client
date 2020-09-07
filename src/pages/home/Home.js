@@ -1,6 +1,6 @@
 import React from 'react';
-import PaletteContainer from 'components/palette/PaletteContainer';
-import CounterContainer from 'components/counter/CounterContainer';
+import PaletteContainer from 'components/samples/palette/PaletteContainer';
+import CounterContainer from 'components/samples/counter/CounterContainer';
 
 const Home = () => {
   return (

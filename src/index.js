@@ -5,7 +5,7 @@ import './index.css';
 import 'resources/font/helvetica/style.css';
 import './resources/font/nanum_gothic/style.css';
 
-import Root from './client/root';
+import Root from 'components/root';
 import { register } from './serviceWorker';
 
 ReactDOM.render(<Root />, document.getElementById('root'));

@@ -1,17 +1,23 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import Counter from './view/Counter';
-import { increment, decrement } from 'store/modules/creators/counter';
+import { decrement } from 'store/modules/creators/counter';
+import { incrementAsync } from 'store/modules/action/counter';
 import { bindActionCreators } from 'redux'; // 불러오기
 import { getPost } from 'store/modules/action/post';
 
 class CounterContainer extends Component {
-  handleIncrement = () => {
-    this.props.increment();
-  };
+  // handleIncrement = () => {
+  //   this.props.increment();
+  // };
   handleDecrement = () => {
     this.props.decrement();
   };
+
+  handleIncrementAsync = () => {
+    this.props.incrementAsync();
+  };
+
   handleTest = () => {
     this.props.getPost(this.props.number);
   };
@@ -21,7 +27,7 @@ class CounterContainer extends Component {
       <Counter
         color={color}
         value={number}
-        onIncrement={this.handleIncrement}
+        onIncrement={this.handleIncrementAsync}
         onDecrement={this.handleDecrement}
         onTest={this.handleTest}
       />
@@ -40,7 +46,7 @@ const mapStateToProps = ({ counter }) => ({
 // });
 
 const mapDispatchToProps = (dispatch) =>
-  bindActionCreators({ increment, decrement, getPost }, dispatch); // (2) bindActionCreators 사용.
+  bindActionCreators({ incrementAsync, decrement, getPost }, dispatch); // (2) bindActionCreators 사용.
 
 // **** 함수가 아닌 객체 설정시 자동 bindActionCreators 됨
 // const mapDispatchToProps = { increment, decrement };
