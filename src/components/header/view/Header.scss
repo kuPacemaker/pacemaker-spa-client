@@ -1,11 +1,38 @@
 @import 'index.scss';
 
 .Header {
-    position: fixed;
-
-    background-color: red;
-
+    position: relative;
+    top: 0;
     height: $stepSize * 2;
     width: 100%;
-    top: 0;
+
+    .LeftButtonSet {
+        position: fixed;
+        left: $sidemargine;
+        top: $stepSize;
+    }
+
+    .CenterTitle {
+        position: fixed;
+        width: 200px;
+        top: $stepSize / 2;
+        left: calc(50% - 100px);
+        text-align: center;
+        font-size: 1.35em;
+        font-weight: bold;
+    }
+
+    .RightButtonSet {
+        position: fixed;
+        right: $sidemargine;
+        top: $stepSize;
+    }
+
+    span {
+        .LetterButton {
+            font-size: 0.9em;
+            color: #000;
+            margin: 0 10px 0 10px;
+        }
+    }
 }

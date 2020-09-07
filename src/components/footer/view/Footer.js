@@ -10,14 +10,14 @@ const Icon = ({ type, clickEvent }) => {
 
 const Footer = () => {
   const clickEvent = (icon) => {
-    console.log('redirect to ' + icon);
+    console.log('Redirect to ' + icon);
   };
   return (
     <div className="Footer">
       <span>© Pacemaker. All rights reserved.</span>
       <div className="IconSet">
         {icons.map((icon) => (
-          <Icon key={icon} type={icon} onClick={() => clickEvent(icon)} />
+          <Icon key={icon} type={icon} clickEvent={() => clickEvent(icon)} />
         ))}
       </div>
     </div>
