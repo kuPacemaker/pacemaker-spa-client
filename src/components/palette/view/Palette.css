@@ -8,6 +8,7 @@
 
 .Palette h2 {
   margin-top: 0;
+  font-family: 'Nanum Gothic';
   margin-bottom: 1rem;
 }
 
@@ -32,6 +33,6 @@
   opacity: 1;
 }
 
-.Palette .PaletteItem+.PaletteItem {
+.Palette .PaletteItem + .PaletteItem {
   margin-left: 0.5rem;
 }
