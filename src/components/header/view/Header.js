@@ -2,7 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import './Header.scss';
 
-const accout = false;
+import { account } from 'shared/test-data';
 
 const leftItems = {
   before: [
@@ -45,13 +45,14 @@ const Header = () => {
     console.log('Do ' + context[0]);
   };
 
-  const left = accout ? leftItems.after : leftItems.before;
-  const right = accout ? rightItems.after : rightItems.before;
+  const left = account.token ? leftItems.after : leftItems.before;
+  const right = account.token ? rightItems.after : rightItems.before;
 
   return (
     <div className="Header">
-      <span className="CenterTitle">PACEMAKER</span>
-
+      <Link to="/">
+        <span className="CenterTitle">PACEMAKER</span>
+      </Link>
       <span className="LeftButtonSet">
         {left.map((item) => (
           <LetterButton key={item} context={item} onClick={() => click(item)} />

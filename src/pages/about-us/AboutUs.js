@@ -1,4 +1,5 @@
 import React from 'react';
+import About from 'components/about-us/AboutContainer';
 
 const AboutUs = () => {
   // const query = queryString.parse(location.search);
@@ -12,7 +13,7 @@ const AboutUs = () => {
   //   </div>
   // );
 
-  return <div></div>;
+  return <About />;
 };
 
 export default AboutUs;

@@ -1,9 +1,9 @@
 import React from 'react';
 
-import AboutUs from './view/AboutUs';
+import About from './view/About';
 
-const AboutUsontainer = () => {
-  return <AboutUs />;
+const AboutContainer = () => {
+  return <About />;
 };
 
 // const mapStateToProps = ({ counter }) => ({
@@ -15,4 +15,4 @@ const AboutUsontainer = () => {
 //   bindActionCreators({ incrementAsync, decrement, getPost }, dispatch);
 
 // export default connect(mapStateToProps, mapDispatchToProps)(CounterContainer);
-export default AboutUsontainer;
+export default AboutContainer;

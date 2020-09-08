@@ -24,7 +24,7 @@
             }
         }
 
-        #ConceptsImage {
+        .ConceptsImage {
             position: fixed;
             margin-top: 5%;
             right: $sidemargin;
@@ -37,7 +37,7 @@
             left: calc(35% + 25px);
 
 
-            #Arrow {
+            .Arrow {
                 position: relative;
                 @include square(5);
                 pointer-events: all;

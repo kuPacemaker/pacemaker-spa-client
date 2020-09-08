@@ -1,0 +1,64 @@
+@import 'index.scss';
+
+.About {
+    position: fixed;
+    pointer-events: none;
+    top: 0;
+    background-image: url("./resources/images/background.png");
+    background-size: cover;
+    height: 100%;
+    width: 100%;
+
+    .context {
+        margin: 5% $sidemargin 5% $sidemargin;
+        height: 90%;
+
+        .ArticleBox {
+            position: relative;
+            top: 15%;
+            left: $stepSize *2;
+
+            p {
+                margin-block-start: 0em;
+                margin-block-end: 0em;
+            }
+
+            .Title {
+                p {
+                    height: 0.9em;
+                    font-size: 1.5em;
+                }
+            }
+
+            .MainArticle {
+                margin-top: 10px;
+                margin-bottom: 50px;
+
+                p {
+                    height: 0.9em;
+                    font-size: 4.2em;
+                    letter-spacing: 1px;
+                }
+            }
+
+            .SubArticle {
+                margin-bottom: 30px;
+
+                p {
+                    height: 1.3em;
+                    font-size: 1.3em;
+                    letter-spacing: 1px;
+                }
+
+            }
+        }
+
+        .ConceptsImage {
+            position: fixed;
+            margin-top: 5%;
+            right: $sidemargin;
+            height: 65%;
+        }
+    }
+
+}
