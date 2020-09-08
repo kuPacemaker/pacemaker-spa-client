@@ -19,7 +19,7 @@ const Homepage = () => {
             <div key={message}>{message}</div>
           ))}
         </div>
-        <Link to={'/about-us'}>
+        <Link to={'/sign-in'}>
           <img id="Arrow" src={arrow} alt="" />
         </Link>
       </div>

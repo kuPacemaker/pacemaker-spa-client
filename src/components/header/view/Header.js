@@ -1,30 +1,48 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import './Header.scss';
 
 const accout = false;
+
 const leftItems = {
-  before: ['ABOUT US', 'CONTACT'],
-  after: ['MENU', 'SEARCH'],
+  before: [
+    ['ABOUT US', '/about-us'],
+    ['CONTACT', '/contect'],
+  ],
+  after: [
+    ['MENU', undefined],
+    ['SEARCH', undefined],
+  ],
 };
 const rightItems = {
-  before: ['SIGN-UP', 'SIGN-IN'],
-  after: ['NEWS', 'MY ACCOUNT'],
+  before: [
+    ['SIGN-UP', '/sign-up'],
+    ['SIGN-IN', '/sign-in'],
+  ],
+  after: [
+    ['NEWS', '/main/newspeed'],
+    ['MY ACCOUNT', undefined],
+  ],
 };
 
 const LetterButton = ({ context, onClick }) => {
-  return (
+  return context[1] ? (
+    <Link to={context[1]}>
+      <span className="LetterButton UnderlineEffect">{context[0]}</span>
+    </Link>
+  ) : (
     <span
       className="LetterButton UnderlineEffect"
       onClick={() => onClick(context)}
     >
-      {context}
+      {context[0]}
     </span>
   );
 };
 
 const Header = () => {
   const click = (context) => {
-    console.log('Do ' + context);
+    console.log('Do ' + context[0]);
   };
 
   const left = accout ? leftItems.after : leftItems.before;
