@@ -2,6 +2,7 @@
 
 .Homepage {
     position: fixed;
+    pointer-events: none;
     top: 0;
     background-image: url("./resources/images/background.png");
     background-size: cover;
@@ -9,14 +10,39 @@
     width: 100%;
 
     .context {
-        margin: 10% $sidemargin 10% $sidemargin;
-        height: 80%;
+        margin: 5% $sidemargin 5% $sidemargin;
+        height: 90%;
+
+        .MessageBox {
+            position: relative;
+            top: calc(30% - 2.5em);
+            left: $stepSize *2;
+
+            div {
+                height: 1em;
+                font-size: 5em;
+            }
+        }
 
         #ConceptsImage {
-            height: 90%;
+            position: fixed;
+            margin-top: 5%;
+            right: $sidemargin;
+            height: 70%;
+        }
+
+        a {
+            position: relative;
+            top: calc(10em + 75px);
+            left: calc(35% + 25px);
+
+
+            #Arrow {
+                position: relative;
+                @include square(5);
+                pointer-events: all;
+            }
         }
     }
-
-    .MessageBox {}
 
 }

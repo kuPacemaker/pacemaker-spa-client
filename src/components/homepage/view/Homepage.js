@@ -13,12 +13,12 @@ const Homepage = () => {
   return (
     <div className="Homepage">
       <div className="context">
+        <img id="ConceptsImage" src={concepts} alt="" />
         <div className="MessageBox">
           {messages.map((message) => (
             <div key={message}>{message}</div>
           ))}
         </div>
-        <img id="ConceptsImage" src={concepts} alt="" />
         <Link to={'/about-us'}>
           <img id="Arrow" src={arrow} alt="" />
         </Link>
