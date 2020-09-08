@@ -8,14 +8,14 @@
     bottom: 0;
 
     span {
-        margin-left: $sidemargine;
+        margin-left: $sidemargin;
         font-size: 0.75em;
     }
 
     .IconSet {
         position: fixed;
         display: inline-block;
-        right: $sidemargine;
+        right: $sidemargin;
         height: $stepSize * 1.3;
 
         .Icon {

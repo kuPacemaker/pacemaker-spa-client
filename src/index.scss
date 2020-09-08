@@ -1,5 +1,5 @@
 $stepSize: 24px;
-$sidemargine:50px;
+$sidemargin:50px;
 
 @mixin square($size) {
   $calculated: $stepSize * $size;
@@ -28,7 +28,7 @@ body {
 
 .UnderlineEffect {
   padding-bottom: 1px;
-  background-image: linear-gradient(transparent calc(100% - 1.5px), #000 1.5px);
+  background-image: linear-gradient(transparent calc(100% - 1.5px), #111 1.5px);
   background-repeat: no-repeat;
   background-size: 0% 100%;
   transition: background-size 0.35s;

@@ -1,0 +1,22 @@
+@import 'index.scss';
+
+.Homepage {
+    position: fixed;
+    top: 0;
+    background-image: url("./resources/images/background.png");
+    background-size: cover;
+    height: 100%;
+    width: 100%;
+
+    .context {
+        margin: 10% $sidemargin 10% $sidemargin;
+        height: 80%;
+
+        #ConceptsImage {
+            height: 90%;
+        }
+    }
+
+    .MessageBox {}
+
+}

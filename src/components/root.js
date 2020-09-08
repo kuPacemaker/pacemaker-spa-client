@@ -6,10 +6,15 @@ import { ConnectedRouter } from 'connected-react-router';
 import RootRouter from 'routes/RootRouter.js';
 import store, { history } from 'store/store';
 
+import HeaderContainer from './header/HeaderContainer';
+import FooterContaioner from './footer/FooterContainer';
+
 const Root = () => (
   <Provider store={store}>
     <ConnectedRouter history={history}>
+      <HeaderContainer />
       <RootRouter />
+      <FooterContaioner />
     </ConnectedRouter>
   </Provider>
 );
