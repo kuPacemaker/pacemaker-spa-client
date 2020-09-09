@@ -1,9 +1,9 @@
 import React from 'react';
-import HomepageContainer from 'components/homepage/HomepageContainer';
+import Homepage from 'components/homepage';
 const Home = () => {
   return (
     <div>
-      <HomepageContainer />
+      <Homepage />
     </div>
   );
 };

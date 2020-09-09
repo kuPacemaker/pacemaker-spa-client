@@ -1,6 +1,5 @@
 import React from 'react';
-import classnames from 'classnames';
-import concepts from './resources/images/main-image.png';
+import concepts from 'resources/images/aboutus-image.png';
 import './About.scss';
 
 const articles = [

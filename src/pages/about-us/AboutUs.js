@@ -1,5 +1,5 @@
 import React from 'react';
-import About from 'components/about-us/AboutContainer';
+import About from 'components/about-us';
 
 const AboutUs = () => {
   // const query = queryString.parse(location.search);

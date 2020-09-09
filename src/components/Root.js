@@ -6,8 +6,8 @@ import { ConnectedRouter } from 'connected-react-router';
 import RootRouter from 'routes/RootRouter.js';
 import store, { history } from 'store/store';
 
-import HeaderContainer from './header/HeaderContainer';
-import FooterContaioner from './footer/FooterContainer';
+import HeaderContainer from './header';
+import FooterContaioner from './footer';
 
 const Root = () => (
   <Provider store={store}>
