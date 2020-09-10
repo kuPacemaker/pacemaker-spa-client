@@ -2,8 +2,14 @@ import React from 'react';
 
 import Footer from './view/Footer';
 
+const icons = ['Facebook', 'Instargram', 'Youtube'];
+
+const clickEvent = (icon) => {
+  console.log('Redirect to ' + icon);
+};
+
 const FooterContainer = () => {
-  return <Footer />;
+  return <Footer onClickHandler={clickEvent} icons={icons} />;
 };
 
 // const mapStateToProps = ({ counter }) => ({

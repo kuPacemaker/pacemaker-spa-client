@@ -6,19 +6,13 @@ import arrow from './resources/images/arrow.png';
 
 import { account } from 'shared/test-data';
 
-const messages = [
-  'FOR A PERFECT REMOTE CLASS',
-  'YOU NEED A PERFECT PACEMAKER',
-  'TO RUN WITH YOU',
-];
-
-const Homepage = () => {
+const Homepage = ({ preface }) => {
   return (
     <div className="Homepage">
       <div className="context">
         <img className="ConceptsImage" src={concepts} alt="" />
         <div className="MessageBox">
-          {messages.map((message) => (
+          {preface.map((message) => (
             <div key={message}>{message}</div>
           ))}
         </div>

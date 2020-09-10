@@ -4,27 +4,6 @@ import './Header.scss';
 
 import { account } from 'shared/test-data';
 
-const leftItems = {
-  before: [
-    ['ABOUT US', '/about-us'],
-    ['CONTACT', '/contect'],
-  ],
-  after: [
-    ['MENU', undefined],
-    ['SEARCH', undefined],
-  ],
-};
-const rightItems = {
-  before: [
-    ['SIGN-UP', '/sign-up'],
-    ['SIGN-IN', '/sign-in'],
-  ],
-  after: [
-    ['NEWS', '/main/newspeed'],
-    ['MY ACCOUNT', undefined],
-  ],
-};
-
 const LetterButton = ({ context, onClick }) => {
   return context[1] ? (
     <Link to={context[1]}>
@@ -40,13 +19,9 @@ const LetterButton = ({ context, onClick }) => {
   );
 };
 
-const Header = () => {
-  const click = (context) => {
-    console.log('Do ' + context[0]);
-  };
-
-  const left = account.token ? leftItems.after : leftItems.before;
-  const right = account.token ? rightItems.after : rightItems.before;
+const Header = ({ onClickHandler, buttons }) => {
+  const left = account.token ? buttons.left.after : buttons.left.before;
+  const right = account.token ? buttons.right.after : buttons.right.before;
 
   return (
     <div className="Header">
@@ -55,12 +30,20 @@ const Header = () => {
       </Link>
       <span className="LeftButtonSet">
         {left.map((item) => (
-          <LetterButton key={item} context={item} onClick={() => click(item)} />
+          <LetterButton
+            key={item}
+            context={item}
+            onClick={() => onClickHandler(item)}
+          />
         ))}
       </span>
       <span className="RightButtonSet">
         {right.map((item) => (
-          <LetterButton key={item} context={item} onClick={() => click(item)} />
+          <LetterButton
+            key={item}
+            context={item}
+            onClick={() => onClickHandler(item)}
+          />
         ))}
       </span>
     </div>
