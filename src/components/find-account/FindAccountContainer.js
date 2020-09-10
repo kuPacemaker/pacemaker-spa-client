@@ -1,9 +1,9 @@
 import React from 'react';
 
-import SignIn from './view/SignIn';
+import FindAccount from './view/FindAccount';
 
-const SignInContainer = (prop) => {
-  return <SignIn />;
+const FindAccountContainer = (prop) => {
+  return <FindAccount />;
 };
 
 // const mapStateToProps = ({ counter }) => ({
@@ -15,4 +15,4 @@ const SignInContainer = (prop) => {
 //   bindActionCreators({ incrementAsync, decrement, getPost }, dispatch);
 
 // export default connect(mapStateToProps, mapDispatchToProps)(CounterContainer);
-export default SignInContainer;
+export default FindAccountContainer;

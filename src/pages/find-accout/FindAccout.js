@@ -1,7 +1,7 @@
 import React from 'react';
-
-const FindAccount = () => {
-  return <div />;
+import FindAccount from 'components/find-account';
+const FindAccountPage = () => {
+  return <FindAccount />;
 };
 
-export default FindAccount;
+export default FindAccountPage;
