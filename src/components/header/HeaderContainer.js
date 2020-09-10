@@ -2,11 +2,13 @@ import React from 'react';
 
 import Header from './view/Header';
 
+import LocalPath from 'local-path';
+
 const buttons = {
   left: {
     before: [
-      ['ABOUT US', '/help/about-us'],
-      ['CONTACT', '/help/connect'],
+      ['ABOUT US', LocalPath.help.aboutus],
+      ['CONTACT', LocalPath.help.contact],
     ],
     after: [
       ['MENU', undefined],
@@ -15,11 +17,11 @@ const buttons = {
   },
   right: {
     before: [
-      ['SIGN-UP', '/admission/sign-up'],
-      ['SIGN-IN', '/admission'],
+      ['SIGN-UP', LocalPath.admission.signup],
+      ['SIGN-IN', LocalPath.admission.root],
     ],
     after: [
-      ['NEWS', '/main/newspeed'],
+      ['NEWS', LocalPath.main.newspeed],
       ['MY ACCOUNT', undefined],
     ],
   },

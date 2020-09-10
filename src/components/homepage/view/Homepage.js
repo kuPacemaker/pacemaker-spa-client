@@ -4,6 +4,7 @@ import './Homepage.scss';
 import concepts from 'resources/images/home-image.png';
 import arrow from './resources/images/arrow.png';
 
+import LocalPath from 'local-path';
 import { account } from 'shared/test-data';
 
 const Homepage = ({ preface }) => {
@@ -16,7 +17,9 @@ const Homepage = ({ preface }) => {
             <div key={message}>{message}</div>
           ))}
         </div>
-        <Link to={account.token ? '/main' : '/sign-in'}>
+        <Link
+          to={account.token ? LocalPath.main.root : LocalPath.admission.root}
+        >
           <img className="Arrow" src={arrow} alt="" />
         </Link>
       </div>

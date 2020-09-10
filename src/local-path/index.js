@@ -1,4 +1,4 @@
-export const path = {
+const path = {
   root: '/',
   help: {
     root: '/help',
@@ -23,6 +23,7 @@ export const path = {
   },
 };
 
+export default path;
 export const LocalHelp = path.help;
 export const LocalAdmission = path.admission;
 export const LocalMainPage = path.main;

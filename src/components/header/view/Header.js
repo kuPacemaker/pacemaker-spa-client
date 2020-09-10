@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import './Header.scss';
+import LocalPath from 'local-path';
 
 import { account } from 'shared/test-data';
 
@@ -25,7 +26,7 @@ const Header = ({ onClickHandler, buttons }) => {
 
   return (
     <div className="Header">
-      <Link to="/">
+      <Link to={LocalPath.root}>
         <span className="CenterTitle">PACEMAKER</span>
       </Link>
       <span className="LeftButtonSet">
