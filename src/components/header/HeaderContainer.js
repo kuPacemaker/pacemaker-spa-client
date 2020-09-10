@@ -5,8 +5,8 @@ import Header from './view/Header';
 const buttons = {
   left: {
     before: [
-      ['ABOUT US', '/about-us'],
-      ['CONTACT', '/contect'],
+      ['ABOUT US', '/help/about-us'],
+      ['CONTACT', '/help/connect'],
     ],
     after: [
       ['MENU', undefined],
@@ -15,8 +15,8 @@ const buttons = {
   },
   right: {
     before: [
-      ['SIGN-UP', '/sign-up'],
-      ['SIGN-IN', '/sign-in'],
+      ['SIGN-UP', '/admission/sign-up'],
+      ['SIGN-IN', '/admission'],
     ],
     after: [
       ['NEWS', '/main/newspeed'],
