@@ -1,17 +1,18 @@
 import React from 'react';
 import { Route, Redirect, Switch } from 'react-router-dom';
 import { AboutUs } from 'pages';
+import { LocalMainPage } from 'local-path';
 
-const HelpRouter = (prevPath) => {
+const MainPageRouter = () => {
   return (
     <div>
       <Switch>
-        <Route exact path={prevPath + '/newspeeds'} component={AboutUs} />
-        <Route exact path={prevPath + '/newspeeds'} component={AboutUs} />
-        <Redirect path="/main-page*" to="/main-page/newspeeds" />
+        <Route exact path={LocalMainPage.newspeed} component={AboutUs} />
+        <Route exact path={LocalMainPage.newspeed} component={AboutUs} />
+        <Redirect path={LocalMainPage.root + '*'} to={LocalMainPage.newspeed} />
       </Switch>
     </div>
   );
 };
 
-export default HelpRouter;
+export default MainPageRouter;

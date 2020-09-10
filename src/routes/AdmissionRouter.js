@@ -1,15 +1,20 @@
 import React from 'react';
 import { Route, Redirect, Switch } from 'react-router-dom';
-import { SignIn, SignUp, FindAccount, AboutUs } from 'pages';
+import { SignIn, SignUp, FindAccount } from 'pages';
+import { LocalAdmission } from 'local-path';
 
 const AdmissionRounter = () => {
   return (
     <div>
       <Switch>
-        <Route exact path="/admission" component={SignIn} />
-        <Route exact path="/admission/sign-up" component={SignUp} />
-        <Route exact path="/admission/find-account" component={FindAccount} />
-        <Redirect path="/admission*" to="/admission" />
+        <Route exact path={LocalAdmission.root} component={SignIn} />
+        <Route exact path={LocalAdmission.signup} component={SignUp} />
+        <Route
+          exact
+          path={LocalAdmission.foutaccount}
+          component={FindAccount}
+        />
+        <Redirect path={LocalAdmission.root + '*'} to={LocalAdmission.root} />
       </Switch>
     </div>
   );

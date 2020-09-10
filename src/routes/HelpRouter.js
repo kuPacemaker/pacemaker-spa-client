@@ -1,14 +1,16 @@
 import React from 'react';
 import { Route, Redirect, Switch } from 'react-router-dom';
 import { AboutUs } from 'pages';
+import { LocalHelp } from 'local-path';
 
 const HelpRouter = () => {
+  console.log(LocalHelp);
   return (
     <div>
       <Switch>
-        <Route exact path="/help/about-us" component={AboutUs} />
-        <Route exact path="/help/connect" component={AboutUs} />
-        <Redirect exact path="/help*" to="/help/about-us" />
+        <Route exact path={LocalHelp.aboutus} component={AboutUs} />
+        <Route exact path={LocalHelp.contact} component={AboutUs} />
+        <Redirect exact path={LocalHelp.root} to={LocalHelp.aboutus} />
       </Switch>
     </div>
   );
