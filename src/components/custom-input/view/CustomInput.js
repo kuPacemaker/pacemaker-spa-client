@@ -1,19 +1,16 @@
 import React from 'react';
 import './CustomInput.scss';
 
-const CustomInput = ({ value, onFocus, onChange }) => {
-  const clickEvent = (icon) => {
-    console.log('Redirect to ' + icon);
-  };
+const CustomInput = ({ placeHolder, value, onFocus, onChange }) => {
   return (
-    <div className="Footer">
-      <span>© Pacemaker. All rights reserved.</span>
-      <div className="IconSet">
-        {icons.map((icon) => (
-          <Icon key={icon} type={icon} clickEvent={() => clickEvent(icon)} />
-        ))}
-      </div>
-    </div>
+    <from className="CustomInput">
+      <input
+        placeholder={placeHolder}
+        value={value}
+        onFocus={onFocus}
+        onChange={onChange}
+      />
+    </from>
   );
 };
 
