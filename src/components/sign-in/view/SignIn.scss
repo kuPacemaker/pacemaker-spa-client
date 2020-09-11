@@ -1,0 +1,97 @@
+@import 'index.scss';
+
+.SignIn {
+  position: fixed;
+  margin-top: $stepSize * 2;
+  height: calc(100% - #{$stepSize * 4});
+  width: 100%;
+
+  .ContextBox {
+    position: relative;
+    margin-top: 7.5%;
+    height: 45%;
+
+    .Decoration {
+      position: absolute;
+      width: 100%;
+      top: 30%;
+
+      .InputLine {
+        position: relative;
+        width: 100%;
+        height: 60px;
+        border-top: 1px solid black;
+      }
+    }
+
+    .LoginBox {
+      position: relative;
+      padding-top: 2.25%;
+      margin-left: 60%;
+      width: 40%;
+      padding-right: 5%;
+      .Title {
+        text-align: center;
+        font-size: 2em;
+      }
+      .InputFiled {
+        margin-top: 5%;
+        .Line {
+          display: inline-block;
+          height: 60px;
+          width: calc(100% - #{$stepSize * 4});
+        }
+        .Arrow {
+          @include square(2.25);
+          position: absolute;
+          margin-top: 2.5px;
+        }
+      }
+
+      .ActiveLink {
+        margin-top: 50px;
+        text-align: center;
+        font-size: 1.2em;
+        text-decoration: underline;
+        div {
+          margin-top: 15px;
+        }
+      }
+    }
+  }
+
+  .ImageBox {
+    position: absolute;
+    top: 0;
+    padding-top: 5%;
+    height: 100%;
+    width: 60%;
+
+    .Image {
+      position: relative;
+      display: block;
+      margin: 0 auto;
+      height: 90%;
+    }
+
+    .InnerText {
+      position: absolute;
+      $widthSize: 62.5%;
+      width: $widthSize;
+      top: 60%;
+      left: calc(50% - #{$widthSize / 2});
+
+      span {
+        letter-spacing: -1px;
+        text-align: left;
+        font-size: 3.15em;
+      }
+    }
+
+    .Arrow {
+      position: absolute;
+      right: 5px;
+      @include square(3);
+    }
+  }
+}

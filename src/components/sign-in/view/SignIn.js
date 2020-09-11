@@ -2,37 +2,76 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import './SignIn.scss';
 import Input from 'components/custom-input';
-import image from 'resources/images/signin-image';
+import image from 'resources/images/signin-image.png';
+import arrow from './resources/images/arrow.png';
 import LocalPath from 'local-path';
 
-const SignIn = ({ text, signinApi }) => {
+const SignIn = ({ signinApi }) => {
   const signInHandler = () => {};
+  const handleCreate = (data) => {
+    console.log(data);
+  };
+  const imageText = 'START A PERFECT MARATHON WITH PACEMAKER';
+  const goSignUp = 'I’M NOT A MEMBER YET';
+  const goFindAccount = 'I FORGOT MY ACCOUNT';
+  const state = {
+    id: '',
+    pw: '',
+  };
   return (
     <div className="SignIn">
       <div className="ContextBox">
-        <div></div>
-        <Input />
-        <Input />
-        <img
-          className="Arrow"
-          src="./resources/images/arrow.png"
-          alt=""
-          onClick={signInHandler}
+        <div className="Decoration">
+          <div className="InputLine"></div>
+          <div className="InputLine"></div>
+          <div className="InputLine"></div>
+        </div>
+
+        <div className="LoginBox">
+          <div className="Title">LOGIN</div>
+          <div className="InputFiled">
+            <div className="Line">
+              <Input className="Input" title="E-MAIL" size="1.25em" />
+            </div>
+            <div className="Line">
+              <Input className="Input" title="PASSWORD" size="1.25em" />
+            </div>
+            <img className="Arrow" src={arrow} alt="" onClick={signInHandler} />
+          </div>
+          <div className="ActiveLink">
+            <div>
+              <Link to={LocalPath.admission.signup}>
+                <span>{goSignUp}</span>
+              </Link>
+            </div>
+            <div>
+              <Link to={LocalPath.admission.findaccount}>
+                <span>{goFindAccount}</span>
+              </Link>
+            </div>
+          </div>
+        </div>
+
+        {/* <Input
+          title="E-MAIL"
+          placeHolder=""
+          value={state.id}
+          type="text"
+          onCreate={handleCreate}
         />
-        <div className="ActiveLink"></div>
-        <Link to={LocalPath.admission.signup}></Link>
-        <div className="ActiveLink"></div>
-        <Link to={LocalPath.admission.findaccount}></Link>
+        <Input
+          title="PASSWORD"
+          placeHolder=""
+          value={state.pw}
+          type="password"
+        /> */}
       </div>
-      <div className="LeftImage">
+      <div className="ImageBox">
         <img className="Image" src={image} alt="" />
-        <div className="InnerText">{text}</div>
-        <img
-          className="Arrow"
-          src="./resources/images/arrow.png"
-          alt=""
-          onClick={signInHandler}
-        />
+        <div className="InnerText">
+          <span>{imageText}</span>
+          <img className="Arrow" src={arrow} alt="" onClick={signInHandler} />
+        </div>
       </div>
     </div>
   );
