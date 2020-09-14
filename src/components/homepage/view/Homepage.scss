@@ -39,8 +39,8 @@
 
             .Arrow {
                 position: relative;
-                pointer-events: all;
                 @include square(5);
+                pointer-events: all;
             }
         }
     }

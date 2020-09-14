@@ -16,7 +16,8 @@
         .ArticleBox {
             position: relative;
             top: 15%;
-            left: $stepSize *2;
+            left: $stepSize *3;
+            width: 75%;
 
             p {
                 margin-block-start: 0em;
@@ -43,6 +44,7 @@
 
             .SubArticle {
                 margin-bottom: 30px;
+                width: 55%;
 
                 p {
                     height: $midArticle;

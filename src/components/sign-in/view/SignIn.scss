@@ -7,14 +7,17 @@
   width: 100%;
 
   .ContextBox {
-    position: relative;
-    margin-top: 7.5%;
-    height: 45%;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    display: flex;
+    align-items: center;
   }
 
   .LoginBox {
     position: relative;
-    padding-top: 2.25%;
     width: 100%;
 
     .Title {
