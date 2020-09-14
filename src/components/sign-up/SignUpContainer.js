@@ -1,9 +1,57 @@
-import React from 'react';
+import React, { useState } from 'react';
 
 import SignUp from './view/SignUp';
 
+const title = 'SIGN-IN';
+const subTitle = 'START A PERFECT MARATHON WITH PACEMAKER';
+const pwRule = RegExp(/^[A-Za-z\d]{4,5}$/);
+
 const SignUpContainer = (prop) => {
-  return <SignUp />;
+  const [state, setState] = useState({
+    name: '',
+    id: '',
+    pw: '',
+    repw: '',
+  });
+  const onChangeHandler = (type) => (data) => {
+    switch (type) {
+      case 'NAME':
+        setState({ ...state, name: data });
+        return;
+      case 'E-MAIL':
+        setState({ ...state, id: data });
+        return;
+      case 'PASSWORD':
+        setState({ ...state, pw: data });
+        return;
+      case 'CONFIRM PASSWORD':
+        setState({ ...state, repw: data });
+        return;
+      default:
+        return;
+    }
+  };
+
+  const signUpHandler = () => {
+    console.log(state);
+    console.log(checkPwHandler(pwRule));
+  };
+  const checkPwHandler = (regex) => {
+    if (!regex.test(state.pw))
+      return ['INVALID_PASSWORD', 'INVALID PASSWORD MESSAGE'];
+    if (state.pw !== state.repw)
+      return ['PASSWORD_MISMATCH', 'PASSWORD MISMATCH MESSAGE'];
+    return ['CORRECT_PASSWORD', ''];
+  };
+
+  return (
+    <SignUp
+      title={title}
+      subTitle={subTitle}
+      onChangeHandler={onChangeHandler}
+      signUpHandler={signUpHandler}
+    />
+  );
 };
 
 // const mapStateToProps = ({ counter }) => ({

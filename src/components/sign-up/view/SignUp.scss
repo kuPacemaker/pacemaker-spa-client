@@ -1,0 +1,120 @@
+@import 'index.scss';
+
+.SignUp {
+    position: fixed;
+    margin-top: $stepSize * 2;
+    height: calc(100% - #{$stepSize * 4});
+    width: 100%;
+
+    .ContextBox {
+        position: relative;
+        margin-top: 5%;
+        height: 45%;
+    }
+
+    $leftPadding: 15%;
+
+    .LoginBox {
+        position: relative;
+        padding-top: 2.5%;
+        width: 100%;
+
+        .Title {
+            padding-left: $leftPadding;
+            padding-right: 45%;
+            text-align: left;
+            font-size: $midArticle;
+        }
+
+        .SubTitle {
+            padding-left: $leftPadding;
+            padding-right: 40%;
+            text-align: left;
+            font-size: $topArticle;
+        }
+
+        .Arrow {
+            @include square(2);
+            position: absolute;
+            pointer-events: all;
+            right: 0;
+            margin-right: 40%;
+            margin-top: 10px;
+            top: 0px;
+        }
+
+        .ActiveLink {
+            padding-left: $leftPadding;
+            text-align: left;
+            font-size: $midArticle;
+            text-decoration: underline;
+
+            div {
+                margin-top: 15px;
+            }
+        }
+    }
+
+    .InputFiled {
+        margin-top: 2%;
+
+        .Decoration {
+            position: relative;
+            width: 100%;
+            top: 30%;
+
+            .InputLine {
+                position: relative;
+                width: 100%;
+                height: 65px;
+                border-top: 1px solid black;
+
+                .Input {
+                    height: 100%;
+                    padding-top: 20px;
+                    padding-right: 45%;
+                    margin-left: $leftPadding;
+                }
+
+            }
+        }
+    }
+
+    .ImageBox {
+        position: absolute;
+        top: 0;
+        right: 0;
+        padding-top: 2.5%;
+        pointer-events: none;
+        height: 100%;
+        width: 50%;
+
+        .Image {
+            position: relative;
+            display: block;
+            margin: 0 auto;
+            height: 95%;
+        }
+
+        .InnerText {
+            position: absolute;
+            $widthSize: 62.5%;
+            width: $widthSize;
+            top: 60%;
+            left: calc(50% - #{$widthSize / 2});
+
+            span {
+                letter-spacing: -1px;
+                text-align: left;
+                font-size: $topArticle;
+            }
+        }
+
+        .Arrow {
+            position: absolute;
+            pointer-events: all;
+            right: 5px;
+            @include square(3);
+        }
+    }
+}

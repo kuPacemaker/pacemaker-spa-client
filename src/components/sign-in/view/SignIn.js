@@ -24,7 +24,7 @@ const SignIn = ({
                 <div className="Input">
                   <Input
                     title="E-MAIL"
-                    type="email"
+                    type="text"
                     size="1.35em"
                     onChangeHandler={onChangeHandler('E-MAIL')}
                   />

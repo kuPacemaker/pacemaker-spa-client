@@ -27,6 +27,11 @@ $additional:0.75em;
   user-select: none;
 }
 
+img {
+  pointer-events: none;
+  user-select: none;
+}
+
 body {
   margin: 0;
   padding: 0;
