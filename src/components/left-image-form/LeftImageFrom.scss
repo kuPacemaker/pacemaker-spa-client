@@ -60,11 +60,12 @@
         }
 
         .Arrow {
-          @include square(2);
+          @include square_px(65px);
           position: absolute;
           pointer-events: all;
+          padding: 7.5px 7.5px 7.5px 7.5px;
           right: 5%;
-          top: -55px;
+          top: -65px;
         }
       }
     }

@@ -15,6 +15,10 @@ $additional:0.75em;
   height: $calculated;
 }
 
+@mixin square_px($size) {
+  width: $size;
+  height: $size;
+}
 
 * {
   box-sizing: inherit;
