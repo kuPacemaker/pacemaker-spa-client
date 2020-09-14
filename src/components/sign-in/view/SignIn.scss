@@ -24,11 +24,11 @@
     }
 
     .Arrow {
-      @include square(2.25);
+      @include square(2);
       position: absolute;
       right: 0;
-      margin-right: 10%;
-      margin-top: 65px;
+      margin-right: 7.5%;
+      margin-top: 67.5px;
       top: 0px;
     }
 

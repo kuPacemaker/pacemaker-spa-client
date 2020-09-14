@@ -24,7 +24,8 @@ const SignIn = ({
                 <div className="Input">
                   <Input
                     title="E-MAIL"
-                    size="1.25em"
+                    type="email"
+                    size="1.35em"
                     onChangeHandler={onChangeHandler('E-MAIL')}
                   />
                 </div>
@@ -33,7 +34,8 @@ const SignIn = ({
                 <div className="Input">
                   <Input
                     title="PASSWORD"
-                    size="1.25em"
+                    type="password"
+                    size="1.35em"
                     onChangeHandler={onChangeHandler('PASSWORD')}
                   />
                 </div>
