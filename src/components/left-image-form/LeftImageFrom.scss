@@ -1,6 +1,6 @@
 @import 'index.scss';
 
-.SignIn {
+.LeftImageFrom {
   position: fixed;
   margin-top: $stepSize * 2;
   height: calc(100% - #{$stepSize * 4});
@@ -26,15 +26,6 @@
       font-size: $smallMenu;
     }
 
-    .Arrow {
-      @include square(2);
-      position: absolute;
-      pointer-events: all;
-      right: 0;
-      margin-right: 6.5%;
-      margin-top: 75px;
-      top: 0px;
-    }
 
     .ActiveLink {
       padding-left: 50%;
@@ -66,6 +57,14 @@
           height: 100%;
           padding-top: 20px;
           margin-left: 60%;
+        }
+
+        .Arrow {
+          @include square(2);
+          position: absolute;
+          pointer-events: all;
+          right: 5%;
+          top: -55px;
         }
       }
     }

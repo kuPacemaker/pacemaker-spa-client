@@ -1,52 +1,47 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import './SignIn.scss';
+import './LeftImageFrom.scss';
 import Input from 'components/custom-input';
-import image from 'resources/images/signin-image.png';
 import arrow from './resources/images/arrow.png';
 import LocalPath from 'local-path';
 
-const SignIn = ({
+const LeftImageFrom = ({
+  title,
   imageText,
   goSignUp,
   goFindAccount,
+  inputForms,
   onChangeHandler,
   signInHandler,
+  image,
 }) => {
   return (
-    <div className="SignIn">
+    <div className="LeftImageFrom">
       <div className="ContextBox">
         <div className="LoginBox">
-          <div className="Title">LOGIN</div>
+          <div className="Title">{title}</div>
           <div className="InputFiled">
             <div className="Decoration">
-              <div className="InputLine">
-                <div className="Input">
-                  <Input
-                    title="E-MAIL"
-                    type="text"
-                    size="1.35em"
-                    onChangeHandler={onChangeHandler('E-MAIL')}
-                  />
+              {inputForms.map((input, index) => (
+                <div key={index} className="InputLine">
+                  <div key={index} className="Input">
+                    <Input
+                      title={input.title}
+                      type={input.type}
+                      size={input.fontSize}
+                      onChangeHandler={onChangeHandler(input.title)}
+                    />
+                  </div>
                 </div>
-              </div>
+              ))}
               <div className="InputLine">
-                <div className="Input">
-                  <Input
-                    title="PASSWORD"
-                    type="password"
-                    size="1.35em"
-                    onChangeHandler={onChangeHandler('PASSWORD')}
-                  />
-                </div>
+                <img
+                  className="Arrow"
+                  src={arrow}
+                  alt=""
+                  onClick={signInHandler}
+                />
               </div>
-              <img
-                className="Arrow"
-                src={arrow}
-                alt=""
-                onClick={signInHandler}
-              />
-              <div className="InputLine"></div>
             </div>
           </div>
           <div className="ActiveLink">
@@ -74,4 +69,4 @@ const SignIn = ({
   );
 };
 
-export default SignIn;
+export default LeftImageFrom;

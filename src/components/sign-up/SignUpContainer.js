@@ -1,10 +1,34 @@
 import React, { useState } from 'react';
 
-import SignUp from './view/SignUp';
+import RightImageForm from 'components/right-image-form';
+import image from 'resources/images/signup-image.png';
 
-const title = 'SIGN-IN';
+const title = 'SIGN-UP';
 const subTitle = 'START A PERFECT MARATHON WITH PACEMAKER';
 const pwRule = RegExp(/^[A-Za-z\d]{4,5}$/);
+
+const inputForms = [
+  {
+    title: 'NAME',
+    type: 'text',
+    fontSize: '1.35em',
+  },
+  {
+    title: 'E-MAIL',
+    type: 'email',
+    fontSize: '1.35em',
+  },
+  {
+    title: 'PASSWORD',
+    type: 'password',
+    fontSize: '1.35em',
+  },
+  {
+    title: 'CONFIRM PASSWORD',
+    type: 'password',
+    fontSize: '1.35em',
+  },
+];
 
 const SignUpContainer = (prop) => {
   const [state, setState] = useState({
@@ -45,11 +69,13 @@ const SignUpContainer = (prop) => {
   };
 
   return (
-    <SignUp
+    <RightImageForm
       title={title}
       subTitle={subTitle}
+      inputForms={inputForms}
       onChangeHandler={onChangeHandler}
       signUpHandler={signUpHandler}
+      image={image}
     />
   );
 };

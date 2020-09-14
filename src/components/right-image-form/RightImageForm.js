@@ -1,21 +1,37 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
 import Input from 'components/custom-input';
-import image from 'resources/images/signup-image.png';
 import arrow from './resources/images/arrow.png';
-import LocalPath from 'local-path';
-import './SignUp.scss';
+import './RightImageForm.scss';
 
-const SignUp = ({ title, subTitle, onChangeHandler, signUpHandler }) => {
+const RightImageForm = ({
+  title,
+  subTitle,
+  inputForms,
+  onChangeHandler,
+  signUpHandler,
+  image,
+}) => {
   return (
-    <div className="SignUp">
+    <div className="RightImageForm">
       <div className="ContextBox">
         <div className="LoginBox">
           <div className="Title">{title}</div>
           <div className="SubTitle">{subTitle}</div>
           <div className="InputFiled">
             <div className="Decoration">
-              <div className="InputLine">
+              {inputForms.map((input, index) => (
+                <div key={index} className="InputLine">
+                  <div key={index} className="Input">
+                    <Input
+                      title={input.title}
+                      type={input.type}
+                      size={input.fontSize}
+                      onChangeHandler={onChangeHandler(input.title)}
+                    />
+                  </div>
+                </div>
+              ))}
+              {/* <div className="InputLine">
                 <div className="Input">
                   <Input
                     title="NAME"
@@ -54,6 +70,8 @@ const SignUp = ({ title, subTitle, onChangeHandler, signUpHandler }) => {
                     onChangeHandler={onChangeHandler('CONFIRM PASSWORD')}
                   />
                 </div>
+              </div> */}
+              <div className="InputLine">
                 <img
                   className="Arrow"
                   src={arrow}
@@ -61,8 +79,6 @@ const SignUp = ({ title, subTitle, onChangeHandler, signUpHandler }) => {
                   onClick={signUpHandler}
                 />
               </div>
-
-              <div className="InputLine"></div>
             </div>
           </div>
         </div>
@@ -74,4 +90,4 @@ const SignUp = ({ title, subTitle, onChangeHandler, signUpHandler }) => {
   );
 };
 
-export default SignUp;
+export default RightImageForm;

@@ -1,10 +1,25 @@
 import React, { useState } from 'react';
 
-import SignIn from './view/SignIn';
+import LeftImageForm from 'components/left-image-form';
+import image from 'resources/images/signin-image.png';
 
+const title = 'SIGN-IN';
 const imageText = 'START A PERFECT MARATHON WITH PACEMAKER';
 const goSignUp = 'I’M NOT A MEMBER YET';
 const goFindAccount = 'I FORGOT MY ACCOUNT';
+
+const inputForms = [
+  {
+    title: 'E-MAIL',
+    type: 'email',
+    fontSize: '1.35em',
+  },
+  {
+    title: 'PASSWORD',
+    type: 'password',
+    fontSize: '1.35em',
+  },
+];
 
 const SignInContainer = (prop) => {
   const [state, setState] = useState({
@@ -28,12 +43,15 @@ const SignInContainer = (prop) => {
   };
 
   return (
-    <SignIn
+    <LeftImageForm
+      title={title}
       imageText={imageText}
       goSignUp={goSignUp}
       goFindAccount={goFindAccount}
+      inputForms={inputForms}
       onChangeHandler={onChangeHandler}
       signInHandler={signInHandler}
+      image={image}
     />
   );
 };

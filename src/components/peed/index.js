@@ -1,2 +1,2 @@
-import SignInContainer from './SignInContainer';
-export default SignInContainer;
+import Peed from './view/Peed';
+export default Peed;

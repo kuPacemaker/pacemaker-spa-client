@@ -1,6 +1,6 @@
 @import 'index.scss';
 
-.SignUp {
+.RightImageForm {
     position: fixed;
     margin-top: $stepSize * 2;
     height: calc(100% - #{$stepSize * 4});
@@ -35,27 +35,6 @@
             text-align: left;
             font-size: $topArticle;
         }
-
-        .Arrow {
-            @include square(2);
-            position: absolute;
-            pointer-events: all;
-            right: 0;
-            margin-right: 40%;
-            margin-top: 10px;
-            top: 0px;
-        }
-
-        .ActiveLink {
-            padding-left: $leftPadding;
-            text-align: left;
-            font-size: $midArticle;
-            text-decoration: underline;
-
-            div {
-                margin-top: 15px;
-            }
-        }
     }
 
     .InputFiled {
@@ -77,6 +56,14 @@
                     padding-top: 20px;
                     padding-right: 45%;
                     margin-left: $leftPadding;
+                }
+
+                .Arrow {
+                    @include square(2);
+                    position: relative;
+                    pointer-events: all;
+                    left: calc(60% - 48px);
+                    top: -55px;
                 }
 
             }
