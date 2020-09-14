@@ -21,22 +21,28 @@ const SignIn = ({ signinApi }) => {
   return (
     <div className="SignIn">
       <div className="ContextBox">
-        <div className="Decoration">
-          <div className="InputLine"></div>
-          <div className="InputLine"></div>
-          <div className="InputLine"></div>
-        </div>
-
         <div className="LoginBox">
           <div className="Title">LOGIN</div>
           <div className="InputFiled">
-            <div className="Line">
-              <Input className="Input" title="E-MAIL" size="1.25em" />
+            <div className="Decoration">
+              <div className="InputLine">
+                <div className="Input">
+                  <Input title="E-MAIL" size="1.25em" />
+                </div>
+              </div>
+              <div className="InputLine">
+                <div className="Input">
+                  <Input title="PASSWORD" size="1.25em" />
+                </div>
+              </div>
+              <img
+                className="Arrow"
+                src={arrow}
+                alt=""
+                onClick={signInHandler}
+              />
+              <div className="InputLine"></div>
             </div>
-            <div className="Line">
-              <Input className="Input" title="PASSWORD" size="1.25em" />
-            </div>
-            <img className="Arrow" src={arrow} alt="" onClick={signInHandler} />
           </div>
           <div className="ActiveLink">
             <div>

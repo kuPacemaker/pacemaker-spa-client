@@ -25,8 +25,8 @@
 
             .Title {
                 p {
-                    height: 0.9em;
-                    font-size: 1.5em;
+                    height: $article;
+                    font-size: $midArticle;
                 }
             }
 
@@ -35,8 +35,8 @@
                 margin-bottom: 50px;
 
                 p {
-                    height: 0.9em;
-                    font-size: 4.2em;
+                    height: $article;
+                    font-size: $subTitle;
                     letter-spacing: 1px;
                 }
             }
@@ -45,8 +45,8 @@
                 margin-bottom: 30px;
 
                 p {
-                    height: 1.3em;
-                    font-size: 1.3em;
+                    height: $midArticle;
+                    font-size: $midArticle;
                     letter-spacing: 1px;
                 }
 

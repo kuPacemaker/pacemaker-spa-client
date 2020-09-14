@@ -16,12 +16,12 @@ const Homepage = ({ preface }) => {
           {preface.map((message) => (
             <div key={message}>{message}</div>
           ))}
+          <Link
+            to={account.token ? LocalPath.main.root : LocalPath.admission.root}
+          >
+            <img className="Arrow" src={arrow} alt="" />
+          </Link>
         </div>
-        <Link
-          to={account.token ? LocalPath.main.root : LocalPath.admission.root}
-        >
-          <img className="Arrow" src={arrow} alt="" />
-        </Link>
       </div>
     </div>
   );

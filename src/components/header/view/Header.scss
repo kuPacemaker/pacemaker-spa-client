@@ -18,7 +18,7 @@
         top: $stepSize / 2;
         left: calc(50% - 100px);
         text-align: center;
-        font-size: 1.35em;
+        font-size: $midArticle;
         font-weight: bold;
     }
 
@@ -30,7 +30,7 @@
 
     span {
         .LetterButton {
-            font-size: 0.9em;
+            font-size: $article;
             color: #000;
             margin: 0 10px 0 10px;
         }
