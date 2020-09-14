@@ -16,7 +16,8 @@
         .ArticleBox {
             position: relative;
             top: 15%;
-            left: $stepSize *2;
+            left: $stepSize *3;
+            width: 75%;
 
             p {
                 margin-block-start: 0em;
@@ -25,8 +26,8 @@
 
             .Title {
                 p {
-                    height: 0.9em;
-                    font-size: 1.5em;
+                    height: $article;
+                    font-size: $midArticle;
                 }
             }
 
@@ -35,18 +36,19 @@
                 margin-bottom: 50px;
 
                 p {
-                    height: 0.9em;
-                    font-size: 4.2em;
+                    height: $article;
+                    font-size: $subTitle;
                     letter-spacing: 1px;
                 }
             }
 
             .SubArticle {
                 margin-bottom: 30px;
+                width: 55%;
 
                 p {
-                    height: 1.3em;
-                    font-size: 1.3em;
+                    height: $midArticle;
+                    font-size: $midArticle;
                     letter-spacing: 1px;
                 }
 

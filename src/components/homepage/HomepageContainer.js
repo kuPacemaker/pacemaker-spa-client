@@ -2,8 +2,8 @@ import React from 'react';
 
 import Homepage from './view/Homepage';
 
-const HomePageContainer = (prop) => {
-  return <Homepage />;
+const HomePageContainer = ({ preface }) => {
+  return <Homepage preface={preface} />;
 };
 
 // const mapStateToProps = ({ counter }) => ({

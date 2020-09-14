@@ -2,8 +2,8 @@ import React from 'react';
 
 import About from './view/About';
 
-const AboutContainer = () => {
-  return <About />;
+const AboutContainer = ({ articles }) => {
+  return <About articles={articles} />;
 };
 
 // const mapStateToProps = ({ counter }) => ({

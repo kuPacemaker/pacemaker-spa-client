@@ -1,6 +1,14 @@
 $stepSize: 24px;
 $sidemargin:50px;
 
+$title:5em;
+$subTitle:4.2em;
+$topArticle:3.15em;
+$smallMenu:2.25em;
+$midArticle:1.4em;
+$article:1em;
+$additional:0.75em;
+
 @mixin square($size) {
   $calculated: $stepSize * $size;
   width: $calculated;
@@ -16,6 +24,11 @@ $sidemargin:50px;
   -moz-user-select: -moz-none;
   -khtml-user-select: none;
   -webkit-user-select: none;
+  user-select: none;
+}
+
+img {
+  pointer-events: none;
   user-select: none;
 }
 

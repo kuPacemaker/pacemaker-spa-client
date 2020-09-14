@@ -1,0 +1,108 @@
+@import 'index.scss';
+
+.LeftImageFrom {
+  position: fixed;
+  margin-top: $stepSize * 2;
+  height: calc(100% - #{$stepSize * 4});
+  width: 100%;
+
+  .ContextBox {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    display: flex;
+    align-items: center;
+  }
+
+  .LoginBox {
+    position: relative;
+    width: 100%;
+
+    .Title {
+      padding-left: 50%;
+      text-align: center;
+      font-size: $smallMenu;
+    }
+
+
+    .ActiveLink {
+      padding-left: 50%;
+      text-align: center;
+      font-size: $midArticle;
+      text-decoration: underline;
+
+      div {
+        margin-top: 15px;
+      }
+    }
+  }
+
+  .InputFiled {
+    margin-top: 2%;
+
+    .Decoration {
+      position: relative;
+      width: 100%;
+      top: 30%;
+
+      .InputLine {
+        position: relative;
+        width: 100%;
+        height: 65px;
+        border-top: 1px solid black;
+
+        .Input {
+          height: 100%;
+          padding-top: 20px;
+          margin-left: 60%;
+        }
+
+        .Arrow {
+          @include square(2);
+          position: absolute;
+          pointer-events: all;
+          right: 5%;
+          top: -55px;
+        }
+      }
+    }
+  }
+
+  .ImageBox {
+    position: absolute;
+    top: 0;
+    padding-top: 5%;
+    height: 100%;
+    width: 60%;
+
+    .Image {
+      position: relative;
+      display: block;
+      margin: 0 auto;
+      height: 90%;
+    }
+
+    .InnerText {
+      position: absolute;
+      $widthSize: 62.5%;
+      width: $widthSize;
+      top: 60%;
+      left: calc(50% - #{$widthSize / 2});
+
+      span {
+        letter-spacing: -1px;
+        text-align: left;
+        font-size: $topArticle;
+      }
+    }
+
+    .Arrow {
+      position: absolute;
+      pointer-events: all;
+      right: 5px;
+      @include square(3);
+    }
+  }
+}

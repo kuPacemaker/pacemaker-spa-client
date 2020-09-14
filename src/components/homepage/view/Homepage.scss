@@ -15,12 +15,12 @@
 
         .MessageBox {
             position: relative;
-            top: calc(30% - 2.5em);
+            top: calc(35%);
             left: $stepSize *2;
 
             div {
-                height: 1em;
-                font-size: 5em;
+                height: $article;
+                font-size: $title;
             }
         }
 
@@ -33,8 +33,8 @@
 
         a {
             position: relative;
-            top: calc(10em + 75px);
-            left: calc(35% + 25px);
+            top: 5%;
+            left: calc(35%);
 
 
             .Arrow {
