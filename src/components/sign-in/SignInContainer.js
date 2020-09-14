@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 
 import LeftImageForm from 'components/left-image-form';
 import image from 'resources/images/signin-image.png';
+import { account } from 'shared/test-data.js';
 
 const title = 'SIGN-IN';
 const imageText = 'START A PERFECT MARATHON WITH PACEMAKER';
@@ -40,6 +41,10 @@ const SignInContainer = (prop) => {
   };
   const signInHandler = () => {
     console.log(state);
+    account.id = state.id;
+    account.pw = state.pw;
+    account.token = state.id;
+    console.log(account);
   };
 
   return (
