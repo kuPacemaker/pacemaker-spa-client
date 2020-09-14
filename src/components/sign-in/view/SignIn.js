@@ -6,18 +6,13 @@ import image from 'resources/images/signin-image.png';
 import arrow from './resources/images/arrow.png';
 import LocalPath from 'local-path';
 
-const SignIn = ({ signinApi }) => {
-  const signInHandler = () => {};
-  const handleCreate = (data) => {
-    console.log(data);
-  };
-  const imageText = 'START A PERFECT MARATHON WITH PACEMAKER';
-  const goSignUp = 'I’M NOT A MEMBER YET';
-  const goFindAccount = 'I FORGOT MY ACCOUNT';
-  const state = {
-    id: '',
-    pw: '',
-  };
+const SignIn = ({
+  imageText,
+  goSignUp,
+  goFindAccount,
+  onChangeHandler,
+  signInHandler,
+}) => {
   return (
     <div className="SignIn">
       <div className="ContextBox">
@@ -27,12 +22,20 @@ const SignIn = ({ signinApi }) => {
             <div className="Decoration">
               <div className="InputLine">
                 <div className="Input">
-                  <Input title="E-MAIL" size="1.25em" />
+                  <Input
+                    title="E-MAIL"
+                    size="1.25em"
+                    onChangeHandler={onChangeHandler('E-MAIL')}
+                  />
                 </div>
               </div>
               <div className="InputLine">
                 <div className="Input">
-                  <Input title="PASSWORD" size="1.25em" />
+                  <Input
+                    title="PASSWORD"
+                    size="1.25em"
+                    onChangeHandler={onChangeHandler('PASSWORD')}
+                  />
                 </div>
               </div>
               <img
@@ -57,20 +60,6 @@ const SignIn = ({ signinApi }) => {
             </div>
           </div>
         </div>
-
-        {/* <Input
-          title="E-MAIL"
-          placeHolder=""
-          value={state.id}
-          type="text"
-          onCreate={handleCreate}
-        />
-        <Input
-          title="PASSWORD"
-          placeHolder=""
-          value={state.pw}
-          type="password"
-        /> */}
       </div>
       <div className="ImageBox">
         <img className="Image" src={image} alt="" />

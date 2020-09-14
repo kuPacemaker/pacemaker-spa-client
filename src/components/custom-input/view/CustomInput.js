@@ -1,30 +1,14 @@
 import React from 'react';
 import './CustomInput.scss';
 
-const onChangeHandler = (e) => {
-  this.value.setState({});
-};
-
-const CustomInput = ({
-  title,
-  size,
-  placeHolder = '',
-  value,
-  type = 'text',
-  onFocus = undefined,
-  onCreate,
-}) => {
-  const fontSize = { 'font-size': size };
+const CustomInput = ({ title, size, onChangeHandler = undefined }) => {
+  const fontSize = { fontSize: size };
   return (
     <span className="CustomInput">
       <span style={fontSize}>{title}</span>
       <input
         style={fontSize}
-        // placeholder={placeHolder}
-        // value={value}
-        // type={type}
-        // onFocus={onFocus}
-        // onChange={onChange}
+        onChange={(e) => onChangeHandler(e.target.value)}
       />
     </span>
   );
