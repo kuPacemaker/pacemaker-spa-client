@@ -1,8 +1,8 @@
 import React from 'react';
 
 import Newspeed from './view/Newspeed';
-import image from 'resources/images/signin-image.png';
-import { account } from 'shared/test-data.js';
+// import image from 'resources/images/signin-image.png';
+// import { account } from 'shared/test-data.js';
 
 const NewspeedContainer = (prop) => {
   return <Newspeed />;

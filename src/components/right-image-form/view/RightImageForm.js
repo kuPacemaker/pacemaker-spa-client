@@ -1,6 +1,6 @@
 import React from 'react';
 import Input from 'components/custom-input';
-import arrow from './resources/images/arrow.png';
+import arrow from 'resources/images/icon/arrow-right.png';
 import './RightImageForm.scss';
 
 const RightImageForm = ({
@@ -31,46 +31,6 @@ const RightImageForm = ({
                   </div>
                 </div>
               ))}
-              {/* <div className="InputLine">
-                <div className="Input">
-                  <Input
-                    title="NAME"
-                    type="text"
-                    size="1.35em"
-                    onChangeHandler={onChangeHandler('NAME')}
-                  />
-                </div>
-              </div>
-              <div className="InputLine">
-                <div className="Input">
-                  <Input
-                    title="E-MAIL"
-                    type="email"
-                    size="1.35em"
-                    onChangeHandler={onChangeHandler('E-MAIL')}
-                  />
-                </div>
-              </div>
-              <div className="InputLine">
-                <div className="Input">
-                  <Input
-                    title="PASSWORD"
-                    type="password"
-                    size="1.35em"
-                    onChangeHandler={onChangeHandler('PASSWORD')}
-                  />
-                </div>
-              </div>
-              <div className="InputLine">
-                <div className="Input">
-                  <Input
-                    title="CONFIRM PASSWORD"
-                    type="password"
-                    size="1.35em"
-                    onChangeHandler={onChangeHandler('CONFIRM PASSWORD')}
-                  />
-                </div>
-              </div> */}
               <div className="InputLine">
                 <img
                   className="Arrow"

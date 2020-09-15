@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 
 import RightImageForm from 'components/right-image-form';
-import image from 'resources/images/find-account-image.jpg';
+import image from 'resources/images/concept/find-account-image.jpg';
 
 const title = 'FIND-ACCOUNT';
 const subTitle = 'FIND YOUR PACEMAKER ACCOUNT';
