@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import './Homepage.scss';
-import concepts from 'resources/images/concept/home-image.png';
+import concepts from 'resources/images/concept/home-image.jpg';
 import background from 'resources/images/background/background-up.png';
 import arrow from 'resources/images/icon/arrow-right.png';
 

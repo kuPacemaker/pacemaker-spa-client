@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 
 import LeftImageForm from 'components/left-image-form';
-import image from 'resources/images/concept/signin-image.png';
+import image from 'resources/images/concept/signin-image.jpg';
 import { account } from 'shared/test-data.js';
 
 const title = 'SIGN-IN';

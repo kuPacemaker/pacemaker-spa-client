@@ -1,5 +1,5 @@
 import React from 'react';
-import concepts from 'resources/images/concept/aboutus-image.png';
+import concepts from 'resources/images/concept/aboutus-image.jpg';
 import background from 'resources/images/background/background-up.png';
 import './About.scss';
 
