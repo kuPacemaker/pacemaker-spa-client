@@ -1,2 +1,2 @@
-import SignInContainer from './SignInContainer';
-export default SignInContainer;
+import OverlayContainer from './OverlayContainer';
+export default OverlayContainer;

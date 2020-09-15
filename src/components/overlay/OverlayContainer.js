@@ -1,9 +1,9 @@
 import React from 'react';
 
-import SignIn from './view/SignIn';
+import Overlay from './view/Overlay';
 
-const SignInContainer = (prop) => {
-  return <SignIn />;
+const OverlayContainer = (prop) => {
+  return <Overlay />;
 };
 
 // const mapStateToProps = ({ counter }) => ({
@@ -15,4 +15,4 @@ const SignInContainer = (prop) => {
 //   bindActionCreators({ incrementAsync, decrement, getPost }, dispatch);
 
 // export default connect(mapStateToProps, mapDispatchToProps)(CounterContainer);
-export default SignInContainer;
+export default OverlayContainer;
