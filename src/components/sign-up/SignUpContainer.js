@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 
 import RightImageForm from 'components/right-image-form';
-import image from 'resources/images/signup-image.png';
+import image from 'resources/images/concept/signup-image.jpg';
 
 const title = 'SIGN-UP';
 const subTitle = 'START A PERFECT MARATHON WITH PACEMAKER';

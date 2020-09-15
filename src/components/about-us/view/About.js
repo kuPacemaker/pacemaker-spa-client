@@ -1,10 +1,14 @@
 import React from 'react';
-import concepts from 'resources/images/aboutus-image.png';
+import concepts from 'resources/images/concept/aboutus-image.jpg';
+import background from 'resources/images/background/background-up.png';
 import './About.scss';
 
 const About = ({ articles }) => {
   return (
-    <div className="About">
+    <div
+      className="About"
+      style={{ backgroundImage: 'url(' + background + ')' }}
+    >
       <div className="context">
         <img className="ConceptsImage" src={concepts} alt="" />
         <div className="ArticleBox">

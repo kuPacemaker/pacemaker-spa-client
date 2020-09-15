@@ -6,12 +6,6 @@ const preface = [
   'TO RUN WITH YOU',
 ];
 
-const Home = () => {
-  return (
-    <div>
-      <Homepage preface={preface} />
-    </div>
-  );
-};
+const Home = () => <Homepage preface={preface} />;
 
 export default Home;

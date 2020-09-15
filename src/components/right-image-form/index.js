@@ -1,2 +1,2 @@
-import RightImageFrom from './RightImageForm';
+import RightImageFrom from './view/RightImageForm';
 export default RightImageFrom;
