@@ -6,16 +6,19 @@ import peedImage_4 from 'resources/images/peeds/peed-image-1.jpg';
 import './Peed.scss';
 
 const types = {
-  SYSTEM_NOTICE: 'r',
-  QUESTION_GENERATION: 'r',
-  PAPER_RECEIVE: 'l',
-  PAPER_FINISH: 'l',
+  SYSTEM_NOTICE: ['r', peedImage_1],
+  QUESTION_GENERATION: ['r', peedImage_2],
+  PAPER_RECEIVE: ['l', peedImage_3],
+  PAPER_FINISH: ['l', peedImage_4],
 };
 
-const Peed = ({ type, title, body }) => (
-  <div className="Peed">
-    <img></img>
-  </div>
-);
+const Peed = ({ type, title, body }) => {
+  return (
+    <div className="Peed">
+      {}
+      <img></img>
+    </div>
+  );
+};
 
 export default Peed;

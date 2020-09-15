@@ -2,9 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import './Homepage.scss';
 import concepts from 'resources/images/concept/home-image.png';
-
 import background from 'resources/images/background/background-up.png';
-
 import arrow from 'resources/images/icon/arrow-right.png';
 
 import LocalPath from 'local-path';
