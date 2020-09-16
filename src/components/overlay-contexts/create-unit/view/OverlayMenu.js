@@ -1,9 +1,9 @@
 import React from 'react';
 
-import Overlay from './view/Overlay';
+import './OverlayMenu.scss';
 
-const OverlayContainer = ({ show, type, changeHandler }) => {
-  return <Overlay show={show} type={type} changeHandler={changeHandler} />;
+const OverlayMenu = () => {
+  return <div>OverlayMenu</div>;
 };
 
 // const mapStateToProps = ({ counter }) => ({
@@ -15,4 +15,4 @@ const OverlayContainer = ({ show, type, changeHandler }) => {
 //   bindActionCreators({ incrementAsync, decrement, getPost }, dispatch);
 
 // export default connect(mapStateToProps, mapDispatchToProps)(CounterContainer);
-export default OverlayContainer;
+export default OverlayMenu;

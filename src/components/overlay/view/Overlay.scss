@@ -20,7 +20,7 @@
 
         &.Show {
             pointer-events: all;
-            opacity: 0.85;
+            opacity: 0.9;
         }
 
         &.Hide {
@@ -30,27 +30,24 @@
     }
 
     .Container {
-        display: table;
-        margin: 0 auto;
-        margin-top: 10%;
+        position: fixed;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        right: 0;
         pointer-events: none;
         @include animate();
 
-        .Context {
-            background-color: aqua;
-            display: table-cell;
-            vertical-align: middle;
 
-            &.Show {
-                pointer-events: all;
-                opacity: 1;
-            }
 
-            &.Hide {
-                pointer-events: none;
-                opacity: 0;
-            }
+        &.Show {
+            opacity: 1;
         }
+
+        &.Hide {
+            opacity: 0;
+        }
+
     }
 
 

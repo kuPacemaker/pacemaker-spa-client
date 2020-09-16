@@ -1,0 +1,53 @@
+@import 'shared/StyleValues.scss';
+@import 'shared/Animations.scss';
+
+
+.OverlayMenu {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+
+    .MenuContext {
+        display: block;
+        margin: 0 auto;
+        margin-top: 7.5%;
+        width: 40%;
+
+        .MainMenu {
+            text-align: center;
+            margin-bottom: 15px;
+        }
+
+
+        .Line {
+            position: absolute;
+            left: 0;
+            right: 0;
+            border-top: 1px solid;
+        }
+
+        .OptionalMenu {
+            text-align: center;
+            margin-top: 30px;
+        }
+
+        .MenuItem {
+            display: inline-block;
+            font-size: $title;
+            @include underline-effect(3px);
+
+            &.Show {
+                pointer-events: all;
+            }
+
+            &.Hide {
+                pointer-events: none;
+            }
+        }
+    }
+
+    // pointer-events: all;
+
+}

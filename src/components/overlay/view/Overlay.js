@@ -1,13 +1,13 @@
 import React from 'react';
 import classNames from 'classnames';
-
+import Menu from 'components/overlay-contexts/overlay-menu';
 import './Overlay.scss';
 
-const Overlay = ({ show, type, change }) => {
+const Overlay = ({ show, type, changeHandler }) => {
   let context = '';
   switch (type) {
     case 'MENU':
-      context = <div>MENU</div>;
+      context = <Menu show={show} changeHandler={changeHandler} />;
       break;
     case 'MY ACCOUNT':
       context = <div>MY ACCOUNT</div>;
@@ -21,17 +21,15 @@ const Overlay = ({ show, type, change }) => {
           Show: show,
           Hide: !show,
         })}
-        onClick={() => change('')}
+        onClick={() => changeHandler()}
       ></div>
-      <div className="Container">
-        <div
-          className={classNames('Context', {
-            Show: show,
-            Hide: !show,
-          })}
-        >
-          {context}
-        </div>
+      <div
+        className={classNames('Container', {
+          Show: show,
+          Hide: !show,
+        })}
+      >
+        {context}
       </div>
     </div>
   );

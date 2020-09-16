@@ -13,7 +13,7 @@ const RootPage = () => {
   const changeOverlay = (type) => {
     setState({
       showOverlay: false,
-      overlayTpye: type,
+      overlayTpye: type ? type : state.overlayTpye,
     });
   };
   const showOverlay = (type) => {
@@ -31,7 +31,7 @@ const RootPage = () => {
       <Overlay
         show={state.showOverlay}
         type={state.overlayTpye}
-        change={changeOverlay}
+        changeHandler={changeOverlay}
       />
     </div>
   );
