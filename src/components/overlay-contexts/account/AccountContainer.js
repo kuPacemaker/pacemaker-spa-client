@@ -8,8 +8,8 @@ const AccountContainer = ({ show, moveToModify, changeHandler }) => {
   const history = useHistory();
 
   const signoutHandler = () => {
-    history.push(LocalPath.root);
     changeHandler();
+    history.push(LocalPath.root);
   };
   return (
     <Account

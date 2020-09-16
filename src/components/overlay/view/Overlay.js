@@ -2,6 +2,7 @@ import React from 'react';
 import classNames from 'classnames';
 import Menu from 'components/overlay-contexts/overlay-menu';
 import Account from 'components/overlay-contexts/account';
+import ModifyAccount from 'components/overlay-contexts/modify-account';
 import './Overlay.scss';
 
 const Overlay = ({ show, type, changeHandler }) => {
@@ -24,7 +25,7 @@ const Overlay = ({ show, type, changeHandler }) => {
       );
       break;
     case 'MODIFY ACCOUNT':
-      context = <div>TEST</div>;
+      context = <ModifyAccount show={show} changeHandler={changeHandler} />;
       break;
 
     default:

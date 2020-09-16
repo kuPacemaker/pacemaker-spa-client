@@ -7,8 +7,8 @@ import RootRouter from 'routes/RootRouter.js';
 
 const RootPage = () => {
   const [state, setState] = useState({
-    showOverlay: true,
-    overlayTpye: 'MY ACCOUNT',
+    showOverlay: false,
+    overlayTpye: '',
   });
   const changeOverlay = (type) => {
     setState({
