@@ -4,6 +4,13 @@ import Account from './view/Account';
 
 import { account } from 'shared/test-data';
 import LocalPath from 'local-path';
+
+const texts = {
+  title: "Let's Run, ",
+  modify: 'MODIFY ACCOUNT INFORMATION',
+  signout: 'SIGNOUT',
+};
+
 const AccountContainer = ({ show, moveToModify, changeHandler }) => {
   const history = useHistory();
 
@@ -15,6 +22,7 @@ const AccountContainer = ({ show, moveToModify, changeHandler }) => {
     <Account
       user={account}
       show={show}
+      texts={texts}
       moveToModify={moveToModify}
       signoutHandler={signoutHandler}
     />
