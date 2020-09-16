@@ -36,7 +36,7 @@
         .MenuItem {
             display: inline-block;
             font-size: $title;
-            @include underline-effect(3px);
+            @include underline-effect(3px, 0.5s);
 
             &.Show {
                 pointer-events: all;

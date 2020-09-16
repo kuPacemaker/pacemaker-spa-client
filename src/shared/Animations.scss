@@ -1,9 +1,9 @@
-@mixin underline_effect($size) {
+@mixin underline_effect($size, $duration) {
     padding-bottom: 1px;
     background-image: linear-gradient(transparent calc(100% - #{$size}), #111 $size);
     background-repeat: no-repeat;
     background-size: 0% 100%;
-    transition: background-size 0.35s;
+    transition: background-size $duration;
 
     &:hover {
         background-size: 100% 100%;

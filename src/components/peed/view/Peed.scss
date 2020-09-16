@@ -28,7 +28,7 @@
 
         .Title {
             font-size: $topArticle;
-            @include underline_effect(3px);
+            @include underline_effect(3px, 1s);
         }
 
         .Body {
