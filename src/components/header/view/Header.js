@@ -8,13 +8,10 @@ import { account } from 'shared/test-data';
 const LetterButton = ({ context, onClick }) => {
   return context[1] ? (
     <Link to={context[1]}>
-      <span className="LetterButton UnderlineEffect">{context[0]}</span>
+      <span className="LetterButton">{context[0]}</span>
     </Link>
   ) : (
-    <span
-      className="LetterButton UnderlineEffect"
-      onClick={() => onClick(context)}
-    >
+    <span className="LetterButton" onClick={() => onClick(context)}>
       {context[0]}
     </span>
   );

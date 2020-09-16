@@ -4,17 +4,34 @@ import classNames from 'classnames';
 import './Overlay.scss';
 
 const Overlay = ({ show, type, change }) => {
-  let model = '';
+  let context = '';
+  switch (type) {
+    case 'MENU':
+      context = <div>MENU</div>;
+      break;
+    case 'MY ACCOUNT':
+      context = <div>MY ACCOUNT</div>;
+      break;
+    default:
+  }
   return (
     <div className="Overlay">
       <div
-        className={classNames('OverlayBackground', 'AnimateDom', {
+        className={classNames('OverlayBackground', {
           Show: show,
           Hide: !show,
         })}
         onClick={() => change('')}
-      >
-        {type}
+      ></div>
+      <div className="Container">
+        <div
+          className={classNames('Context', {
+            Show: show,
+            Hide: !show,
+          })}
+        >
+          {context}
+        </div>
       </div>
     </div>
   );

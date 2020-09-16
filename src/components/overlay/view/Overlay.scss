@@ -1,15 +1,22 @@
+@import 'shared/Animations.scss';
+
 .Overlay {
     position: fixed;
     top: 0;
+    bottom: 0;
     left: 0;
-    height: 100%;
-    width: 100%;
+    right: 0;
     pointer-events: none;
 
     .OverlayBackground {
-        height: 100%;
-        width: 100%;
+        position: fixed;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        right: 0;
         background-color: #FFFFFF;
+        z-index: -1;
+        @include animate();
 
         &.Show {
             pointer-events: all;
@@ -21,5 +28,31 @@
             opacity: 0;
         }
     }
+
+    .Container {
+        display: table;
+        height: 100%;
+        margin: 0 auto;
+        pointer-events: none;
+        @include animate();
+
+        .Context {
+            background-color: aqua;
+            display: table-cell;
+            vertical-align: middle;
+
+            &.Show {
+                pointer-events: all;
+                opacity: 1;
+            }
+
+            &.Hide {
+                pointer-events: none;
+                opacity: 0;
+            }
+        }
+    }
+
+
 
 }

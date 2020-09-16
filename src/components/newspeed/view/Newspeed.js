@@ -47,11 +47,7 @@ const Newspeed = ({ peeds }) => {
         />
       </div>
 
-      <div
-        className="Container AnimateDom"
-        onScroll={onScrollHandler}
-        ref={container}
-      >
+      <div className="Container" onScroll={onScrollHandler} ref={container}>
         <div>
           {peeds.map((peed, index) => (
             <div className="PeedBox" key={index}>
