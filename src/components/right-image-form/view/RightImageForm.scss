@@ -1,4 +1,5 @@
-@import 'index.scss';
+@import 'shared/StyleValues.scss';
+@import 'shared/Animations.scss';
 
 .RightImageForm {
   position: fixed;
@@ -63,7 +64,7 @@
           padding: 7.5px 7.5px 7.5px 7.5px;
           position: relative;
           pointer-events: all;
-          left: calc(60% - 48px);
+          left: calc(65% - 48px);
           top: -65px;
         }
       }

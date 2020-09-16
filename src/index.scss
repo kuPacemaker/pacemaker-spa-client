@@ -1,27 +1,3 @@
-$stepSize: 24px;
-$sidemargin: 50px;
-
-$title: 5em;
-$subTitle: 4.2em;
-$topArticle: 3.15em;
-$subTopArticle: 2.75em;
-$smallMenu: 2.25em;
-$midArticle: 1.4em;
-$article: 1.1em;
-$smallArticle: 1em;
-$additional: 0.75em;
-
-@mixin square($size) {
-  $calculated: $stepSize * $size;
-  width: $calculated;
-  height: $calculated;
-}
-
-@mixin square_px($size) {
-  width: $size;
-  height: $size;
-}
-
 * {
   box-sizing: inherit;
   font-family: 'Helvetica Neue LT Pro 55 Roman';
@@ -48,16 +24,4 @@ a {
   color: inherit;
   text-decoration: none;
   cursor: default;
-}
-
-.UnderlineEffect {
-  padding-bottom: 1px;
-  background-image: linear-gradient(transparent calc(100% - 1.5px), #111 1.5px);
-  background-repeat: no-repeat;
-  background-size: 0% 100%;
-  transition: background-size 0.35s;
-
-  &:hover {
-    background-size: 100% 100%;
-  }
 }

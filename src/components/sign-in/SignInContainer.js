@@ -1,8 +1,9 @@
 import React, { useState } from 'react';
-
+import { useHistory } from 'react-router-dom';
 import LeftImageForm from 'components/left-image-form';
 import image from 'resources/images/concept/signin-image.jpg';
 import { account } from 'shared/test-data.js';
+import { LocalMainPage } from 'local-path';
 
 const title = 'SIGN-IN';
 const imageText = 'START A PERFECT MARATHON WITH PACEMAKER';
@@ -23,6 +24,7 @@ const inputForms = [
 ];
 
 const SignInContainer = (prop) => {
+  const history = useHistory();
   const [state, setState] = useState({
     id: '',
     pw: '',
@@ -39,12 +41,15 @@ const SignInContainer = (prop) => {
         return;
     }
   };
+
+  // history.push('/main-page');
   const signInHandler = () => {
     console.log(state);
     account.id = state.id;
     account.pw = state.pw;
     account.token = state.id;
     console.log(account);
+    history.push(LocalMainPage.root);
   };
 
   return (
