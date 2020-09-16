@@ -1,5 +1,4 @@
 import React from 'react';
-
 import Overlay from './view/Overlay';
 
 const OverlayContainer = ({ show, type, changeHandler }) => {

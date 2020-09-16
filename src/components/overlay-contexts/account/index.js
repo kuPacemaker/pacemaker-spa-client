@@ -1,2 +1,2 @@
-import OverlayMenuContainer from './OverlayMenuContainer';
-export default OverlayMenuContainer;
+import AccountContainer from './AccountContainer';
+export default AccountContainer;

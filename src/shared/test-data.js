@@ -1,2 +1,7 @@
-export const account = { id: '', name: '', type: '', token: 'undefined' };
+export const account = {
+  id: 'lunox273@gmail.com',
+  name: 'Lumy',
+  type: 'STANDARD',
+  token: 'undefined',
+};
 export const language = 'en';
