@@ -27,12 +27,21 @@ const buttons = {
   },
 };
 
-const click = (context) => {
-  console.log('Do ' + context[0]);
+const onClickHandler = (overlay) => (context) => {
+  switch (context[0]) {
+    case buttons.left.after[0][0]:
+    case buttons.right.after[1][0]:
+      overlay(context[0]);
+      return;
+    case buttons.left.after[1][0]:
+    default:
+      console.log('Do ' + context[0]);
+      return;
+  }
 };
 
-const HeaderContainer = (prop) => {
-  return <Header onClickHandler={click} buttons={buttons} />;
+const HeaderContainer = ({ overlay }) => {
+  return <Header onClickHandler={onClickHandler(overlay)} buttons={buttons} />;
 };
 
 // const mapStateToProps = ({ counter }) => ({

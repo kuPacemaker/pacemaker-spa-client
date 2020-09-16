@@ -4,11 +4,22 @@
     left: 0;
     height: 100%;
     width: 100%;
+    pointer-events: none;
 
-    .ShowOverlay {
+    .OverlayBackground {
         height: 100%;
         width: 100%;
-        background-color: #FFFFFFDF;
+        background-color: #FFFFFF;
+
+        &.Show {
+            pointer-events: all;
+            opacity: 0.85;
+        }
+
+        &.Hide {
+            pointer-events: none;
+            opacity: 0;
+        }
     }
 
 }

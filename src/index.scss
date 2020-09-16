@@ -22,6 +22,57 @@ $additional: 0.75em;
   height: $size;
 }
 
+@mixin animate-rotate ($angle) {
+  transform: rotate($angle);
+  transition: all 0.35s ease;
+}
+
+@mixin animate-move-y() {
+  position: relative;
+  animation-name: move-y;
+  animation-duration: 1s;
+  animation-iteration-count: infinite;
+}
+
+@mixin animate-move-x() {
+  position: relative;
+  animation-name: move-x;
+  animation-duration: 1s;
+  animation-iteration-count: infinite;
+}
+
+@keyframes move-y {
+  0% {
+    margin-top: -5px;
+  }
+
+  50% {
+    margin-top: 5px;
+  }
+
+  100% {
+    margin-top: -5px;
+  }
+}
+
+@keyframes move-x {
+  0% {
+    margin-left: -5px;
+  }
+
+  50% {
+    margin-left: 5px;
+  }
+
+  100% {
+    margin-left: -5px;
+  }
+}
+
+
+
+
+
 * {
   box-sizing: inherit;
   font-family: 'Helvetica Neue LT Pro 55 Roman';
@@ -60,4 +111,8 @@ a {
   &:hover {
     background-size: 100% 100%;
   }
+}
+
+.AnimateDom {
+  transition: all 0.35s ease;
 }

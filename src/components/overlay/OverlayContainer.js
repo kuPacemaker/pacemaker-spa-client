@@ -2,8 +2,8 @@ import React from 'react';
 
 import Overlay from './view/Overlay';
 
-const OverlayContainer = (prop) => {
-  return <Overlay />;
+const OverlayContainer = ({ show, type, change }) => {
+  return <Overlay show={show} type={type} change={change} />;
 };
 
 // const mapStateToProps = ({ counter }) => ({

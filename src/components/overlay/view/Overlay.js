@@ -1,10 +1,24 @@
 import React from 'react';
+import classNames from 'classnames';
 
 import './Overlay.scss';
-const show = false;
-const Overlay = (prop) => (
-  <div className="Overlay">{show && <div className="ShowOverlay"></div>}</div>
-);
+
+const Overlay = ({ show, type, change }) => {
+  let model = '';
+  return (
+    <div className="Overlay">
+      <div
+        className={classNames('OverlayBackground', 'AnimateDom', {
+          Show: show,
+          Hide: !show,
+        })}
+        onClick={() => change('')}
+      >
+        {type}
+      </div>
+    </div>
+  );
+};
 
 // const mapStateToProps = ({ counter }) => ({
 //   color: counter.color,

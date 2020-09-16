@@ -1,4 +1,5 @@
-import React from 'react';
+import React, { useState, useRef } from 'react';
+import classNames from 'classnames';
 import Peed from 'components/peed';
 import background from 'resources/images/background/background-right.png';
 import arrow from 'resources/images/icon/arrow-down.png';
@@ -6,95 +7,68 @@ import arrow from 'resources/images/icon/arrow-down.png';
 // import background from '../../../resources/images/background-up.png';
 import './Newspeed.scss';
 
-const testPeeds = [
-  {
-    type: 'SYSTEM_NOTICE',
-    title: 'NEW FUNCTION IS AVAILABLE',
-    body: 'Your Running Mate, Pacemaker Team',
-    to: '',
-    arg: '',
-  },
-  {
-    type: 'PAPER_RECEIVE',
-    title: 'NEW QUIZ IS OPENED',
-    body: 'Basic Computer Programming, Kelvin, Tue. 15:00~18:00',
-    to: '',
-    arg: '',
-  },
-  {
-    type: 'QUESTION_GENERATION',
-    title: 'NEW QUESTIONS WERE RECEIVED',
-    body: 'Basic Computer Programming, Kelvin, Tue. 15:00~18:00',
-    to: '',
-    arg: '',
-  },
-  {
-    type: 'PAPER_FINISH',
-    title: 'EVERYONE FINISHED THE QUIZE',
-    body: 'Basic Computer Programming, Kelvin, Tue. 15:00~18:00',
-    to: '',
-    arg: '',
-  },
-  {
-    type: 'QUESTION_GENERATION',
-    title: 'NEW QUESTIONS WERE RECEIVED',
-    body: 'Basic Computer Programming, Kelvin, Tue. 15:00~18:00',
-    to: '',
-    arg: '',
-  },
-  {
-    type: 'SYSTEM_NOTICE',
-    title: 'NEW FUNCTION IS AVAILABLE',
-    body: 'Your Running Mate, Pacemaker Team',
-    to: '',
-    arg: '',
-  },
-  {
-    type: 'PAPER_RECEIVE',
-    title: 'NEW QUIZ IS OPENED',
-    body: 'Basic Computer Programming, Kelvin, Tue. 15:00~18:00',
-    to: '',
-    arg: '',
-  },
-  {
-    type: 'PAPER_FINISH',
-    title: 'EVERYONE FINISHED THE QUIZE',
-    body: 'Basic Computer Programming, Kelvin, Tue. 15:00~18:00',
-    to: '',
-    arg: '',
-  },
-  {
-    type: 'QUESTION_GENERATION',
-    title: 'NEW QUESTIONS WERE RECEIVED',
-    body: 'Basic Computer Programming, Kelvin, Tue. 15:00~18:00',
-    to: '',
-    arg: '',
-  },
-];
+const scrollToRef = (ref, to) =>
+  ref.current.scrollTo({ top: to, left: 0, behavior: 'smooth' });
 
-const Newspeed = () => (
-  <div
-    className="Newspeed"
-    style={{ backgroundImage: 'url(' + background + ')' }}
-  >
-    <img className="Arrow" src={arrow} alt="" />
-    <div className="Container">
-      <div>
-        {testPeeds.map((peed, index) => (
-          <div className="PeedBox" key={index}>
-            <Peed
-              key={index}
-              type={peed.type}
-              title={peed.title}
-              body={peed.body}
-              to={peed.to}
-              arg={peed.arg}
-            />
-          </div>
-        ))}
+const Newspeed = ({ peeds }) => {
+  const container = useRef(null);
+  const [state, setState] = useState({
+    isBottom: false,
+  });
+  const onScrollHandler = (e) => {
+    const target = e.target;
+    const height = target.scrollHeight - target.offsetHeight;
+    if (target.scrollTop < height) setState({ isBottom: false });
+    else setState({ isBottom: true });
+  };
+  const arrowClickHandler = () => {
+    if (state.isBottom) {
+      scrollToRef(container, 0);
+    } else {
+      const bottom =
+        container.current.scrollHeight - container.current.offsetHeight;
+      scrollToRef(container, bottom);
+    }
+  };
+  return (
+    <div
+      className="Newspeed"
+      style={{ backgroundImage: 'url(' + background + ')' }}
+    >
+      <div className="ArrowFrame">
+        <img
+          className={classNames('Arrow', {
+            Down: state.isBottom,
+            Up: !state.isBottom,
+          })}
+          src={arrow}
+          onClick={arrowClickHandler}
+          alt=""
+        />
+      </div>
+
+      <div
+        className="Container AnimateDom"
+        onScroll={onScrollHandler}
+        ref={container}
+      >
+        <div>
+          {peeds.map((peed, index) => (
+            <div className="PeedBox" key={index}>
+              <Peed
+                key={index}
+                type={peed.type}
+                title={peed.title}
+                body={peed.body}
+                to={peed.to}
+                arg={peed.arg}
+              />
+            </div>
+          ))}
+        </div>
       </div>
     </div>
-  </div>
-);
+  );
+};
 
 export default Newspeed;

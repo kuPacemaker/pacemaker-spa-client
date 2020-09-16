@@ -11,12 +11,30 @@
     padding-left: 5%;
     padding-right: 5%;
 
-    .Arrow {
+    .ArrowFrame {
         position: absolute;
+        @include square(4);
         bottom: 5%;
         right: 12.5%;
-        @include square(4);
+
+        .Arrow {
+            pointer-events: all;
+            height: 100%;
+            width: 100%;
+            @include animate-move-y();
+        }
+
+        .Down {
+            @include animate-rotate(180deg);
+        }
+
+        .Up {
+            @include animate-rotate(360deg);
+        }
     }
+
+
+
 
     .Container {
         pointer-events: all;
