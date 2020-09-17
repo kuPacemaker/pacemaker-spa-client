@@ -36,7 +36,7 @@ const channels = [
     id: 7,
     title: 'Basic Programming',
     detail: 'When ever You Want!',
-    imgType: 8,
+    imgType: 0,
   },
 ];
 

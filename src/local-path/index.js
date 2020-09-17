@@ -20,14 +20,27 @@ const main = {
     },
     path: '/main-page/board/:type',
   },
-  channel: '/main-page/channel',
-  unit: '/main-page/unit',
-  documents: '/main-page/my-documents',
-  statistics: '/main-page/statistics',
+  channel: {
+    root: '/main-page/channel/',
+  },
+  unit: {
+    root: '/main-page/unit/',
+  },
+
+  documents: {
+    root: '/main-page/my-documents/',
+  },
+  statistics: {
+    root: '/main-page/statistics/',
+  },
 };
 
 main.board['leaderpath'] = main.board.root + main.board.elements.leader;
 main.board['runnerpath'] = main.board.root + main.board.elements.runner;
+main.channel['path'] = main.channel.root + ':id';
+main.unit['path'] = main.channel.root + ':id';
+main.documents['path'] = main.documents.root + ':id';
+main.statistics['path'] = main.statistics.root + ':id';
 
 const path = {
   root: '/',
