@@ -38,8 +38,8 @@ const Newspeed = ({ peeds }) => {
       <div className="ArrowFrame">
         <img
           className={classNames('Arrow', {
-            Down: state.isBottom,
-            Up: !state.isBottom,
+            Down: !state.isBottom,
+            Up: state.isBottom,
           })}
           src={arrow}
           onClick={arrowClickHandler}

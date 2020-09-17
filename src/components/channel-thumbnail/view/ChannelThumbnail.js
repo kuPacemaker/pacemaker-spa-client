@@ -1,10 +1,10 @@
 import React from 'react';
 
-import './Channel.scss';
+import './ChannelThumbnail.scss';
 
-const Channel = ({ title, detail, image }) => {
+const ChannelThumbnail = ({ title, detail, image }) => {
   return (
-    <div className="Channel">
+    <div className="ChannelThumbnail">
       <img className="ChannelImage" src={image} alt="" />
       <div className="ChannelContext">
         <div className="ChannelTitle">{title}</div>
@@ -14,4 +14,4 @@ const Channel = ({ title, detail, image }) => {
   );
 };
 
-export default Channel;
+export default ChannelThumbnail;

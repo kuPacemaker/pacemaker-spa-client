@@ -1,10 +1,10 @@
 import React from 'react';
 
-import Channel from './view/Channel';
+import ChannelThumbnail from './view/ChannelThumbnail';
 
-const ChannelContainer = ({ title, detail, imgType }) => {
+const ChannelThumbnailContainer = ({ title, detail, imgType }) => {
   const image = require(`resources/images/channel/channel-image-${imgType}.jpg`);
-  return <Channel title={title} detail={detail} image={image} />;
+  return <ChannelThumbnail title={title} detail={detail} image={image} />;
 };
 
 // const mapStateToProps = ({ counter }) => ({
@@ -16,4 +16,4 @@ const ChannelContainer = ({ title, detail, imgType }) => {
 //   bindActionCreators({ incrementAsync, decrement, getPost }, dispatch);
 
 // export default connect(mapStateToProps, mapDispatchToProps)(CounterContainer);
-export default ChannelContainer;
+export default ChannelThumbnailContainer;

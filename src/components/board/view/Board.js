@@ -1,12 +1,9 @@
 import React, { useState, useRef } from 'react';
 import classNames from 'classnames';
+
+import ChannelThumbnail from 'components/channel-thumbnail';
 import plus from 'resources/images/icon/plus.png';
 import arrow from 'resources/images/icon/arrow-right.png';
-
-// import background from 'resources/images/background/background-right.png';
-// import arrow from 'resources/images/icon/arrow-down.png';
-
-// import background from '../../../resources/images/background-up.png';
 import './Board.scss';
 
 const scrollToRef = (ref, to, behavior) =>
@@ -52,9 +49,13 @@ const Board = ({
               <div
                 key={index}
                 className="ChannelContainer"
-                onClick={clickChannelHandler}
+                onClick={clickChannelHandler(type, channel.id)}
               >
-                {channel.title + channel.subtitle + channel.imgType}
+                <ChannelThumbnail
+                  title={channel.title}
+                  detail={channel.detail}
+                  imgType={channel.imgType}
+                />
               </div>
             ))}
           </div>
@@ -76,7 +77,7 @@ const Board = ({
               className="Plus"
               src={plus}
               alt=""
-              onClick={createChannelHandler}
+              onClick={createChannelHandler(type)}
             />
           </div>
         </div>

@@ -10,18 +10,55 @@ const title = {
 };
 
 const channels = [
-  { id: 0, title: 'TEST1', subtitle: 'test', imgType: 0 },
-  { id: 1, title: 'TEST2', subtitle: 'test', imgType: 0 },
-  { id: 2, title: 'TEST3', subtitle: 'test', imgType: 0 },
-  { id: 3, title: 'TEST4', subtitle: 'test', imgType: 0 },
-  { id: 4, title: 'TEST5', subtitle: 'test', imgType: 0 },
-  { id: 5, title: 'TEST6', subtitle: 'test', imgType: 0 },
-  { id: 6, title: 'TEST7', subtitle: 'test', imgType: 0 },
-  { id: 7, title: 'TEST8', subtitle: 'test', imgType: 0 },
+  {
+    id: 0,
+    title: 'Basic Programming',
+    detail: 'Tue. 15:00~18:00',
+    imgType: 1,
+  },
+  { id: 1, title: 'Data Structure', detail: 'Wed. 15:00~18:00', imgType: 2 },
+  {
+    id: 2,
+    title: 'Basic Programming',
+    detail: 'Wed. 15:00~18:00',
+    imgType: 3,
+  },
+  { id: 3, title: 'Data Structure', detail: 'When ever You Want!', imgType: 4 },
+  {
+    id: 4,
+    title: 'Basic Programming',
+    detail: 'When ever You Want!',
+    imgType: 5,
+  },
+  { id: 5, title: 'Algorithm', detail: 'When ever You Want!', imgType: 6 },
+  { id: 6, title: 'Data Structure', detail: 'When ever You Want!', imgType: 7 },
+  {
+    id: 7,
+    title: 'Basic Programming',
+    detail: 'When ever You Want!',
+    imgType: 8,
+  },
 ];
 
+const clickChannelHandler = (type, id) => () => {
+  console.log('enter to Channel : ' + id);
+};
+const createChannelHandler = (type) => () => {
+  if (type === 'leader') console.log('create leader channel');
+  else if (type === 'runner') console.log('enter to leader channel');
+  else console.log('기능이 구현되지 않았습니다.');
+};
+
 const BoardContainer = ({ type }) => {
-  return <Board type={type} title={title.en[type]} channels={channels} />;
+  return (
+    <Board
+      type={type}
+      title={title.en[type]}
+      channels={channels}
+      clickChannelHandler={clickChannelHandler}
+      createChannelHandler={createChannelHandler}
+    />
+  );
 };
 
 // const mapStateToProps = ({ counter }) => ({

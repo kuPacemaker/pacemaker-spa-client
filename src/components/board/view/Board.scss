@@ -3,25 +3,26 @@
 
 .Board {
     position: fixed;
-    top: $stepSize*5;
-    left: $sidemargin*2;
-    right: $sidemargin*2;
+    top: 15%;
+    left: $sidemargin *3;
+    right: $sidemargin *3;
 
-    bottom: $stepSize*5;
+    bottom: 15%;
 
     .Title {
         display: inline-block;
         font-size: $topArticle;
-        @include underline(2px);
+        @include underline(4px);
     }
 
     .Context {
-        margin-top: $stepSize;
-        height: calc(100% - #{$stepSize * 4});
+        margin-top: $stepSize * 2;
+
+        height: 100%;
 
         .ScrollContainer {
             height: 100%;
-            margin-left: $stepSize * 2;
+            margin-left: $stepSize;
             width: calc(100% - #{$stepSize * 8});
 
             .Scroll {
@@ -30,7 +31,6 @@
                 white-space: nowrap;
                 overflow-x: scroll;
                 overflow-y: hidden;
-                @include animate();
 
                 -ms-overflow-style: none;
                 scrollbar-width: none;
@@ -41,12 +41,10 @@
 
                 .ChannelContainer {
                     display: inline-block;
-                    background-color: red;
-                    border: 2px black solid;
 
-                    margin: 0 2vw 0 2vw;
-                    width: 20vw; //400px;
-                    height: 32vw; //calc(100% - #{$stepSize *2 });
+                    margin: 0 4vw 0 4vw;
+                    // width: 24vw; //400px;
+                    height: 30vw; //calc(100% - #{$stepSize *2 });
                 }
             }
         }
