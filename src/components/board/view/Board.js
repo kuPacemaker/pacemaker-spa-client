@@ -12,10 +12,6 @@ import './Board.scss';
 const scrollToRef = (ref, to, behavior) =>
   ref.current.scrollTo({ top: 0, left: to, behavior: behavior });
 
-const onScrollHandler = (ref) => (e) => {
-  let value = Number(ref.current.scrollLeft) + Number(e.deltaY);
-  scrollToRef(ref, value, 'auto');
-};
 const Board = ({
   type,
   title,
@@ -24,23 +20,34 @@ const Board = ({
   createChannelHandler,
 }) => {
   const scroll = useRef(null);
-  const [state, setState] = useState(0);
+  const [state, setState] = useState({
+    isEnd: false,
+  });
 
-  //   const onScrollHandler = (e) => {
-  //     const target = e.target;
-  //     const height = target.scrollHeight - target.offsetHeight;
-  //     if (target.scrollTop < height) setState({ isBottom: false });
-  //     else setState({ isBottom: true });
-  //   };
-  //   const arrowClickHandler = () => {
-  //     if (state.isBottom) {
-  //       scrollToRef(container, 0);
-  //     } else {
-  //       const bottom =
-  //         container.current.scrollHeight - container.current.offsetHeight;
-  //       scrollToRef(container, bottom);
-  //     }
-  //   };
+  const onScrollHandler = (ref) => (e) => {
+    let value = Number(ref.current.scrollLeft) + Number(e.deltaY);
+    scrollToRef(ref, value, 'auto');
+    if (ref.current.scrollWidth - ref.current.offsetWidth > value)
+      setState({ isEnd: false });
+    else setState({ isEnd: true });
+  };
+
+  // const onScrollHandler = (e) => {
+  //   const target = e.target;
+  //   const height = target.scrollHeight - target.offsetHeight;
+  //   if (target.scrollTop < height) setState({ isBottom: false });
+  //   else setState({ isBottom: true });
+  // };
+  // const arrowClickHandler = () => {
+  //   if (state.isBottom) {
+  //     scrollToRef(container, 0);
+  //   } else {
+  //     const bottom =
+  //       container.current.scrollHeight - container.current.offsetHeight;
+  //     scrollToRef(container, bottom);
+  //   }
+  // };
+  const onArrowClickHandler = (ref) => (e) => {};
   return (
     <div className="Board">
       <div className="Title">{title}</div>
@@ -52,15 +59,36 @@ const Board = ({
             ref={scroll}
           >
             {channels.map((channel, index) => (
-              <div key={index} className="ChannelContainer">
+              <div
+                key={index}
+                className="ChannelContainer"
+                onClick={clickChannelHandler}
+              >
                 {channel.title + channel.subtitle + channel.imgType}
               </div>
             ))}
           </div>
         </div>
         <div className="IconSet">
-          <img className="Icon Arrow" src={arrow} alt="" />
-          <img className="Icon" src={plus} alt="" />
+          <div className="Icon">
+            <img
+              className={classNames('Arrow', {
+                Right: state.isEnd,
+                Left: !state.isEnd,
+              })}
+              src={arrow}
+              alt=""
+              onClick={onArrowClickHandler(scroll)}
+            />
+          </div>
+          <div className="Icon">
+            <img
+              className="Plus"
+              src={plus}
+              alt=""
+              onClick={createChannelHandler}
+            />
+          </div>
         </div>
       </div>
     </div>

@@ -61,14 +61,33 @@
             width: $stepSize * 6;
 
             .Icon {
-                pointer-events: all;
                 display: inline-block;
                 margin-left: $stepSize * 1.2;
                 margin-bottom: $stepSize * 2;
                 @include square(3.6);
+
+                .Arrow {
+                    pointer-events: all;
+                    height: 100%;
+                    width: 100%;
+                    @include animate-move-x();
+
+                    &.Right {
+                        @include animate-rotate(180deg);
+                    }
+
+                    &.Left {
+                        @include animate-rotate(360deg);
+                    }
+                }
+
+                .Plus {
+                    height: 100%;
+                    width: 100%;
+                }
             }
 
-            .Arrow {}
+
         }
     }
 

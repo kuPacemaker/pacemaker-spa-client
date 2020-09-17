@@ -15,7 +15,7 @@ const Newspeed = ({ peeds }) => {
   const [state, setState] = useState({
     isBottom: false,
   });
-  const onScrollHandler = (e) => {
+  const onScrollObserver = (e) => {
     const target = e.target;
     const height = target.scrollHeight - target.offsetHeight;
     if (target.scrollTop < height) setState({ isBottom: false });
@@ -47,7 +47,7 @@ const Newspeed = ({ peeds }) => {
         />
       </div>
 
-      <div className="Container" onScroll={onScrollHandler} ref={container}>
+      <div className="Container" onScroll={onScrollObserver} ref={container}>
         <div>
           {peeds.map((peed, index) => (
             <div className="PeedBox" key={index}>

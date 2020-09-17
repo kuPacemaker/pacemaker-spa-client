@@ -24,14 +24,6 @@
             width: 100%;
             @include animate-move-y();
         }
-
-        .Down {
-            @include animate-rotate(180deg);
-        }
-
-        .Up {
-            @include animate-rotate(360deg);
-        }
     }
 
 
