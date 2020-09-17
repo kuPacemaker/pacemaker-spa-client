@@ -32,22 +32,12 @@ const Board = ({
     else setState({ isEnd: true });
   };
 
-  // const onScrollHandler = (e) => {
-  //   const target = e.target;
-  //   const height = target.scrollHeight - target.offsetHeight;
-  //   if (target.scrollTop < height) setState({ isBottom: false });
-  //   else setState({ isBottom: true });
-  // };
-  // const arrowClickHandler = () => {
-  //   if (state.isBottom) {
-  //     scrollToRef(container, 0);
-  //   } else {
-  //     const bottom =
-  //       container.current.scrollHeight - container.current.offsetHeight;
-  //     scrollToRef(container, bottom);
-  //   }
-  // };
-  const onArrowClickHandler = (ref) => (e) => {};
+  const onArrowClickHandler = (ref) => (e) => {
+    let to = 0;
+    if (!state.isEnd) to = ref.current.scrollWidth - ref.current.offsetWidth;
+    scrollToRef(ref, to, 'smooth');
+    setState({ isEnd: !state.isEnd });
+  };
   return (
     <div className="Board">
       <div className="Title">{title}</div>
