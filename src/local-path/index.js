@@ -18,7 +18,6 @@ const main = {
       leader: 'leader',
       runner: 'runner',
     },
-    path: '/main-page/board/:type',
   },
   channel: {
     root: '/main-page/channel/',
@@ -37,8 +36,10 @@ const main = {
 
 main.board['leaderpath'] = main.board.root + main.board.elements.leader;
 main.board['runnerpath'] = main.board.root + main.board.elements.runner;
-main.channel['path'] = main.channel.root + ':id';
-main.unit['path'] = main.channel.root + ':id';
+
+main.board['path'] = main.board.root + ':type';
+main.channel['path'] = main.channel.root + ':type';
+main.unit['path'] = main.channel.root + ':type';
 main.documents['path'] = main.documents.root + ':id';
 main.statistics['path'] = main.statistics.root + ':id';
 

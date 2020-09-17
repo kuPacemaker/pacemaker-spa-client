@@ -1,7 +1,8 @@
 import React from 'react';
+import { useHistory } from 'react-router-dom';
 
 import Board from './view/Board';
-
+import { LocalMainPage } from 'local-path';
 const title = {
   en: {
     leader: 'FOR LEADER',
@@ -40,16 +41,17 @@ const channels = [
   },
 ];
 
-const clickChannelHandler = (type, id) => () => {
-  console.log('enter to Channel : ' + id);
-};
-const createChannelHandler = (type) => () => {
-  if (type === 'leader') console.log('create leader channel');
-  else if (type === 'runner') console.log('enter to leader channel');
-  else console.log('기능이 구현되지 않았습니다.');
-};
-
 const BoardContainer = ({ type }) => {
+  const history = useHistory();
+  const clickChannelHandler = (boardType, id) => () => {
+    history.push(LocalMainPage.channel.root + boardType + '?id=' + id);
+    console.log('enter to Channel : ' + id);
+  };
+  const createChannelHandler = (type) => () => {
+    if (type === 'leader') console.log('create leader channel');
+    else if (type === 'runner') console.log('enter to leader channel');
+    else console.log('기능이 구현되지 않았습니다.');
+  };
   return (
     <Board
       type={type}
