@@ -1,9 +1,9 @@
 import React from 'react';
 
-import SignIn from './view/SignIn';
+import Channel from './view/Channel';
 
-const SignInContainer = (prop) => {
-  return <SignIn />;
+const ChannelContainer = ({ test }) => {
+  return <Channel test={test} />;
 };
 
 // const mapStateToProps = ({ counter }) => ({
@@ -15,4 +15,4 @@ const SignInContainer = (prop) => {
 //   bindActionCreators({ incrementAsync, decrement, getPost }, dispatch);
 
 // export default connect(mapStateToProps, mapDispatchToProps)(CounterContainer);
-export default SignInContainer;
+export default ChannelContainer;

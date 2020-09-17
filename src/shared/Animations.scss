@@ -10,6 +10,11 @@
     }
 }
 
+@mixin underline($size) {
+    background-image: linear-gradient(transparent calc(100% - #{$size}), #111 $size);
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+}
 
 @mixin animate() {
     transition: all 0.35s ease;

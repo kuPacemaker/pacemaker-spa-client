@@ -5,8 +5,8 @@ import OverlayMenu from './view/OverlayMenu';
 
 const main = [
   ['MY FEED', LocalPath.main.newspeed],
-  ['FOR LEADER', LocalPath.main.leaderboard],
-  ['FOR RUNNER', LocalPath.main.runnerboard],
+  ['FOR LEADER', LocalPath.main.board.leaderpath],
+  ['FOR RUNNER', LocalPath.main.board.runnerpath],
   ['MY DOCUMENTS', LocalPath.main.documents],
 ];
 const optional = [
