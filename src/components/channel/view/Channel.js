@@ -1,19 +1,21 @@
 import React from 'react';
-
+import UnitThumbnail from 'components/unit-thumbnail';
 import arrow_left from 'resources/images/icon/arrow-left.png';
 import arrow_down from 'resources/images/icon/arrow-down.png';
+
 import plus from 'resources/images/icon/plus.png';
 
 import './Channel.scss';
 
 const Channel = ({
   channelId,
+  type,
   title,
   detail,
   owner,
   image,
-  channelCode,
   units,
+  channelCode,
   runners,
 }) => {
   return (
@@ -32,12 +34,25 @@ const Channel = ({
         <div className="Tab ShowRunnerList">RUNNER LIST</div>
         <div className="Tab ShowStatistics">STATISTICS</div>
       </div>
-      <div className="Context"></div>
+      <div className="Context">
+        {units.map((unit, index) => (
+          <div key={index} className="UnitLine">
+            <UnitThumbnail
+              channel={channelId}
+              id={unit.id}
+              type={type}
+              title={unit.title}
+            />
+          </div>
+        ))}
+      </div>
       <div className="FloatingIconSet">
         <img className="Icon Plus" src={plus} alt="" />
         <img className="Icon ArrowDown" src={arrow_down} alt="" />
       </div>
-      <img className="ChannelImage" src={image} alt="" />
+      <div className="ImageContainer">
+        <img className="ChannelImage" src={image} alt="" />
+      </div>
     </div>
   );
 };

@@ -2,9 +2,8 @@ import React from 'react';
 
 import UnitThumbnail from './view/UnitThumbnail';
 
-const UnitThumbnailContainer = ({ id }) => {
-  const image = require(`resources/images/channel/channel-image-${0}.jpg`);
-  return <UnitThumbnail title={id} detail={'detail'} image={image} />;
+const UnitThumbnailContainer = ({ channel, id, title }) => {
+  return <UnitThumbnail id={id} title={title} />;
 };
 
 // const mapStateToProps = ({ counter }) => ({

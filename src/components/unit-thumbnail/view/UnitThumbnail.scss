@@ -1,3 +1,43 @@
 @import 'shared/StyleValues.scss';
+@import 'shared/Animations.scss';
 
-.UnitThumbnail {}
+.UnitThumbnail {
+    width: 100%;
+    height: 65px;
+
+    .ContextSet {
+        padding-top: 17.5px;
+        padding-bottom: 17.5px;
+        display: inline-block;
+        width: 55%;
+
+        div {
+            display: inline-block;
+            font-size: $channelTab;
+        }
+
+        .UnitIndex {
+            width: 5em;
+
+        }
+
+        .UnitName {
+            margin-left: 10px;
+        }
+    }
+
+    .IconSet {
+        position: absolute;
+        display: inline-block;
+        right: 15%;
+        height: 65px;
+
+        padding-top: 20px;
+        padding-bottom: 20px;
+
+        .Icon {
+            @include square_px(25px);
+            margin-right: 30px;
+        }
+    }
+}

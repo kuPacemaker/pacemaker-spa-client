@@ -8,7 +8,7 @@ const channelDatas = {
     detail: 'Wed. 15:00~18:00',
     owner: 'Pr. Kelvin',
     code: 'XDWQAS221',
-    image: 0,
+    image: 2,
     units: [
       {
         id: 1,
@@ -38,10 +38,11 @@ const channelDatas = {
 const ChannelContainer = ({ type, id }) => {
   if (!channelDatas.hasOwnProperty(id)) return <Redirect to="/" />;
   const data = channelDatas[id];
-  const image = require(`resources/images/channel/channel-image-${0}.jpg`);
+  const image = require(`resources/images/channel/channel-image-${data.image}.jpg`);
   return (
     <Channel
       channelId={id}
+      type={type}
       title={data.title}
       detail={data.detail}
       owner={data.owner}
