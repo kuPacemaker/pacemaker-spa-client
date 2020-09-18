@@ -1,2 +1,2 @@
-import ChannelContainer from './ChannelContainer';
-export default ChannelContainer;
+import UnitContainer from './UnitContainer';
+export default UnitContainer;

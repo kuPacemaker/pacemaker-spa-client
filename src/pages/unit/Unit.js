@@ -1,6 +1,6 @@
 import React from 'react';
 import queryString from 'query-string';
-import Unit from 'components/Unit';
+import Unit from 'components/unit';
 
 const UnitPage = ({ location, match }) => {
   console.log(location);

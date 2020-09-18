@@ -39,7 +39,7 @@ main.board['runnerpath'] = main.board.root + main.board.elements.runner;
 
 main.board['path'] = main.board.root + ':type';
 main.channel['path'] = main.channel.root + ':type';
-main.unit['path'] = main.channel.root + ':type';
+main.unit['path'] = main.unit.root + ':type';
 main.documents['path'] = main.documents.root + ':id';
 main.statistics['path'] = main.statistics.root + ':id';
 
