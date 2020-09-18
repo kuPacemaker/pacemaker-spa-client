@@ -15,21 +15,21 @@ const channels = [
     id: 0,
     title: 'Basic Programming',
     detail: 'Tue. 15:00~18:00',
-    imgType: 1,
+    imgType: 0,
   },
   { id: 1, title: 'Data Structure', detail: 'Wed. 15:00~18:00', imgType: 2 },
   {
     id: 2,
     title: 'Basic Programming',
     detail: 'Wed. 15:00~18:00',
-    imgType: 3,
+    imgType: 1,
   },
   { id: 3, title: 'Data Structure', detail: 'When ever You Want!', imgType: 4 },
   {
     id: 4,
     title: 'Basic Programming',
     detail: 'When ever You Want!',
-    imgType: 5,
+    imgType: 2,
   },
   { id: 5, title: 'Algorithm', detail: 'When ever You Want!', imgType: 6 },
   { id: 6, title: 'Data Structure', detail: 'When ever You Want!', imgType: 7 },
@@ -37,7 +37,7 @@ const channels = [
     id: 7,
     title: 'Basic Programming',
     detail: 'When ever You Want!',
-    imgType: 0,
+    imgType: 4,
   },
 ];
 

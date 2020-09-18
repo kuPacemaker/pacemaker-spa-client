@@ -8,7 +8,7 @@ const channelDatas = {
     detail: 'Wed. 15:00~18:00',
     owner: 'Pr. Kelvin',
     code: 'XDWQAS221',
-    image: 2,
+    image: 0,
     units: [
       {
         id: 1,
@@ -51,7 +51,20 @@ const channelDatas = {
         },
       },
     ],
-    runners: ['AA', 'BB', 'CC', 'DD'],
+    runners: [
+      'AA',
+      'BB',
+      'CC',
+      'DD',
+      'AA',
+      'BB',
+      'CC',
+      'DD',
+      'AA',
+      'BB',
+      'CC',
+      'DD',
+    ],
   },
 };
 

@@ -4,16 +4,16 @@
 
 .Channel {
     position: fixed;
-    top: $stepSize*3;
+    top: $stepSize *3;
     left: 0;
     right: 0;
-    bottom: $stepSize*3;
+    bottom: $stepSize *3;
 
     .TopBar {
-
-        margin-left: $sidemargin*2;
+        margin-left: $sidemargin *2;
 
         .ArrowLeft {
+            pointer-events: all;
             @include square(3);
         }
     }
@@ -46,14 +46,7 @@
             display: inline;
             margin-right: 35px;
             font-size: $channelTab;
-
-            &.ShowChannelCode {}
-
-            &.ShowUnit {}
-
-            &.ShowRunnerList {}
-
-            &.ShowStatistics {}
+            // @include underline_effect(3px, 0.5s);
         }
     }
 
@@ -72,11 +65,18 @@
             display: none;
         }
 
-        .UnitLine {
-            border-bottom: 1px black solid;
-            height: 80px;
-            width: 100%;
-            padding-left: 35%;
+        .Container {
+            .Line {
+                border-bottom: 1px black solid;
+                height: 80px;
+                width: 100%;
+                padding-left: 35%;
+
+                .Runner {
+                    padding-top: 25px;
+                    font-size: $unitList;
+                }
+            }
         }
     }
 
@@ -90,9 +90,15 @@
             @include square(3);
             margin-right: 25px;
 
-            &.Plus {}
+            &.ArrowDown {
+                &.Up {
+                    @include animate-rotate(180deg);
+                }
 
-            &.ArrowDown {}
+                &.Down {
+                    @include animate-rotate(0deg);
+                }
+            }
 
         }
 
