@@ -2,8 +2,8 @@ import React from 'react';
 
 import Unit from './view/Unit';
 
-const UnitContainer = ({ type, id }) => {
-  return <Unit />;
+const UnitContainer = ({ type, channel, id }) => {
+  return <Unit type={type} channel={channel} id={id} />;
 };
 
 // const mapStateToProps = ({ counter }) => ({
