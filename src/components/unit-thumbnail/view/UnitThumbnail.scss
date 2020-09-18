@@ -7,11 +7,13 @@
     padding-top: 20px;
 
     .ContextSet {
+        pointer-events: all;
         vertical-align: middle;
         display: inline-block;
         width: 52.5%;
 
         div {
+            pointer-events: none;
             display: inline-block;
             font-size: $unitList;
         }

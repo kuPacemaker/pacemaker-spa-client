@@ -1,10 +1,9 @@
 import React from 'react';
 
-import Channel from './view/Channel';
+import Unit from './view/Unit';
 
-const ChannelContainer = ({ id }) => {
-  const image = require(`resources/images/channel/channel-image-${0}.jpg`);
-  return <Channel title={id} detail={'detail'} image={image} />;
+const UnitContainer = ({ type, id }) => {
+  return <Unit />;
 };
 
 // const mapStateToProps = ({ counter }) => ({
@@ -16,4 +15,4 @@ const ChannelContainer = ({ id }) => {
 //   bindActionCreators({ incrementAsync, decrement, getPost }, dispatch);
 
 // export default connect(mapStateToProps, mapDispatchToProps)(CounterContainer);
-export default ChannelContainer;
+export default UnitContainer;

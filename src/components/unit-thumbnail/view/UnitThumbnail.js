@@ -10,7 +10,7 @@ import answer from 'resources/images/icon/answer.png';
 
 import './UnitThumbnail.scss';
 
-const IconSet = ({ type, state, onClickHandler }) => {
+const IconSet = ({ type, state, onIconClickHandler }) => {
   if (type === 'leader')
     return (
       <div className="IconSet">
@@ -19,28 +19,28 @@ const IconSet = ({ type, state, onClickHandler }) => {
           name="edit"
           src={edit}
           alt=""
-          onClick={onClickHandler}
+          onClick={onIconClickHandler}
         />
         <img
           className="Icon"
           name="document"
           src={document}
           alt=""
-          onClick={onClickHandler}
+          onClick={onIconClickHandler}
         />
         <img
           className="Icon"
           name="upload"
           src={upload}
           alt=""
-          onClick={onClickHandler}
+          onClick={onIconClickHandler}
         />
         <img
           className="Icon"
           name="remove"
           src={remove}
           alt=""
-          onClick={onClickHandler}
+          onClick={onIconClickHandler}
         />
       </div>
     );
@@ -55,24 +55,31 @@ const IconSet = ({ type, state, onClickHandler }) => {
           name={state.isQuiz ? 'quiz' : 'answer'}
           src={state.isQuiz ? quiz : answer}
           alt=""
-          onClick={onClickHandler}
+          onClick={onIconClickHandler}
         />
         <img
           className="Icon"
           name="document"
           src={document}
           alt=""
-          onClick={onClickHandler}
+          onClick={onIconClickHandler}
         />
       </div>
     );
   else return <div />;
 };
 
-const UnitThumbnail = ({ type, id, title, state, onClickHandler }) => {
+const UnitThumbnail = ({
+  type,
+  id,
+  title,
+  state,
+  onUnitClickHandler,
+  onClickHandler,
+}) => {
   return (
     <div className="UnitThumbnail">
-      <div className="ContextSet">
+      <div className="ContextSet" onClick={onUnitClickHandler(type, id)}>
         <div className="UnitIndex">Unit {id}</div>
         <div className="UnitName">{title}</div>
       </div>

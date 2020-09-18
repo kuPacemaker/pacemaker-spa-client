@@ -67,6 +67,7 @@
 
         .Container {
             .Line {
+                pointer-events: none;
                 border-bottom: 1px black solid;
                 height: 80px;
                 width: 100%;
