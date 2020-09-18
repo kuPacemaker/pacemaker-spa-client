@@ -12,7 +12,7 @@ const buttons = {
     ],
     after: [
       ['MENU', undefined],
-      ['SEARCH', LocalPath.main.channel.root + 'test'],
+      ['SEARCH', undefined],
     ],
   },
   right: {

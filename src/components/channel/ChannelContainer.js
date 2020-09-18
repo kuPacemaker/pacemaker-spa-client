@@ -13,22 +13,42 @@ const channelDatas = {
       {
         id: 1,
         title: '2020 Election',
+        state: {
+          isQuiz: false,
+          active: true,
+        },
       },
       {
         id: 2,
         title: 'Mosquitoes',
+        state: {
+          isQuiz: true,
+          active: true,
+        },
       },
       {
         id: 3,
         title: 'Food and Drink',
+        state: {
+          isQuiz: true,
+          active: false,
+        },
       },
       {
         id: 4,
         title: 'Architecture',
+        state: {
+          isQuiz: true,
+          active: false,
+        },
       },
       {
         id: 5,
         title: 'Impact Your World',
+        state: {
+          isQuiz: true,
+          active: false,
+        },
       },
     ],
     runners: ['AA', 'BB', 'CC', 'DD'],

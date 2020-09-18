@@ -42,6 +42,7 @@ const Channel = ({
               id={unit.id}
               type={type}
               title={unit.title}
+              state={unit.state}
             />
           </div>
         ))}
