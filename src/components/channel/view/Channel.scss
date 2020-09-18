@@ -1,30 +1,87 @@
 @import 'shared/StyleValues.scss';
+@import 'shared/Animations.scss';
+
 
 .Channel {
-    height: 100%;
-    width: 100%;
+    position: fixed;
+    top: $stepSize*3;
+    left: 0;
+    right: 0;
+    bottom: $stepSize*3;
 
-    .ChannelImage {
-        display: block;
-        height: 75%;
+    .TopBar {
+        background-color: salmon;
+        margin-left: $sidemargin*2;
+
+        .ArrowLeft {
+            @include square(3);
+        }
     }
 
-    .ChannelContext {
-        margin-top: 10px;
+    .ChannelInformationBar {
+        background-color: seagreen;
+        margin-top: $stepSize;
+        margin-left: 35%;
 
         .ChannelTitle {
-            text-align: right;
-            word-break: normal;
-            white-space: normal;
-            font-size: $channelTitle;
+            font-size: $topMenu;
         }
 
         .ChannelDetail {
-            text-align: right;
-            word-break: normal;
-            white-space: normal;
-            font-size: $article;
+            font-size: $midArticle;
         }
+
+        .ChannelOwner {
+            font-size: $midArticle;
+        }
+    }
+
+    .ChannelTabBar {
+        text-align: right;
+        margin-top: $stepSize;
+        padding-right: 35px;
+        padding-bottom: $stepSize / 2;
+        border-bottom: 3px black solid;
+
+        .Tab {
+            display: inline;
+            margin-right: 35px;
+            font-size: $channelTab;
+
+            &.ShowChannelCode {}
+
+            &.ShowUnit {}
+
+            &.ShowRunnerList {}
+
+            &.ShowStatistics {}
+        }
+    }
+
+    .Context {}
+
+    .FloatingIconSet {
+        position: fixed;
+        right: 5%;
+
+        bottom: 10%;
+
+        .Icon {
+            @include square(3);
+
+            &.Plus {}
+
+            &.ArrowDown {}
+
+        }
+
+    }
+
+    .ChannelImage {
+        position: absolute;
+        top: 15%;
+        left: $sidemargin*2;
+        width: 25%;
     }
 
 }

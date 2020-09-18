@@ -7,6 +7,7 @@ import plus from 'resources/images/icon/plus.png';
 import './Channel.scss';
 
 const Channel = ({
+  channelId,
   title,
   detail,
   owner,
@@ -14,17 +15,16 @@ const Channel = ({
   channelCode,
   units,
   runners,
-  channelId,
 }) => {
   return (
-    <div className="ChannelContext">
+    <div className="Channel">
       <div className="TopBar">
         <img className="ArrowLeft" src={arrow_left} alt="" />
       </div>
       <div className="ChannelInformationBar">
         <div className="ChannelTitle">{title}</div>
         <div className="ChannelDetail">{detail}</div>
-        <div className="ChannelOwner">owner</div>
+        <div className="ChannelOwner">{owner}</div>
       </div>
       <div className="ChannelTabBar">
         <div className="Tab ShowChannelCode">CHANNEL CODE</div>
