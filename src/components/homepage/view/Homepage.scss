@@ -9,13 +9,13 @@
     height: 100%;
     width: 100%;
 
-    .context {
+    .Context {
         margin: 5% $sidemargin 5% $sidemargin;
         height: 90%;
 
         .MessageBox {
             position: relative;
-            top: calc(35%);
+            top: 35%;
             left: $stepSize *2;
 
             div {
@@ -31,10 +31,10 @@
             height: 70%;
         }
 
-        a {
+        .ArrowLink {
             position: relative;
             top: 5%;
-            left: calc(35%);
+            left: 35%;
 
 
             .Arrow {

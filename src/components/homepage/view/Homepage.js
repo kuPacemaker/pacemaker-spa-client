@@ -14,13 +14,14 @@ const Homepage = ({ preface }) => {
       className="Homepage"
       style={{ backgroundImage: 'url(' + background + ')' }}
     >
-      <div className="context">
+      <div className="Context">
         <img className="ConceptsImage" src={concepts} alt="" />
         <div className="MessageBox">
           {preface.map((message) => (
             <div key={message}>{message}</div>
           ))}
           <Link
+            className="ArrowLink"
             to={account.token ? LocalPath.main.root : LocalPath.admission.root}
           >
             <img className="Arrow" src={arrow} alt="" />
