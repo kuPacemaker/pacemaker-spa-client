@@ -2,7 +2,7 @@ import React from 'react';
 
 import Header from './view/Header';
 
-import LocalPath from 'local-path';
+import LocalPath from 'common/local-path';
 
 const buttons = {
   left: {

@@ -23,14 +23,14 @@
             height: 100%;
             width: 100%;
             @include animate-move-y();
-        }
 
-        .Down {
-            @include animate-rotate(180deg);
-        }
+            &.Down {
+                @include animate-rotate(360deg);
+            }
 
-        .Up {
-            @include animate-rotate(360deg);
+            &.Up {
+                @include animate-rotate(180deg);
+            }
         }
     }
 
@@ -41,7 +41,6 @@
         pointer-events: all;
         height: 100%;
         overflow-x: hidden;
-        @include animate();
 
         -ms-overflow-style: none;
         scrollbar-width: none;

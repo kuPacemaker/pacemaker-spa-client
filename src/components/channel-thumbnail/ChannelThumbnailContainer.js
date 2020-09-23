@@ -1,9 +1,10 @@
 import React from 'react';
 
-import SignIn from './view/SignIn';
+import ChannelThumbnail from './view/ChannelThumbnail';
 
-const SignInContainer = (prop) => {
-  return <SignIn />;
+const ChannelThumbnailContainer = ({ title, detail, imgType }) => {
+  const image = require(`resources/images/channel/channel-image-${imgType}.jpg`);
+  return <ChannelThumbnail title={title} detail={detail} image={image} />;
 };
 
 // const mapStateToProps = ({ counter }) => ({
@@ -15,4 +16,4 @@ const SignInContainer = (prop) => {
 //   bindActionCreators({ incrementAsync, decrement, getPost }, dispatch);
 
 // export default connect(mapStateToProps, mapDispatchToProps)(CounterContainer);
-export default SignInContainer;
+export default ChannelThumbnailContainer;

@@ -1,7 +1,7 @@
 import React from 'react';
 import { Route, Redirect, Switch } from 'react-router-dom';
 import { SignIn, SignUp, FindAccount } from 'pages';
-import { LocalAdmission } from 'local-path';
+import { LocalAdmission } from 'common/local-path';
 
 const AdmissionRounter = () => {
   return (

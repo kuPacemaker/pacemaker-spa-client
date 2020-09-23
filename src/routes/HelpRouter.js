@@ -1,7 +1,7 @@
 import React from 'react';
 import { Route, Redirect, Switch } from 'react-router-dom';
 import { AboutUs } from 'pages';
-import { LocalHelp } from 'local-path';
+import { LocalHelp } from 'common/local-path';
 
 const HelpRouter = () => {
   console.log(LocalHelp);

@@ -1,7 +1,7 @@
 import React from 'react';
 import classNames from 'classnames';
 
-import exit from 'resources/images/icon/exit.png';
+import cross from 'resources/images/icon/cross.png';
 import concept from 'resources/images/concept/account-image.jpg';
 import './Account.scss';
 
@@ -9,7 +9,7 @@ const Account = ({ user, show, texts, moveToModify, signoutHandler }) => {
   return (
     <div className="Account">
       <div className="Context">
-        <img className="Close" src={exit} alt="" />
+        <img className="Close" src={cross} alt="" />
         <div className="Title">
           {texts.title}
           {user.name}!

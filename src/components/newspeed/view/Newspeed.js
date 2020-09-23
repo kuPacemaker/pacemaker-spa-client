@@ -15,20 +15,20 @@ const Newspeed = ({ peeds }) => {
   const [state, setState] = useState({
     isBottom: false,
   });
-  const onScrollHandler = (e) => {
-    const target = e.target;
+  const onScrollObserver = (ref) => () => {
+    const target = ref.current;
     const height = target.scrollHeight - target.offsetHeight;
     if (target.scrollTop < height) setState({ isBottom: false });
     else setState({ isBottom: true });
   };
-  const arrowClickHandler = () => {
+  const arrowClickHandler = (ref) => () => {
     if (state.isBottom) {
-      scrollToRef(container, 0);
+      scrollToRef(ref, 0);
     } else {
-      const bottom =
-        container.current.scrollHeight - container.current.offsetHeight;
-      scrollToRef(container, bottom);
+      const bottom = ref.current.scrollHeight - ref.current.offsetHeight;
+      scrollToRef(ref, bottom);
     }
+    setState({ ...state, isBottom: !state.isBottom });
   };
   return (
     <div
@@ -38,16 +38,20 @@ const Newspeed = ({ peeds }) => {
       <div className="ArrowFrame">
         <img
           className={classNames('Arrow', {
-            Down: state.isBottom,
-            Up: !state.isBottom,
+            Down: !state.isBottom,
+            Up: state.isBottom,
           })}
           src={arrow}
-          onClick={arrowClickHandler}
+          onClick={arrowClickHandler(container)}
           alt=""
         />
       </div>
 
-      <div className="Container" onScroll={onScrollHandler} ref={container}>
+      <div
+        className="Container"
+        onWheel={onScrollObserver(container)}
+        ref={container}
+      >
         <div>
           {peeds.map((peed, index) => (
             <div className="PeedBox" key={index}>

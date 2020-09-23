@@ -3,7 +3,7 @@ import { useHistory } from 'react-router-dom';
 
 import ModifyAccount from './view/ModifyAccount';
 
-import LocalPath from 'local-path';
+import LocalPath from 'common/local-path';
 
 const title = 'MODIFY ACCOUNT INFORMATION';
 

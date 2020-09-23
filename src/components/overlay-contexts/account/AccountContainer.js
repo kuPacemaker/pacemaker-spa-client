@@ -3,7 +3,7 @@ import { useHistory } from 'react-router-dom';
 import Account from './view/Account';
 
 import { account } from 'shared/test-data';
-import LocalPath from 'local-path';
+import LocalPath from 'common/local-path';
 
 const texts = {
   title: "Let's Run, ",

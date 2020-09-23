@@ -4,7 +4,7 @@ import classNames from 'classnames';
 import Input from 'components/custom-input';
 import arrow from 'resources/images/icon/arrow-right.png';
 
-import exit from 'resources/images/icon/exit.png';
+import cross from 'resources/images/icon/cross.png';
 import './ModifyAccount.scss';
 
 const ModifyAccount = ({
@@ -17,7 +17,7 @@ const ModifyAccount = ({
   return (
     <div className="ModifyAccount">
       <div className="Container">
-        <img className="Close" src={exit} alt="" />
+        <img className="Close" src={cross} alt="" />
         <div className="Context">
           <div>
             <div className="Title">{title}</div>

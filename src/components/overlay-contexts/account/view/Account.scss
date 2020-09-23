@@ -10,8 +10,8 @@
 
     .Context {
         position: fixed;
-        right: 2.5%;
-        margin-top: 5%;
+        right: $stepSize*2;
+        margin-top: $stepSize*2;
         width: 45%;
         height: 75%;
         text-align: right;
@@ -19,17 +19,10 @@
 
     .Close {
         @include square(4);
-
-        &.Show {
-            pointer-events: all;
-        }
-
-        &.Hide {
-            pointer-events: none;
-        }
     }
 
     .Title {
+        margin-top: $stepSize*2;
         position: relative;
         font-size: $topMenu;
         text-align: right;

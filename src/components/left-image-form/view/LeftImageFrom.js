@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import './LeftImageFrom.scss';
 import Input from 'components/custom-input';
 import arrow from 'resources/images/icon/arrow-right.png';
-import LocalPath from 'local-path';
+import LocalPath from 'common/local-path';
 
 const LeftImageFrom = ({
   title,

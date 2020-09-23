@@ -5,3 +5,6 @@ export { default as SignIn } from './sign-in/SignIn';
 export { default as SignUp } from './sign-up/SignUp';
 export { default as FindAccount } from './find-accout/FindAccout';
 export { default as Newspeed } from './newspeed/Newspeed';
+export { default as Board } from './board/Board';
+export { default as Channel } from './channel/Channel';
+export { default as Unit } from './unit/Unit';

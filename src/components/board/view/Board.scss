@@ -1,0 +1,90 @@
+@import 'shared/StyleValues.scss';
+@import 'shared/Animations.scss';
+
+.Board {
+    position: fixed;
+    top: 15%;
+    left: $sidemargin *3;
+    right: $sidemargin *3;
+
+    bottom: 15%;
+
+    .Title {
+        display: inline-block;
+        font-size: $topArticle;
+        @include underline(4px);
+    }
+
+    .Context {
+        margin-top: $stepSize * 2;
+
+        height: 100%;
+
+        .ScrollContainer {
+            height: 100%;
+            margin-left: $stepSize;
+            width: calc(100% - #{$stepSize * 8});
+
+            .Scroll {
+                pointer-events: all;
+                height: 100%;
+                white-space: nowrap;
+                overflow-x: scroll;
+                overflow-y: hidden;
+
+                -ms-overflow-style: none;
+                scrollbar-width: none;
+
+                &::-webkit-scrollbar {
+                    display: none;
+                }
+
+                .ChannelContainer {
+                    display: inline-block;
+
+                    margin: 0 4vw 0 4vw;
+                    // width: 24vw; //400px;
+                    height: 30vw; //calc(100% - #{$stepSize *2 });
+                }
+            }
+        }
+
+        .IconSet {
+            position: absolute;
+            top: calc(50% - #{$stepSize * 5});
+            right: 0;
+            width: $stepSize * 6;
+
+            .Icon {
+                display: inline-block;
+                margin-left: $stepSize * 1.2;
+                margin-bottom: $stepSize * 2;
+                @include square(3.6);
+
+                .Arrow {
+                    pointer-events: all;
+                    height: 100%;
+                    width: 100%;
+                    @include animate-move-x();
+
+                    &.Right {
+                        @include animate-rotate(180deg);
+                    }
+
+                    &.Left {
+                        @include animate-rotate(360deg);
+                    }
+                }
+
+                .Plus {
+                    pointer-events: all;
+                    height: 100%;
+                    width: 100%;
+                }
+            }
+
+
+        }
+    }
+
+}

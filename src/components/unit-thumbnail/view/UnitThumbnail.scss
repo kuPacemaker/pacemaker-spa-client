@@ -1,0 +1,50 @@
+@import 'shared/StyleValues.scss';
+@import 'shared/Animations.scss';
+
+.UnitThumbnail {
+    width: 100%;
+    height: 80px;
+    padding-top: 20px;
+
+    .ContextSet {
+        pointer-events: all;
+        vertical-align: middle;
+        display: inline-block;
+        width: 52.5%;
+
+        div {
+            pointer-events: none;
+            display: inline-block;
+            font-size: $unitList;
+        }
+
+        .UnitIndex {
+            width: 5em;
+
+        }
+
+        .UnitName {
+            margin-left: 10px;
+        }
+    }
+
+    .IconSet {
+        vertical-align: middle;
+        display: inline-block;
+
+        img.Icon {
+            @include square_px(35px);
+            margin-right: 40px;
+            pointer-events: all;
+
+            &.On {
+                opacity: 1;
+            }
+
+            &.Off {
+                pointer-events: none;
+                opacity: 0.5;
+            }
+        }
+    }
+}
