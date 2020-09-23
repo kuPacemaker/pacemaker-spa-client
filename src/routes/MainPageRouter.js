@@ -1,7 +1,7 @@
 import React from 'react';
 import { Route, Redirect, Switch } from 'react-router-dom';
 import { Newspeed, Board, Channel, Unit } from 'pages';
-import { LocalMainPage } from 'local-path';
+import { LocalMainPage } from 'common/local-path';
 
 const MainPageRouter = () => {
   return (

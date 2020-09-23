@@ -1,6 +1,6 @@
 import React from 'react';
 import { useHistory } from 'react-router-dom';
-import LocalPath from 'local-path';
+import LocalPath from 'common/local-path';
 import OverlayMenu from './view/OverlayMenu';
 
 const main = [

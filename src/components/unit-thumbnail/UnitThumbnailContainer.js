@@ -1,7 +1,7 @@
 import React from 'react';
 import { useHistory } from 'react-router-dom';
 
-import { LocalMainPage } from 'local-path';
+import { LocalMainPage } from 'common/local-path';
 import UnitThumbnail from './view/UnitThumbnail';
 
 const onIconClickHandler = (history) => (channel, id, type) => (e) => {

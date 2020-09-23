@@ -2,7 +2,7 @@ import React from 'react';
 import { useHistory } from 'react-router-dom';
 
 import Board from './view/Board';
-import { LocalMainPage } from 'local-path';
+import { LocalMainPage } from 'common/local-path';
 const title = {
   en: {
     leader: 'FOR LEADER',

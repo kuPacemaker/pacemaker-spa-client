@@ -5,7 +5,7 @@ import concepts from 'resources/images/concept/home-image.jpg';
 import background from 'resources/images/background/background-up.png';
 import arrow from 'resources/images/icon/arrow-right.png';
 
-import LocalPath from 'local-path';
+import LocalPath from 'common/local-path';
 import { account } from 'shared/test-data';
 
 const Homepage = ({ preface }) => {

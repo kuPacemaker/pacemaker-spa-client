@@ -1,7 +1,7 @@
 import React from 'react';
 import { Redirect } from 'react-router-dom';
 import Board from 'components/board';
-import { LocalMainPage } from 'local-path';
+import { LocalMainPage } from 'common/local-path';
 
 const BoardPage = ({ match }) => {
   const type = match.params.type;
