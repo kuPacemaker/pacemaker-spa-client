@@ -31,8 +31,7 @@ const onIconClickHandler = (history) => (channel, id, type) => (e) => {
 };
 
 const onUnitClickHandler = (history) => (channel) => (type, id) => () => {
-  const path =
-    LocalMainPage.unit.root + type + '?channel=' + channel + '&id=' + id;
+  const path = `${LocalMainPage.unit.root}${type}?channel=${channel}&id=${id}`;
   history.push(path);
 };
 

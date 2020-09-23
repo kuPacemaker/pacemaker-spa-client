@@ -2,7 +2,8 @@ import React, { useRef, useState } from 'react';
 import { useHistory } from 'react-router-dom';
 import classNames from 'classnames';
 
-import UnitThumbnail from 'components/unit-thumbnail';
+import UnitList from './resources/UnitList';
+import RunnerList from './resources/RunnerList';
 import arrow_left from 'resources/images/icon/arrow-left.png';
 import arrow_down from 'resources/images/icon/arrow-down.png';
 
@@ -64,31 +65,9 @@ const Channel = ({
         ref={context}
       >
         {state.tab === 'units' && (
-          <div className="Container">
-            {units.map((unit, index) => (
-              <div key={index} className="Line">
-                <UnitThumbnail
-                  channel={channelId}
-                  id={unit.id}
-                  type={type}
-                  title={unit.title}
-                  state={unit.state}
-                />
-              </div>
-            ))}
-          </div>
+          <UnitList type={type} channel={channelId} units={units} />
         )}
-        {state.tab === 'runners' && (
-          <div className="Container">
-            {runners.map((runner, index) => (
-              <div key={index} className="Line">
-                <div key={index} className="Runner">
-                  {runner}
-                </div>
-              </div>
-            ))}
-          </div>
-        )}
+        {state.tab === 'runners' && <RunnerList runners={runners} />}
       </div>
       <div className="FloatingIconSet">
         <img className="Icon Plus" src={plus} alt="" />

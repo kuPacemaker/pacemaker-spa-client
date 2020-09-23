@@ -47,9 +47,9 @@ const BoardContainer = ({ type }) => {
     history.push(LocalMainPage.channel.root + boardType + '?id=' + id);
     console.log('enter to Channel : ' + id);
   };
-  const createChannelHandler = (type) => () => {
-    if (type === 'leader') console.log('create leader channel');
-    else if (type === 'runner') console.log('enter to leader channel');
+  const createChannelHandler = (_type) => () => {
+    if (_type === 'leader') console.log('create leader channel');
+    else if (_type === 'runner') console.log('enter to leader channel');
     else console.log('기능이 구현되지 않았습니다.');
   };
   return (
