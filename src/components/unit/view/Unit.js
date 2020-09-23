@@ -51,6 +51,9 @@ const Unit = ({ type, channel, unit }) => {
           </div>
         </div>
       </div>
+      <div className="ContextContainer">
+        <div className="Context"></div>
+      </div>
       <div
         className="Context"
         onWheel={onScrollObserver(context)}

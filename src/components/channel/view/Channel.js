@@ -2,8 +2,8 @@ import React, { useRef, useState } from 'react';
 import { useHistory } from 'react-router-dom';
 import classNames from 'classnames';
 
-import UnitList from './resources/UnitList';
-import RunnerList from './resources/RunnerList';
+import UnitList from './sub-components/UnitList';
+import RunnerList from './sub-components/RunnerList';
 import arrow_left from 'resources/images/icon/arrow-left.png';
 import arrow_down from 'resources/images/icon/arrow-down.png';
 
