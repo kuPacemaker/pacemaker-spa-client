@@ -35,13 +35,14 @@ const onUnitClickHandler = (history) => (channel) => (type, id) => () => {
   history.push(path);
 };
 
-const UnitThumbnailContainer = ({ type, channel, id, title, state }) => {
+const UnitThumbnailContainer = ({ type, channel, id, index, title, state }) => {
   const history = useHistory();
 
   return (
     <UnitThumbnail
       type={type}
       id={id}
+      index={index}
       title={title}
       state={state}
       onIconClickHandler={onIconClickHandler(history)(channel, id, type)}

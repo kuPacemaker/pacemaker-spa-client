@@ -8,6 +8,7 @@ const UnitList = ({ type, channel, units }) => (
         <UnitThumbnail
           channel={channel}
           id={unit.id}
+          index={unit.index}
           type={type}
           title={unit.title}
           state={unit.state}

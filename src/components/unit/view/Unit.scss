@@ -37,7 +37,7 @@
         border-top: 3px black solid;
         border-bottom: 3px black solid;
 
-        .Context {
+        .InformationContext {
             margin-top: 20px;
             margin-left: $sidemargin *2;
 
@@ -72,12 +72,11 @@
         }
     }
 
-    .ContextContainer {
-        margin-top: $stepSize;
-        margin-left: $sidemargin *2;
-        margin-right: $sidemargin *4;
-
-        .Context {
+    .Context {
+        .DocumentContainer {
+            margin-top: $stepSize;
+            margin-left: $sidemargin *2;
+            margin-right: $sidemargin *4;
 
             .DocumentTitle {
                 margin-bottom: 15px;
@@ -119,6 +118,32 @@
                 }
             }
         }
+
+        .QuizContext {
+            .TabTitle {
+                font-size: $channelThumbnail;
+                margin-top: $stepSize;
+                padding-bottom: $stepSize;
+                padding-left: $sidemargin *2;
+                border-bottom: 2px black solid;
+            }
+
+            .QuizContainer {
+                height: 420px;
+                width: 100%;
+
+                overflow-x: hidden;
+                overflow-y: scroll;
+
+                -ms-overflow-style: none;
+                scrollbar-width: none;
+
+                &::-webkit-scrollbar {
+                    display: none;
+                }
+            }
+        }
+
     }
 
 

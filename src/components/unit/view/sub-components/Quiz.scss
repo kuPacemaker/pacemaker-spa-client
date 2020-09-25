@@ -1,0 +1,57 @@
+@import 'shared/StyleValues.scss';
+@import 'shared/Animations.scss';
+
+.Quiz {
+    border-bottom: 2px black solid;
+    padding-bottom: 5px;
+
+    .RemoveQuiz {
+        pointer-events: all;
+        margin-left: $sidemargin*2;
+        @include square(1);
+        @include animate();
+
+        &.Hide {
+            pointer-events: none;
+            opacity: 0;
+        }
+    }
+
+    .QuizBody {
+        margin-left: 20px;
+        display: inline-block;
+        vertical-align: bottom;
+        margin-top: 5px;
+        font-size: $channelTab;
+        @include animate();
+
+        &.Removed {
+            text-decoration: line-through;
+            opacity: 0.5;
+        }
+    }
+
+    .AnswerSet {
+        margin-top: 5px;
+        margin-left: $sidemargin *3;
+        pointer-events: none;
+        @include animate();
+
+        .Answer {
+            display: inline-block;
+            margin-right: 15px;
+            font-size: $midArticle;
+        }
+
+        &.Hide {
+            opacity: 0 !important;
+            margin-top: -27px;
+        }
+
+        &.Removed {
+            opacity: 0.5;
+        }
+
+    }
+
+}

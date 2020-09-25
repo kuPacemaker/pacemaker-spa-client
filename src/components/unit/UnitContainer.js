@@ -11,7 +11,8 @@ const unitData = {
     code: 'XDWQAS221',
   },
   unit_leader: {
-    id: 2,
+    id: 0,
+    index: 2,
     title: 'Mosquitoes',
     document: {
       id: 'asd/mosquitoes',
@@ -62,11 +63,50 @@ const unitData = {
           answer_set: 'AA/BB/CC/DD',
           verified: true,
         },
+        {
+          id: 0,
+          quiz:
+            'What is being put into place to release genetically modified mosquitoes into the Florida Keys?',
+          answer: 'AA',
+          answer_set: 'AA/BB/CC/DD',
+          verified: true,
+        },
+        {
+          id: 1,
+          quiz: 'Who can only female mosquitoes bite ?',
+          answer: 'AA',
+          answer_set: 'AA/BB/CC/DD',
+          verified: true,
+        },
+        {
+          id: 2,
+          quiz:
+            'What type of mosquitoes were developed to control the mosquito population in Panama?',
+          answer: 'GMO mosquitoes',
+          answer_set: 'Zika virus/GMO mosquitoes/Florida/Dengue fever',
+          verified: true,
+        },
+        {
+          id: 3,
+          quiz: 'What kind of insects are being released in Florida?',
+          answer: 'AA',
+          answer_set: 'AA/BB/CC/DD',
+          verified: true,
+        },
+        {
+          id: 4,
+          quiz:
+            'Where have the company that developed GMO mosquitoes been successful in controlling mosquito populations?',
+          answer: 'AA',
+          answer_set: 'AA/BB/CC/DD',
+          verified: true,
+        },
       ],
     },
   },
   unit_runner: {
-    id: 2,
+    id: 0,
+    index: 2,
     title: 'Mosquitoes',
     document: {
       id: 'asd/mosquitoes',

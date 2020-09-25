@@ -2,9 +2,11 @@ import React, { useRef, useState } from 'react';
 import { useHistory } from 'react-router-dom';
 
 import FloatingIcons from 'components/floating-icons';
+
 import TopIconSet from './sub-components/TopIconSet';
 import Document from './sub-components/Document';
 import EditDocument from './sub-components/EditDocument';
+import Quiz from './sub-components/Quiz';
 
 import arrow_left from 'resources/images/icon/arrow-left.png';
 
@@ -14,7 +16,7 @@ import './Unit.scss';
 // [{ type: 'arrow-down', onClickHandler: () => {} }];
 
 const Unit = ({ type, channel, unit, documentHandler }) => {
-  const [state, setState] = useState({ tab: 'document', rotate: false });
+  const [state, setState] = useState({ tab: 'upload', rotate: false });
 
   const history = useHistory();
 
@@ -86,8 +88,8 @@ const Unit = ({ type, channel, unit, documentHandler }) => {
       </div>
 
       <div className="UnitInformationBar">
-        <div className="Context">
-          <div className="UnitIndex">Unit {unit.id}</div>
+        <div className="InformationContext">
+          <div className="UnitIndex">Unit {unit.index}</div>
           <div className="UnitTitle">{unit.title}</div>
           <div className="UnitIconSet">
             <TopIconSet type={type} unit={unit} onClickHandler={changeTab} />
@@ -95,35 +97,40 @@ const Unit = ({ type, channel, unit, documentHandler }) => {
         </div>
       </div>
 
-      <div className="ContextContainer">
-        <div
-          className="Context"
-          onWheel={onScrollObserver(context)}
-          ref={context}
-        >
-          {state.tab === 'document' && (
+      <div className="Context">
+        {state.tab === 'document' && (
+          <div className="DocumentContainer">
             <Document
               type={type}
               title={unit.document.title}
               body={unit.document.body}
               changeTab={changeTab}
             />
-          )}
-          {state.tab === 'document_edit' && (
+          </div>
+        )}
+        {state.tab === 'document_edit' && (
+          <div className="DocumentContainer">
             <EditDocument
               title={unit.document.title}
               body={unit.document.body}
               documentHandler={documentHandler}
             />
-          )}
-          {state.tab === 'upload' && (
-            <div>
+          </div>
+        )}
+        {state.tab === 'upload' && (
+          <div className="QuizContext">
+            <div className="TabTitle">QUIZ</div>
+            <div
+              className="QuizContainer"
+              onWheel={onScrollObserver(context)}
+              ref={context}
+            >
               {unit.paper.questions.map((question, index) => (
-                <div>{question.quiz}</div>
+                <Quiz key={index} data={question} />
               ))}
             </div>
-          )}
-        </div>
+          </div>
+        )}
       </div>
 
       <div className="IconContainer">

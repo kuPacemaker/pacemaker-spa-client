@@ -72,6 +72,7 @@ const IconSet = ({ type, state, onIconClickHandler }) => {
 const UnitThumbnail = ({
   type,
   id,
+  index,
   title,
   state,
   onUnitClickHandler,
@@ -80,7 +81,7 @@ const UnitThumbnail = ({
   return (
     <div className="UnitThumbnail">
       <div className="ContextSet" onClick={onUnitClickHandler(type, id)}>
-        <div className="UnitIndex">Unit {id}</div>
+        <div className="UnitIndex">Unit {index}</div>
         <div className="UnitTitle">{title}</div>
       </div>
       <IconSet type={type} state={state} onClickHandler={onClickHandler} />

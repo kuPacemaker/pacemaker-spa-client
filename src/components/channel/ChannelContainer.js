@@ -12,6 +12,7 @@ const channelDatas = {
     units: [
       {
         id: 1,
+        index: 1,
         title: '2020 Election',
         state: {
           isQuiz: false,
@@ -20,6 +21,7 @@ const channelDatas = {
       },
       {
         id: 2,
+        index: 2,
         title: 'Mosquitoes',
         state: {
           isQuiz: true,
@@ -28,6 +30,7 @@ const channelDatas = {
       },
       {
         id: 3,
+        index: 3,
         title: 'Food and Drink',
         state: {
           isQuiz: true,
@@ -36,6 +39,7 @@ const channelDatas = {
       },
       {
         id: 4,
+        index: 4,
         title: 'Architecture',
         state: {
           isQuiz: true,
@@ -44,6 +48,7 @@ const channelDatas = {
       },
       {
         id: 5,
+        index: 5,
         title: 'Impact Your World',
         state: {
           isQuiz: true,
