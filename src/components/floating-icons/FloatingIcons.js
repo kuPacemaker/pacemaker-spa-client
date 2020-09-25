@@ -2,13 +2,6 @@ import React from 'react';
 import classNames from 'classnames';
 import './FloatingIcons.scss';
 
-const data = [
-  {
-    type: '',
-    observer: '',
-    onClickHandler: '',
-  },
-];
 const FloatingIcons = ({ icons }) => {
   if (!icons) return <div></div>;
   return (
@@ -18,10 +11,9 @@ const FloatingIcons = ({ icons }) => {
           <img
             key={index}
             className={
-              icon.observer
-                ? classNames('Icon', {
-                    Up: icon.observer,
-                    Down: !icon.observer,
+              icon.observer !== undefined
+                ? classNames('Icon', 'RotateIcon', {
+                    Rotate: icon.observer,
                   })
                 : 'Icon'
             }

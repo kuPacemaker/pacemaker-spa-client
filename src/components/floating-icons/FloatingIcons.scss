@@ -8,15 +8,13 @@
         pointer-events: all;
         display: block;
         margin-bottom: 25px;
+    }
 
-        &.ArrowDown {
-            &.Up {
-                @include animate-rotate(180deg);
-            }
+    .RotateIcon {
+        @include animate-rotate(0deg);
 
-            &.Down {
-                @include animate-rotate(0deg);
-            }
+        &.Rotate {
+            @include animate-rotate(180deg);
         }
     }
 }

@@ -20,7 +20,7 @@ const Unit = ({ type, channel, unit, documentHandler }) => {
 
   const history = useHistory();
 
-  const context = useRef(null);
+  const quizContainer = useRef(null);
 
   const changeTab = (name) => () => {
     console.log(name);
@@ -94,6 +94,9 @@ const Unit = ({ type, channel, unit, documentHandler }) => {
           <div className="UnitIconSet">
             <TopIconSet type={type} unit={unit} onClickHandler={changeTab} />
           </div>
+          <div className="MakeReservation">
+            <div className="TitleButton">MAKE RESERVATION</div>
+          </div>
         </div>
       </div>
 
@@ -122,8 +125,8 @@ const Unit = ({ type, channel, unit, documentHandler }) => {
             <div className="TabTitle">QUIZ</div>
             <div
               className="QuizContainer"
-              onWheel={onScrollObserver(context)}
-              ref={context}
+              onWheel={onScrollObserver(quizContainer)}
+              ref={quizContainer}
             >
               {unit.paper.questions.map((question, index) => (
                 <Quiz key={index} data={question} />
