@@ -1,0 +1,22 @@
+@import 'shared/StyleValues.scss';
+@import 'shared/Animations.scss';
+
+
+.FloatingIcons {
+    .Icon {
+        @include square(3);
+        pointer-events: all;
+        display: block;
+        margin-bottom: 25px;
+
+        &.ArrowDown {
+            &.Up {
+                @include animate-rotate(180deg);
+            }
+
+            &.Down {
+                @include animate-rotate(0deg);
+            }
+        }
+    }
+}

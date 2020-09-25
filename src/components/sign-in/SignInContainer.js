@@ -30,6 +30,7 @@ const SignInContainer = (prop) => {
     pw: '',
   });
   const onChangeHandler = (type) => (data) => {
+    console.log(data);
     switch (type) {
       case 'E-MAIL':
         setState({ ...state, id: data });
