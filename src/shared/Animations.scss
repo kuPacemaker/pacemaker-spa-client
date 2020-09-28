@@ -20,6 +20,11 @@
     transition: all 0.35s ease;
 }
 
+@mixin animate_short() {
+    transition: all 0.2s ease;
+}
+
+
 @mixin square($size) {
     $calculated: $stepSize * $size;
     width: $calculated;

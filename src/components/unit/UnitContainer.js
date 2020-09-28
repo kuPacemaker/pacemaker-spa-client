@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { useHistory } from 'react-router-dom';
 
 import Unit from './view/Unit';
 
@@ -14,6 +15,7 @@ const unitData = {
     id: 0,
     index: 2,
     title: 'Mosquitoes',
+    isOpened: true,
     document: {
       id: 'asd/mosquitoes',
       visible: true,
@@ -108,9 +110,10 @@ const unitData = {
     id: 0,
     index: 2,
     title: 'Mosquitoes',
+    isOpened: false,
     document: {
       id: 'asd/mosquitoes',
-      visible: true,
+      visible: false,
       title: 'How to reduce harmful mosquitoes.',
       body:
         'A controversial plan is moving ahead to release genetically modified mosquitoes into the Florida Keys. More than 750,000 of the insects are set to be introduced there. Why? The aedes aegypti mosquito can carry dangerous diseases like the Zika virus, Dengue fever and yellow fever. Officials are looking for new ways to kill of these insects without using pesticides and genetically modified mosquitoes might be a way to do this. Only female mosquitoes bite people. The altered insects that are set to be released in Florida are male. They`ve been modified so that the female offspring they produce will die before they hatch from their eggs and grow big enough to bite people. And the company that developed these GMO mosquitoes say they`ve been very successful in controlling mosquito populations in Panama, Brazil and the Cayman Islands.',
@@ -194,28 +197,35 @@ const documentHandler = (state, setState) => (type) => (data) => {
   }
 };
 
+const onAnswerHandler = (state, setState) => (index, answer) => () => {
+  const { questions } = state.unit_runner.paper;
+  setState({
+    ...state,
+    unit_runner: {
+      ...state.unit_runner,
+      paper: {
+        ...state.unit_runner.paper,
+        questions: questions.map((q, i) =>
+          i === index ? { ...q, answer: answer } : q
+        ),
+      },
+    },
+  });
+};
+
 const UnitContainer = ({ type, channel, id }) => {
   const [state, setState] = useState(unitData);
-  const onAnswerHandler = (index, answer) => () => {
-    setState({
-      ...state,
-      unit_runner: {
-        ...state.unit_runner,
-        paper: {
-          ...state.unit_leader.document,
-          body: data,
-        },
-      },
-    });
-  };
+  const history = useHistory();
   const unit = type === 'leader' ? state.unit_leader : state.unit_runner;
+  if (!unit.isOpened) history.goBack();
+
   return (
     <Unit
       type={type}
       channel={unitData.channel}
       unit={unit}
       documentHandler={documentHandler(state, setState)}
-      // onAnswerHandler={}
+      onAnswerHandler={onAnswerHandler(state, setState)}
     />
   );
 };

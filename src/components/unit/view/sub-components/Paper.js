@@ -5,6 +5,7 @@ import './Paper.scss';
 
 import arrow_left from 'resources/images/icon/arrow-left.png';
 import arrow_right from 'resources/images/icon/arrow-right.png';
+import check from 'resources/images/icon/check-symbol.png';
 
 const alphabat = 'ABCDEFGHIJKLMNOPQUSTUVWXYZ';
 
@@ -27,9 +28,17 @@ const Paper = ({ questions, onAnswerHandler }) => {
         <div className="AnswerSet">
           {questions[state.index].answer_set.split('/').map((answer, index) => (
             <div
+              key={index}
               className="Answer"
               onClick={onAnswerHandler(state.index, answer)}
             >
+              <img
+                className={classNames('Checked', {
+                  Show: questions[state.index].answer === answer,
+                })}
+                src={check}
+                alt=""
+              />
               {alphabat.charAt(index)}) {answer}
             </div>
           ))}

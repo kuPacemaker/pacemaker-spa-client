@@ -14,7 +14,7 @@ import arrow_left from 'resources/images/icon/arrow-left.png';
 import './Unit.scss';
 // [{ type: 'arrow-down', onClickHandler: () => {} }];
 
-const Unit = ({ type, channel, unit, documentHandler }) => {
+const Unit = ({ type, channel, unit, documentHandler, onAnswerHandler }) => {
   const [state, setState] = useState({
     tab: 'document',
     reservation: false,
@@ -147,7 +147,12 @@ const Unit = ({ type, channel, unit, documentHandler }) => {
             </div>
           </div>
         )}
-        {state.tab === 'paper' && <Paper questions={unit.paper.questions} />}
+        {state.tab === 'paper' && (
+          <Paper
+            questions={unit.paper.questions}
+            onAnswerHandler={onAnswerHandler}
+          />
+        )}
       </div>
 
       <div className="IconContainer">
