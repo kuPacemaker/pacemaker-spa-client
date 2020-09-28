@@ -9,7 +9,7 @@ const unitData = {
     id: 0,
     title: 'Reviews of Student News',
     detail: 'Wed. 15:00~18:00',
-    code: 'XDWQAS221',
+    code: 'XDWQAS1',
   },
   unit_leader: {
     id: 0,
@@ -110,7 +110,7 @@ const unitData = {
     id: 0,
     index: 2,
     title: 'Mosquitoes',
-    isOpened: false,
+    isOpened: true,
     document: {
       id: 'asd/mosquitoes',
       visible: false,

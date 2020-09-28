@@ -12,7 +12,6 @@ import Paper from './sub-components/Paper';
 
 import arrow_left from 'resources/images/icon/arrow-left.png';
 import './Unit.scss';
-// [{ type: 'arrow-down', onClickHandler: () => {} }];
 
 const Unit = ({ type, channel, unit, documentHandler, onAnswerHandler }) => {
   const [state, setState] = useState({

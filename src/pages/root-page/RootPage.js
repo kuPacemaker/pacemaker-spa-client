@@ -8,7 +8,7 @@ import RootRouter from 'routes/RootRouter.js';
 const RootPage = () => {
   const [state, setState] = useState({
     showOverlay: false,
-    overlayTpye: '',
+    overlayTpye: 'CREATE CHANNEL',
   });
   const changeOverlay = (type) => {
     setState({

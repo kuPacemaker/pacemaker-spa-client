@@ -27,7 +27,18 @@ const Overlay = ({ show, type, changeHandler }) => {
     case 'MODIFY ACCOUNT':
       context = <ModifyAccount show={show} changeHandler={changeHandler} />;
       break;
-
+    case 'CREATE CHANNEL':
+      context = <ModifyAccount show={show} changeHandler={changeHandler} />;
+      break;
+    case 'ENTER CHANNEL':
+      context = <ModifyAccount show={show} changeHandler={changeHandler} />;
+      break;
+    case 'ACCESS CODE':
+      context = <ModifyAccount show={show} changeHandler={changeHandler} />;
+      break;
+    case 'CREATE UNIT':
+      context = <ModifyAccount show={show} changeHandler={changeHandler} />;
+      break;
     default:
   }
   return (

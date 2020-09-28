@@ -39,7 +39,7 @@ const Paper = ({ questions, onAnswerHandler }) => {
                 src={check}
                 alt=""
               />
-              {alphabat.charAt(index)}) {answer}
+              {`${alphabat.charAt(index)}) ${answer}`}
             </div>
           ))}
         </div>

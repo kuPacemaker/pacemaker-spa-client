@@ -49,9 +49,12 @@ const Quiz = ({ data }) => {
         })}
       >
         {answers.map((answer, index) => (
-          <span key={index} className="Answer">{`${alphabat.charAt(
-            index
-          )}) ${answer}`}</span>
+          <span
+            key={index}
+            className={classNames('Answer', {
+              Checked: answer === data.answer,
+            })}
+          >{`${alphabat.charAt(index)}) ${answer}`}</span>
         ))}
       </div>
     </div>
