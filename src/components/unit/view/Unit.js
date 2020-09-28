@@ -7,23 +7,29 @@ import TopIconSet from './sub-components/TopIconSet';
 import Document from './sub-components/Document';
 import EditDocument from './sub-components/EditDocument';
 import Quiz from './sub-components/Quiz';
+import Reservation from './sub-components/Reservation';
+import Paper from './sub-components/Paper';
 
 import arrow_left from 'resources/images/icon/arrow-left.png';
-
-import plus from 'resources/images/icon/plus.png';
-
 import './Unit.scss';
 // [{ type: 'arrow-down', onClickHandler: () => {} }];
 
 const Unit = ({ type, channel, unit, documentHandler }) => {
-  const [state, setState] = useState({ tab: 'upload', rotate: false });
+  const [state, setState] = useState({
+    tab: 'document',
+    reservation: false,
+    rotate: false,
+  });
 
   const history = useHistory();
 
   const quizContainer = useRef(null);
 
+  const showReservation = () => {
+    setState({ ...state, reservation: !state.reservation });
+  };
+
   const changeTab = (name) => () => {
-    console.log(name);
     setState({ ...state, tab: name });
   };
 
@@ -58,6 +64,10 @@ const Unit = ({ type, channel, unit, documentHandler }) => {
         },
       ],
       upload: [
+        {
+          type: 'check',
+          onClickHandler: () => console.log('Save Quizs'),
+        },
         {
           type: 'arrow-down',
           onClickHandler: () => {},
@@ -94,10 +104,13 @@ const Unit = ({ type, channel, unit, documentHandler }) => {
           <div className="UnitIconSet">
             <TopIconSet type={type} unit={unit} onClickHandler={changeTab} />
           </div>
-          <div className="MakeReservation">
-            <div className="TitleButton">MAKE RESERVATION</div>
-          </div>
         </div>
+        {state.tab === 'upload' && (
+          <Reservation
+            onClickHandler={showReservation}
+            hide={!state.reservation}
+          />
+        )}
       </div>
 
       <div className="Context">
@@ -134,6 +147,7 @@ const Unit = ({ type, channel, unit, documentHandler }) => {
             </div>
           </div>
         )}
+        {state.tab === 'paper' && <Paper questions={unit.paper.questions} />}
       </div>
 
       <div className="IconContainer">

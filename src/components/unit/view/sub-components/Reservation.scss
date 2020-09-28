@@ -1,0 +1,85 @@
+@import 'shared/StyleValues.scss';
+@import 'shared/Animations.scss';
+
+.Reservation {
+    $borderSize: 3px;
+    position: absolute;
+    display: inline-block;
+    right: $sidemargin *6;
+    top: 0;
+    height: 100%;
+    width: $stepSize *20;
+    border-right: $borderSize black solid;
+    border-left: $borderSize black solid;
+
+    .TitleButton {
+        pointer-events: all;
+        margin-top: 1em;
+        margin-bottom: 1em;
+        font-size: $channelTab;
+        text-align: center;
+    }
+
+    .ReservationTable {
+        position: relative;
+        border-right: $borderSize black solid;
+        border-left: $borderSize black solid;
+        border-bottom: $borderSize black solid;
+        margin-left: - $borderSize;
+        background-color: white;
+        width: calc(100% + #{ $borderSize *2});
+        height: 400px;
+        @include animate();
+        pointer-events: all;
+        opacity: 1;
+
+        &.Hide {
+            pointer-events: none;
+            opacity: 0;
+        }
+
+        .Option {
+            position: relative;
+            border-bottom: $borderSize black solid;
+
+            height: 85px;
+
+            .Title {
+                display: inline-block;
+                width: 35%;
+                height: 100%;
+                font-size: $article;
+                text-align: center;
+                vertical-align: bottom;
+                padding-top: 30px;
+            }
+
+            .Context {
+                display: inline-block;
+                left: 35%;
+                width: 65%;
+                height: 100%;
+                padding-top: 20px;
+                font-size: $channelThumbnail;
+                text-align: center;
+
+                span {
+                    margin-right: 15px;
+                }
+
+            }
+        }
+
+        .IconSet {
+            position: absolute;
+            bottom: 35px;
+            right: 25px;
+
+            .Icon {
+                @include square_px(65px);
+                pointer-events: all;
+                margin-left: 35px;
+            }
+        }
+    }
+}

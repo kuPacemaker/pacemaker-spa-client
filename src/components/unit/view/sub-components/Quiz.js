@@ -6,6 +6,7 @@ import restore from 'resources/images/icon/restore.png';
 import './Quiz.scss';
 
 const alphabat = 'ABCDEFGHIJKLMNOPQUSTUVWXYZ';
+
 const toggleHide = (state, setState) => () => {
   setState({ ...state, hideAnswer: !state.hideAnswer });
 };

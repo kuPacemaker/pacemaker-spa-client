@@ -116,21 +116,21 @@ const unitData = {
         'A controversial plan is moving ahead to release genetically modified mosquitoes into the Florida Keys. More than 750,000 of the insects are set to be introduced there. Why? The aedes aegypti mosquito can carry dangerous diseases like the Zika virus, Dengue fever and yellow fever. Officials are looking for new ways to kill of these insects without using pesticides and genetically modified mosquitoes might be a way to do this. Only female mosquitoes bite people. The altered insects that are set to be released in Florida are male. They`ve been modified so that the female offspring they produce will die before they hatch from their eggs and grow big enough to bite people. And the company that developed these GMO mosquitoes say they`ve been very successful in controlling mosquito populations in Panama, Brazil and the Cayman Islands.',
     },
     paper: {
-      isStart: false,
+      isStart: true,
       isEnd: false,
       questions: [
         {
           id: 0,
           quiz:
             'What is being put into place to release genetically modified mosquitoes into the Florida Keys?',
-          answer: 'AA',
+          answer: '',
           answer_set: 'AA/BB/CC/DD',
           verified: true,
         },
         {
           id: 1,
           quiz: 'Who can only female mosquitoes bite ?',
-          answer: 'AA',
+          answer: '',
           answer_set: 'AA/BB/CC/DD',
           verified: true,
         },
@@ -138,14 +138,14 @@ const unitData = {
           id: 2,
           quiz:
             'What type of mosquitoes were developed to control the mosquito population in Panama?',
-          answer: 'GMO mosquitoes',
+          answer: '',
           answer_set: 'Zika virus/GMO mosquitoes/Florida/Dengue fever',
           verified: true,
         },
         {
           id: 3,
           quiz: 'What kind of insects are being released in Florida?',
-          answer: 'AA',
+          answer: '',
           answer_set: 'AA/BB/CC/DD',
           verified: true,
         },
@@ -153,7 +153,7 @@ const unitData = {
           id: 4,
           quiz:
             'Where have the company that developed GMO mosquitoes been successful in controlling mosquito populations?',
-          answer: 'AA',
+          answer: '',
           answer_set: 'AA/BB/CC/DD',
           verified: true,
         },
@@ -196,6 +196,18 @@ const documentHandler = (state, setState) => (type) => (data) => {
 
 const UnitContainer = ({ type, channel, id }) => {
   const [state, setState] = useState(unitData);
+  const onAnswerHandler = (index, answer) => () => {
+    setState({
+      ...state,
+      unit_runner: {
+        ...state.unit_runner,
+        paper: {
+          ...state.unit_leader.document,
+          body: data,
+        },
+      },
+    });
+  };
   const unit = type === 'leader' ? state.unit_leader : state.unit_runner;
   return (
     <Unit
@@ -203,6 +215,7 @@ const UnitContainer = ({ type, channel, id }) => {
       channel={unitData.channel}
       unit={unit}
       documentHandler={documentHandler(state, setState)}
+      // onAnswerHandler={}
     />
   );
 };

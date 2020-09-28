@@ -19,6 +19,7 @@
     }
 
     .ChannelInformationBar {
+        position: relative;
         margin-top: 15px;
         margin-left: $sidemargin *2;
 
@@ -32,6 +33,7 @@
     }
 
     .UnitInformationBar {
+        position: relative;
         margin-top: 15px;
         height: 80px;
         border-top: 3px black solid;
@@ -143,6 +145,7 @@
                 }
             }
         }
+
 
     }
 
