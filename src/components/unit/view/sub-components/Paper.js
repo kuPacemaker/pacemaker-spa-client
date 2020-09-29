@@ -13,8 +13,8 @@ const Paper = ({ questions, onAnswerHandler }) => {
   const [state, setState] = useState({
     index: 0,
   });
-  const changeQuiz = (sign) => () => {
-    if (state.index + sign < 0) return;
+  const changeQuiz = (sign, length) => () => {
+    if (state.index + sign < 0 || state.index + sign >= length) return;
     setState({ ...state, index: state.index + sign });
   };
   if (questions.length === 0) return <></>;
@@ -46,11 +46,19 @@ const Paper = ({ questions, onAnswerHandler }) => {
       </div>
 
       <div className="IconSet">
-        <img src={arrow_left} alt="" onClick={changeQuiz(-1)} />
+        <img
+          src={arrow_left}
+          alt=""
+          onClick={changeQuiz(-1, questions.length)}
+        />
         <div className="Index">
           {state.index + 1}/{questions.length}
         </div>
-        <img src={arrow_right} alt="" onClick={changeQuiz(+1)} />
+        <img
+          src={arrow_right}
+          alt=""
+          onClick={changeQuiz(+1, questions.length)}
+        />
       </div>
     </div>
   );
