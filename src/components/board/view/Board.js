@@ -35,6 +35,7 @@ const Board = ({
     scrollToRef(ref, to, 'smooth');
     setState({ isEnd: !state.isEnd });
   };
+
   return (
     <div className="Board">
       <div className="Title">{title}</div>
