@@ -1,9 +1,13 @@
 import React, { useState } from 'react';
-import { useHistory } from 'react-router-dom';
+import { connect } from 'react-redux';
+import { bindActionCreators } from 'redux';
+import { Redirect } from 'react-router-dom';
+
+import { requestSignIn } from 'store/modules/action/account';
+import { LocalMainPage } from 'common/local-path';
 import LeftImageForm from 'components/left-image-form';
 import image from 'resources/images/concept/signin-image.jpg';
-import { account } from 'shared/test-data.js';
-import { LocalMainPage } from 'common/local-path';
+// import { account } from 'shared/test-data.js';
 
 const title = 'SIGN-IN';
 const imageText = 'START A PERFECT MARATHON WITH PACEMAKER';
@@ -23,14 +27,12 @@ const inputForms = [
   },
 ];
 
-const SignInContainer = (prop) => {
-  const history = useHistory();
+const SignInContainer = (props) => {
   const [state, setState] = useState({
     id: '',
     pw: '',
   });
   const onChangeHandler = (type) => (data) => {
-    console.log(data);
     switch (type) {
       case 'E-MAIL':
         setState({ ...state, id: data });
@@ -45,13 +47,11 @@ const SignInContainer = (prop) => {
 
   // history.push('/main-page');
   const signInHandler = () => {
-    console.log(state);
-    account.id = state.id;
-    account.pw = state.pw;
-    account.token = state.id;
-    console.log(account);
-    history.push(LocalMainPage.root);
+    const { requestSignIn } = props;
+    requestSignIn(state.id, state.pw);
   };
+
+  if (props.token) return <Redirect path={'*'} to={LocalMainPage.newspeed} />;
 
   return (
     <LeftImageForm
@@ -67,13 +67,12 @@ const SignInContainer = (prop) => {
   );
 };
 
-// const mapStateToProps = ({ counter }) => ({
-//   color: counter.color,
-//   number: counter.number,
-// });
+const mapStateToProps = (state) => ({
+  token: state.account.token,
+});
 
-// const mapDispatchToProps = (dispatch) =>
-//   bindActionCreators({ incrementAsync, decrement, getPost }, dispatch);
+const mapDispatchToProps = (dispatch) =>
+  bindActionCreators({ requestSignIn }, dispatch);
 
-// export default connect(mapStateToProps, mapDispatchToProps)(CounterContainer);
-export default SignInContainer;
+export default connect(mapStateToProps, mapDispatchToProps)(SignInContainer);
+// export default SignInContainer;
