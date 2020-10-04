@@ -14,17 +14,16 @@ export default handleActions(
   {
     [SIGNIN]: (state, action) =>
       produce(state, (draft) => {
-        draft.id = action.payload.id;
-        draft.name = action.payload.name;
-        draft.type = action.payload.type;
-        draft.token = action.payload.token;
+        [draft.id, draft.name, draft.type, draft.token] = [
+          action.payload.id,
+          action.payload.name,
+          action.payload.type,
+          action.payload.token,
+        ];
       }),
     [SIGNOUT]: (state) =>
       produce(state, (draft) => {
-        draft.id = '';
-        draft.name = '';
-        draft.type = '';
-        draft.token = '';
+        [draft.id, draft.name, draft.type, draft.token] = ['', '', '', ''];
       }),
   },
   initialState

@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import { Redirect } from 'react-router-dom';
 
+import { updateChannel } from 'store/modules/action/board';
 import { requestSignIn } from 'store/modules/action/account';
 import { LocalMainPage } from 'common/local-path';
 import LeftImageForm from 'components/left-image-form';
@@ -51,7 +52,10 @@ const SignInContainer = (props) => {
     signin(state.id, state.pw);
   };
 
-  if (props.token) return <Redirect path={'*'} to={LocalMainPage.newspeed} />;
+  if (props.token) {
+    props.updateChannel(props.token);
+    return <Redirect path={'*'} to={LocalMainPage.newspeed} />;
+  }
 
   return (
     <LeftImageForm
@@ -72,7 +76,7 @@ const mapStateToProps = ({ account }) => ({
 });
 
 const mapDispatchToProps = (dispatch) =>
-  bindActionCreators({ requestSignIn }, dispatch);
+  bindActionCreators({ requestSignIn, updateChannel }, dispatch);
 
 export default connect(mapStateToProps, mapDispatchToProps)(SignInContainer);
 // export default SignInContainer;
