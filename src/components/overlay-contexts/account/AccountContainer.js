@@ -11,7 +11,7 @@ const texts = {
   signout: 'SIGNOUT',
 };
 
-const AccountContainer = ({ show, moveToModify, changeHandler }) => {
+const AccountContainer = ({ visible, moveToModify, changeHandler }) => {
   const history = useHistory();
 
   const signoutHandler = () => {
@@ -21,7 +21,7 @@ const AccountContainer = ({ show, moveToModify, changeHandler }) => {
   return (
     <Account
       user={account}
-      show={show}
+      show={visible}
       texts={texts}
       moveToModify={moveToModify}
       signoutHandler={signoutHandler}

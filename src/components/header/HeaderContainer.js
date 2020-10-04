@@ -1,6 +1,5 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { bindActionCreators } from 'redux';
 
 import Header from './view/Header';
 import LocalPath from 'common/local-path';

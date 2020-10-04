@@ -14,7 +14,7 @@ const optional = [
   ['CONTACT', LocalPath.help.contact],
 ];
 
-const OverlayMenuContainer = ({ show, changeHandler }) => {
+const OverlayMenuContainer = ({ visible, changeHandler }) => {
   const history = useHistory();
   const onClickHandler = (path) => {
     history.push(path);
@@ -22,7 +22,7 @@ const OverlayMenuContainer = ({ show, changeHandler }) => {
   };
   return (
     <OverlayMenu
-      show={show}
+      show={visible}
       main={main}
       optional={optional}
       onClickHandler={onClickHandler}

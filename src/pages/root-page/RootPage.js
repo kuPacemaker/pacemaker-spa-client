@@ -28,11 +28,12 @@ const RootPage = () => {
       <HeaderContainer overlay={showOverlay} />
       <RootRouter />
       <FooterContaioner />
-      <Overlay
+      <Overlay />
+      {/* <Overlay
         show={state.showOverlay}
         type={state.overlayTpye}
         changeHandler={changeOverlay}
-      />
+      /> */}
     </div>
   );
 };

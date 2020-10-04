@@ -47,8 +47,8 @@ const SignInContainer = (props) => {
 
   // history.push('/main-page');
   const signInHandler = () => {
-    const { requestSignIn } = props;
-    requestSignIn(state.id, state.pw);
+    const signin = props.requestSignIn;
+    signin(state.id, state.pw);
   };
 
   if (props.token) return <Redirect path={'*'} to={LocalMainPage.newspeed} />;

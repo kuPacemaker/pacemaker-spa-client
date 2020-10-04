@@ -5,39 +5,49 @@ import Account from 'components/overlay-contexts/account';
 import ModifyAccount from 'components/overlay-contexts/modify-account';
 import './Overlay.scss';
 
-const Overlay = ({ show, type, changeHandler }) => {
+const Overlay = ({ visible, type, overlayHandler }) => {
   const goModifyAccount = () => {
-    changeHandler('MODIFY ACCOUNT');
+    overlayHandler('MODIFY ACCOUNT');
   };
 
   let context = '';
   switch (type) {
     case 'MENU':
-      context = <Menu show={show} changeHandler={changeHandler} />;
+      context = <Menu visible={visible} changeHandler={overlayHandler} />;
       break;
     case 'MY ACCOUNT':
       context = (
         <Account
-          show={show}
+          visible={visible}
           moveToModify={goModifyAccount}
-          changeHandler={changeHandler}
+          changeHandler={overlayHandler}
         />
       );
       break;
     case 'MODIFY ACCOUNT':
-      context = <ModifyAccount show={show} changeHandler={changeHandler} />;
+      context = (
+        <ModifyAccount visible={visible} changeHandler={overlayHandler} />
+      );
       break;
     case 'CREATE CHANNEL':
-      context = <ModifyAccount show={show} changeHandler={changeHandler} />;
+      context = (
+        <ModifyAccount visible={visible} changeHandler={overlayHandler} />
+      );
       break;
     case 'ENTER CHANNEL':
-      context = <ModifyAccount show={show} changeHandler={changeHandler} />;
+      context = (
+        <ModifyAccount visible={visible} changeHandler={overlayHandler} />
+      );
       break;
     case 'ACCESS CODE':
-      context = <ModifyAccount show={show} changeHandler={changeHandler} />;
+      context = (
+        <ModifyAccount visible={visible} changeHandler={overlayHandler} />
+      );
       break;
     case 'CREATE UNIT':
-      context = <ModifyAccount show={show} changeHandler={changeHandler} />;
+      context = (
+        <ModifyAccount visible={visible} changeHandler={overlayHandler} />
+      );
       break;
     default:
   }
@@ -45,15 +55,15 @@ const Overlay = ({ show, type, changeHandler }) => {
     <div className="Overlay">
       <div
         className={classNames('OverlayBackground', {
-          Show: show,
-          Hide: !show,
+          Show: visible,
+          Hide: !visible,
         })}
-        onClick={() => changeHandler()}
+        onClick={() => overlayHandler()}
       ></div>
       <div
         className={classNames('Container', {
-          Show: show,
-          Hide: !show,
+          Show: visible,
+          Hide: !visible,
         })}
       >
         {context}

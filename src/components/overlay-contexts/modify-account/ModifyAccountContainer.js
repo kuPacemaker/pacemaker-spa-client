@@ -30,7 +30,7 @@ const inputForms = [
   },
 ];
 
-const ModifyAccountContainer = ({ show, changeHandler }) => {
+const ModifyAccountContainer = ({ visible, changeHandler }) => {
   const history = useHistory();
   const [state, setState] = useState({
     name: '',
@@ -66,7 +66,7 @@ const ModifyAccountContainer = ({ show, changeHandler }) => {
 
   return (
     <ModifyAccount
-      show={show}
+      show={visible}
       title={title}
       inputForms={inputForms}
       onChangeHandler={onChangeHandler}
