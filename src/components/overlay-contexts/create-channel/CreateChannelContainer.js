@@ -1,9 +1,9 @@
 import React from 'react';
 
-import OverlayMenu from './view/OverlayMenu';
+import CreateChannel from './view/CreateChannel';
 
-const OverlayMenuContainer = () => {
-  return <OverlayMenu />;
+const CreateChannelContainer = () => {
+  return <CreateChannel />;
 };
 
 // const mapStateToProps = ({ counter }) => ({
@@ -15,4 +15,4 @@ const OverlayMenuContainer = () => {
 //   bindActionCreators({ incrementAsync, decrement, getPost }, dispatch);
 
 // export default connect(mapStateToProps, mapDispatchToProps)(CounterContainer);
-export default OverlayMenuContainer;
+export default CreateChannelContainer;

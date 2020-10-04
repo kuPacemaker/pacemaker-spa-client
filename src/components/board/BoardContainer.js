@@ -1,8 +1,12 @@
 import React from 'react';
+import { connect } from 'react-redux';
+import { bindActionCreators } from 'redux';
 import { useHistory } from 'react-router-dom';
 
+import { show } from 'store/modules/creators/modal';
 import Board from './view/Board';
 import { LocalMainPage } from 'common/local-path';
+
 const title = {
   en: {
     leader: 'FOR LEADER',
@@ -10,66 +14,42 @@ const title = {
   },
 };
 
-const channels = [
-  {
-    id: 0,
-    title: 'Basic Programming',
-    detail: 'Tue. 15:00~18:00',
-    imgType: 0,
-  },
-  { id: 1, title: 'Data Structure', detail: 'Wed. 15:00~18:00', imgType: 2 },
-  {
-    id: 2,
-    title: 'Basic Programming',
-    detail: 'Wed. 15:00~18:00',
-    imgType: 1,
-  },
-  { id: 3, title: 'Data Structure', detail: 'When ever You Want!', imgType: 4 },
-  {
-    id: 4,
-    title: 'Basic Programming',
-    detail: 'When ever You Want!',
-    imgType: 2,
-  },
-  { id: 5, title: 'Algorithm', detail: 'When ever You Want!', imgType: 6 },
-  { id: 6, title: 'Data Structure', detail: 'When ever You Want!', imgType: 7 },
-  {
-    id: 7,
-    title: 'Basic Programming',
-    detail: 'When ever You Want!',
-    imgType: 4,
-  },
-];
-
-const BoardContainer = ({ type }) => {
+const BoardContainer = ({
+  type,
+  leader: leaderBoard,
+  runner: runnerBoard,
+  showOverlay,
+}) => {
   const history = useHistory();
   const clickChannelHandler = (boardType, id) => () => {
     history.push(LocalMainPage.channel.root + boardType + '?id=' + id);
     console.log('enter to Channel : ' + id);
   };
+
   const createChannelHandler = (_type) => () => {
-    if (_type === 'leader') console.log('create leader channel');
-    else if (_type === 'runner') console.log('enter to leader channel');
+    if (_type === 'leader') showOverlay('CREATE CHANNEL');
+    else if (_type === 'runner') showOverlay('ENTER CHANNEL');
     else console.log('기능이 구현되지 않았습니다.');
   };
   return (
     <Board
       type={type}
       title={title.en[type]}
-      channels={channels}
+      channels={type === 'leader' ? leaderBoard : runnerBoard}
       clickChannelHandler={clickChannelHandler}
       createChannelHandler={createChannelHandler}
     />
   );
 };
 
-// const mapStateToProps = ({ counter }) => ({
-//   color: counter.color,
-//   number: counter.number,
-// });
+const mapStateToProps = ({ board }) => ({
+  leader: board.leader,
+  runner: board.runner,
+});
 
-// const mapDispatchToProps = (dispatch) =>
-//   bindActionCreators({ incrementAsync, decrement, getPost }, dispatch);
+const mapDispatchToProps = (dispatch) => ({
+  showOverlay: (type) => dispatch(show(type)),
+});
 
-// export default connect(mapStateToProps, mapDispatchToProps)(CounterContainer);
-export default BoardContainer;
+export default connect(mapStateToProps, mapDispatchToProps)(BoardContainer);
+// export default BoardContainer;

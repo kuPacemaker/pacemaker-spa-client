@@ -1,2 +1,2 @@
-import OverlayMenuContainer from './OverlayMenuContainer';
-export default OverlayMenuContainer;
+import ModalContainer from './ModalContainer';
+export default ModalContainer;
