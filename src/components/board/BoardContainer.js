@@ -1,6 +1,5 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { bindActionCreators } from 'redux';
 import { useHistory } from 'react-router-dom';
 
 import { show } from 'store/modules/creators/modal';
