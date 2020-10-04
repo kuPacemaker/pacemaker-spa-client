@@ -6,9 +6,8 @@ import background from 'resources/images/background/background-up.png';
 import arrow from 'resources/images/icon/arrow-right.png';
 
 import LocalPath from 'common/local-path';
-import { account } from 'shared/test-data';
 
-const Homepage = ({ preface }) => {
+const Homepage = ({ preface, token }) => {
   return (
     <div
       className="Homepage"
@@ -22,7 +21,7 @@ const Homepage = ({ preface }) => {
           ))}
           <Link
             className="ArrowLink"
-            to={account.token ? LocalPath.main.root : LocalPath.admission.root}
+            to={token === '' ? LocalPath.admission.root : LocalPath.main.root}
           >
             <img className="Arrow" src={arrow} alt="" />
           </Link>
