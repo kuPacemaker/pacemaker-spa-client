@@ -1,9 +1,9 @@
 import React from 'react';
 
-import OverlayMenu from './view/OverlayMenu';
+import Modal from './view/Modal';
 
-const OverlayMenuContainer = () => {
-  return <OverlayMenu />;
+const ModalContainer = () => {
+  return <Modal />;
 };
 
 // const mapStateToProps = ({ counter }) => ({
@@ -15,4 +15,4 @@ const OverlayMenuContainer = () => {
 //   bindActionCreators({ incrementAsync, decrement, getPost }, dispatch);
 
 // export default connect(mapStateToProps, mapDispatchToProps)(CounterContainer);
-export default OverlayMenuContainer;
+export default ModalContainer;

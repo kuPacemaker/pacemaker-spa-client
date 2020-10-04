@@ -1,8 +1,15 @@
 import React from 'react';
 import classNames from 'classnames';
-import Menu from 'components/overlay-contexts/overlay-menu';
+
+import AccessCode from 'components/overlay-contexts/access-code';
 import Account from 'components/overlay-contexts/account';
+import CreateChannel from 'components/overlay-contexts/create-channel';
+import CreateUnit from 'components/overlay-contexts/create-unit';
+import DefaultModal from 'components/overlay-contexts/default-modal';
+import EnterChannel from 'components/overlay-contexts/enter-channel';
 import ModifyAccount from 'components/overlay-contexts/modify-account';
+import Menu from 'components/overlay-contexts/overlay-menu';
+
 import './Overlay.scss';
 
 const Overlay = ({ visible, type, overlayHandler }) => {
@@ -30,16 +37,20 @@ const Overlay = ({ visible, type, overlayHandler }) => {
       );
       break;
     case 'CREATE CHANNEL':
-      context = <Menu visible={visible} changeHandler={overlayHandler} />;
+      context = (
+        <CreateChannel visible={visible} changeHandler={overlayHandler} />
+      );
       break;
     case 'ENTER CHANNEL':
-      context = <Menu visible={visible} changeHandler={overlayHandler} />;
+      context = (
+        <EnterChannel visible={visible} changeHandler={overlayHandler} />
+      );
       break;
     case 'ACCESS CODE':
-      context = <Menu visible={visible} changeHandler={overlayHandler} />;
+      context = <AccessCode visible={visible} changeHandler={overlayHandler} />;
       break;
     case 'CREATE UNIT':
-      context = <Menu visible={visible} changeHandler={overlayHandler} />;
+      context = <CreateUnit visible={visible} changeHandler={overlayHandler} />;
       break;
     default:
   }

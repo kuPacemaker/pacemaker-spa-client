@@ -1,2 +1,2 @@
-import OverlayMenuContainer from './OverlayMenuContainer';
-export default OverlayMenuContainer;
+import CreateChannelContainer from './CreateChannelContainer';
+export default CreateChannelContainer;
