@@ -1,8 +1,10 @@
 import React, { useState } from 'react';
-import { useHistory } from 'react-router-dom';
+import { connect } from 'react-redux';
+import { bindActionCreators } from 'redux';
+import { Redirect } from 'react-router-dom';
 
+import { modifyAccount } from 'store/modules/action/account';
 import ModifyAccount from './view/ModifyAccount';
-
 import LocalPath from 'common/local-path';
 
 const title = 'MODIFY ACCOUNT INFORMATION';
@@ -30,11 +32,15 @@ const inputForms = [
   },
 ];
 
-const ModifyAccountContainer = ({ visible, changeHandler }) => {
-  const history = useHistory();
+const ModifyAccountContainer = ({
+  visible,
+  changeHandler,
+  token,
+  modifyAccount: requestModifyAccount,
+}) => {
   const [state, setState] = useState({
     name: '',
-    currentPassWord: '',
+    currentPassword: '',
     newPassword: '',
     newPassword_re: '',
   });
@@ -45,7 +51,7 @@ const ModifyAccountContainer = ({ visible, changeHandler }) => {
         setState({ ...state, name: data });
         return;
       case 'CURRENT PASSWARD':
-        setState({ ...state, currentPassWord: data });
+        setState({ ...state, currentPassword: data });
         return;
       case 'NEW PASSWORD':
         setState({ ...state, newPassword: data });
@@ -59,10 +65,18 @@ const ModifyAccountContainer = ({ visible, changeHandler }) => {
   };
 
   const modiftAccountHandler = () => {
-    console.log(state);
-    changeHandler();
-    history.push(LocalPath.root);
+    requestModifyAccount(
+      token,
+      state.currentPassword,
+      state.newPassword,
+      state.name
+    );
   };
+
+  if (!token) {
+    changeHandler();
+    return <Redirect path={'*'} to={LocalPath.root} />;
+  }
 
   return (
     <ModifyAccount
@@ -75,13 +89,15 @@ const ModifyAccountContainer = ({ visible, changeHandler }) => {
   );
 };
 
-// const mapStateToProps = ({ counter }) => ({
-//   color: counter.color,
-//   number: counter.number,
-// });
+const mapStateToProps = ({ account }) => ({
+  token: account.token,
+});
 
-// const mapDispatchToProps = (dispatch) =>
-//   bindActionCreators({ incrementAsync, decrement, getPost }, dispatch);
+const mapDispatchToProps = (dispatch) =>
+  bindActionCreators({ modifyAccount }, dispatch);
 
-// export default connect(mapStateToProps, mapDispatchToProps)(CounterContainer);
-export default ModifyAccountContainer;
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(ModifyAccountContainer);
+// export default ModifyAccountContainer;
