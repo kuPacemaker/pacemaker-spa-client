@@ -30,24 +30,16 @@ const Overlay = ({ visible, type, overlayHandler }) => {
       );
       break;
     case 'CREATE CHANNEL':
-      context = (
-        <ModifyAccount visible={visible} changeHandler={overlayHandler} />
-      );
+      context = <Menu visible={visible} changeHandler={overlayHandler} />;
       break;
     case 'ENTER CHANNEL':
-      context = (
-        <ModifyAccount visible={visible} changeHandler={overlayHandler} />
-      );
+      context = <Menu visible={visible} changeHandler={overlayHandler} />;
       break;
     case 'ACCESS CODE':
-      context = (
-        <ModifyAccount visible={visible} changeHandler={overlayHandler} />
-      );
+      context = <Menu visible={visible} changeHandler={overlayHandler} />;
       break;
     case 'CREATE UNIT':
-      context = (
-        <ModifyAccount visible={visible} changeHandler={overlayHandler} />
-      );
+      context = <Menu visible={visible} changeHandler={overlayHandler} />;
       break;
     default:
   }

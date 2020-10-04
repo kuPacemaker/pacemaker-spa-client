@@ -67,8 +67,8 @@ const SignInContainer = (props) => {
   );
 };
 
-const mapStateToProps = (state) => ({
-  token: state.account.token,
+const mapStateToProps = ({ account }) => ({
+  token: account.token,
 });
 
 const mapDispatchToProps = (dispatch) =>

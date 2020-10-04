@@ -1,8 +1,9 @@
 import React from 'react';
+import { connect } from 'react-redux';
 import { useHistory } from 'react-router-dom';
 import Account from './view/Account';
+import { signout } from 'store/modules/creators/account';
 
-import { account } from 'shared/test-data';
 import LocalPath from 'common/local-path';
 
 const texts = {
@@ -11,31 +12,34 @@ const texts = {
   signout: 'SIGNOUT',
 };
 
-const AccountContainer = ({ visible, moveToModify, changeHandler }) => {
+const AccountContainer = (props) => {
   const history = useHistory();
 
   const signoutHandler = () => {
-    changeHandler();
+    props.signout();
+    props.changeHandler();
     history.push(LocalPath.root);
   };
   return (
     <Account
-      user={account}
-      show={visible}
+      user={{ id: props.id, name: props.name, type: props.type }}
+      show={props.visible}
       texts={texts}
-      moveToModify={moveToModify}
+      moveToModify={props.moveToModify}
       signoutHandler={signoutHandler}
     />
   );
 };
 
-// const mapStateToProps = ({ counter }) => ({
-//   color: counter.color,
-//   number: counter.number,
-// });
+const mapStateToProps = ({ account }) => ({
+  id: account.id,
+  name: account.name,
+  type: account.type,
+});
 
-// const mapDispatchToProps = (dispatch) =>
-//   bindActionCreators({ incrementAsync, decrement, getPost }, dispatch);
+const mapDispatchToProps = (dispatch) => ({
+  signout: () => dispatch(signout()),
+});
 
-// export default connect(mapStateToProps, mapDispatchToProps)(CounterContainer);
-export default AccountContainer;
+export default connect(mapStateToProps, mapDispatchToProps)(AccountContainer);
+// export default AccountContainer;

@@ -25,7 +25,7 @@ const RootPage = () => {
 
   return (
     <div>
-      <HeaderContainer overlay={showOverlay} />
+      <HeaderContainer />
       <RootRouter />
       <FooterContaioner />
       <Overlay />

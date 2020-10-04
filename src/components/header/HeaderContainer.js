@@ -1,6 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 
+import { show } from 'store/modules/creators/modal';
 import Header from './view/Header';
 import LocalPath from 'common/local-path';
 
@@ -40,10 +41,10 @@ const onClickHandler = (overlay) => (context) => {
   }
 };
 
-const HeaderContainer = ({ overlay, token }) => {
+const HeaderContainer = ({ showOverlay, token }) => {
   return (
     <Header
-      onClickHandler={onClickHandler(overlay)}
+      onClickHandler={onClickHandler(showOverlay)}
       buttons={token ? buttons.signin : buttons.signout}
     />
   );
@@ -53,7 +54,9 @@ const mapStateToProps = ({ account }) => ({
   token: account.token,
 });
 
-const mapDispatchToProps = (dispatch) => ({});
+const mapDispatchToProps = (dispatch) => ({
+  showOverlay: (type) => dispatch(show(type)),
+});
 
 export default connect(mapStateToProps, mapDispatchToProps)(HeaderContainer);
 // export default HeaderContainer;

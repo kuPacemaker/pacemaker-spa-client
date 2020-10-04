@@ -22,7 +22,7 @@ const OverlayContainer = (props) => {
 };
 
 const mapStateToProps = ({ modal }) => ({
-  visible: modal.show,
+  visible: modal.visible,
   type: modal.type,
 });
 
