@@ -1,2 +1,2 @@
-import OverlayMenuContainer from './OverlayMenuContainer';
-export default OverlayMenuContainer;
+import AccessCodeContainer from './AccessCodeContainer';
+export default AccessCodeContainer;
