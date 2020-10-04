@@ -213,7 +213,7 @@ const onAnswerHandler = (state, setState) => (index, answer) => () => {
   });
 };
 
-const UnitContainer = ({ type, channel, id }) => {
+const UnitContainer = ({ type, channel, id, tab }) => {
   const [state, setState] = useState(unitData);
   const history = useHistory();
   const unit = type === 'leader' ? state.unit_leader : state.unit_runner;
@@ -224,6 +224,7 @@ const UnitContainer = ({ type, channel, id }) => {
       type={type}
       channel={unitData.channel}
       unit={unit}
+      tab={tab}
       documentHandler={documentHandler(state, setState)}
       onAnswerHandler={onAnswerHandler(state, setState)}
     />

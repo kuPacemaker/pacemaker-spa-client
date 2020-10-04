@@ -8,30 +8,31 @@ const onIconClickHandler = (history) => (channel, id, type) => (e) => {
   console.log(channel, id, type, e.target.name);
   // let path = '';
 
-  switch (e.target.name) {
-    case 'edit':
-      // open modal
-      // path = LocalMainPage
-      break;
-    case 'document':
-      //
-      break;
-    case 'upload':
-      break;
-    case 'remove':
-      break;
-    case 'quiz':
-      break;
-    case 'answer':
-      break;
-    default:
-      return;
-  }
-  // history.push(path);
+  // switch (e.target.name) {
+  //   case 'edit':
+  //     // open modal
+  //     // path = LocalMainPage
+  //     break;
+  //   case 'document':
+  //     //
+  //     break;
+  //   case 'upload':
+  //     break;
+  //   case 'remove':
+  //     break;
+  //   case 'quiz':
+  //     break;
+  //   case 'answer':
+  //     break;
+  //   default:
+  //     return;
+  // }
+  const path = `${LocalMainPage.unit.root}${type}?channel=${channel}&id=${id}&tab=${e.target.name}`;
+  history.push(path);
 };
 
-const onUnitClickHandler = (history) => (channel) => (type, id) => () => {
-  const path = `${LocalMainPage.unit.root}${type}?channel=${channel}&id=${id}`;
+const onUnitClickHandler = (history) => (channel) => (type, id, tab) => () => {
+  const path = `${LocalMainPage.unit.root}${type}?channel=${channel}&id=${id}&tab=${tab}`;
   history.push(path);
 };
 

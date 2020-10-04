@@ -13,9 +13,16 @@ import Paper from './sub-components/Paper';
 import arrow_left from 'resources/images/icon/arrow-left.png';
 import './Unit.scss';
 
-const Unit = ({ type, channel, unit, documentHandler, onAnswerHandler }) => {
+const Unit = ({
+  type,
+  channel,
+  unit,
+  tab,
+  documentHandler,
+  onAnswerHandler,
+}) => {
   const [state, setState] = useState({
-    tab: 'document',
+    tab: tab,
     reservation: false,
     rotate: false,
   });
@@ -52,7 +59,7 @@ const Unit = ({ type, channel, unit, documentHandler, onAnswerHandler }) => {
           onClickHandler: () => {},
         },
       ],
-      document_edit: [
+      edit: [
         {
           type: 'check',
           onClickHandler: changeTab('document'),
@@ -123,7 +130,7 @@ const Unit = ({ type, channel, unit, documentHandler, onAnswerHandler }) => {
             />
           </div>
         )}
-        {state.tab === 'document_edit' && (
+        {state.tab === 'edit' && (
           <div className="DocumentContainer">
             <EditDocument
               title={unit.document.title}

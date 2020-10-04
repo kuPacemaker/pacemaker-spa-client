@@ -10,7 +10,7 @@ import answer from 'resources/images/icon/answer.png';
 
 import './UnitThumbnail.scss';
 
-const IconSet = ({ type, state, onIconClickHandler }) => {
+const IconSet = ({ type, state, onClickHandler }) => {
   if (type === 'leader')
     return (
       <div className="IconSet">
@@ -19,28 +19,28 @@ const IconSet = ({ type, state, onIconClickHandler }) => {
           name="edit"
           src={edit}
           alt=""
-          onClick={onIconClickHandler}
+          onClick={onClickHandler}
         />
         <img
           className="Icon"
           name="document"
           src={document}
           alt=""
-          onClick={onIconClickHandler}
+          onClick={onClickHandler}
         />
         <img
           className="Icon"
           name="upload"
           src={upload}
           alt=""
-          onClick={onIconClickHandler}
+          onClick={onClickHandler}
         />
         <img
           className="Icon"
           name="remove"
           src={remove}
           alt=""
-          onClick={onIconClickHandler}
+          onClick={onClickHandler}
         />
       </div>
     );
@@ -52,17 +52,17 @@ const IconSet = ({ type, state, onIconClickHandler }) => {
             On: state.active,
             Off: !state.active,
           })}
-          name={state.isQuiz ? 'quiz' : 'answer'}
+          name="paper"
           src={state.isQuiz ? quiz : answer}
           alt=""
-          onClick={onIconClickHandler}
+          onClick={onClickHandler}
         />
         <img
           className="Icon"
           name="document"
           src={document}
           alt=""
-          onClick={onIconClickHandler}
+          onClick={onClickHandler}
         />
       </div>
     );
@@ -76,15 +76,15 @@ const UnitThumbnail = ({
   title,
   state,
   onUnitClickHandler,
-  onClickHandler,
+  onIconClickHandler,
 }) => {
   return (
     <div className="UnitThumbnail">
-      <div className="ContextSet" onClick={onUnitClickHandler(type, id)}>
+      <div className="ContextSet" onClick={onUnitClickHandler(type, id, '')}>
         <div className="UnitIndex">Unit {index}</div>
         <div className="UnitTitle">{title}</div>
       </div>
-      <IconSet type={type} state={state} onClickHandler={onClickHandler} />
+      <IconSet type={type} state={state} onClickHandler={onIconClickHandler} />
     </div>
   );
 };
