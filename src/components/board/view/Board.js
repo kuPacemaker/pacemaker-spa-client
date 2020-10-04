@@ -1,4 +1,4 @@
-import React, { useState, useRef } from 'react';
+import React, { useState, useRef, useEffect } from 'react';
 import classNames from 'classnames';
 
 import ChannelThumbnail from 'components/channel-thumbnail';
@@ -21,6 +21,12 @@ const Board = ({
     isEnd: false,
   });
 
+  useEffect(() => {
+    console.log('EFF');
+    if (!scroll) return;
+    scrollToRef(scroll, 0, 'auto');
+  }, [type]);
+
   const onScrollHandler = (ref) => (e) => {
     let value = Number(ref.current.scrollLeft) + Number(e.deltaY);
     scrollToRef(ref, value, 'auto');
@@ -29,7 +35,7 @@ const Board = ({
     else setState({ isEnd: true });
   };
 
-  const onArrowClickHandler = (ref) => (e) => {
+  const onArrowClickHandler = (ref) => () => {
     let to = 0;
     if (!state.isEnd) to = ref.current.scrollWidth - ref.current.offsetWidth;
     scrollToRef(ref, to, 'smooth');

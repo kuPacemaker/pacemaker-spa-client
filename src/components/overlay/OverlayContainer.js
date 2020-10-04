@@ -10,7 +10,6 @@ const OverlayContainer = (props) => {
     const { show: showOverlay, hide: hideOverlay } = props;
     if (type === undefined) hideOverlay();
     else showOverlay(type);
-    console.log('overay action ', type);
   };
   return (
     <Overlay
