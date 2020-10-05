@@ -1,4 +1,4 @@
-import React, { useState, useRef } from 'react';
+import React, { useState, useRef, useEffect } from 'react';
 import classNames from 'classnames';
 import Peed from 'components/peed';
 import background from 'resources/images/background/background-right.png';
@@ -10,7 +10,7 @@ import './Newspeed.scss';
 const scrollToRef = (ref, to) =>
   ref.current.scrollTo({ top: to, left: 0, behavior: 'smooth' });
 
-const Newspeed = ({ peeds }) => {
+const Newspeed = ({ peeds, fetchNewspeed }) => {
   const container = useRef(null);
   const [state, setState] = useState({
     isBottom: false,
@@ -30,6 +30,12 @@ const Newspeed = ({ peeds }) => {
     }
     setState({ ...state, isBottom: !state.isBottom });
   };
+
+  useEffect(() => {
+    // initialize newspeed
+    if (!peeds) fetchNewspeed();
+  }, [])
+
   return (
     <div
       className="Newspeed"
@@ -53,7 +59,7 @@ const Newspeed = ({ peeds }) => {
         ref={container}
       >
         <div>
-          {peeds.map((peed, index) => (
+          {peeds && peeds.map((peed, index) => (
             <div className="PeedBox" key={index}>
               <Peed
                 key={index}
