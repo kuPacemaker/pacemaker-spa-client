@@ -25,7 +25,7 @@
         font-size: $channelTab;
         @include animate();
 
-        &.Removed {
+        &.Remove {
             text-decoration: line-through;
             opacity: 0.5;
         }
@@ -52,7 +52,7 @@
             margin-top: -27px;
         }
 
-        &.Removed {
+        &.Remove {
             opacity: 0.5;
         }
     }

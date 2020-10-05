@@ -1,4 +1,4 @@
-import { get } from '../creators/board';
+import { update } from '../creators/board';
 
 export const getBoard = (payload) => (dispatch) => {
   const dummy = {
@@ -52,7 +52,7 @@ export const getBoard = (payload) => (dispatch) => {
   };
 
   setTimeout(() => {
-    dispatch(get(dummy));
+    dispatch(update(dummy));
   }, 250);
 };
 

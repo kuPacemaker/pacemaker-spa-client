@@ -13,14 +13,11 @@ const toggleHide = (state, setState) => () => {
 const showCross = (state, setState) => (isEnter) => () => {
   setState({ ...state, hideCross: isEnter });
 };
-const removeQuiz = (state, setState) => () => {
-  setState({ ...state, removed: !state.removed });
-};
-const Quiz = ({ data }) => {
+
+const Quiz = ({ data, onVerifyHandler }) => {
   const [state, setState] = useState({
     hideAnswer: true,
     hideCross: true,
-    removed: false,
   });
 
   const answers = data.answer_set.split('/');
@@ -32,12 +29,12 @@ const Quiz = ({ data }) => {
     >
       <img
         className={classNames('RemoveQuiz', { Hide: state.hideCross })}
-        src={state.removed ? restore : remove}
+        src={data.verified ? remove : restore}
         alt=""
-        onClick={removeQuiz(state, setState)}
+        onClick={onVerifyHandler(data.id)}
       />
       <div
-        className={classNames('QuizBody', { Removed: state.removed })}
+        className={classNames('QuizBody', { Remove: !data.verified })}
         onClick={toggleHide(state, setState)}
       >
         {data.quiz}
@@ -45,7 +42,7 @@ const Quiz = ({ data }) => {
       <div
         className={classNames('AnswerSet', {
           Hide: state.hideAnswer,
-          Removed: state.removed,
+          Remove: !data.verified,
         })}
       >
         {answers.map((answer, index) => (
