@@ -15,12 +15,14 @@ const Newspeed = ({ peeds }) => {
   const [state, setState] = useState({
     isBottom: false,
   });
+
   const onScrollObserver = (ref) => () => {
     const target = ref.current;
     const height = target.scrollHeight - target.offsetHeight;
     if (target.scrollTop < height) setState({ isBottom: false });
     else setState({ isBottom: true });
   };
+
   const arrowClickHandler = (ref) => () => {
     if (state.isBottom) {
       scrollToRef(ref, 0);
@@ -30,6 +32,7 @@ const Newspeed = ({ peeds }) => {
     }
     setState({ ...state, isBottom: !state.isBottom });
   };
+
   return (
     <div
       className="Newspeed"

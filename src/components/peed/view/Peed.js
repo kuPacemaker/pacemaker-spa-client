@@ -18,16 +18,16 @@ const types = {
 
 const Peed = ({ type, title, body, to, arg }) => {
   return (
-    // <Link to="">
-    <div className={classNames('Peed', types[type][1])}>
-      <img className="PeedImage" src={types[type][2]} alt="" />
-      <div className="MessageBox">
-        <div className="Source">{types[type][0]}</div>
-        <div className="Title">{title}</div>
-        <div className="Body">{body}</div>
+    <Link to={to}>
+      <div className={classNames('Peed', types[type][1])}>
+        <img className="PeedImage" src={types[type][2]} alt="" />
+        <div className="MessageBox">
+          <div className="Source">{types[type][0]}</div>
+          <div className="Title">{title}</div>
+          <div className="Body">{body}</div>
+        </div>
       </div>
-    </div>
-    // </Link>
+    </Link>
   );
 };
 

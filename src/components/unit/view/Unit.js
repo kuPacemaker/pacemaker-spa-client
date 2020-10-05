@@ -18,6 +18,8 @@ const Unit = ({
   channel,
   unit,
   tab,
+  document,
+  paper,
   documentHandler,
   onAnswerHandler,
 }) => {
@@ -73,11 +75,12 @@ const Unit = ({
         {
           type: 'check',
           onClickHandler: () => console.log('Save Quizs'),
+          disable: false,
         },
         {
           type: 'arrow-down',
           onClickHandler: () => {},
-          observer: state.rotate,
+          rotate: state.rotate,
         },
       ],
     },
@@ -124,8 +127,8 @@ const Unit = ({
           <div className="DocumentContainer">
             <Document
               type={type}
-              title={unit.document.title}
-              body={unit.document.body}
+              title={document.title}
+              body={document.body}
               changeTab={changeTab}
             />
           </div>
@@ -133,8 +136,8 @@ const Unit = ({
         {state.tab === 'edit' && (
           <div className="DocumentContainer">
             <EditDocument
-              title={unit.document.title}
-              body={unit.document.body}
+              title={document.title}
+              body={document.body}
               documentHandler={documentHandler}
             />
           </div>
@@ -147,7 +150,7 @@ const Unit = ({
               onWheel={onScrollObserver(quizContainer)}
               ref={quizContainer}
             >
-              {unit.paper.questions.map((question, index) => (
+              {paper.questions.map((question, index) => (
                 <Quiz key={index} data={question} />
               ))}
             </div>
@@ -155,7 +158,7 @@ const Unit = ({
         )}
         {state.tab === 'paper' && (
           <Paper
-            questions={unit.paper.questions}
+            questions={paper.questions}
             onAnswerHandler={onAnswerHandler}
           />
         )}

@@ -5,16 +5,23 @@
 .FloatingIcons {
     .Icon {
         @include square(3);
+        @include animate();
         pointer-events: all;
+        opacity: 1;
         display: block;
         margin-bottom: 25px;
     }
 
     .RotateIcon {
-        @include animate-rotate(0deg);
+        transform: rotate(0deg);
 
         &.Rotate {
-            @include animate-rotate(180deg);
+            transform: rotate(180deg);
         }
+    }
+
+    .Disable {
+        pointer-events: none;
+        opacity: 0;
     }
 }

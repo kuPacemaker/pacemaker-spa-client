@@ -2,9 +2,9 @@ import React from 'react';
 
 import './ChannelThumbnail.scss';
 
-const ChannelThumbnail = ({ title, detail, image }) => {
+const ChannelThumbnail = ({ title, detail, image, onClickHandler }) => {
   return (
-    <div className="ChannelThumbnail">
+    <div className="ChannelThumbnail" onClick={onClickHandler}>
       <img className="ChannelImage" src={image} alt="" />
       <div className="ChannelContext">
         <div className="ChannelTitle">{title}</div>

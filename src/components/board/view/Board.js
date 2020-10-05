@@ -9,13 +9,7 @@ import './Board.scss';
 const scrollToRef = (ref, to, behavior) =>
   ref.current.scrollTo({ top: 0, left: to, behavior: behavior });
 
-const Board = ({
-  type,
-  title,
-  channels,
-  clickChannelHandler,
-  createChannelHandler,
-}) => {
+const Board = ({ type, title, channels, createChannelHandler }) => {
   const scroll = useRef(null);
   const [state, setState] = useState({
     isEnd: false,
@@ -53,12 +47,10 @@ const Board = ({
             ref={scroll}
           >
             {channels.map((channel, index) => (
-              <div
-                key={index}
-                className="ChannelContainer"
-                onClick={clickChannelHandler(type, channel.id)}
-              >
+              <div key={index} className="ChannelContainer">
                 <ChannelThumbnail
+                  type={type}
+                  id={channel.id}
                   title={channel.title}
                   detail={channel.detail}
                   imgType={channel.imgType}
