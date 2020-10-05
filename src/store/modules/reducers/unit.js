@@ -1,7 +1,7 @@
 import { handleActions } from 'redux-actions';
 // import { List, Map } from 'immutable';
 import produce from 'immer';
-import { GET, UPDATE } from '../type/unit';
+import { UPDATE } from '../type/unit';
 
 const initialState = {
   id: '',
@@ -41,7 +41,6 @@ const initialState = {
 
 export default handleActions(
   {
-    [GET]: (state, action) => produce(state, () => action.payload),
     [UPDATE]: (state, action) => produce(state, () => action.payload),
   },
   initialState

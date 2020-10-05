@@ -5,6 +5,7 @@ import account from './account';
 import board from './board';
 import channel from './channel';
 import modal from './modal';
+import unit from './unit';
 import newspeed from './newspeed';
 
 export default (history) =>
@@ -13,6 +14,7 @@ export default (history) =>
     board,
     channel,
     modal,
+    unit,
     newspeed,
     router: connectRouter(history),
     // 다른 리듀서를 만들게되면 여기에 넣어줌..

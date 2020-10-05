@@ -1,4 +1,4 @@
-import React, { useRef, useState } from 'react';
+import React, { useRef, useState, useEffect } from 'react';
 import { useHistory } from 'react-router-dom';
 
 import FloatingIcons from 'components/floating-icons';
@@ -13,25 +13,27 @@ import Paper from './sub-components/Paper';
 import arrow_left from 'resources/images/icon/arrow-left.png';
 import './Unit.scss';
 
-const Unit = ({
-  type,
-  channel,
-  unit,
-  tab,
-  document,
-  paper,
-  documentHandler,
-  onAnswerHandler,
-}) => {
+const Unit = (props) => {
   const [state, setState] = useState({
-    tab: tab,
+    tab: props.tab,
     reservation: false,
+    ready: true,
     rotate: false,
   });
 
   const history = useHistory();
 
   const quizContainer = useRef(null);
+
+  useEffect(() => {
+    const staging = props.paper.questions.filter(
+      (question) => !question.verified
+    );
+    setState({
+      ...state,
+      ready: staging.length === 0,
+    });
+  }, [props.paper.questions]);
 
   const showReservation = () => {
     setState({ ...state, reservation: !state.reservation });
@@ -64,7 +66,10 @@ const Unit = ({
       edit: [
         {
           type: 'check',
-          onClickHandler: changeTab('document'),
+          onClickHandler: () => {
+            props.updateDocument();
+            changeTab('document')();
+          },
         },
         {
           type: 'upload_line',
@@ -75,7 +80,7 @@ const Unit = ({
         {
           type: 'check',
           onClickHandler: () => console.log('Save Quizs'),
-          disable: false,
+          disable: state.ready,
         },
         {
           type: 'arrow-down',
@@ -102,19 +107,23 @@ const Unit = ({
       </div>
 
       <div className="ChannelInformationBar">
-        <div className="ChannelTitle">{channel.title}</div>
-        <div className="ChannelDetail">{channel.detail}</div>
+        <div className="ChannelTitle">{props.channel.title}</div>
+        <div className="ChannelDetail">{props.channel.detail}</div>
       </div>
 
       <div className="UnitInformationBar">
         <div className="InformationContext">
-          <div className="UnitIndex">Unit {unit.index}</div>
-          <div className="UnitTitle">{unit.title}</div>
+          <div className="UnitIndex">Unit {props.unit.index}</div>
+          <div className="UnitTitle">{props.unit.title}</div>
           <div className="UnitIconSet">
-            <TopIconSet type={type} unit={unit} onClickHandler={changeTab} />
+            <TopIconSet
+              type={props.type}
+              unit={props.unit}
+              onClickHandler={changeTab}
+            />
           </div>
         </div>
-        {state.tab === 'upload' && (
+        {state.tab === 'upload' && state.ready && (
           <Reservation
             onClickHandler={showReservation}
             hide={!state.reservation}
@@ -126,9 +135,9 @@ const Unit = ({
         {state.tab === 'document' && (
           <div className="DocumentContainer">
             <Document
-              type={type}
-              title={document.title}
-              body={document.body}
+              type={props.type}
+              title={props.document.title}
+              body={props.document.body}
               changeTab={changeTab}
             />
           </div>
@@ -136,9 +145,9 @@ const Unit = ({
         {state.tab === 'edit' && (
           <div className="DocumentContainer">
             <EditDocument
-              title={document.title}
-              body={document.body}
-              documentHandler={documentHandler}
+              title={props.document.title}
+              body={props.document.body}
+              documentHandler={props.documentHandler}
             />
           </div>
         )}
@@ -150,22 +159,26 @@ const Unit = ({
               onWheel={onScrollObserver(quizContainer)}
               ref={quizContainer}
             >
-              {paper.questions.map((question, index) => (
-                <Quiz key={index} data={question} />
+              {props.paper.questions.map((question, index) => (
+                <Quiz
+                  key={index}
+                  data={question}
+                  onVerifyHandler={props.onVerifyHandler}
+                />
               ))}
             </div>
           </div>
         )}
         {state.tab === 'paper' && (
           <Paper
-            questions={paper.questions}
-            onAnswerHandler={onAnswerHandler}
+            questions={props.paper.questions}
+            onAnswerHandler={props.onAnswerHandler}
           />
         )}
       </div>
 
       <div className="IconContainer">
-        <FloatingIcons icons={iconMap[type][state.tab]} />
+        <FloatingIcons icons={iconMap[props.type][state.tab]} />
       </div>
     </div>
   );

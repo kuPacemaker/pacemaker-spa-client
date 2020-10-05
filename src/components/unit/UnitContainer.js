@@ -122,7 +122,6 @@ import Unit from './view/Unit';
 // };
 
 const documentHandler = (state, setState) => (type) => (data) => {
-  console.log(type, data);
   switch (type) {
     case 'title':
       setState({
@@ -144,9 +143,40 @@ const documentHandler = (state, setState) => (type) => (data) => {
 const onAnswerHandler = (state, setState) => (index, answer) => () => {
   setState({
     ...state,
-    questions: state.questions.map((q, i) =>
-      i === index ? { ...q, user_answer: answer } : q
+    questions: state.questions.map((question, i) =>
+      i === index ? { ...question, user_answer: answer } : question
     ),
+  });
+};
+
+const onVerifyHandler = (state, setState) => (id) => () => {
+  setState({
+    ...state,
+    questions: state.questions.map((question) =>
+      question.id === id
+        ? { ...question, verified: !question.verified }
+        : question
+    ),
+  });
+};
+
+const updateDocument = (updateHandler) => (state, action) => () => {
+  updateHandler({
+    ...state,
+    unit: {
+      ...state.unit,
+      document: action,
+    },
+  });
+};
+
+const updatePaper = (updateHandler) => (state, action) => () => {
+  updateHandler({
+    ...state,
+    unit: {
+      ...state.unit,
+      paper: action,
+    },
   });
 };
 
@@ -162,7 +192,6 @@ const UnitContainer = ({
   if (!data.unit.isOpened) history.goBack();
   const [document, setDocument] = useState(data.unit.document);
   const [paper, setPaper] = useState(data.unit.paper);
-
   return (
     <Unit
       type={type}
@@ -171,7 +200,10 @@ const UnitContainer = ({
       tab={tab}
       document={document}
       paper={paper}
+      updateDocument={updateDocument(updateHandler)(data, document)}
       documentHandler={documentHandler(document, setDocument)}
+      updatePaper={updatePaper(updateHandler)(data, paper)}
+      onVerifyHandler={onVerifyHandler(paper, setPaper)}
       onAnswerHandler={onAnswerHandler(paper, setPaper)}
     />
   );

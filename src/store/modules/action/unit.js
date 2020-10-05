@@ -1,4 +1,4 @@
-import { get, update } from '../creators/unit';
+import { update } from '../creators/unit';
 
 export const getUnit = (payload, historyHandler) => (dispatch) => {
   // {token, channel, unit;}
@@ -70,7 +70,7 @@ export const getUnit = (payload, historyHandler) => (dispatch) => {
             verified: true,
           },
           {
-            id: 0,
+            id: 5,
             quiz:
               'What is being put into place to release genetically modified mosquitoes into the Florida Keys?',
             answer: 'AA',
@@ -79,7 +79,7 @@ export const getUnit = (payload, historyHandler) => (dispatch) => {
             verified: true,
           },
           {
-            id: 1,
+            id: 6,
             quiz: 'Who can only female mosquitoes bite ?',
             answer: 'AA',
             user_answer: '',
@@ -87,7 +87,7 @@ export const getUnit = (payload, historyHandler) => (dispatch) => {
             verified: true,
           },
           {
-            id: 2,
+            id: 7,
             quiz:
               'What type of mosquitoes were developed to control the mosquito population in Panama?',
             answer: 'GMO mosquitoes',
@@ -96,7 +96,7 @@ export const getUnit = (payload, historyHandler) => (dispatch) => {
             verified: true,
           },
           {
-            id: 3,
+            id: 8,
             quiz: 'What kind of insects are being released in Florida?',
             answer: 'AA',
             user_answer: '',
@@ -104,7 +104,7 @@ export const getUnit = (payload, historyHandler) => (dispatch) => {
             verified: true,
           },
           {
-            id: 4,
+            id: 9,
             quiz:
               'Where have the company that developed GMO mosquitoes been successful in controlling mosquito populations?',
             answer: 'AA',
@@ -118,7 +118,7 @@ export const getUnit = (payload, historyHandler) => (dispatch) => {
   };
 
   setTimeout(() => {
-    dispatch(get(dummy));
+    dispatch(update(dummy));
     historyHandler();
   }, 250);
 };
