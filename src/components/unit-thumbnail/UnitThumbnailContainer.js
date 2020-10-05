@@ -6,27 +6,6 @@ import UnitThumbnail from './view/UnitThumbnail';
 
 const onIconClickHandler = (history) => (channel, id, type) => (e) => {
   console.log(channel, id, type, e.target.name);
-  // let path = '';
-
-  // switch (e.target.name) {
-  //   case 'edit':
-  //     // open modal
-  //     // path = LocalMainPage
-  //     break;
-  //   case 'document':
-  //     //
-  //     break;
-  //   case 'upload':
-  //     break;
-  //   case 'remove':
-  //     break;
-  //   case 'quiz':
-  //     break;
-  //   case 'answer':
-  //     break;
-  //   default:
-  //     return;
-  // }
   const path = `${LocalMainPage.unit.root}${type}?channel=${channel}&id=${id}&tab=${e.target.name}`;
   history.push(path);
 };
