@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
-import { Redirect } from 'react-router-dom';
+import { useHistory } from 'react-router-dom';
 
 import { modifyAccount } from 'store/modules/action/account';
 import ModifyAccount from './view/ModifyAccount';
@@ -45,6 +45,8 @@ const ModifyAccountContainer = ({
     newPassword_re: '',
   });
 
+  const history = useHistory();
+
   const onChangeHandler = (type) => (data) => {
     switch (type) {
       case 'NAME':
@@ -64,19 +66,20 @@ const ModifyAccountContainer = ({
     }
   };
 
-  const modiftAccountHandler = () => {
+  const modiftAccountHandler = (historyHandler) => () => {
     requestModifyAccount(
-      token,
-      state.currentPassword,
-      state.newPassword,
-      state.name
+      {
+        token: token,
+        pw: state.currentPassword,
+        new_pw: state.newPassword,
+        name: state.name,
+      },
+      () => {
+        changeHandler();
+        historyHandler(LocalPath.root);
+      }
     );
   };
-
-  if (!token) {
-    changeHandler();
-    return <Redirect path={'*'} to={LocalPath.root} />;
-  }
 
   return (
     <ModifyAccount
@@ -84,7 +87,7 @@ const ModifyAccountContainer = ({
       title={title}
       inputForms={inputForms}
       onChangeHandler={onChangeHandler}
-      modiftAccountHandler={modiftAccountHandler}
+      modiftAccountHandler={modiftAccountHandler(history.push)}
     />
   );
 };

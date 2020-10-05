@@ -4,11 +4,11 @@ import { SIGNIN, SIGNOUT } from '../type/account';
 /**
  * Sign In Async Action을 수행한 후 받은 데이터를 스토어에 저장.
  */
-export const signin = createAction(SIGNIN, (id, name, type, token) => ({
-  id,
-  name,
-  type,
-  token,
+export const signin = createAction(SIGNIN, (data) => ({
+  id: data.id,
+  name: data.name,
+  type: data.type,
+  token: data.token,
 }));
 
 /**

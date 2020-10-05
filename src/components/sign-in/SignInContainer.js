@@ -1,9 +1,9 @@
 import React, { useState } from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
-import { Redirect } from 'react-router-dom';
+import { useHistory } from 'react-router-dom';
 
-import { updateChannel } from 'store/modules/action/board';
+import { getBoard } from 'store/modules/action/board';
 import { requestSignIn } from 'store/modules/action/account';
 import { LocalMainPage } from 'common/local-path';
 import LeftImageForm from 'components/left-image-form';
@@ -33,6 +33,7 @@ const SignInContainer = (props) => {
     id: '',
     pw: '',
   });
+  const history = useHistory();
   const onChangeHandler = (type) => (data) => {
     switch (type) {
       case 'E-MAIL':
@@ -47,15 +48,18 @@ const SignInContainer = (props) => {
   };
 
   // history.push('/main-page');
-  const signInHandler = () => {
+  const signInHandler = (historyHandler) => () => {
     const signin = props.requestSignIn;
-    signin(state.id, state.pw);
+    signin({ id: state.id, pw: state.pw }, () => {
+      props.getBoard(props.token);
+      historyHandler(LocalMainPage.newspeed);
+    });
   };
 
-  if (props.token) {
-    props.updateChannel(props.token);
-    return <Redirect path={'*'} to={LocalMainPage.newspeed} />;
-  }
+  // if (props.token) {
+  //   props.getBoard(props.token);
+  //   return <Redirect path={'*'} to={LocalMainPage.newspeed} />;
+  // }
 
   return (
     <LeftImageForm
@@ -65,7 +69,7 @@ const SignInContainer = (props) => {
       goFindAccount={goFindAccount}
       inputForms={inputForms}
       onChangeHandler={onChangeHandler}
-      signInHandler={signInHandler}
+      signInHandler={signInHandler(history.push)}
       image={image}
     />
   );
@@ -76,7 +80,7 @@ const mapStateToProps = ({ account }) => ({
 });
 
 const mapDispatchToProps = (dispatch) =>
-  bindActionCreators({ requestSignIn, updateChannel }, dispatch);
+  bindActionCreators({ requestSignIn, getBoard }, dispatch);
 
 export default connect(mapStateToProps, mapDispatchToProps)(SignInContainer);
 // export default SignInContainer;

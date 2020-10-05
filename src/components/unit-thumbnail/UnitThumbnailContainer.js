@@ -1,43 +1,67 @@
 import React from 'react';
-import { useHistory } from 'react-router-dom';
+import { connect } from 'react-redux';
+import { bindActionCreators } from 'redux';
 
+import { useHistory } from 'react-router-dom';
+import { getUnit } from 'store/modules/action/unit';
 import { LocalMainPage } from 'common/local-path';
 import UnitThumbnail from './view/UnitThumbnail';
 
-const onIconClickHandler = (history) => (channel, id, type) => (e) => {
-  console.log(channel, id, type, e.target.name);
+const onIconClickHandler = (getUnitHandler, historyHandler) => (
+  channel,
+  id,
+  type,
+  token
+) => (e) => {
   const path = `${LocalMainPage.unit.root}${type}?channel=${channel}&id=${id}&tab=${e.target.name}`;
-  history.push(path);
+  getUnitHandler({ token: token, channel: channel, unit: id }, () => {
+    historyHandler(path);
+  });
 };
 
-const onUnitClickHandler = (history) => (channel) => (type, id, tab) => () => {
-  const path = `${LocalMainPage.unit.root}${type}?channel=${channel}&id=${id}&tab=${tab}`;
-  history.push(path);
+const onUnitClickHandler = (getUnitHandler, historyHandler) => (
+  channel,
+  token
+) => (type, id) => () => {
+  const path = `${LocalMainPage.unit.root}${type}?channel=${channel}&id=${id}&tab=root`;
+  getUnitHandler({ token: token, channel: channel, unit: id }, () => {
+    historyHandler(path);
+  });
 };
 
-const UnitThumbnailContainer = ({ type, channel, id, index, title, state }) => {
+const UnitThumbnailContainer = (props) => {
   const history = useHistory();
 
   return (
     <UnitThumbnail
-      type={type}
-      id={id}
-      index={index}
-      title={title}
-      state={state}
-      onIconClickHandler={onIconClickHandler(history)(channel, id, type)}
-      onUnitClickHandler={onUnitClickHandler(history)(channel)}
+      type={props.type}
+      id={props.id}
+      index={props.index}
+      title={props.title}
+      state={props.state}
+      onIconClickHandler={onIconClickHandler(props.getUnit, history.push)(
+        props.channel,
+        props.id,
+        props.type,
+        props.token
+      )}
+      onUnitClickHandler={onUnitClickHandler(props.getUnit, history.push)(
+        props.channel,
+        props.token
+      )}
     />
   );
 };
 
-// const mapStateToProps = ({ counter }) => ({
-//   color: counter.color,
-//   number: counter.number,
-// });
+const mapStateToProps = ({ account }) => ({
+  token: account.token,
+});
 
-// const mapDispatchToProps = (dispatch) =>
-//   bindActionCreators({ incrementAsync, decrement, getPost }, dispatch);
+const mapDispatchToProps = (dispatch) =>
+  bindActionCreators({ getUnit }, dispatch);
 
-// export default connect(mapStateToProps, mapDispatchToProps)(CounterContainer);
-export default UnitThumbnailContainer;
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(UnitThumbnailContainer);
+// export default UnitThumbnailContainer;

@@ -1,6 +1,6 @@
-import { update } from '../creators/board';
+import { get } from '../creators/board';
 
-export const updateChannel = (token) => (dispatch) => {
+export const getBoard = (token) => (dispatch) => {
   const dummy = {
     leader: [
       {
@@ -52,8 +52,8 @@ export const updateChannel = (token) => (dispatch) => {
   };
 
   setTimeout(() => {
-    dispatch(update(dummy));
+    dispatch(get(dummy));
   }, 250);
 };
 
-export default { updateChannel };
+export default { getBoard };

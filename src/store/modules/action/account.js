@@ -1,14 +1,24 @@
 import { signin, signout } from '../creators/account';
 
-export const requestSignIn = (id, pw) => (dispatch) => {
+export const requestSignIn = (payload, historyHandler) => (dispatch) => {
+  const dummy = {
+    id: payload.id,
+    name: 'Lumy Kelvin',
+    type: 'MASTER',
+    token: payload.pw,
+  };
+
   setTimeout(() => {
-    dispatch(signin(id, 'Lumy Kelvin', 'MASTER', '토큰토큰토큰'));
+    dispatch(signin(dummy));
+    historyHandler();
   }, 250);
 };
 
-export const modifyAccount = (token, pw, new_pw, name) => (dispatch) => {
+export const modifyAccount = (payload, historyHandler) => (dispatch) => {
+  // {token, pw, new_pw, name}
   setTimeout(() => {
     dispatch(signout());
+    historyHandler();
   }, 250);
 };
 
