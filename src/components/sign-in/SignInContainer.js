@@ -8,7 +8,6 @@ import { requestSignIn } from 'store/modules/action/account';
 import { LocalMainPage } from 'common/local-path';
 import LeftImageForm from 'components/left-image-form';
 import image from 'resources/images/concept/signin-image.jpg';
-// import { account } from 'shared/test-data.js';
 
 const title = 'SIGN-IN';
 const imageText = 'START A PERFECT MARATHON WITH PACEMAKER';
@@ -56,11 +55,6 @@ const SignInContainer = (props) => {
     });
   };
 
-  // if (props.token) {
-  //   props.getBoard(props.token);
-  //   return <Redirect path={'*'} to={LocalMainPage.newspeed} />;
-  // }
-
   return (
     <LeftImageForm
       title={title}
@@ -83,4 +77,3 @@ const mapDispatchToProps = (dispatch) =>
   bindActionCreators({ requestSignIn, getBoard }, dispatch);
 
 export default connect(mapStateToProps, mapDispatchToProps)(SignInContainer);
-// export default SignInContainer;

@@ -10,13 +10,11 @@ const FloatingIcons = ({ icons }) => {
         return (
           <img
             key={index}
-            className={
-              icon.observer !== undefined
-                ? classNames('Icon', 'RotateIcon', {
-                    Rotate: icon.observer,
-                  })
-                : 'Icon'
-            }
+            className={classNames('Icon', {
+              RotateIcon: icon.rotate !== undefined,
+              Rotate: icon.rotate,
+              Disable: icon.disable,
+            })}
             src={require(`resources/images/icon/${icon.type}.png`)}
             alt=""
             onClick={icon.onClickHandler}

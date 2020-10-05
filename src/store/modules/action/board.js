@@ -1,6 +1,6 @@
 import { get } from '../creators/board';
 
-export const getBoard = (token) => (dispatch) => {
+export const getBoard = (payload) => (dispatch) => {
   const dummy = {
     leader: [
       {

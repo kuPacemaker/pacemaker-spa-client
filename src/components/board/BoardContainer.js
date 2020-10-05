@@ -1,10 +1,8 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { useHistory } from 'react-router-dom';
 
 import { show } from 'store/modules/creators/modal';
 import Board from './view/Board';
-import { LocalMainPage } from 'common/local-path';
 
 const title = {
   en: {
@@ -19,12 +17,6 @@ const BoardContainer = ({
   runner: runnerBoard,
   showOverlay,
 }) => {
-  const history = useHistory();
-  const clickChannelHandler = (boardType, id) => () => {
-    history.push(LocalMainPage.channel.root + boardType + '?id=' + id);
-    console.log('enter to Channel : ' + id);
-  };
-
   const createChannelHandler = (_type) => () => {
     if (_type === 'leader') showOverlay('CREATE CHANNEL');
     else if (_type === 'runner') showOverlay('ENTER CHANNEL');
@@ -35,7 +27,6 @@ const BoardContainer = ({
       type={type}
       title={title.en[type]}
       channels={type === 'leader' ? leaderBoard : runnerBoard}
-      clickChannelHandler={clickChannelHandler}
       createChannelHandler={createChannelHandler}
     />
   );

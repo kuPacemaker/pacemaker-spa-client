@@ -29,4 +29,3 @@ const mapDispatchToProps = (dispatch) =>
   bindActionCreators({ show, hide }, dispatch);
 
 export default connect(mapStateToProps, mapDispatchToProps)(OverlayContainer);
-// export default OverlayContainer;

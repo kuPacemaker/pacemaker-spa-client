@@ -7,8 +7,8 @@ const UnitPage = ({ location, match }) => {
   return (
     <Unit
       type={match.params.type}
-      channel={query.channel}
-      id={query.id}
+      channelId={query.channel}
+      unitId={query.id}
       tab={query.tab}
     />
   );

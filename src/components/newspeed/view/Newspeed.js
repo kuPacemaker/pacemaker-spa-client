@@ -15,12 +15,14 @@ const Newspeed = ({ peeds, fetchNewspeed }) => {
   const [state, setState] = useState({
     isBottom: false,
   });
+
   const onScrollObserver = (ref) => () => {
     const target = ref.current;
     const height = target.scrollHeight - target.offsetHeight;
     if (target.scrollTop < height) setState({ isBottom: false });
     else setState({ isBottom: true });
   };
+
   const arrowClickHandler = (ref) => () => {
     if (state.isBottom) {
       scrollToRef(ref, 0);
@@ -34,7 +36,7 @@ const Newspeed = ({ peeds, fetchNewspeed }) => {
   useEffect(() => {
     // initialize newspeed
     if (!peeds) fetchNewspeed();
-  }, [])
+  }, []);
 
   return (
     <div
@@ -59,18 +61,19 @@ const Newspeed = ({ peeds, fetchNewspeed }) => {
         ref={container}
       >
         <div>
-          {peeds && peeds.map((peed, index) => (
-            <div className="PeedBox" key={index}>
-              <Peed
-                key={index}
-                type={peed.type}
-                title={peed.title}
-                body={peed.body}
-                to={peed.to}
-                arg={peed.arg}
-              />
-            </div>
-          ))}
+          {peeds &&
+            peeds.map((peed, index) => (
+              <div className="PeedBox" key={index}>
+                <Peed
+                  key={index}
+                  type={peed.type}
+                  title={peed.title}
+                  body={peed.body}
+                  to={peed.to}
+                  arg={peed.arg}
+                />
+              </div>
+            ))}
         </div>
       </div>
     </div>
