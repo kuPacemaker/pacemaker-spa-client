@@ -79,7 +79,7 @@ const Unit = (props) => {
       upload: [
         {
           type: 'check',
-          onClickHandler: () => console.log('Save Quizs'),
+          onClickHandler: props.updatePaper,
           disable: state.ready,
         },
         {
