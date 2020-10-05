@@ -1,86 +1,20 @@
 import React from 'react';
-
+import { connect } from 'react-redux';
+import { bindActionCreators } from 'redux';
 import Newspeed from './view/Newspeed';
-// import image from 'resources/images/signin-image.png';
-// import { account } from 'shared/test-data.js';
+import { fetchNewspeed } from 'store/modules/action/newspeed';
 
-const testPeeds = [
-  {
-    type: 'SYSTEM_NOTICE',
-    title: 'NEW FUNCTION IS AVAILABLE',
-    body: 'Your Running Mate, Pacemaker Team',
-    to: '',
-    arg: '',
-  },
-  {
-    type: 'PAPER_RECEIVE',
-    title: 'NEW QUIZ IS OPENED',
-    body: 'Basic Computer Programming, Kelvin, Tue. 15:00~18:00',
-    to: '',
-    arg: '',
-  },
-  {
-    type: 'QUESTION_GENERATION',
-    title: 'NEW QUESTIONS WERE RECEIVED',
-    body: 'Basic Computer Programming, Kelvin, Tue. 15:00~18:00',
-    to: '',
-    arg: '',
-  },
-  {
-    type: 'PAPER_FINISH',
-    title: 'EVERYONE FINISHED THE QUIZE',
-    body: 'Basic Computer Programming, Kelvin, Tue. 15:00~18:00',
-    to: '',
-    arg: '',
-  },
-  {
-    type: 'QUESTION_GENERATION',
-    title: 'NEW QUESTIONS WERE RECEIVED',
-    body: 'Basic Computer Programming, Kelvin, Tue. 15:00~18:00',
-    to: '',
-    arg: '',
-  },
-  {
-    type: 'SYSTEM_NOTICE',
-    title: 'NEW FUNCTION IS AVAILABLE',
-    body: 'Your Running Mate, Pacemaker Team',
-    to: '',
-    arg: '',
-  },
-  {
-    type: 'PAPER_RECEIVE',
-    title: 'NEW QUIZ IS OPENED',
-    body: 'Basic Computer Programming, Kelvin, Tue. 15:00~18:00',
-    to: '',
-    arg: '',
-  },
-  {
-    type: 'PAPER_FINISH',
-    title: 'EVERYONE FINISHED THE QUIZE',
-    body: 'Basic Computer Programming, Kelvin, Tue. 15:00~18:00',
-    to: '',
-    arg: '',
-  },
-  {
-    type: 'QUESTION_GENERATION',
-    title: 'NEW QUESTIONS WERE RECEIVED',
-    body: 'Basic Computer Programming, Kelvin, Tue. 15:00~18:00',
-    to: '',
-    arg: '',
-  },
-];
-
-const NewspeedContainer = (prop) => {
-  return <Newspeed peeds={testPeeds} />;
+const NewspeedContainer = (props) => {
+  return <Newspeed peeds={props.peeds} fetchNewspeed={props.fetchNewspeed}/>;
 };
 
-// const mapStateToProps = ({ counter }) => ({
-//   color: counter.color,
-//   number: counter.number,
-// });
+const mapStateToProps = (state) => {
+  return {
+    peeds: state.newspeed.peeds,
+  }
+}
 
-// const mapDispatchToProps = (dispatch) =>
-//   bindActionCreators({ incrementAsync, decrement, getPost }, dispatch);
+const mapDispatchToProps = (dispatch) =>
+  bindActionCreators({ fetchNewspeed }, dispatch);
 
-// export default connect(mapStateToProps, mapDispatchToProps)(CounterContainer);
-export default NewspeedContainer;
+export default connect(mapStateToProps, mapDispatchToProps)(NewspeedContainer);
