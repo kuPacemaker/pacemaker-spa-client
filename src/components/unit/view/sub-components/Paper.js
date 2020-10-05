@@ -34,7 +34,7 @@ const Paper = ({ questions, onAnswerHandler }) => {
             >
               <img
                 className={classNames('Checked', {
-                  Show: questions[state.index].answer === answer,
+                  Show: questions[state.index].user_answer === answer,
                 })}
                 src={check}
                 alt=""
