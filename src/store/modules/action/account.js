@@ -1,25 +1,22 @@
 import { signin, signout } from '../creators/account';
+import { sendSignIn } from '../../../api/account';
 
-export const requestSignIn = (payload, historyHandler) => (dispatch) => {
-  const dummy = {
-    id: payload.id,
-    name: 'Lumy Kelvin',
-    type: 'MASTER',
-    token: payload.pw,
-  };
+export const requestSignIn = (payload, historyHandler) => async (dispatch) => {
+  try {
+    const userInfo = await sendSignIn(payload);
 
-  setTimeout(() => {
-    dispatch(signin(dummy));
+    dispatch(signin(userInfo));
+
     historyHandler();
-  }, 250);
+  } catch (e) {
+    console.log(e)
+  }
 };
 
 export const modifyAccount = (payload, historyHandler) => (dispatch) => {
   // {token, pw, new_pw, name}
-  setTimeout(() => {
-    dispatch(signout());
-    historyHandler();
-  }, 250);
+  dispatch(signout());
+  historyHandler();
 };
 
 export default { requestSignIn, modifyAccount };
