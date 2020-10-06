@@ -10,7 +10,7 @@ import answer from 'resources/images/icon/answer.png';
 const TopIconSet = ({ type, unit, onClickHandler }) => {
   if (type === 'leader') {
     return (
-      <div>
+      <>
         <img
           className="Icon"
           src={document}
@@ -24,11 +24,11 @@ const TopIconSet = ({ type, unit, onClickHandler }) => {
           onClick={onClickHandler('upload')}
         />
         <img className="Icon" src={remove} alt="" />
-      </div>
+      </>
     );
   } else if (type === 'runner') {
     return (
-      <div>
+      <>
         <img
           className={classNames('Icon', {
             Disable: !unit.paper.isStart,
@@ -45,9 +45,9 @@ const TopIconSet = ({ type, unit, onClickHandler }) => {
           alt=""
           onClick={onClickHandler('document')}
         />
-      </div>
+      </>
     );
-  } else return <div></div>;
+  } else return <></>;
 };
 
 export default TopIconSet;

@@ -5,14 +5,15 @@ import FooterContaioner from 'components/footer';
 import Overlay from 'components/overlay';
 import RootRouter from 'routes/RootRouter.js';
 
+// FIXME: make id token cache in localstorage
 const RootPage = () => {
   return (
-    <div>
+    <>
       <HeaderContainer />
       <RootRouter />
       <FooterContaioner />
       <Overlay />
-    </div>
+    </>
   );
 };
 

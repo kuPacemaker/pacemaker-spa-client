@@ -3,7 +3,7 @@ import classNames from 'classnames';
 import './FloatingIcons.scss';
 
 const FloatingIcons = ({ icons }) => {
-  if (!icons) return <div></div>;
+  if (!icons) return <></>;
   return (
     <div className="FloatingIcons">
       {icons.map((icon, index) => {

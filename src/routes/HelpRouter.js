@@ -6,13 +6,13 @@ import { LocalHelp } from 'common/local-path';
 const HelpRouter = () => {
   console.log(LocalHelp);
   return (
-    <div>
+    <>
       <Switch>
         <Route exact path={LocalHelp.aboutus} component={AboutUs} />
         <Route exact path={LocalHelp.contact} component={AboutUs} />
         <Redirect exact path={LocalHelp.root} to={LocalHelp.aboutus} />
       </Switch>
-    </div>
+    </>
   );
 };
 

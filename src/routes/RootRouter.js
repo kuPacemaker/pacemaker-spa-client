@@ -7,7 +7,7 @@ import MainPage from './MainPageRouter';
 import LocalPath from 'common/local-path';
 const RootRouter = () => {
   return (
-    <div>
+    <>
       <Route exact path={LocalPath.root} component={Home} />
       <Switch>
         <Route path={LocalPath.help.root} component={Help} />
@@ -15,7 +15,7 @@ const RootRouter = () => {
         <Route path={LocalPath.main.root} component={MainPage} />
         <Redirect path="*" to={LocalPath.root} />
       </Switch>
-    </div>
+    </>
   );
 };
 
