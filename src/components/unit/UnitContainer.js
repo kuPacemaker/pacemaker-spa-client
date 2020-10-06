@@ -55,11 +55,15 @@ const updateDocument = (updateHandler) => (state, action) => () => {
   });
 };
 
-const updatePaper = (updateHandler, updateLocal) => (state, action) => () => {
-  const questions = action.questions.filter((question) => question.verified);
+const updatePaper = (updateHandler) => (
+  state,
+  local,
+  updateLocalState
+) => () => {
+  const questions = local.questions.filter((question) => question.verified);
 
-  updateLocal({
-    ...action,
+  updateLocalState({
+    ...local,
     questions: questions,
   });
 
@@ -68,7 +72,7 @@ const updatePaper = (updateHandler, updateLocal) => (state, action) => () => {
     unit: {
       ...state.unit,
       paper: {
-        ...action,
+        ...local,
         questions: questions,
       },
     },
@@ -97,7 +101,7 @@ const UnitContainer = ({
       paper={paper}
       updateDocument={updateDocument(updateHandler)(data, document)}
       documentHandler={documentHandler(document, setDocument)}
-      updatePaper={updatePaper(updateHandler, setPaper)(data, paper)}
+      updatePaper={updatePaper(updateHandler)(data, paper, setPaper)}
       onVerifyHandler={onVerifyHandler(paper, setPaper)}
       onAnswerHandler={onAnswerHandler(paper, setPaper)}
     />

@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import classNames from 'classnames';
 import remove from 'resources/images/icon/remove.png';
 import restore from 'resources/images/icon/restore.png';
@@ -19,6 +19,13 @@ const Quiz = ({ data, onVerifyHandler }) => {
     hideAnswer: true,
     hideCross: true,
   });
+
+  useEffect(() => {
+    setState({
+      ...state,
+      hideAnswer: true,
+    });
+  }, [data.id]);
 
   const answers = data.answer_set.split('/');
   return (
