@@ -21,8 +21,8 @@ const preload = (images) => {
 
 const RootPageContainer = (props) => {
   useEffect(() => {
-    // console.log(Images);
-    // preload(Images);
+    console.log(localStorage.hasOwnProperty('account'));
+    console.log(localStorage);
   }, []);
   return <RootPage />;
 };

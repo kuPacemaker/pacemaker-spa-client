@@ -1,5 +1,5 @@
 import { update } from '../creators/board';
-import { fetch } from '../../../api/board';
+import { fetch } from 'api/board';
 
 export const getBoard = (payload) => async (dispatch) => {
   try {

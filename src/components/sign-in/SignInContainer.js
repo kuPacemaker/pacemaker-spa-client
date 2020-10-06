@@ -48,8 +48,7 @@ const SignInContainer = (props) => {
 
   // history.push('/main-page');
   const signInHandler = (historyHandler) => () => {
-    const signin = props.requestSignIn;
-    signin({ id: state.id, pw: state.pw }, () => {
+    props.requestSignIn({ id: state.id, pw: state.pw }, () => {
       props.getBoard(props.token);
       historyHandler(LocalMainPage.newspeed);
     });
