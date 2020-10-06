@@ -23,6 +23,7 @@ export default handleActions(
       }),
     [SIGNOUT]: (state) =>
       produce(state, (draft) => {
+        localStorage.removeItem('account');
         [draft.id, draft.name, draft.type, draft.token] = ['', '', '', ''];
       }),
   },

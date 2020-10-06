@@ -6,6 +6,7 @@ import Images from 'resources/images';
 
 import { requestSignIn } from 'store/modules/action/account';
 import { LocalMainPage } from 'common/local-path';
+import { decode } from 'common/security/common';
 
 import RootPage from './RootPage';
 
@@ -21,8 +22,13 @@ const preload = (images) => {
 
 const RootPageContainer = (props) => {
   useEffect(() => {
-    console.log(localStorage.hasOwnProperty('account'));
-    console.log(localStorage);
+    if (localStorage.hasOwnProperty('account')) {
+      try {
+        props.requestSignIn(decode(localStorage.getItem('account')), () => {});
+      } catch (e) {
+        console.log(e);
+      }
+    }
   }, []);
   return <RootPage />;
 };
