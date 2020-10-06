@@ -26,7 +26,7 @@ const CreateChannelContainer = ({
   visible,
   token,
   changeHandler,
-  createChannel,
+  createChannel: create,
 }) => {
   const [state, setState] = useState({
     title: '',
@@ -55,7 +55,7 @@ const CreateChannelContainer = ({
   };
 
   const requestCreateChannel = () => {
-    createChannel({ token, ...state });
+    create({ token, ...state });
     changeHandler();
   };
 
