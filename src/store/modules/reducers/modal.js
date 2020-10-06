@@ -4,7 +4,7 @@ import produce from 'immer';
 import { SHOW, HIDE } from '../type/modal';
 
 const initialState = {
-  visible: false,
+  visible: true,
   type: '',
 };
 

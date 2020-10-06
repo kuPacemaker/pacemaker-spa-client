@@ -5,9 +5,8 @@ import { bindActionCreators } from 'redux';
 import Images from 'resources/images';
 
 import { requestSignIn } from 'store/modules/action/account';
-import { LocalMainPage } from 'common/local-path';
+import { getBoard } from 'store/modules/action/board';
 import { decode } from 'common/security/common';
-
 import RootPage from './RootPage';
 
 const preload = (images) => {
@@ -24,7 +23,9 @@ const RootPageContainer = (props) => {
   useEffect(() => {
     if (localStorage.hasOwnProperty('account')) {
       try {
-        props.requestSignIn(decode(localStorage.getItem('account')), () => {});
+        props.requestSignIn(decode(localStorage.getItem('account')), () => {
+          props.getBoard(props.token);
+        });
       } catch (e) {
         console.log(e);
       }
@@ -38,6 +39,6 @@ const mapStateToProps = ({ account }) => ({
 });
 
 const mapDispatchToProps = (dispatch) =>
-  bindActionCreators({ requestSignIn }, dispatch);
+  bindActionCreators({ requestSignIn, getBoard }, dispatch);
 
 export default connect(mapStateToProps, mapDispatchToProps)(RootPageContainer);
