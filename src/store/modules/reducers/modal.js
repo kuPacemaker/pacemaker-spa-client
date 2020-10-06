@@ -5,7 +5,7 @@ import { SHOW, HIDE } from '../type/modal';
 
 const initialState = {
   visible: true,
-  type: '',
+  type: 'CREATE CHANNEL',
 };
 
 export default handleActions(

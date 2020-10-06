@@ -17,3 +17,14 @@ export default {
   channelImg6,
   channelImg7,
 };
+
+export const orderedImage = [
+  channelImg0,
+  channelImg1,
+  channelImg2,
+  channelImg3,
+  channelImg4,
+  channelImg5,
+  channelImg6,
+  channelImg7,
+];

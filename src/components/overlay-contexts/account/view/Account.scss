@@ -15,75 +15,74 @@
         width: 45%;
         height: 75%;
         text-align: right;
-    }
 
-    .Close {
-        @include square(4);
-    }
 
-    .Title {
-        margin-top: $stepSize*2;
-        position: relative;
-        font-size: $topMenu;
-        text-align: right;
-    }
-
-    .ImageBox {
-        position: relative;
-        margin-top: 25px;
-        height: 50%;
-
-        .ConceptImage {
-            position: absolute;
-            left: 0;
-            height: 100%;
-            z-index: 0;
+        .Close {
+            @include square(4);
         }
 
-        .AccountData {
+        .Title {
+            margin-top: $stepSize*2;
+            position: relative;
+            font-size: $topMenu;
+            text-align: right;
+        }
+
+        .ImageBox {
+            position: relative;
+            margin-top: 25px;
+            height: 50%;
+
+            .ConceptImage {
+                position: absolute;
+                left: 0;
+                height: 100%;
+                z-index: 0;
+            }
+
+            .AccountData {
+                position: absolute;
+                right: 0;
+                bottom: 10%;
+                z-index: 1;
+
+                .UserType {
+                    position: relative;
+                    font-size: $topArticle;
+                    margin-bottom: 10px;
+                }
+
+                .ModifyAccount {
+                    position: relative;
+                    font-size: $smallMenu;
+                    text-decoration: underline;
+
+                    &.Show {
+                        pointer-events: all;
+                    }
+
+                    &.Hide {
+                        pointer-events: none;
+                    }
+                }
+            }
+
+        }
+
+        .SignOut {
             position: absolute;
+            font-size: $subTopArticle;
+            bottom: 0;
             right: 0;
-            bottom: 10%;
-            z-index: 1;
+            @include underline-effect(3px, 0.5s);
 
-            .UserType {
-                position: relative;
-                font-size: $topArticle;
-                margin-bottom: 10px;
+            &.Show {
+                pointer-events: all;
             }
 
-            .ModifyAccount {
-                position: relative;
-                font-size: $smallMenu;
-                text-decoration: underline;
-
-                &.Show {
-                    pointer-events: all;
-                }
-
-                &.Hide {
-                    pointer-events: none;
-                }
+            &.Hide {
+                pointer-events: none;
             }
         }
-
     }
-
-
-    .SignOut {
-        position: absolute;
-        font-size: $subTopArticle;
-        bottom: 0;
-        right: 0;
-        @include underline-effect(3px, 0.5s);
-
-        &.Show {
-            pointer-events: all;
-        }
-
-        &.Hide {
-            pointer-events: none;
-        }
-    }
-
 }
