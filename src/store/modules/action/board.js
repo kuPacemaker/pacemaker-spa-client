@@ -1,5 +1,5 @@
 import { update } from '../creators/board';
-import { fetch } from 'api/board';
+import { fetch, create } from 'api/board';
 
 export const getBoard = (payload) => async (dispatch) => {
   try {
@@ -11,4 +11,15 @@ export const getBoard = (payload) => async (dispatch) => {
   }
 };
 
-export default { getBoard };
+export const createBoard = (payload) => async (dispatch) => {
+  try {
+    const boardData = await create(payload);
+
+    // 최신화된 데이터를 리덕스 스토어에 반영
+    dispatch(update(boardData));
+  } catch (e) {
+    console.log(e);
+  }
+}
+
+export default { getBoard, createBoard };

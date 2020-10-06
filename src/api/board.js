@@ -48,6 +48,9 @@ const dummy = {
   ],
 };
 
+// FIXME: for test
+let id = 1000;
+
 // FIXME: 추후 대체될 것
 const sleep = ms => new Promise((resolve) => setTimeout(resolve, ms));
 
@@ -62,3 +65,18 @@ export const fetch = async () => {
 // export const fetch = async () => {
 //   return await axios.post(`~~`, info)
 // }
+
+// FIXME: 추후 대체될 것
+export const create = async (data) => {
+  dummy.runner.push({ ...data, id: id++ })
+
+  await sleep(250);
+
+  return new Promise((resolve) => resolve(dummy))
+}
+
+// FIXME: 추후 대체될 것
+// export const create = async () => {
+//   return await axios.post(`~~`, data)
+// }
+
