@@ -3,7 +3,7 @@ import AccessCode from './view/AccessCode';
 import { connect } from 'react-redux';
 
 const AccessCodeContainer = (props) => {
-  return <AccessCode data={props.data}/>;
+  return <AccessCode visible={props.visible} data={props.data} />;
 };
 
 const mapStateToProps = (state) => ({
