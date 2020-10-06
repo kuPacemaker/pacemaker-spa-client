@@ -52,14 +52,14 @@ const dummy = {
 let id = 1000;
 
 // FIXME: 추후 대체될 것
-const sleep = ms => new Promise((resolve) => setTimeout(resolve, ms));
+const sleep = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
 
 // FIXME: 추후 대체될 것
 export const fetch = async () => {
   await sleep(250);
 
-  return new Promise((resolve) => resolve(dummy))
-}
+  return new Promise((resolve) => resolve(dummy));
+};
 
 // FIXME: 추후 대체될 것
 // export const fetch = async () => {
@@ -68,15 +68,13 @@ export const fetch = async () => {
 
 // FIXME: 추후 대체될 것
 export const create = async (data) => {
-  dummy.runner.push({ ...data, id: id++ })
-
+  dummy.leader = dummy.leader.concat({ id: id++, ...data });
   await sleep(250);
 
-  return new Promise((resolve) => resolve(dummy))
-}
+  return new Promise((resolve) => resolve(dummy));
+};
 
 // FIXME: 추후 대체될 것
 // export const create = async () => {
 //   return await axios.post(`~~`, data)
 // }
-

@@ -100,6 +100,7 @@
                     pointer-events: all;
                     @include square(1);
                 }
+
             }
 
             .DocumentBody {
@@ -118,6 +119,17 @@
                 &::-webkit-scrollbar {
                     display: none;
                 }
+            }
+
+            ::-moz-selection {
+                /* Code for Firefox */
+                color: white;
+                background-color: black;
+            }
+
+            ::selection {
+                color: white;
+                background-color: black;
             }
         }
 

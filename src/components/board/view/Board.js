@@ -16,7 +16,6 @@ const Board = ({ type, title, channels, createChannelHandler }) => {
   });
 
   useEffect(() => {
-    console.log('EFF');
     if (!scroll) return;
     scrollToRef(scroll, 0, 'auto');
   }, [type]);

@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 
-import { createChannel } from 'store/modules/action/channel';
+import { createChannel } from 'store/modules/action/board';
 import CreateChannel from './view/CreateChannel';
 
 const title = 'OPEN MY NEW CLASS';
@@ -18,28 +18,29 @@ const inputForms = [
     title: 'DESCRIPTION',
     type: 'text',
     fontSize: '1.35em',
-    max: 20,
+    max: 25,
   },
 ];
 
 const CreateChannelContainer = ({
   visible,
   token,
-  // createChannel: requestCreateChannel,
+  changeHandler,
+  createChannel,
 }) => {
   const [state, setState] = useState({
-    name: '',
-    description: '',
-    channelImage: 0,
+    title: '',
+    detail: '',
+    imgType: 0,
   });
 
   const onChangeHandler = (type) => (data) => {
     switch (type) {
       case 'NAME':
-        setState({ ...state, name: data });
+        setState({ ...state, title: data });
         return;
       case 'DESCRIPTION':
-        setState({ ...state, description: data });
+        setState({ ...state, detail: data });
         return;
       default:
         return;
@@ -49,8 +50,13 @@ const CreateChannelContainer = ({
   const changeImageHandler = () => {
     setState({
       ...state,
-      channelImage: state.channelImage + 1 < 8 ? state.channelImage + 1 : 0,
+      imgType: state.imgType + 1 < 8 ? state.imgType + 1 : 0,
     });
+  };
+
+  const requestCreateChannel = () => {
+    createChannel({ token, ...state });
+    changeHandler();
   };
 
   return (
@@ -58,21 +64,23 @@ const CreateChannelContainer = ({
       show={visible}
       title={title}
       inputForms={inputForms}
-      channelImage={state.channelImage}
+      channelImage={state.imgType}
       onChangeHandler={onChangeHandler}
       changeImageHandler={changeImageHandler}
-      // requestCreateChannel={requestCreateChannel}
+      requestCreateChannel={requestCreateChannel}
     />
   );
 };
 
-// const mapStateToProps = ({}) => ({});
+const mapStateToProps = ({ account }) => ({
+  token: account.token,
+});
 
-// const mapDispatchToProps = (dispatch) =>
-//   bindActionCreators({ createChannel }, dispatch);
+const mapDispatchToProps = (dispatch) =>
+  bindActionCreators({ createChannel }, dispatch);
 
-// export default connect(
-//   mapStateToProps,
-//   mapDispatchToProps
-// )(CreateChannelContainer);
-export default CreateChannelContainer;
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(CreateChannelContainer);
+// export default CreateChannelContainer;

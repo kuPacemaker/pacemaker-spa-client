@@ -11,7 +11,11 @@ export const getBoard = (payload) => async (dispatch) => {
   }
 };
 
-export const createBoard = (payload) => async (dispatch) => {
+/**
+ *
+ * @param {token, title, desc, imageType} payload
+ */
+export const createChannel = (payload) => async (dispatch) => {
   try {
     const boardData = await create(payload);
 
@@ -20,6 +24,6 @@ export const createBoard = (payload) => async (dispatch) => {
   } catch (e) {
     console.log(e);
   }
-}
+};
 
-export default { getBoard, createBoard };
+export default { getBoard, createChannel };

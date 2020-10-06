@@ -14,6 +14,7 @@ const CreateChannel = ({
   channelImage,
   onChangeHandler,
   changeImageHandler,
+  requestCreateChannel,
 }) => {
   return (
     <div className="CreateChannel">
@@ -43,7 +44,7 @@ const CreateChannel = ({
             <div className="Padding" />
             <div
               className={classNames('Button', { Show: show, Hide: !show })}
-              onClick={() => console.log('Create Channel!')}
+              onClick={requestCreateChannel}
             >
               <img className="Arrow" src={arrow} alt="" />
               <span>START</span>
