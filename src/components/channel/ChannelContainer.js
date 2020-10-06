@@ -1,9 +1,11 @@
 import React from 'react';
 import { Redirect } from 'react-router-dom';
+import { bindActionCreators } from 'redux';
 import Channel from './view/Channel';
 import { connect } from 'react-redux';
+import { show } from 'store/modules/creators/modal'
 
-const ChannelContainer = ({ type, id, data }) => {
+const ChannelContainer = ({ type, id, data, onClickAccessCode }) => {
   if (data) {
     const image = require(`resources/images/channel/channel-image-${data.image}.jpg`);
 
@@ -18,6 +20,7 @@ const ChannelContainer = ({ type, id, data }) => {
         channelCode={data.code}
         units={data.units}
         runners={data.runners}
+        onClickAccessCode={onClickAccessCode}
       />
     );
   } else {
@@ -27,4 +30,8 @@ const ChannelContainer = ({ type, id, data }) => {
 
 const mapStateToProps = (state) => ({ data: state.channel.channelData });
 
-export default connect(mapStateToProps, null)(ChannelContainer);
+const mapDispatchToProps = (dispatch) => ({
+  onClickAccessCode: () => dispatch(show('ACCESS CODE'))
+})
+
+export default connect(mapStateToProps, mapDispatchToProps)(ChannelContainer);

@@ -1,18 +1,13 @@
 import React from 'react';
-
 import AccessCode from './view/AccessCode';
+import { connect } from 'react-redux';
 
-const AccessCodeContainer = () => {
-  return <AccessCode />;
+const AccessCodeContainer = (props) => {
+  return <AccessCode data={props.data}/>;
 };
 
-// const mapStateToProps = ({ counter }) => ({
-//   color: counter.color,
-//   number: counter.number,
-// });
+const mapStateToProps = (state) => ({
+  data: state.channel.channelData,
+});
 
-// const mapDispatchToProps = (dispatch) =>
-//   bindActionCreators({ incrementAsync, decrement, getPost }, dispatch);
-
-// export default connect(mapStateToProps, mapDispatchToProps)(CounterContainer);
-export default AccessCodeContainer;
+export default connect(mapStateToProps, null)(AccessCodeContainer);

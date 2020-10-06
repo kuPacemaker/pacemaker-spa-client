@@ -1,1 +1,31 @@
 @import 'shared/StyleValues.scss';
+
+.AccessCode {
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    text-align: center;
+
+    .Context {
+        margin-top: $stepSize*10;
+        width: 45%;
+        height: 75%;
+        border: 1px black solid;
+        display: inline-block;
+        background-color: white;
+
+        .Title {
+            margin-top: $stepSize*4;
+            font-size: $topMenu;
+            text-align: center;
+        }
+
+        .Content {
+            margin-top: $stepSize*5;
+            margin-bottom: $stepSize*4;
+            font-size: $topMenu;
+            text-align: center;
+        }
+    }
+}
