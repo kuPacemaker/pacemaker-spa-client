@@ -21,6 +21,7 @@ const Channel = ({
   units,
   channelCode,
   runners,
+  onClickAccessCode,
 }) => {
   const [state, setState] = useState({ tab: 'units', isBottom: false });
   const history = useHistory();
@@ -50,7 +51,7 @@ const Channel = ({
         <div className="ChannelOwner">{owner}</div>
       </div>
       <div className="ChannelTabBar">
-        <div className="Tab ShowChannelCode">CHANNEL CODE</div>
+        <div className="Tab ShowChannelCode" onClick={onClickAccessCode}>CHANNEL CODE</div>
         <div className="Tab ShowUnit" onClick={changeTab('units')}>
           UNIT
         </div>
