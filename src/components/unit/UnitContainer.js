@@ -57,7 +57,17 @@ const updateDocument = (updateHandler) => (state, action) => () => {
   });
 };
 
-const updatePaper = (updateHandler) => (
+const updatePaper = (updateHandler) => (state, action) => () => {
+  updateHandler({
+    ...state,
+    unit: {
+      ...state.unit,
+      paper: action,
+    },
+  });
+};
+
+const verifyPaper = (updateHandler) => (
   state,
   local,
   updateLocalState
@@ -105,7 +115,8 @@ const UnitContainer = ({
       showModalHandler={showModalHandler}
       updateDocument={updateDocument(updateHandler)(data, document)}
       documentHandler={documentHandler(document, setDocument)}
-      updatePaper={updatePaper(updateHandler)(data, paper, setPaper)}
+      updatePaper={updatePaper(updateHandler)(data, paper)}
+      verifyPaper={verifyPaper(updateHandler)(data, paper, setPaper)}
       onVerifyHandler={onVerifyHandler(paper, setPaper)}
       onAnswerHandler={onAnswerHandler(paper, setPaper)}
     />

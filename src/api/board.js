@@ -67,8 +67,8 @@ export const fetch = async () => {
 // }
 
 // FIXME: 추후 대체될 것
-export const create = async (data) => {
-  dummy.leader = dummy.leader.concat({ id: id++, ...data });
+export const create = async (payload) => {
+  dummy.leader = dummy.leader.concat({ id: id++, ...payload });
   await sleep(250);
 
   return new Promise((resolve) => resolve(dummy));
@@ -77,4 +77,16 @@ export const create = async (data) => {
 // FIXME: 추후 대체될 것
 // export const create = async () => {
 //   return await axios.post(`~~`, data)
+// }
+
+export const enter = async (payload) => {
+  console.log(payload);
+  await sleep(250);
+
+  return new Promise((resolve) => resolve(dummy));
+};
+
+// FIXME: 추후 대체될 것
+// export const enter = async (payload) => {
+//   return await axios.post(`~~`, payload)
 // }

@@ -1,1 +1,98 @@
 @import 'shared/StyleValues.scss';
+@import 'shared/Animations.scss';
+
+
+.EnterChannel {
+    position: relative;
+    display: block;
+    margin: 0 auto;
+    margin-top: 250px;
+    width: 850px;
+    height: 450px;
+    border: 1px black solid;
+    background-color: white;
+    opacity: 1;
+
+    overflow: hidden;
+
+    &.Show {
+        pointer-events: all;
+    }
+
+    &.Hide {
+        pointer-events: none;
+    }
+
+    .Title {
+        padding: 50px 0 50px 50px;
+        text-align: left;
+        font-size: 35px;
+
+    }
+
+    .InputLine {
+        position: relative;
+        width: 100%;
+        height: 35%;
+        pointer-events: none;
+        border-top: 1px solid black;
+        text-align: center;
+
+        .AccessCode {
+            display: block;
+            width: 100%;
+            height: 100%;
+            padding: $stepSize 0 $stepSize 0;
+            text-align: center;
+            font-size: 30px;
+            background-color: #FFFFFF00;
+            border: none;
+            padding: 0;
+
+            &:focus {
+                outline: none;
+            }
+
+            &.Show {
+                pointer-events: all;
+            }
+
+            &.Hide {
+                pointer-events: none;
+            }
+        }
+
+        ::-moz-selection {
+            /* Code for Firefox */
+            color: white;
+            background-color: black;
+        }
+
+        ::selection {
+            color: white;
+            background-color: black;
+        }
+
+        .Arrow {
+            position: relative;
+            display: inline-block;
+            @include square_px(60px);
+            margin-top: 25px;
+
+            &.Show {
+                pointer-events: all;
+            }
+
+            &.Hide {
+                pointer-events: none;
+            }
+        }
+
+    }
+
+    p {
+        margin-block-start: 0em;
+        margin-block-end: 0em;
+    }
+
+}

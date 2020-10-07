@@ -75,7 +75,7 @@ const Unit = (props) => {
       upload: [
         {
           type: 'check',
-          onClickHandler: props.updatePaper,
+          onClickHandler: props.verifyPaper,
           disable: state.ready,
         },
         {
@@ -90,7 +90,10 @@ const Unit = (props) => {
       paper: [
         {
           type: 'check',
-          onClickHandler: () => {},
+          onClickHandler: () => {
+            props.updatePaper();
+            props.showModalHandler('SUBMIT PAPER');
+          },
         },
       ],
     },

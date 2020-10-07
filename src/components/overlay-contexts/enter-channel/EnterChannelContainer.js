@@ -1,18 +1,50 @@
-import React from 'react';
+import React, { useState } from 'react';
+import { connect } from 'react-redux';
+import { useHistory } from 'react-router-dom';
 
 import EnterChannel from './view/EnterChannel';
+import { enterChannel } from 'store/modules/action/board';
 
-const EnterChannelContainer = () => {
-  return <EnterChannel />;
+const title = 'INTO MY NEW CHANNEL';
+const info = 'ENTER YOUR ACCESS CODE';
+
+const onChangeHandler = (state, setState) => (data) => {
+  setState({
+    ...state,
+    code: data,
+  });
 };
 
-// const mapStateToProps = ({ counter }) => ({
-//   color: counter.color,
-//   number: counter.number,
-// });
+const EnterChannelContainer = (props) => {
+  const [state, setState] = useState({
+    code: '',
+  });
 
-// const mapDispatchToProps = (dispatch) =>
-//   bindActionCreators({ incrementAsync, decrement, getPost }, dispatch);
+  const onEnterHandler = (token, code) => () => {
+    props.changeHandler();
+    props.enter(token, code);
+  };
+  return (
+    <EnterChannel
+      show={props.visible}
+      title={title}
+      info={info}
+      onOverlayHandler={props.changeHandler}
+      onChangeHandler={onChangeHandler(state, setState)}
+      onEnterHandler={onEnterHandler(props.token, state.code)}
+    />
+  );
+};
 
-// export default connect(mapStateToProps, mapDispatchToProps)(CounterContainer);
-export default EnterChannelContainer;
+const mapStateToProps = ({ account }) => ({
+  token: account.token,
+});
+
+const mapDispatchToProps = (dispatch) => ({
+  enter: (token, code) => dispatch(enterChannel({ token, code })),
+});
+
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(EnterChannelContainer);

@@ -1,19 +1,22 @@
 import React from 'react';
 import { connect } from 'react-redux';
+import { useHistory } from 'react-router-dom';
+
 import Modal from '../default-modal';
-import { makeQuestion } from 'store/modules/action/unit';
+import { submitPaper } from 'store/modules/action/unit';
 
-const title = 'DO YOU WANT TO\nMAKE YOUR OWN QUIZ?';
-const body =
-  'It will take few minutes,\nand it can’t be cancelled in progress.';
+const title = 'DO YOU WANT TO\nSUBMIT YOUR QUIZ?';
+const body = 'Answers cannot be modified after submission.';
 
-const SubmitDocumentContainer = (props) => {
+const SubmitPaperContainer = (props) => {
+  const history = useHistory();
   const buttons = [
     {
       name: 'YES',
       onClickHandelr: () =>
-        props.onCreateQuestion(props.document, (success) => {
+        props.submit(props.paper, (success) => {
           props.changeHandler();
+          history.goBack();
         }),
     },
     {
@@ -21,6 +24,7 @@ const SubmitDocumentContainer = (props) => {
       onClickHandelr: () => props.changeHandler(),
     },
   ];
+
   return (
     <Modal
       show={props.visible}
@@ -34,15 +38,15 @@ const SubmitDocumentContainer = (props) => {
 
 const mapStateToProps = ({ account, unit }) => ({
   token: account.token,
-  document: unit.unit.document,
+  paper: unit.unit.paper,
 });
 
 const mapDispatchToProps = (dispatch) => ({
-  onCreateQuestion: (document, callbackHandler) =>
-    dispatch(makeQuestion(document, callbackHandler)),
+  submit: (document, callbackHandler) =>
+    dispatch(submitPaper(document, callbackHandler)),
 });
 
 export default connect(
   mapStateToProps,
   mapDispatchToProps
-)(SubmitDocumentContainer);
+)(SubmitPaperContainer);

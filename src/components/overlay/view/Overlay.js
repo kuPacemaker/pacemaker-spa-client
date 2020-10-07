@@ -6,6 +6,7 @@ import Account from 'components/overlay-contexts/account';
 import CreateChannel from 'components/overlay-contexts/create-channel';
 import CreateUnit from 'components/overlay-contexts/create-unit';
 import SubmitDocument from 'components/overlay-contexts/submit-document';
+import SubmitPaper from 'components/overlay-contexts/submit-paper';
 import EnterChannel from 'components/overlay-contexts/enter-channel';
 import ModifyAccount from 'components/overlay-contexts/modify-account';
 import Menu from 'components/overlay-contexts/overlay-menu';
@@ -55,6 +56,11 @@ const Overlay = ({ visible, type, overlayHandler }) => {
     case 'SUBMIT DOCUMENT':
       context = (
         <SubmitDocument visible={visible} changeHandler={overlayHandler} />
+      );
+      break;
+    case 'SUBMIT PAPER':
+      context = (
+        <SubmitPaper visible={visible} changeHandler={overlayHandler} />
       );
       break;
     default:

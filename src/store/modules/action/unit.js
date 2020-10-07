@@ -1,6 +1,6 @@
 import { update } from '../creators/unit';
 import { fetch } from 'api/unit';
-import { generateQuestion } from 'api/qg';
+import { generateQuestion, markPaper } from 'api/paper';
 
 /**
  *
@@ -29,11 +29,28 @@ export const makeQuestion = (payload, callbackHandler) => async (dispatch) => {
     await generateQuestion(payload);
     // dispatch(update());
     // historyHandler();
-    // callbackHandler(true);
+    callbackHandler(true);
   } catch (e) {
-    // callbackHandler(false);
+    callbackHandler(false);
     console.log(e);
   }
 };
 
-export default { getUnit };
+/**
+ *
+ * @param {token, document} payload
+ * @param {*} historyHandler
+ */
+export const submitPaper = (payload, callbackHandler) => async (dispatch) => {
+  try {
+    await markPaper(payload);
+    // dispatch(update());
+    // historyHandler();
+    callbackHandler(true);
+  } catch (e) {
+    callbackHandler(false);
+    console.log(e);
+  }
+};
+
+export default { getUnit, makeQuestion };
