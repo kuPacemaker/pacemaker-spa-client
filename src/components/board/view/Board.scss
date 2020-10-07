@@ -11,8 +11,11 @@
 
     .Title {
         display: inline-block;
+        margin-top: 10px;
+        margin-bottom: 10px;
         font-size: $topArticle;
-        @include underline(4px);
+        @include underline(3px);
+        line-height: calc(100% - 1px);
     }
 
     .Context {

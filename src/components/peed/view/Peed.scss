@@ -28,6 +28,7 @@
 
         .Title {
             font-size: $topArticle;
+            line-height: calc(100% - 2px);
             @include underline_effect(3px, 1s);
         }
 

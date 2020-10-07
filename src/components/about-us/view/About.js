@@ -12,8 +12,8 @@ const About = ({ articles }) => {
       <div className="context">
         <img className="ConceptsImage" src={concepts} alt="" />
         <div className="ArticleBox">
-          {articles.map((article, i) => (
-            <div key={i} className={article[0]}>
+          {articles.map((article, index) => (
+            <div key={index} className={article[0]}>
               {article[1].split('\n').map((item, i) => (
                 <p key={i}>{item}</p>
               ))}

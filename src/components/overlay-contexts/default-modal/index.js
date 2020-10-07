@@ -1,2 +1,2 @@
-import ModalContainer from './ModalContainer';
-export default ModalContainer;
+import Modal from './view/Modal';
+export default Modal;

@@ -36,6 +36,9 @@
         .MenuItem {
             display: inline-block;
             font-size: $title;
+            margin-top: 10px;
+            margin-bottom: 10px;
+            line-height: calc(100% - 4px);
             @include underline-effect(4px, 0.5s);
 
             &.Show {

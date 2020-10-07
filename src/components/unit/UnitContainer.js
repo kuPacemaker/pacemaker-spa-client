@@ -4,6 +4,8 @@ import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 
 import { update } from 'store/modules/creators/unit';
+import { show } from 'store/modules/creators/modal';
+
 import Unit from './view/Unit';
 
 const documentHandler = (state, setState) => (type) => (data) => {
@@ -86,6 +88,7 @@ const UnitContainer = ({
   tab,
   data,
   update: updateHandler,
+  show: showModalHandler,
 }) => {
   const history = useHistory();
   if (!data.unit.isOpened) history.goBack();
@@ -99,6 +102,7 @@ const UnitContainer = ({
       tab={tab}
       document={document}
       paper={paper}
+      showModalHandler={showModalHandler}
       updateDocument={updateDocument(updateHandler)(data, document)}
       documentHandler={documentHandler(document, setDocument)}
       updatePaper={updatePaper(updateHandler)(data, paper, setPaper)}
@@ -113,6 +117,6 @@ const mapStateToProps = ({ unit }) => ({
 });
 
 const mapDispatchToProps = (dispatch) =>
-  bindActionCreators({ update }, dispatch);
+  bindActionCreators({ show, update }, dispatch);
 
 export default connect(mapStateToProps, mapDispatchToProps)(UnitContainer);

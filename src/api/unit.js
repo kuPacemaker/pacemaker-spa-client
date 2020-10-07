@@ -114,14 +114,14 @@ const dummy = {
 };
 
 // FIXME: 추후 대체될 것
-const sleep = ms => new Promise((resolve) => setTimeout(resolve, ms));
+const sleep = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
 
 // FIXME: 추후 대체될 것
 export const fetch = async () => {
   await sleep(250);
 
-  return new Promise((resolve) => resolve(dummy))
-}
+  return new Promise((resolve) => resolve(dummy));
+};
 
 // FIXME: 추후 대체될 것
 // export const fetch = async () => {

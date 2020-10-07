@@ -5,7 +5,7 @@ import AccessCode from 'components/overlay-contexts/access-code';
 import Account from 'components/overlay-contexts/account';
 import CreateChannel from 'components/overlay-contexts/create-channel';
 import CreateUnit from 'components/overlay-contexts/create-unit';
-import DefaultModal from 'components/overlay-contexts/default-modal';
+import SubmitDocument from 'components/overlay-contexts/submit-document';
 import EnterChannel from 'components/overlay-contexts/enter-channel';
 import ModifyAccount from 'components/overlay-contexts/modify-account';
 import Menu from 'components/overlay-contexts/overlay-menu';
@@ -51,6 +51,11 @@ const Overlay = ({ visible, type, overlayHandler }) => {
       break;
     case 'CREATE UNIT':
       context = <CreateUnit visible={visible} changeHandler={overlayHandler} />;
+      break;
+    case 'SUBMIT DOCUMENT':
+      context = (
+        <SubmitDocument visible={visible} changeHandler={overlayHandler} />
+      );
       break;
     default:
   }

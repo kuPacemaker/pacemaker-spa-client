@@ -60,7 +60,7 @@ const Unit = (props) => {
       document: [
         {
           type: 'upload_line',
-          onClickHandler: changeTab('upload'),
+          onClickHandler: () => props.showModalHandler('SUBMIT DOCUMENT'),
         },
       ],
       edit: [
