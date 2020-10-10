@@ -1,4 +1,6 @@
 import { update } from '../creators/unit';
+
+import { makePaper } from 'common/paper/make-paper';
 import { fetch } from 'api/unit';
 import { generateQuestion, markPaper } from 'api/paper';
 
@@ -26,7 +28,10 @@ export const getUnit = (payload, callbackHandler) => async (dispatch) => {
  */
 export const makeQuestion = (payload, callbackHandler) => async (dispatch) => {
   try {
-    await generateQuestion(payload);
+    const response = await generateQuestion(payload);
+    const passages = response.data.passages[0];
+    console.log(response.data.passages[0]);
+    makePaper(passages.aqset, passages.nouns);
     // dispatch(update());
     // historyHandler();
     if (callbackHandler) callbackHandler(true);
