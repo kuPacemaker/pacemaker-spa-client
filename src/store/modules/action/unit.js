@@ -26,7 +26,8 @@ export const getUnit = (payload, callbackHandler) => async (dispatch) => {
  */
 export const makeQuestion = (payload, callbackHandler) => async (dispatch) => {
   try {
-    await generateQuestion(payload);
+    const response = await generateQuestion(payload);
+    console.log(response.data);
     // dispatch(update());
     // historyHandler();
     if (callbackHandler) callbackHandler(true);
