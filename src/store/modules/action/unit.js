@@ -30,9 +30,7 @@ export const makeQuestion = (payload, callbackHandler) => async (dispatch) => {
   try {
     const response = await generateQuestion(payload);
     const passages = response.data.passages[0];
-    console.log(response.data.passages[0]);
     const paper = makePaper(passages.aqset, passages.nouns);
-    console.log(paper);
     dispatch(update_question(paper));
     // historyHandler();
     if (callbackHandler) callbackHandler(true);
