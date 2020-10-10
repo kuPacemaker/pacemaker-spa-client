@@ -75,13 +75,13 @@
     }
 
     .Context {
-        .CreateDocument {
+        .RootImage {
             pointer-events: all;
             position: relative;
             display: block;
             margin: 0 auto;
-            margin-top: 85px;
-            height: 400px;
+            margin-top: 125px;
+            height: 300px;
             opacity: 0.1;
 
             @include animate();
