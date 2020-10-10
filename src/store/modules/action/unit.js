@@ -7,13 +7,13 @@ import { generateQuestion, markPaper } from 'api/paper';
  * @param {token, channel, unit} payload
  * @param {*} historyHandler
  */
-export const getUnit = (payload, historyHandler) => async (dispatch) => {
+export const getUnit = (payload, callbackHandler) => async (dispatch) => {
   try {
     const unitData = await fetch();
 
     dispatch(update(unitData));
 
-    historyHandler();
+    if (callbackHandler) callbackHandler();
   } catch (e) {
     console.log(e);
   }
@@ -29,9 +29,9 @@ export const makeQuestion = (payload, callbackHandler) => async (dispatch) => {
     await generateQuestion(payload);
     // dispatch(update());
     // historyHandler();
-    callbackHandler(true);
+    if (callbackHandler) callbackHandler(true);
   } catch (e) {
-    callbackHandler(false);
+    if (callbackHandler) callbackHandler(false);
     console.log(e);
   }
 };
@@ -46,11 +46,11 @@ export const submitPaper = (payload, callbackHandler) => async (dispatch) => {
     await markPaper(payload);
     // dispatch(update());
     // historyHandler();
-    callbackHandler(true);
+    if (callbackHandler) callbackHandler(true);
   } catch (e) {
-    callbackHandler(false);
+    if (callbackHandler) callbackHandler(false);
     console.log(e);
   }
 };
 
-export default { getUnit, makeQuestion };
+export default { getUnit, makeQuestion, submitPaper };

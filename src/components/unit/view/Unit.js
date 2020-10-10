@@ -35,6 +35,12 @@ const Unit = (props) => {
     });
   }, [props.paper.questions]);
 
+  useEffect(() => {
+    if (props.document.id) {
+      changeTab('document')();
+    }
+  }, []);
+
   const showReservation = () => {
     setState({ ...state, reservation: !state.reservation });
   };

@@ -12,11 +12,10 @@ const dummy = {
     title: 'Mosquitoes',
     isOpened: true,
     document: {
-      id: 'asd/mosquitoes',
-      visible: true,
-      title: 'How to reduce harmful mosquitoes.',
-      body:
-        'A controversial plan is moving ahead to release genetically modified mosquitoes into the Florida Keys. More than 750,000 of the insects are set to be introduced there. Why? The aedes aegypti mosquito can carry dangerous diseases like the Zika virus, Dengue fever and yellow fever. Officials are looking for new ways to kill of these insects without using pesticides and genetically modified mosquitoes might be a way to do this. Only female mosquitoes bite people. The altered insects that are set to be released in Florida are male. They`ve been modified so that the female offspring they produce will die before they hatch from their eggs and grow big enough to bite people. And the company that developed these GMO mosquitoes say they`ve been very successful in controlling mosquito populations in Panama, Brazil and the Cayman Islands.',
+      id: '',
+      visible: false,
+      title: '',
+      body: '',
     },
     paper: {
       isStart: true,
@@ -153,7 +152,7 @@ export const create = async (payload) => {
 
 /**
  *
- * @param {token, channel, unit, document} payload
+ * @param {token, document} payload
  */
 // FIXME: 추후 대체될 것
 export const update = async (payload) => {
@@ -166,3 +165,8 @@ export const update = async (payload) => {
 // export const update = async () => {
 //   return await axios.post(`~~`, info)
 // }
+
+export default {
+  create,
+  update,
+};

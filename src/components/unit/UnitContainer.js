@@ -5,6 +5,7 @@ import { bindActionCreators } from 'redux';
 
 import { update } from 'store/modules/creators/unit';
 import { show } from 'store/modules/creators/modal';
+import document from 'store/modules/action/document';
 
 import Unit from './view/Unit';
 
@@ -67,6 +68,10 @@ const updatePaper = (updateHandler) => (state, action) => () => {
   });
 };
 
+const createDocument = (token, channel, unit) => () => {};
+
+const editDocument = (token, document) => () => {};
+
 const verifyPaper = (updateHandler) => (
   state,
   local,
@@ -102,7 +107,7 @@ const UnitContainer = ({
 }) => {
   const history = useHistory();
   if (!data.unit.isOpened) history.goBack();
-  const [document, setDocument] = useState(data.unit.document);
+  const [docs, setDocument] = useState(data.unit.document);
   const [paper, setPaper] = useState(data.unit.paper);
   return (
     <Unit
@@ -110,11 +115,12 @@ const UnitContainer = ({
       channel={data.channel}
       unit={data.unit}
       tab={tab}
-      document={document}
+      document={docs}
       paper={paper}
       showModalHandler={showModalHandler}
-      updateDocument={updateDocument(updateHandler)(data, document)}
-      documentHandler={documentHandler(document, setDocument)}
+      createDocument={createDocument()()}
+      updateDocument={updateDocument(updateHandler)(data, docs)}
+      documentHandler={documentHandler(docs, setDocument)}
       updatePaper={updatePaper(updateHandler)(data, paper)}
       verifyPaper={verifyPaper(updateHandler)(data, paper, setPaper)}
       onVerifyHandler={onVerifyHandler(paper, setPaper)}
@@ -123,7 +129,8 @@ const UnitContainer = ({
   );
 };
 
-const mapStateToProps = ({ unit }) => ({
+const mapStateToProps = ({ account, unit }) => ({
+  token: account.token,
   data: unit,
 });
 
