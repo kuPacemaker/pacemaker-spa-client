@@ -3,8 +3,8 @@ import produce from 'immer';
 import { UPDATE } from '../type/channel';
 
 const initialState = {
-  channelData : null,
-}
+  channelData: null,
+};
 
 export default handleActions(
   {

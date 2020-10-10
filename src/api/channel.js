@@ -1,5 +1,5 @@
-const testData = {
-  id: '',
+let testData = {
+  id: 'fzf(ykBAqA~R:b!$18%F:c(oq9Lme"',
   title: 'Reviews of Student News',
   detail: 'Wed. 15:00~18:00',
   owner: 'Lumy Kelvin',
@@ -82,10 +82,10 @@ const testData = {
 const sleep = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
 
 // FIXME: 추후 대체될 것
-export const fetch = async (data = testData) => {
+export const fetch = async (payload = testData) => {
   await sleep(250);
 
-  return new Promise((resolve) => resolve(data));
+  return new Promise((resolve) => resolve(payload));
 };
 
 // FIXME: 추후 요걸로 대체

@@ -5,6 +5,7 @@ import AccessCode from 'components/overlay-contexts/access-code';
 import Account from 'components/overlay-contexts/account';
 import CreateChannel from 'components/overlay-contexts/create-channel';
 import CreateUnit from 'components/overlay-contexts/create-unit';
+import EditUnit from 'components/overlay-contexts/edit-unit';
 import SubmitDocument from 'components/overlay-contexts/submit-document';
 import SubmitPaper from 'components/overlay-contexts/submit-paper';
 import EnterChannel from 'components/overlay-contexts/enter-channel';
@@ -52,6 +53,9 @@ const Overlay = ({ visible, type, overlayHandler }) => {
       break;
     case 'CREATE UNIT':
       context = <CreateUnit visible={visible} changeHandler={overlayHandler} />;
+      break;
+    case 'EDIT UNIT':
+      context = <EditUnit visible={visible} changeHandler={overlayHandler} />;
       break;
     case 'SUBMIT DOCUMENT':
       context = (
