@@ -40,7 +40,7 @@ const Unit = (props) => {
 
   useEffect(() => {
     if (props.document.id && props.document.visible) {
-      // changeTab('document')();
+      changeTab('document')();
     }
   }, []);
 
@@ -75,10 +75,7 @@ const Unit = (props) => {
       edit: [
         {
           type: 'check',
-          onClickHandler: () => {
-            props.updateDocument();
-            changeTab('document')();
-          },
+          onClickHandler: props.updateDocument(changeTab('document')),
         },
       ],
       upload: [
