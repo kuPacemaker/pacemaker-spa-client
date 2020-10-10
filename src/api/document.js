@@ -114,7 +114,7 @@ const dummy = {
 
 const documentForm = {
   id: 'asd/mosquitoes',
-  visible: false,
+  visible: true,
   title: '',
   body: '',
 };

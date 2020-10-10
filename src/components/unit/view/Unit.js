@@ -11,6 +11,8 @@ import Reservation from './sub-components/Reservation';
 import Paper from './sub-components/Paper';
 
 import create_document from 'resources/images/icon/create-document.png';
+import close from 'resources/images/icon/close.png';
+
 import arrow_left from 'resources/images/icon/arrow-left.png';
 import './Unit.scss';
 
@@ -37,8 +39,8 @@ const Unit = (props) => {
   }, [props.paper.questions]);
 
   useEffect(() => {
-    if (props.document.id) {
-      changeTab('document')();
+    if (props.document.id && props.document.visible) {
+      // changeTab('document')();
     }
   }, []);
 
@@ -141,18 +143,20 @@ const Unit = (props) => {
       </div>
 
       <div className="Context">
-        {state.tab === 'root' && props.type === 'leader' && (
+        {state.tab === 'root' && (
           <div>
             <img
               draggable="false"
-              className="CreateDocument"
-              src={create_document}
+              className="RootImage"
+              src={props.type === 'leader' ? create_document : close}
               alt=""
+              onClick={
+                props.type === 'leader'
+                  ? props.createDocument(changeTab('edit'))
+                  : goBack
+              }
             />
           </div>
-        )}
-        {state.tab === 'root' && props.type === 'runner' && (
-          <div>Runner Root Unit</div>
         )}
         {state.tab === 'document' && (
           <div className="DocumentContainer">
