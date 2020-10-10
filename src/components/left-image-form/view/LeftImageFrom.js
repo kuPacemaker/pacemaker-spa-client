@@ -37,6 +37,7 @@ const LeftImageFrom = ({
               ))}
               <div className="InputLine">
                 <img
+                  draggable="false"
                   className="Arrow"
                   src={arrow}
                   alt=""
@@ -47,12 +48,12 @@ const LeftImageFrom = ({
           </div>
           <div className="ActiveLink">
             <div>
-              <Link to={LocalPath.admission.signup}>
+              <Link draggable="false" to={LocalPath.admission.signup}>
                 <span>{goSignUp}</span>
               </Link>
             </div>
             <div>
-              <Link to={LocalPath.admission.findaccount}>
+              <Link draggable="false" to={LocalPath.admission.findaccount}>
                 <span>{goFindAccount}</span>
               </Link>
             </div>
@@ -60,10 +61,16 @@ const LeftImageFrom = ({
         </div>
       </div>
       <div className="ImageBox">
-        <img className="Image" src={image} alt="" />
+        <img draggable="false" className="Image" src={image} alt="" />
         <div className="InnerText">
           <span>{imageText}</span>
-          <img className="Arrow" src={arrow} alt="" onClick={signInHandler} />
+          <img
+            draggable="false"
+            className="Arrow"
+            src={arrow}
+            alt=""
+            onClick={signInHandler}
+          />
         </div>
       </div>
     </div>

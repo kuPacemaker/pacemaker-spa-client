@@ -33,6 +33,7 @@ const Paper = ({ questions, onAnswerHandler }) => {
               onClick={onAnswerHandler(state.index, answer)}
             >
               <img
+                draggable="false"
                 className={classNames('Checked', {
                   Show: questions[state.index].user_answer === answer,
                 })}
@@ -47,6 +48,7 @@ const Paper = ({ questions, onAnswerHandler }) => {
 
       <div className="IconSet">
         <img
+          draggable="false"
           src={arrow_left}
           alt=""
           onClick={changeQuiz(-1, questions.length)}
@@ -55,6 +57,7 @@ const Paper = ({ questions, onAnswerHandler }) => {
           {state.index + 1}/{questions.length}
         </div>
         <img
+          draggable="false"
           src={arrow_right}
           alt=""
           onClick={changeQuiz(+1, questions.length)}

@@ -17,7 +17,7 @@ const ModifyAccount = ({
   return (
     <div className="ModifyAccount">
       <div className="Container">
-        <img className="Close" src={cross} alt="" />
+        <img draggable="false" className="Close" src={cross} alt="" />
         <div className="Context">
           <div>
             <div className="Title">{title}</div>
@@ -46,6 +46,7 @@ const ModifyAccount = ({
 
             <div className="InputLine">
               <img
+                draggable="false"
                 className={classNames('Arrow', {
                   Show: show,
                   Hide: !show,

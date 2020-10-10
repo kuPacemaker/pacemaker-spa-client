@@ -5,7 +5,7 @@ import LocalPath from 'common/local-path';
 
 const LetterButton = ({ context, onClick }) => {
   return context[1] ? (
-    <Link to={context[1]}>
+    <Link draggable="false" to={context[1]}>
       <span className="LetterButton">{context[0]}</span>
     </Link>
   ) : (
@@ -18,7 +18,7 @@ const LetterButton = ({ context, onClick }) => {
 const Header = ({ onClickHandler, buttons }) => {
   return (
     <div className="Header">
-      <Link to={LocalPath.root}>
+      <Link draggable="false" to={LocalPath.root}>
         <span className="CenterTitle">PACEMAKER</span>
       </Link>
       <span className="LeftButtonSet">

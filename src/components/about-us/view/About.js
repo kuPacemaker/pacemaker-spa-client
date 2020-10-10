@@ -10,7 +10,12 @@ const About = ({ articles }) => {
       style={{ backgroundImage: 'url(' + background + ')' }}
     >
       <div className="context">
-        <img className="ConceptsImage" src={concepts} alt="" />
+        <img
+          draggable="false"
+          className="ConceptsImage"
+          src={concepts}
+          alt=""
+        />
         <div className="ArticleBox">
           {articles.map((article, index) => (
             <div key={index} className={article[0]}>

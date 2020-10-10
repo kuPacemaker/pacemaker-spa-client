@@ -15,6 +15,7 @@ const IconSet = ({ type, state, onClickHandler }) => {
     return (
       <div className="IconSet">
         <img
+          draggable="false"
           className="Icon"
           name="edit"
           src={edit}
@@ -22,6 +23,7 @@ const IconSet = ({ type, state, onClickHandler }) => {
           onClick={onClickHandler}
         />
         <img
+          draggable="false"
           className="Icon"
           name="document"
           src={document}
@@ -29,6 +31,7 @@ const IconSet = ({ type, state, onClickHandler }) => {
           onClick={onClickHandler}
         />
         <img
+          draggable="false"
           className="Icon"
           name="upload"
           src={upload}
@@ -36,6 +39,7 @@ const IconSet = ({ type, state, onClickHandler }) => {
           onClick={onClickHandler}
         />
         <img
+          draggable="false"
           className="Icon"
           name="remove"
           src={remove}
@@ -48,6 +52,7 @@ const IconSet = ({ type, state, onClickHandler }) => {
     return (
       <div className="IconSet">
         <img
+          draggable="false"
           className={classNames('Icon', {
             On: state.active,
             Off: !state.active,
@@ -58,6 +63,7 @@ const IconSet = ({ type, state, onClickHandler }) => {
           onClick={onClickHandler}
         />
         <img
+          draggable="false"
           className="Icon"
           name="document"
           src={document}

@@ -61,6 +61,7 @@ const Board = ({ type, title, channels, createChannelHandler }) => {
         <div className="IconSet">
           <div className="Icon">
             <img
+              draggable="false"
               className={classNames('Arrow', {
                 Right: state.isEnd,
                 Left: !state.isEnd,
@@ -72,6 +73,7 @@ const Board = ({ type, title, channels, createChannelHandler }) => {
           </div>
           <div className="Icon">
             <img
+              draggable="false"
               className="Plus"
               src={plus}
               alt=""

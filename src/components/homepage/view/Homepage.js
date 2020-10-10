@@ -14,16 +14,22 @@ const Homepage = ({ preface, token }) => {
       style={{ backgroundImage: 'url(' + background + ')' }}
     >
       <div className="Context">
-        <img className="ConceptsImage" src={concepts} alt="" />
+        <img
+          draggable="false"
+          className="ConceptsImage"
+          src={concepts}
+          alt=""
+        />
         <div className="MessageBox">
           {preface.map((message) => (
             <div key={message}>{message}</div>
           ))}
           <Link
+            draggable="false"
             className="ArrowLink"
             to={token === '' ? LocalPath.admission.root : LocalPath.main.root}
           >
-            <img className="Arrow" src={arrow} alt="" />
+            <img draggable="false" className="Arrow" src={arrow} alt="" />
           </Link>
         </div>
       </div>

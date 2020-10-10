@@ -75,6 +75,22 @@
     }
 
     .Context {
+        .RootImage {
+            pointer-events: all;
+            position: relative;
+            display: block;
+            margin: 0 auto;
+            margin-top: 125px;
+            height: 300px;
+            opacity: 0.1;
+
+            @include animate();
+
+            &:hover {
+                opacity: 0.35;
+            }
+        }
+
         .DocumentContainer {
             margin-top: $stepSize;
             margin-left: $sidemargin *2;
