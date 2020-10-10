@@ -24,7 +24,10 @@ const IconSet = ({ type, state, onClickHandler }) => {
         />
         <img
           draggable="false"
-          className="Icon"
+          className={classNames('Icon', {
+            On: state.hasDocument,
+            Off: !state.hasDocument,
+          })}
           name="document"
           src={document}
           alt=""
@@ -32,7 +35,10 @@ const IconSet = ({ type, state, onClickHandler }) => {
         />
         <img
           draggable="false"
-          className="Icon"
+          className={classNames('Icon', {
+            On: state.hasPaper,
+            Off: !state.hasPaper,
+          })}
           name="upload"
           src={upload}
           alt=""
@@ -54,17 +60,20 @@ const IconSet = ({ type, state, onClickHandler }) => {
         <img
           draggable="false"
           className={classNames('Icon', {
-            On: state.active,
-            Off: !state.active,
+            On: state.startQuiz,
+            Off: !state.startQuiz,
           })}
           name="paper"
-          src={state.isQuiz ? quiz : answer}
+          src={state.endQuiz ? answer : quiz}
           alt=""
           onClick={onClickHandler}
         />
         <img
           draggable="false"
-          className="Icon"
+          className={classNames('Icon', {
+            On: state.hasDocument,
+            Off: !state.hasDocument,
+          })}
           name="document"
           src={document}
           alt=""

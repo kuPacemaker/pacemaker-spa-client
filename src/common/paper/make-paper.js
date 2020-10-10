@@ -26,25 +26,14 @@ const makeMultipleChoiceQuestions = (answer, question, nouns) => {
     answer: answer,
     user_answer: '',
     answer_set: shuffleArray(answers).join('/'),
-    verified: false,
+    verified: true,
   };
 };
 
 export const makePaper = (aqset, nouns) => {
+  const paper = [];
   aqset.forEach((aq) => {
-    let temp = makeMultipleChoiceQuestions(aq[0], aq[1], nouns);
-    console.log(temp);
+    paper.push(makeMultipleChoiceQuestions(aq[0], aq[1], nouns));
   });
+  return paper;
 };
-
-/*
-   {
-     id: 0,
-     quiz:
-       'What is being put into place to release genetically modified mosquitoes into the Florida Keys?',
-     answer: 'AA',
-     user_answer: '',
-     answer_set: 'AA/BB/CC/DD',
-     verified: true,
-   },
-*/

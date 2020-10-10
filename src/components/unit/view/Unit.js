@@ -36,6 +36,7 @@ const Unit = (props) => {
       ...state,
       ready: staging.length === 0,
     });
+    changeTab('upload')();
   }, [props.paper.questions]);
 
   useEffect(() => {

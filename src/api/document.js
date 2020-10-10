@@ -18,96 +18,9 @@ const dummy = {
       body: '',
     },
     paper: {
-      isStart: true,
+      isStart: false,
       isEnd: false,
-      questions: [
-        {
-          id: 0,
-          quiz:
-            'What is being put into place to release genetically modified mosquitoes into the Florida Keys?',
-          answer: 'AA',
-          user_answer: '',
-          answer_set: 'AA/BB/CC/DD',
-          verified: true,
-        },
-        {
-          id: 1,
-          quiz: 'Who can only female mosquitoes bite ?',
-          answer: 'AA',
-          user_answer: '',
-          answer_set: 'AA/BB/CC/DD',
-          verified: true,
-        },
-        {
-          id: 2,
-          quiz:
-            'What type of mosquitoes were developed to control the mosquito population in Panama?',
-          answer: 'GMO mosquitoes',
-          user_answer: '',
-          answer_set: 'Zika virus/GMO mosquitoes/Florida/Dengue fever',
-          verified: true,
-        },
-        {
-          id: 3,
-          quiz: 'What kind of insects are being released in Florida?',
-          answer: 'AA',
-          user_answer: '',
-          answer_set: 'AA/BB/CC/DD',
-          verified: true,
-        },
-        {
-          id: 4,
-          quiz:
-            'Where have the company that developed GMO mosquitoes been successful in controlling mosquito populations?',
-          answer: 'AA',
-          user_answer: '',
-          answer_set: 'AA/BB/CC/DD',
-          verified: true,
-        },
-        {
-          id: 5,
-          quiz:
-            'What is being put into place to release genetically modified mosquitoes into the Florida Keys?',
-          answer: 'AA',
-          user_answer: '',
-          answer_set: 'AA/BB/CC/DD',
-          verified: true,
-        },
-        {
-          id: 6,
-          quiz: 'Who can only female mosquitoes bite ?',
-          answer: 'AA',
-          user_answer: '',
-          answer_set: 'AA/BB/CC/DD',
-          verified: true,
-        },
-        {
-          id: 7,
-          quiz:
-            'What type of mosquitoes were developed to control the mosquito population in Panama?',
-          answer: 'GMO mosquitoes',
-          user_answer: '',
-          answer_set: 'Zika virus/GMO mosquitoes/Florida/Dengue fever',
-          verified: true,
-        },
-        {
-          id: 8,
-          quiz: 'What kind of insects are being released in Florida?',
-          answer: 'AA',
-          user_answer: '',
-          answer_set: 'AA/BB/CC/DD',
-          verified: true,
-        },
-        {
-          id: 9,
-          quiz:
-            'Where have the company that developed GMO mosquitoes been successful in controlling mosquito populations?',
-          answer: 'AA',
-          user_answer: '',
-          answer_set: 'AA/BB/CC/DD',
-          verified: true,
-        },
-      ],
+      questions: [],
     },
   },
 };

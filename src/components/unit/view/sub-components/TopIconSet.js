@@ -13,14 +13,18 @@ const TopIconSet = ({ type, unit, onClickHandler }) => {
       <>
         <img
           draggable="false"
-          className="Icon"
+          className={classNames('Icon', {
+            Disable: !unit.document.id,
+          })}
           src={document}
           alt=""
           onClick={onClickHandler('document')}
         />
         <img
           draggable="false"
-          className={classNames('Icon', { Disable: unit.paper.isStart })}
+          className={classNames('Icon', {
+            Disable: unit.paper.questions.length === 0,
+          })}
           src={upload}
           alt=""
           onClick={onClickHandler('upload')}
