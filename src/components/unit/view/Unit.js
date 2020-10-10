@@ -131,6 +131,12 @@ const Unit = (props) => {
       </div>
 
       <div className="Context">
+        {state.tab === 'root' && props.type === 'leader' && (
+          <div>Leader Root Unit</div>
+        )}
+        {state.tab === 'root' && props.type === 'runner' && (
+          <div>Runner Root Unit</div>
+        )}
         {state.tab === 'document' && (
           <div className="DocumentContainer">
             <Document
