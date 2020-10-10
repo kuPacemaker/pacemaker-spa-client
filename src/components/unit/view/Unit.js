@@ -10,6 +10,7 @@ import Quiz from './sub-components/Quiz';
 import Reservation from './sub-components/Reservation';
 import Paper from './sub-components/Paper';
 
+import create_document from 'resources/images/icon/create-document.png';
 import arrow_left from 'resources/images/icon/arrow-left.png';
 import './Unit.scss';
 
@@ -34,6 +35,12 @@ const Unit = (props) => {
       ready: staging.length === 0,
     });
   }, [props.paper.questions]);
+
+  useEffect(() => {
+    if (props.document.id) {
+      changeTab('document')();
+    }
+  }, []);
 
   const showReservation = () => {
     setState({ ...state, reservation: !state.reservation });
@@ -102,7 +109,13 @@ const Unit = (props) => {
   return (
     <div className="Unit">
       <div className="TopBar">
-        <img className="ArrowLeft" src={arrow_left} alt="" onClick={goBack} />
+        <img
+          draggable="false"
+          className="ArrowLeft"
+          src={arrow_left}
+          alt=""
+          onClick={goBack}
+        />
       </div>
 
       <div className="ChannelInformationBar">
@@ -131,6 +144,19 @@ const Unit = (props) => {
       </div>
 
       <div className="Context">
+        {state.tab === 'root' && props.type === 'leader' && (
+          <div>
+            <img
+              draggable="false"
+              className="CreateDocument"
+              src={create_document}
+              alt=""
+            />
+          </div>
+        )}
+        {state.tab === 'root' && props.type === 'runner' && (
+          <div>Runner Root Unit</div>
+        )}
         {state.tab === 'document' && (
           <div className="DocumentContainer">
             <Document

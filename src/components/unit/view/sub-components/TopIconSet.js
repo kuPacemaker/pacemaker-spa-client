@@ -12,24 +12,27 @@ const TopIconSet = ({ type, unit, onClickHandler }) => {
     return (
       <>
         <img
+          draggable="false"
           className="Icon"
           src={document}
           alt=""
           onClick={onClickHandler('document')}
         />
         <img
+          draggable="false"
           className={classNames('Icon', { Disable: unit.paper.isStart })}
           src={upload}
           alt=""
           onClick={onClickHandler('upload')}
         />
-        <img className="Icon" src={remove} alt="" />
+        <img draggable="false" className="Icon" src={remove} alt="" />
       </>
     );
   } else if (type === 'runner') {
     return (
       <>
         <img
+          draggable="false"
           className={classNames('Icon', {
             Disable: !unit.paper.isStart,
           })}
@@ -38,6 +41,7 @@ const TopIconSet = ({ type, unit, onClickHandler }) => {
           onClick={onClickHandler('paper')}
         />
         <img
+          draggable="false"
           className={classNames('Icon', {
             Disable: !unit.document.visible,
           })}

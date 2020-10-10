@@ -18,9 +18,14 @@ const types = {
 
 const Peed = ({ type, title, body, to, arg }) => {
   return (
-    <Link to={to}>
+    <Link draggable="false" to={to}>
       <div className={classNames('Peed', types[type][1])}>
-        <img className="PeedImage" src={types[type][2]} alt="" />
+        <img
+          draggable="false"
+          className="PeedImage"
+          src={types[type][2]}
+          alt=""
+        />
         <div className="MessageBox">
           <div className="Source">{types[type][0]}</div>
           <div className="Title">{title}</div>

@@ -23,6 +23,7 @@ const CreateChannel = ({
         {inputForms.map((input, index) => (
           <div key={index} className="InputLine">
             <div
+              draggable="false"
               key={index}
               className={classNames('Input', {
                 Show: show,
@@ -46,15 +47,21 @@ const CreateChannel = ({
               className={classNames('Button', { Show: show, Hide: !show })}
               onClick={requestCreateChannel}
             >
-              <img className="Arrow" src={arrow} alt="" />
+              <img draggable="false" className="Arrow" src={arrow} alt="" />
               <span>START</span>
             </div>
           </div>
         </div>
       </div>
       <div className="ImageContainer">
-        <img className="ChannelImage" src={orderedImage[channelImage]} alt="" />
+        <img
+          draggable="false"
+          className="ChannelImage"
+          src={orderedImage[channelImage]}
+          alt=""
+        />
         <div
+          draggable="false"
           className={classNames('ChangeImage', { Show: show, Hide: !show })}
           onClick={changeImageHandler}
         >

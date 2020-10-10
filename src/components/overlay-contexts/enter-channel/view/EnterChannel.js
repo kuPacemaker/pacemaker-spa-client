@@ -35,6 +35,7 @@ const EnterChannel = ({
       </div>
       <div className="InputLine">
         <img
+          draggable="false"
           className={classNames('Arrow', {
             Show: show,
             Hide: !show,

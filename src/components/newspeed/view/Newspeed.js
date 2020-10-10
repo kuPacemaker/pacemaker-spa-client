@@ -45,6 +45,7 @@ const Newspeed = ({ peeds, fetchNewspeed }) => {
     >
       <div className="ArrowFrame">
         <img
+          draggable="false"
           className={classNames('Arrow', {
             Down: !state.isBottom,
             Up: state.isBottom,

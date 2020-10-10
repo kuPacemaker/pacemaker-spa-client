@@ -40,12 +40,19 @@ const Reservation = ({ onReservationHandler, onClickHandler, hide }) => {
         </div>
         <div className="IconSet">
           <img
+            draggable="false"
             className="Icon"
             src={upload}
             alt=""
             onClick={onReservationHandler}
           />
-          <img className="Icon" src={remove} alt="" onClick={onClickHandler} />
+          <img
+            draggable="false"
+            className="Icon"
+            src={remove}
+            alt=""
+            onClick={onClickHandler}
+          />
         </div>
       </div>
     </div>

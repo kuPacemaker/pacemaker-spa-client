@@ -75,6 +75,22 @@
     }
 
     .Context {
+        .CreateDocument {
+            pointer-events: all;
+            position: relative;
+            display: block;
+            margin: 0 auto;
+            margin-top: 85px;
+            height: 400px;
+            opacity: 0.1;
+
+            @include animate();
+
+            &:hover {
+                opacity: 0.35;
+            }
+        }
+
         .DocumentContainer {
             margin-top: $stepSize;
             margin-left: $sidemargin *2;

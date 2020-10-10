@@ -9,16 +9,22 @@ const Account = ({ user, show, texts, moveToModify, signoutHandler }) => {
   return (
     <div className="Account">
       <div className="Context">
-        <img className="Close" src={cross} alt="" />
+        <img draggable="false" className="Close" src={cross} alt="" />
         <div className="Title">
           {texts.title}
           {user.name}!
         </div>
         <div className="ImageBox">
-          <img className="ConceptImage" src={concept} alt="" />
+          <img
+            draggable="false"
+            className="ConceptImage"
+            src={concept}
+            alt=""
+          />
           <div className="AccountData">
             <div className="UserType">{user.type}</div>
             <div
+              draggable="false"
               className={classNames('ModifyAccount', {
                 Show: show,
                 Hide: !show,
@@ -30,6 +36,7 @@ const Account = ({ user, show, texts, moveToModify, signoutHandler }) => {
           </div>
         </div>
         <div
+          draggable="false"
           className={classNames('SignOut', {
             Show: show,
             Hide: !show,

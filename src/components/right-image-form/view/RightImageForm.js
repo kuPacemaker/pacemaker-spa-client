@@ -34,6 +34,7 @@ const RightImageForm = ({
               ))}
               <div className="InputLine">
                 <img
+                  draggable="false"
                   className="Arrow"
                   src={arrow}
                   alt=""
@@ -45,7 +46,7 @@ const RightImageForm = ({
         </div>
       </div>
       <div className="ImageBox">
-        <img className="Image" src={image} alt="" />
+        <img draggable="false" className="Image" src={image} alt="" />
       </div>
     </div>
   );

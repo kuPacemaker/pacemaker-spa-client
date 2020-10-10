@@ -35,6 +35,7 @@ const Quiz = ({ data, onVerifyHandler }) => {
       onMouseLeave={showCross(state, setState)(true)}
     >
       <img
+        draggable="false"
         className={classNames('RemoveQuiz', { Hide: state.hideCross })}
         src={data.verified ? remove : restore}
         alt=""

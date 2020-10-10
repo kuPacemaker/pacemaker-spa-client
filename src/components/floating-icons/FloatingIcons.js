@@ -10,6 +10,7 @@ const FloatingIcons = ({ icons }) => {
         return (
           <img
             key={index}
+            draggable="false"
             className={classNames('Icon', {
               RotateIcon: icon.rotate !== undefined,
               Rotate: icon.rotate,

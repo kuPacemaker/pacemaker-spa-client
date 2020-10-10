@@ -43,7 +43,13 @@ const Channel = ({
   return (
     <div className="Channel">
       <div className="TopBar">
-        <img className="ArrowLeft" src={arrow_left} alt="" onClick={goBack} />
+        <img
+          draggable="false"
+          className="ArrowLeft"
+          src={arrow_left}
+          alt=""
+          onClick={goBack}
+        />
       </div>
       <div className="ChannelInformationBar">
         <div className="ChannelTitle">{title}</div>
@@ -51,7 +57,9 @@ const Channel = ({
         <div className="ChannelOwner">{owner}</div>
       </div>
       <div className="ChannelTabBar">
-        <div className="Tab ShowChannelCode" onClick={onClickAccessCode}>CHANNEL CODE</div>
+        <div className="Tab ShowChannelCode" onClick={onClickAccessCode}>
+          CHANNEL CODE
+        </div>
         <div className="Tab ShowUnit" onClick={changeTab('units')}>
           UNIT
         </div>
@@ -71,8 +79,9 @@ const Channel = ({
         {state.tab === 'runners' && <RunnerList runners={runners} />}
       </div>
       <div className="FloatingIconSet">
-        <img className="Icon Plus" src={plus} alt="" />
+        <img draggable="false" className="Icon Plus" src={plus} alt="" />
         <img
+          draggable="false"
           className={classNames('Icon', 'ArrowDown', {
             Up: state.isBottom,
             Down: !state.isBottom,
@@ -82,7 +91,7 @@ const Channel = ({
         />
       </div>
       <div className="ImageContainer">
-        <img className="ChannelImage" src={image} alt="" />
+        <img draggable="false" className="ChannelImage" src={image} alt="" />
       </div>
     </div>
   );
