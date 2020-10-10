@@ -25,7 +25,7 @@ export const update = (payload, callbackHandler) => async (dispatch) => {
   try {
     const docs = await document.update(payload);
     dispatch(update_document(docs));
-    if (callbackHandler) callbackHandler();
+    if (callbackHandler !== undefined) callbackHandler();
   } catch (e) {
     console.log(e);
   }

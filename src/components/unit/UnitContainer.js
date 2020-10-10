@@ -1,11 +1,11 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useHistory } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 
 import { update } from 'store/modules/creators/unit';
 import { show } from 'store/modules/creators/modal';
-import document from 'store/modules/action/document';
+import unitDocument from 'store/modules/action/document';
 
 import Unit from './view/Unit';
 
@@ -48,14 +48,16 @@ const onVerifyHandler = (state, setState) => (id) => () => {
   });
 };
 
-const updateDocument = (updateHandler) => (state, action) => () => {
-  updateHandler({
-    ...state,
-    unit: {
-      ...state.unit,
-      document: action,
-    },
-  });
+const createDocument = (createDocs) => (token, channel, unit) => (
+  callbackHandler
+) => () => {
+  createDocs({ token, channel, unit }, callbackHandler);
+};
+
+const updateDocument = (updateDocs) => (token, document) => (
+  callbackHandler
+) => () => {
+  updateDocs({ token, document }, callbackHandler);
 };
 
 const updatePaper = (updateHandler) => (state, action) => () => {
@@ -68,9 +70,7 @@ const updatePaper = (updateHandler) => (state, action) => () => {
   });
 };
 
-const createDocument = (token, channel, unit) => () => {};
-
-const editDocument = (token, document) => () => {};
+// const editDocument = (token, document) => () => {};
 
 const verifyPaper = (updateHandler) => (
   state,
@@ -102,25 +102,34 @@ const UnitContainer = ({
   unitId,
   tab,
   data,
+  token,
   update: updateHandler,
   show: showModalHandler,
+  createDocs,
+  updateDocs,
 }) => {
   const history = useHistory();
   if (!data.unit.isOpened) history.goBack();
-  const [docs, setDocument] = useState(data.unit.document);
+  const [document, setDocument] = useState(data.unit.document);
   const [paper, setPaper] = useState(data.unit.paper);
+
+  useEffect(() => {
+    setDocument(data.unit.document);
+    setPaper(data.unit.paper);
+  }, [data.unit.document, data.unit.paper]);
+
   return (
     <Unit
       type={type}
       channel={data.channel}
       unit={data.unit}
       tab={tab}
-      document={docs}
+      document={document}
       paper={paper}
       showModalHandler={showModalHandler}
-      createDocument={createDocument()()}
-      updateDocument={updateDocument(updateHandler)(data, docs)}
-      documentHandler={documentHandler(docs, setDocument)}
+      createDocument={createDocument(createDocs)(token, channelId, unitId)}
+      updateDocument={updateDocument(updateDocs)(token, document)}
+      documentHandler={documentHandler(document, setDocument)}
       updatePaper={updatePaper(updateHandler)(data, paper)}
       verifyPaper={verifyPaper(updateHandler)(data, paper, setPaper)}
       onVerifyHandler={onVerifyHandler(paper, setPaper)}
@@ -135,6 +144,14 @@ const mapStateToProps = ({ account, unit }) => ({
 });
 
 const mapDispatchToProps = (dispatch) =>
-  bindActionCreators({ show, update }, dispatch);
+  bindActionCreators(
+    {
+      show,
+      update,
+      createDocs: unitDocument.create,
+      updateDocs: unitDocument.update,
+    },
+    dispatch
+  );
 
 export default connect(mapStateToProps, mapDispatchToProps)(UnitContainer);

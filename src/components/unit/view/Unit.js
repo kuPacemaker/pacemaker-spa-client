@@ -72,10 +72,7 @@ const Unit = (props) => {
       edit: [
         {
           type: 'check',
-          onClickHandler: () => {
-            props.updateDocument();
-            changeTab('document')();
-          },
+          onClickHandler: props.updateDocument(changeTab('document')),
         },
       ],
       upload: [
