@@ -40,7 +40,7 @@ const Unit = (props) => {
 
   useEffect(() => {
     if (props.document.id && props.document.visible) {
-      // changeTab('document')();
+      changeTab('document')();
     }
   }, []);
 
