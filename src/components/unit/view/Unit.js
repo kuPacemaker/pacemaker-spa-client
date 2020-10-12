@@ -18,12 +18,12 @@ import './Unit.scss';
 
 const Unit = (props) => {
   const [state, setState] = useState({
-    tab: props.tab,
+    ready: true,
     reservation: false,
     rotate: false,
   });
 
-  const [ready, setReady] = useState(true);
+  const [tab, setTab] = useState(props.tab);
 
   const history = useHistory();
 
@@ -33,13 +33,16 @@ const Unit = (props) => {
     const staging = props.paper.questions.filter(
       (question) => !question.verified
     );
-    setReady(staging.length === 0);
-    changeTab('upload')();
+    setState({
+      ...state,
+      ready: staging.length === 0,
+    });
+    setTab('upload');
   }, [props.paper.questions]);
 
   useEffect(() => {
     if (props.document.id && props.document.visible) {
-      changeTab('document')();
+      setTab('document');
     }
   }, []);
 
@@ -48,7 +51,7 @@ const Unit = (props) => {
   };
 
   const changeTab = (name) => () => {
-    setState({ ...state, tab: name });
+    setTab(name);
   };
 
   const onScrollObserver = (ref) => () => {
@@ -81,7 +84,7 @@ const Unit = (props) => {
         {
           type: 'check',
           onClickHandler: props.verifyPaper,
-          disable: ready,
+          disable: state.ready,
         },
         {
           type: 'arrow-down',
@@ -133,7 +136,7 @@ const Unit = (props) => {
             />
           </div>
         </div>
-        {state.tab === 'upload' && ready && (
+        {tab === 'upload' && state.ready && (
           <Reservation
             onClickHandler={showReservation}
             hide={!state.reservation}
@@ -142,7 +145,7 @@ const Unit = (props) => {
       </div>
 
       <div className="Context">
-        {state.tab === 'root' && (
+        {tab === 'root' && (
           <div>
             <img
               draggable="false"
@@ -157,7 +160,7 @@ const Unit = (props) => {
             />
           </div>
         )}
-        {state.tab === 'document' && (
+        {tab === 'document' && (
           <div className="DocumentContainer">
             <Document
               type={props.type}
@@ -167,7 +170,7 @@ const Unit = (props) => {
             />
           </div>
         )}
-        {state.tab === 'edit' && (
+        {tab === 'edit' && (
           <div className="DocumentContainer">
             <EditDocument
               title={props.document.title}
@@ -176,7 +179,7 @@ const Unit = (props) => {
             />
           </div>
         )}
-        {state.tab === 'upload' && (
+        {tab === 'upload' && (
           <div className="QuizContext">
             <div className="TabTitle">QUIZ</div>
             <div
@@ -194,7 +197,7 @@ const Unit = (props) => {
             </div>
           </div>
         )}
-        {state.tab === 'paper' && (
+        {tab === 'paper' && (
           <Paper
             questions={props.paper.questions}
             onAnswerHandler={props.onAnswerHandler}
@@ -203,7 +206,7 @@ const Unit = (props) => {
       </div>
 
       <div className="IconContainer">
-        <FloatingIcons icons={iconMap[props.type][state.tab]} />
+        <FloatingIcons icons={iconMap[props.type][tab]} />
       </div>
     </div>
   );
