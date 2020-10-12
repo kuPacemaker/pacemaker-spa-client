@@ -20,9 +20,10 @@ const Unit = (props) => {
   const [state, setState] = useState({
     tab: props.tab,
     reservation: false,
-    ready: true,
     rotate: false,
   });
+
+  const [ready, setReady] = useState(true);
 
   const history = useHistory();
 
@@ -32,10 +33,7 @@ const Unit = (props) => {
     const staging = props.paper.questions.filter(
       (question) => !question.verified
     );
-    setState({
-      ...state,
-      ready: staging.length === 0,
-    });
+    setReady(staging.length === 0);
     changeTab('upload')();
   }, [props.paper.questions]);
 
@@ -83,7 +81,7 @@ const Unit = (props) => {
         {
           type: 'check',
           onClickHandler: props.verifyPaper,
-          disable: state.ready,
+          disable: ready,
         },
         {
           type: 'arrow-down',
@@ -135,7 +133,7 @@ const Unit = (props) => {
             />
           </div>
         </div>
-        {state.tab === 'upload' && state.ready && (
+        {state.tab === 'upload' && ready && (
           <Reservation
             onClickHandler={showReservation}
             hide={!state.reservation}

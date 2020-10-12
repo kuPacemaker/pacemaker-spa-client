@@ -21,7 +21,7 @@ const makeMultipleChoiceQuestions = (answer, question, nouns) => {
     answers.push(nouns[i]);
   }
   return {
-    id: 0,
+    id: question,
     quiz: question,
     answer: answer,
     user_answer: '',
