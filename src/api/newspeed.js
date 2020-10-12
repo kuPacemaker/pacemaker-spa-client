@@ -65,14 +65,17 @@ const testPeeds = [
 ];
 
 // FIXME: 추후 대체될 것
-const sleep = ms => new Promise((resolve) => setTimeout(resolve, ms))
-
+const sleep = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
+/**
+ *
+ * @param { token } payload
+ */
 // FIXME: 추후 대체될 것
-export const fetch = async (data = testPeeds) => {
+export const fetch = async (payload) => {
   await sleep(250);
 
-  return new Promise((resolve) => resolve(data))
-}
+  return new Promise((resolve) => resolve(testPeeds));
+};
 
 // FIXME: 추후 요걸로 대체
 // export const fetch = async () => {

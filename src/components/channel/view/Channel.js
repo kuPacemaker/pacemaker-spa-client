@@ -21,6 +21,7 @@ const Channel = ({
   units,
   channelCode,
   runners,
+  onClickCreateUnit,
   onClickAccessCode,
 }) => {
   const [state, setState] = useState({ tab: 'units', isBottom: false });
@@ -79,7 +80,15 @@ const Channel = ({
         {state.tab === 'runners' && <RunnerList runners={runners} />}
       </div>
       <div className="FloatingIconSet">
-        <img draggable="false" className="Icon Plus" src={plus} alt="" />
+        {type === 'leader' && (
+          <img
+            draggable="false"
+            className="Icon Plus"
+            src={plus}
+            alt=""
+            onClick={onClickCreateUnit}
+          />
+        )}
         <img
           draggable="false"
           className={classNames('Icon', 'ArrowDown', {

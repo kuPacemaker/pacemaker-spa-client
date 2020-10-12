@@ -4,9 +4,9 @@ import classNames from 'classnames';
 import Input from 'components/custom-input';
 import arrow from 'resources/images/icon/arrow-right.png';
 
-import './CreateUnit.scss';
+import './EditUnit.scss';
 
-const CreateUnit = ({
+const EditUnit = ({
   show,
   title,
   index,
@@ -15,7 +15,7 @@ const CreateUnit = ({
   requestCreateUnit,
 }) => {
   return (
-    <div className="CreateUnit">
+    <div className="EditUnit">
       <div className="Title">{title}</div>
       <div className="UnitIndex">UNIT. {index}</div>
       <div className="InputForms">
@@ -56,4 +56,4 @@ const CreateUnit = ({
   );
 };
 
-export default CreateUnit;
+export default EditUnit;

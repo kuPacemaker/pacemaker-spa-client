@@ -90,6 +90,7 @@
         .Icon {
             @include square(3);
             margin-right: 25px;
+            pointer-events: all;
 
             &.ArrowDown {
                 &.Up {

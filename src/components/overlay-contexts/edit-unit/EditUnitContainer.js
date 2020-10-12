@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 
 import { createUnit } from 'store/modules/action/channel';
-import CreateUnit from './view/CreateUnit';
+import EditUnit from './view/EditUnit';
 
 const title = 'MAKE NEW UNIT';
 
@@ -16,7 +16,7 @@ const inputForms = [
   },
 ];
 
-const CreateUnitContainer = ({
+const EditUnitContainer = ({
   visible,
   token,
   changeHandler,
@@ -42,7 +42,7 @@ const CreateUnitContainer = ({
     create({ token, id: channelId, title: state.title, index }, changeHandler);
   };
   return (
-    <CreateUnit
+    <EditUnit
       show={visible}
       title={title}
       index={index}
@@ -53,16 +53,11 @@ const CreateUnitContainer = ({
   );
 };
 
-const mapStateToProps = ({ account, channel }) => ({
+const mapStateToProps = ({ account }) => ({
   token: account.token,
-  channelId: channel.channelData.id,
-  index: channel.channelData.units.length + 1,
 });
 
 const mapDispatchToProps = (dispatch) =>
   bindActionCreators({ createUnit }, dispatch);
 
-export default connect(
-  mapStateToProps,
-  mapDispatchToProps
-)(CreateUnitContainer);
+export default connect(mapStateToProps, mapDispatchToProps)(EditUnitContainer);

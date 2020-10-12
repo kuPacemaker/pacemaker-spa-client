@@ -1,8 +1,5 @@
 import axios from 'axios';
 
-const qg = {
-  url: 'http://117.16.136.170',
-};
 // FIXME: 추후 대체될 것
 const sleep = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
 

@@ -35,6 +35,10 @@ const documentForm = {
 // FIXME: 추후 대체될 것
 const sleep = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
 
+/**
+ *
+ * @param {token, channel, unit, ...} payload
+ */
 // FIXME: 추후 대체될 것
 export const fetch = async (payload) => {
   await sleep(250);

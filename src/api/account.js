@@ -1,21 +1,25 @@
 // FIXME: 추후 대체될 것
-const sleep = ms => new Promise((resolve) => setTimeout(resolve, ms));
+const sleep = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
 
+/**
+ *
+ * @param {id, pw} payload
+ */
 // FIXME: 추후 대체될 것
-export const sendSignIn = async (loginInfo) => {
+export const sendSignIn = async (payload) => {
   const dummy = {
-    id: loginInfo.id,
+    id: payload.id,
     name: 'Lumy Kelvin',
     type: 'MASTER',
-    token: loginInfo.pw,
+    token: payload.pw,
   };
 
   await sleep(250);
 
-  return new Promise((resolve) => resolve(dummy))
-}
+  return new Promise((resolve) => resolve(dummy));
+};
 
 // FIXME: 추후 대체될 것
-// export const sendSignIn = async (logInInfo) => {
+// export const sendSignIn = async (payload) => {
 //   return await axios.post(`~~`, info)
 // }
