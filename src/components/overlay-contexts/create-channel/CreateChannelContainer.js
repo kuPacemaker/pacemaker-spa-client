@@ -31,7 +31,7 @@ const CreateChannelContainer = ({
   const [state, setState] = useState({
     title: '',
     detail: '',
-    imgType: 0,
+    image: 0,
   });
 
   const onChangeHandler = (type) => (data) => {
@@ -50,7 +50,7 @@ const CreateChannelContainer = ({
   const changeImageHandler = () => {
     setState({
       ...state,
-      imgType: state.imgType + 1 < 8 ? state.imgType + 1 : 0,
+      image: state.image + 1 < 8 ? state.image + 1 : 0,
     });
   };
 
@@ -64,7 +64,7 @@ const CreateChannelContainer = ({
       show={visible}
       title={title}
       inputForms={inputForms}
-      channelImage={state.imgType}
+      channelImage={state.image}
       onChangeHandler={onChangeHandler}
       changeImageHandler={changeImageHandler}
       requestCreateChannel={requestCreateChannel}

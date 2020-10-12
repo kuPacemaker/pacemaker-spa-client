@@ -1,5 +1,4 @@
 const dummy = {
-  id: 'D',
   channel: {
     id: 0,
     title: 'Reviews of Student News',
@@ -30,7 +29,7 @@ let testData = {
   id: 'fzf(ykBAqA~R:b!$18%F:c(oq9Lme"',
   title: 'Reviews of Student News',
   detail: 'Wed. 15:00~18:00',
-  owner: 'Lumy Kelvin',
+  leader: 'Lumy Kelvin',
   code: 'XDWQAS221',
   image: 0,
   units: [

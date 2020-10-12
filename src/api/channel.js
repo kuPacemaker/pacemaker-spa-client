@@ -4,25 +4,25 @@ const dummy = {
       id: 0,
       title: 'Basic Programming',
       detail: 'Tue. 15:00~18:00',
-      imgType: 0,
+      image: 0,
     },
     {
       id: 1,
       title: 'Data Structure',
       detail: 'Wed. 15:00~18:00',
-      imgType: 2,
+      image: 2,
     },
     {
       id: 2,
       title: 'Basic Programming',
       detail: 'Wed. 15:00~18:00',
-      imgType: 1,
+      image: 1,
     },
     {
       id: 3,
       title: 'Data Structure',
       detail: 'When ever You Want!',
-      imgType: 4,
+      image: 4,
     },
   ],
   runner: [
@@ -30,20 +30,20 @@ const dummy = {
       id: 4,
       title: 'Basic Programming',
       detail: 'When ever You Want!',
-      imgType: 2,
+      image: 2,
     },
-    { id: 5, title: 'Algorithm', detail: 'When ever You Want!', imgType: 6 },
+    { id: 5, title: 'Algorithm', detail: 'When ever You Want!', image: 6 },
     {
       id: 6,
       title: 'Data Structure',
       detail: 'When ever You Want!',
-      imgType: 7,
+      image: 7,
     },
     {
       id: 7,
       title: 'Basic Programming',
       detail: 'When ever You Want!',
-      imgType: 4,
+      image: 4,
     },
   ],
 };
@@ -52,7 +52,7 @@ let testData = {
   id: 'fzf(ykBAqA~R:b!$18%F:c(oq9Lme"',
   title: 'Reviews of Student News',
   detail: 'Wed. 15:00~18:00',
-  owner: 'Lumy Kelvin',
+  leader: 'Lumy Kelvin',
   code: 'XDWQAS221',
   image: 0,
   units: [
@@ -152,7 +152,7 @@ let id = 1000;
 
 /**
  *
- * @param {token, title, detail, imgType} payload
+ * @param {token, title, detail, image} payload
  */
 // FIXME: 추후 대체될 것
 export const create = async (payload) => {

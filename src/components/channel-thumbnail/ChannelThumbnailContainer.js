@@ -11,17 +11,24 @@ const clickChannelHandler = (history) => (boardType, channelId) => () => {
   console.log('enter to Channel : ' + channelId);
 };
 
-const ChannelThumbnailContainer = ({ type, id, title, detail, imgType, fetchChannel }) => {
+const ChannelThumbnailContainer = ({
+  type,
+  id,
+  title,
+  detail,
+  image,
+  fetchChannel: fetch,
+}) => {
   const history = useHistory();
 
-  fetchChannel();
+  fetch();
 
-  const image = require(`resources/images/channel/channel-image-${imgType}.jpg`);
+  const channelImage = require(`resources/images/channel/channel-image-${image}.jpg`);
   return (
     <ChannelThumbnail
       title={title}
       detail={detail}
-      image={image}
+      image={channelImage}
       onClickHandler={clickChannelHandler(history)(type, id)}
     />
   );

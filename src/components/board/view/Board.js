@@ -52,7 +52,7 @@ const Board = ({ type, title, channels, createChannelHandler }) => {
                   id={channel.id}
                   title={channel.title}
                   detail={channel.detail}
-                  imgType={channel.imgType}
+                  image={channel.image}
                 />
               </div>
             ))}

@@ -16,7 +16,7 @@ const Channel = ({
   type,
   title,
   detail,
-  owner,
+  leader,
   image,
   units,
   channelCode,
@@ -55,7 +55,7 @@ const Channel = ({
       <div className="ChannelInformationBar">
         <div className="ChannelTitle">{title}</div>
         <div className="ChannelDetail">{detail}</div>
-        <div className="ChannelOwner">{owner}</div>
+        <div className="ChannelLeader">{leader}</div>
       </div>
       <div className="ChannelTabBar">
         <div className="Tab ShowChannelCode" onClick={onClickAccessCode}>

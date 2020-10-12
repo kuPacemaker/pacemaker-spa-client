@@ -18,7 +18,6 @@ export const generateQuestion = async (payload) => {
 
 export const markPaper = async (payload) => {
   await sleep(250);
-  console.log(payload);
   return new Promise((resolve) => resolve());
 };
 

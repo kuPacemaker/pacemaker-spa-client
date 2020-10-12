@@ -79,5 +79,5 @@ export const fetch = async (payload) => {
 
 // FIXME: 추후 요걸로 대체
 // export const fetch = async () => {
-//   return await axios.get(`~~`)
+//   return await axios.post(`~~`)
 // }
