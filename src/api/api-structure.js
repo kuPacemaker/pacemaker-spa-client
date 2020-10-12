@@ -50,6 +50,30 @@ export const apiModifiyAccount = async (payload) => {
   return await axios.post(`~~`, payload);
 };
 
+//Refresh Api
+/**
+ * 60초~300초마다 계속 호출되면서 화면을 새로고침하는 함수.
+ * @param {token} payload
+ * @return {
+              newspeed: [
+                      newspeed_obj,...
+                    ] << 새로운 문제의 생성이나 시험지 도착이 Newpeed로 들어와야 함.
+              board: {
+                      leader: [
+                              channel_obj,
+                              ...
+                            ]
+                      runner: [
+                              channel_obj,
+                              ...
+                      ]
+                    }
+          }
+ */
+export const refresh = async (payload) => {
+  return await axios.post(`~~`, payload);
+};
+
 //Newspeed Api
 /**
  *
