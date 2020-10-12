@@ -48,9 +48,6 @@ const dummy = {
   ],
 };
 
-// FIXME: for test
-let id = 1000;
-
 // FIXME: 추후 대체될 것
 const sleep = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
 
@@ -66,38 +63,6 @@ export const fetch = async (payload) => {
 };
 
 // FIXME: 추후 대체될 것
-// export const fetch = async () => {
+// export const fetch = async (payload) => {
 //   return await axios.post(`~~`, info)
-// }
-
-/**
- *
- * @param {token, title, detail, imgType} payload
- */
-// FIXME: 추후 대체될 것
-export const create = async (payload) => {
-  dummy.leader = dummy.leader.concat({ id: id++, ...payload });
-  await sleep(250);
-
-  return new Promise((resolve) => resolve(dummy));
-};
-
-// FIXME: 추후 대체될 것
-// export const create = async () => {
-//   return await axios.post(`~~`, data)
-// }
-/**
- *
- * @param {token, accessCode} payload
- */
-export const enter = async (payload) => {
-  console.log(payload);
-  await sleep(250);
-
-  return new Promise((resolve) => resolve(dummy));
-};
-
-// FIXME: 추후 대체될 것
-// export const enter = async (payload) => {
-//   return await axios.post(`~~`, payload)
 // }

@@ -6,7 +6,7 @@ const sleep = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
  * @param {id, pw} payload
  */
 // FIXME: 추후 대체될 것
-export const sendSignIn = async (payload) => {
+export const apiSignIn = async (payload) => {
   const dummy = {
     id: payload.id,
     name: 'Lumy Kelvin',
@@ -22,4 +22,12 @@ export const sendSignIn = async (payload) => {
 // FIXME: 추후 대체될 것
 // export const sendSignIn = async (payload) => {
 //   return await axios.post(`~~`, info)
+// }
+
+// export const apiSignUp = async (payload) => {
+//   return await axios.post(`~~`, payload);
+// }
+
+// export const apiModifiyAccount = async (payload) => {
+//   return await axios.post(`~~`, payload);
 // }

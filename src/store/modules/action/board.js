@@ -1,5 +1,6 @@
 import { update } from '../creators/board';
-import { fetch, create, enter } from 'api/board';
+import { fetch } from 'api/board';
+import { create, enter } from 'api/channel';
 
 export const getBoard = (payload) => async (dispatch) => {
   try {

@@ -1,3 +1,53 @@
+const dummy = {
+  leader: [
+    {
+      id: 0,
+      title: 'Basic Programming',
+      detail: 'Tue. 15:00~18:00',
+      imgType: 0,
+    },
+    {
+      id: 1,
+      title: 'Data Structure',
+      detail: 'Wed. 15:00~18:00',
+      imgType: 2,
+    },
+    {
+      id: 2,
+      title: 'Basic Programming',
+      detail: 'Wed. 15:00~18:00',
+      imgType: 1,
+    },
+    {
+      id: 3,
+      title: 'Data Structure',
+      detail: 'When ever You Want!',
+      imgType: 4,
+    },
+  ],
+  runner: [
+    {
+      id: 4,
+      title: 'Basic Programming',
+      detail: 'When ever You Want!',
+      imgType: 2,
+    },
+    { id: 5, title: 'Algorithm', detail: 'When ever You Want!', imgType: 6 },
+    {
+      id: 6,
+      title: 'Data Structure',
+      detail: 'When ever You Want!',
+      imgType: 7,
+    },
+    {
+      id: 7,
+      title: 'Basic Programming',
+      detail: 'When ever You Want!',
+      imgType: 4,
+    },
+  ],
+};
+
 let testData = {
   id: 'fzf(ykBAqA~R:b!$18%F:c(oq9Lme"',
   title: 'Reviews of Student News',
@@ -95,4 +145,39 @@ export const fetch = async (payload) => {
 // FIXME: 추후 요걸로 대체
 // export const fetch = async () => {
 //   return await axios.get(`~~`)
+// }
+
+// FIXME: for test
+let id = 1000;
+
+/**
+ *
+ * @param {token, title, detail, imgType} payload
+ */
+// FIXME: 추후 대체될 것
+export const create = async (payload) => {
+  dummy.leader = dummy.leader.concat({ id: id++, ...payload });
+  await sleep(250);
+
+  return new Promise((resolve) => resolve(dummy));
+};
+
+// FIXME: 추후 대체될 것
+// export const create = async (payload) => {
+//   return await axios.post(`~~`, data)
+// }
+/**
+ *
+ * @param {token, accessCode} payload
+ */
+export const enter = async (payload) => {
+  console.log(payload);
+  await sleep(250);
+
+  return new Promise((resolve) => resolve(dummy));
+};
+
+// FIXME: 추후 대체될 것
+// export const enter = async (payload) => {
+//   return await axios.post(`~~`, payload)
 // }

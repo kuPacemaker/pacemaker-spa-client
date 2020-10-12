@@ -145,7 +145,12 @@ export const create = async (payload) => {
   return new Promise((resolve) => resolve(testData));
 };
 
-// FIXME: 추후 대체될 것
-// export const fetch = async () => {
-//   return await axios.post(`~~`, info)
+// FIXME: 실제 서버와 통신하는 부분
+
+// export const fetch = async (payload) => {
+//   return await axios.post(`~~`, payload)
 // }
+
+// export const create = async (payload) => {
+//   return await axios.post(`~~`, payload);
+// };

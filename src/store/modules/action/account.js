@@ -1,10 +1,10 @@
 import { signin, signout } from '../creators/account';
-import { sendSignIn } from 'api/account';
+import { apiSignIn } from 'api/account';
 import { encode } from 'common/security/common';
 
 export const requestSignIn = (payload, callbackHandler) => async (dispatch) => {
   try {
-    const userInfo = await sendSignIn(payload);
+    const userInfo = await apiSignIn(payload);
     dispatch(signin(userInfo));
     localStorage.setItem('account', encode(payload));
     if (callbackHandler) callbackHandler();
