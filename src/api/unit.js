@@ -109,14 +109,22 @@ let testData = {
 // FIXME: 추후 대체될 것
 const sleep = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
 
+/**
+ *
+ * @param {token, channel, unit} payload
+ */
 // FIXME: 추후 대체될 것
-export const fetch = async () => {
+export const fetch = async (payload) => {
   await sleep(250);
 
   return new Promise((resolve) => resolve(dummy));
 };
 
 let id = 5;
+/**
+ *
+ * @param {token, channel, index, title} payload
+ */
 export const create = async (payload) => {
   await sleep(250);
 
