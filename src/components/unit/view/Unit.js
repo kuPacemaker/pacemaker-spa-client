@@ -76,6 +76,10 @@ const Unit = (props) => {
       ],
       edit: [
         {
+          type: 'cross',
+          onClickHandler: props.cancelDoceument(changeTab('document')),
+        },
+        {
           type: 'check',
           onClickHandler: props.updateDocument(changeTab('document')),
         },

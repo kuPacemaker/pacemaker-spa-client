@@ -60,6 +60,17 @@ const updateDocument = (updateDocs) => (token, document) => (
   updateDocs({ token, document }, callbackHandler);
 };
 
+const cancelDoceument = (updateHandler) => (state, action) => (
+  callbackHandler
+) => () => {
+  updateHandler({
+    ...state,
+    title: action.title,
+    body: action.body,
+  });
+  callbackHandler();
+};
+
 const updatePaper = (updateHandler) => (state, action) => () => {
   updateHandler({
     ...state,
@@ -129,6 +140,10 @@ const UnitContainer = ({
       showModalHandler={showModalHandler}
       createDocument={createDocument(createDocs)(token, channelId, unitId)}
       updateDocument={updateDocument(updateDocs)(token, document)}
+      cancelDoceument={cancelDoceument(setDocument)(
+        document,
+        data.unit.document
+      )}
       documentHandler={documentHandler(document, setDocument)}
       updatePaper={updatePaper(updateHandler)(data, paper)}
       verifyPaper={verifyPaper(updateHandler)(data, paper, setPaper)}

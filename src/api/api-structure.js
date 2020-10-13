@@ -59,14 +59,14 @@ export const apiModifiyAccount = async (payload) => {
                       newspeed_obj,...
                     ] << 새로운 문제의 생성이나 시험지 도착이 Newpeed로 들어와야 함.
               board: {
-                      leader: [
-                              channel_obj,
-                              ...
-                            ]
-                      runner: [
-                              channel_obj,
-                              ...
-                      ]
+                    leader: [
+                            channel_obj,
+                            ...
+                        ]
+                    runner: [
+                            channel_obj,
+                            ...
+                        ]
                     }
           }
  */
@@ -89,7 +89,7 @@ export const refresh = async (payload) => {
             ...
         ]
  */
-export const fetch = async (payload) => {
+export const fetchNewspeed = async (payload) => {
   return await axios.post(`~~`, payload);
 };
 
