@@ -1,27 +1,21 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { connect } from 'react-redux';
 import { useHistory } from 'react-router-dom';
 
 import QAModal from './view/QAModal';
-import { enterChannel } from 'store/modules/action/board';
+import { askQuestion } from 'store/modules/action/qa';
+import { reset } from 'store/modules/creators/qa';
 
 const title = 'ASK ME ANYTHING!';
 
-const onChangeQuestion = (qa, setQA) => (data) => {
-  setQA({
-    ...qa,
-    question: data,
-  });
+const onChangeQuestion = (serQuestion) => (data) => {
+  serQuestion(data);
 };
 
-const onAnswerQuestion = (qa, setQA) => (data) => {
-  setQA({
-    ...qa,
-    answer: data,
-  });
-};
-
-const onRecognitionHandler = (recognition, setRecognition) => () => {
+const onRecognitionHandler = (recognition, setRecognition) => (
+  resetHandler
+) => () => {
+  resetHandler();
   setRecognition({
     ...recognition,
     onSpeach: true,
@@ -38,19 +32,21 @@ const finishRecognition = (recognition, setRecognition) => () => {
 };
 
 const QAModalContainer = (props) => {
-  const [data, setData] = useState({
-    question: '',
-    answer: '',
-  });
+  const [question, setQuestion] = useState('');
 
   const [recognition, setRecognition] = useState({
     onSpeach: false,
     info: 'CLICK THE MIC BEFORE SPEAK',
   });
 
-  const sendQuestion = (token) => (question) => {
-    console.log(token, question);
-    // props.changeHandler();
+  useEffect(() => {
+    if (!props.visible) return;
+    props.reset();
+  }, [props.visible]);
+
+  const sendQuestion = (token, document) => (q) => {
+    console.log(token, q);
+    props.ask(token, document, q);
   };
   return (
     <QAModal
@@ -58,23 +54,31 @@ const QAModalContainer = (props) => {
       title={title}
       info={recognition.info}
       recognition={recognition.onSpeach}
-      data={data}
+      question={question}
+      answer={props.answer}
       onOverlayHandler={props.changeHandler}
-      onRecognitionHandler={onRecognitionHandler(recognition, setRecognition)}
+      onRecognitionHandler={onRecognitionHandler(
+        recognition,
+        setRecognition
+      )(props.reset)}
       finishRecognition={finishRecognition(recognition, setRecognition)}
-      sendQuestion={sendQuestion(props.token)}
-      onChangeQuestion={onChangeQuestion(data, setData)}
-      onAnswerQuestion={onAnswerQuestion(data, setData)}
+      sendQuestion={sendQuestion(props.token, props.document)}
+      onChangeQuestion={onChangeQuestion(setQuestion)}
     />
   );
 };
 
-const mapStateToProps = ({ account }) => ({
+const mapStateToProps = ({ account, unit, qa }) => ({
   token: account.token,
+  document: unit.unit.document,
+  question: qa.question,
+  answer: qa.answer,
 });
 
 const mapDispatchToProps = (dispatch) => ({
-  enter: (token, code) => dispatch(enterChannel({ token, code })),
+  ask: (token, document, question) =>
+    dispatch(askQuestion({ token, document, question })),
+  reset: () => dispatch(reset()),
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(QAModalContainer);

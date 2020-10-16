@@ -11,10 +11,9 @@ const SpeechRecognitionContainer = (props) => {
   }, [transcript]);
 
   useEffect(() => {
-    if (!listening) {
-      props.callBackHandler();
-      props.sendQuestion(transcript);
-    }
+    if (!transcript || listening) return;
+    props.callBackHandler();
+    props.sendQuestion(transcript);
   }, [listening]);
 
   return (
@@ -23,6 +22,7 @@ const SpeechRecognitionContainer = (props) => {
       state={props.state}
       onClickHandler={() => {
         props.onClickHandler();
+        resetTranscript();
         recognition.startListening({
           language: 'en-US',
         });

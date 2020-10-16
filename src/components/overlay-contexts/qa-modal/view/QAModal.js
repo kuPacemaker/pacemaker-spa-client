@@ -10,7 +10,8 @@ const QAModal = ({
   title,
   info,
   recognition,
-  data,
+  question,
+  answer,
   onRecognitionHandler,
   finishRecognition,
   sendQuestion,
@@ -47,11 +48,11 @@ const QAModal = ({
 
       <div className="InputLine">
         <div>Q.</div>
-        {data.question}
+        {question}
       </div>
       <div className="InputLine">
         <div>A.</div>
-        {data.answer}
+        {answer}
       </div>
       <div className="InputLine"></div>
     </div>
