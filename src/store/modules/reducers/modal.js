@@ -4,8 +4,8 @@ import produce from 'immer';
 import { SHOW, HIDE } from '../type/modal';
 
 const initialState = {
-  visible: true,
-  type: 'QA',
+  visible: false,
+  type: '',
 };
 
 export default handleActions(
