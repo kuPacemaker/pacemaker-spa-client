@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from 'react';
 import { connect } from 'react-redux';
-import { useHistory } from 'react-router-dom';
 
 import QAModal from './view/QAModal';
 import { askQuestion } from 'store/modules/action/qa';
