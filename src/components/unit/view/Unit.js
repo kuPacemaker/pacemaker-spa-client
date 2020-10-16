@@ -98,7 +98,12 @@ const Unit = (props) => {
       ],
     },
     runner: {
-      document: [],
+      document: [
+        {
+          type: 'qa',
+          onClickHandler: () => props.showModalHandler('QA'),
+        },
+      ],
       paper: [
         {
           type: 'check',
