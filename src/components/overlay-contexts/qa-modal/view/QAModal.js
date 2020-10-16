@@ -1,8 +1,8 @@
 import React from 'react';
 import classNames from 'classnames';
 
-import SpeachRecognition from 'components/speach-recognition';
-import arrow from 'resources/images/icon/arrow-right.png';
+import SpeechRecognition from 'components/speech-recognition';
+
 import './QAModal.scss';
 
 const QAModal = ({
@@ -10,10 +10,11 @@ const QAModal = ({
   title,
   info,
   recognition,
-  onChangeHandler,
-  onEnterHandler,
+  data,
   onRecognitionHandler,
   finishRecognition,
+  sendQuestion,
+  onChangeQuestion,
 }) => {
   return (
     <div
@@ -35,18 +36,22 @@ const QAModal = ({
         </div>
       </div>
 
-      <SpeachRecognition
+      <SpeechRecognition
         position={{ position: 'absolute', top: '50px', right: '50px' }}
         state={recognition}
         onClickHandler={onRecognitionHandler}
         callBackHandler={finishRecognition}
+        sendQuestion={sendQuestion}
+        onChangeQuestion={onChangeQuestion}
       />
 
       <div className="InputLine">
         <div>Q.</div>
+        {data.question}
       </div>
       <div className="InputLine">
         <div>A.</div>
+        {data.answer}
       </div>
       <div className="InputLine"></div>
     </div>

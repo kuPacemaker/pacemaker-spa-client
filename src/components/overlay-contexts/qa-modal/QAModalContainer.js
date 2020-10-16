@@ -7,10 +7,17 @@ import { enterChannel } from 'store/modules/action/board';
 
 const title = 'ASK ME ANYTHING!';
 
-const onChangeHandler = (state, setState) => (data) => {
-  setState({
-    ...state,
-    code: data,
+const onChangeQuestion = (qa, setQA) => (data) => {
+  setQA({
+    ...qa,
+    question: data,
+  });
+};
+
+const onAnswerQuestion = (qa, setQA) => (data) => {
+  setQA({
+    ...qa,
+    answer: data,
   });
 };
 
@@ -31,7 +38,7 @@ const finishRecognition = (recognition, setRecognition) => () => {
 };
 
 const QAModalContainer = (props) => {
-  const [qa, setQA] = useState({
+  const [data, setData] = useState({
     question: '',
     answer: '',
   });
@@ -41,8 +48,9 @@ const QAModalContainer = (props) => {
     info: 'CLICK THE MIC BEFORE SPEAK',
   });
 
-  const onEnterHandler = (token, code) => () => {
-    props.changeHandler();
+  const sendQuestion = (token) => (question) => {
+    console.log(token, question);
+    // props.changeHandler();
   };
   return (
     <QAModal
@@ -50,11 +58,13 @@ const QAModalContainer = (props) => {
       title={title}
       info={recognition.info}
       recognition={recognition.onSpeach}
+      data={data}
       onOverlayHandler={props.changeHandler}
       onRecognitionHandler={onRecognitionHandler(recognition, setRecognition)}
       finishRecognition={finishRecognition(recognition, setRecognition)}
-      // onChangeHandler={}
-      // onEnterHandler={}
+      sendQuestion={sendQuestion(props.token)}
+      onChangeQuestion={onChangeQuestion(data, setData)}
+      onAnswerQuestion={onAnswerQuestion(data, setData)}
     />
   );
 };
