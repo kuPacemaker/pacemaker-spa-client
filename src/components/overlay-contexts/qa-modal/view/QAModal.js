@@ -47,14 +47,14 @@ const QAModal = ({
       />
 
       <div className="InputLine">
-        <div>Q.</div>
-        {question}
+        <div className="Tag">Q.</div>
+        <div className="Body Question">{question}</div>
       </div>
       <div className="InputLine">
-        <div>A.</div>
-        {answer}
+        <div className="Tag">A.</div>
+        <div className="Body">{answer}</div>
       </div>
-      <div className="InputLine"></div>
+      <div className="InputLine" />
     </div>
   );
 };
