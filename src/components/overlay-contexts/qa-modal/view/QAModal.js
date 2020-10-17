@@ -48,11 +48,11 @@ const QAModal = ({
 
       <div className="InputLine">
         <div className="Tag">Q.</div>
-        <textarea className="Body Question" readOnly="true" value={question} />
+        <textarea className="Body Question" readOnly={true} value={question} />
       </div>
       <div className="InputLine">
         <div className="Tag">A.</div>
-        <textarea className="Body Answer" readOnly="true" value={answer} />
+        <textarea className="Body Answer" readOnly={true} value={answer} />
       </div>
       <div className="InputLine" />
     </div>

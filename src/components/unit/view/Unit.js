@@ -70,6 +70,10 @@ const Unit = (props) => {
     leader: {
       document: [
         {
+          type: 'qa',
+          onClickHandler: () => props.showModalHandler('QA'),
+        },
+        {
           type: 'upload_line',
           onClickHandler: () => props.showModalHandler('SUBMIT DOCUMENT'),
         },
