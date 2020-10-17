@@ -44,8 +44,14 @@ const QAModalContainer = (props) => {
     props.reset();
   }, [props.visible]);
 
+  useEffect(() => {
+    setRecognition({
+      ...recognition,
+      info: 'CLICK THE MIC BEFORE SPEAK',
+    });
+  }, [props.answer]);
+
   const sendQuestion = (token, document) => (q) => {
-    console.log(token, q);
     props.ask(token, document, q);
   };
   return (
