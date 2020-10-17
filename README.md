@@ -1,3 +1,28 @@
+# PACEMAKER WEBCLIENT PROJECT
+
+이 레파지토리는 PACEMAKE의 웹 클라이언트를 포함합니다.
+PACEMAKER가 무엇인지에 대해서는 '다음'을 참고하세요.
+
+## 기반
+
+이 프로젝트는 CRA를 기반으로 하고있습니다.
+추가적으로 사용된 의존성 패키지는 package.json에 수록되어 있습니다.
+
+## 사용하시기 전에
+
+이 레파지토리를 새로 복제하신 분은 'yarn install'을 통해 의존성 설치를 하신 후,
+먼저 'yarn start'로 정상 작동을 확인하시고 작업하시기 바랍니다.
+
+## Branch에 대해
+
+이 레파지토리의 barnch는 크게 main-line, dev, release로 구분됩니다.
+release 브랜치는 최종 배포판에 대한 것으로 가장 버전이 낮습니다. 가장 안정화된 버전이 올라갑니다.
+main-line 브랜치는 dev 브랜치의 안정화된 버전이 기록됩니다. main-line에서 테스트를 거친 버전이 release 브랜치에 수록됩니다.
+dev 브렌치는 실제로 개발 작업이 일어나는 브렌치입니다. 모든 개발용 브렌치는 dev 브랜치에서 뻗어나와야 합니다.
+그 이외의 브렌치는 모두 dev 브랜치를 기반으로 하는 개발용 브렌치이며 언제든 삭제되거나 병합될 수 있습니다.
+
+## CRA README 수록
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
