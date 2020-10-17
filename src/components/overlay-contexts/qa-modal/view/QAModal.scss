@@ -6,9 +6,9 @@
     position: relative;
     display: block;
     margin: 0 auto;
-    margin-top: 150px;
+    margin-top: 175px;
     width: 950px;
-    height: 600px;
+    height: 575px;
     border: 1px black solid;
     background-color: white;
     opacity: 1;
@@ -46,15 +46,53 @@
         text-align: left;
 
         .Tag {
+            display: inline-block;
+            width: 60px;
             font-size: 50px;
         }
 
         .Body {
-            font-size: 25px;
+            pointer-events: all;
+            resize: none;
+            border: none;
+            width: 90%;
+            margin-top: -40px;
+            margin-left: 60px;
+            display: block;
+
 
             &.Question {
-                height: 25px;
+                font-size: 32px;
+                height: 45px;
             }
+
+            &.Answer {
+                font-size: 27px;
+                height: 100px;
+            }
+
+            &:focus {
+                outline: none;
+            }
+
+            &::-webkit-scrollbar {
+                display: none;
+            }
+
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+
+        }
+
+        ::-moz-selection {
+            /* Code for Firefox */
+            color: white;
+            background-color: black;
+        }
+
+        ::selection {
+            color: white;
+            background-color: black;
         }
 
     }

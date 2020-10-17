@@ -7,8 +7,9 @@ import { reset } from 'store/modules/creators/qa';
 
 const title = 'ASK ME ANYTHING!';
 
-const onChangeQuestion = (serQuestion) => (data) => {
-  serQuestion(data);
+const onChangeQuestion = (setQuestion) => (data) => {
+  const question = data.charAt(0).toUpperCase() + data.slice(1);
+  setQuestion(question);
 };
 
 const onRecognitionHandler = (recognition, setRecognition) => (
