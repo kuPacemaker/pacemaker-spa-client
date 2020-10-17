@@ -4,7 +4,6 @@ import { AboutUs } from 'pages';
 import { LocalHelp } from 'common/local-path';
 
 const HelpRouter = () => {
-  console.log(LocalHelp);
   return (
     <>
       <Switch>

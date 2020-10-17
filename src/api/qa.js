@@ -14,7 +14,6 @@ const sleep = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
 // };
 
 export const ask = async (payload) => {
-  console.log(payload);
   return await axios.post('/restful/qa', {
     bkd: payload.document.body,
     q: payload.question,
