@@ -31,6 +31,14 @@ const finishRecognition = (recognition, setRecognition) => () => {
   });
 };
 
+const resetRecognition = (recognition, setRecognition) => () => {
+  setRecognition({
+    ...recognition,
+    onSpeach: false,
+    info: 'CLICK THE MIC BEFORE SPEAK',
+  });
+};
+
 const QAModalContainer = (props) => {
   const [question, setQuestion] = useState('');
 
@@ -45,10 +53,7 @@ const QAModalContainer = (props) => {
   }, [props.visible]);
 
   useEffect(() => {
-    setRecognition({
-      ...recognition,
-      info: 'CLICK THE MIC BEFORE SPEAK',
-    });
+    resetRecognition(recognition, setRecognition)();
   }, [props.answer]);
 
   const sendQuestion = (token, document) => (q) => {
@@ -68,6 +73,7 @@ const QAModalContainer = (props) => {
         setRecognition
       )(props.reset)}
       finishRecognition={finishRecognition(recognition, setRecognition)}
+      resetRecognition={resetRecognition(recognition, setRecognition)}
       sendQuestion={sendQuestion(props.token, props.document)}
       onChangeQuestion={onChangeQuestion(setQuestion)}
     />
