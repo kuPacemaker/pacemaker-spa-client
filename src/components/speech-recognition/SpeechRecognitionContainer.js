@@ -21,11 +21,16 @@ const SpeechRecognitionContainer = (props) => {
       position={props.position}
       state={props.state}
       onClickHandler={() => {
-        props.onClickHandler();
         resetTranscript();
-        recognition.startListening({
-          language: 'en-US',
-        });
+        if (listening) {
+          props.resetRecognition();
+          recognition.stopListening();
+        } else {
+          props.onClickHandler();
+          recognition.startListening({
+            language: 'en-US',
+          });
+        }
       }}
     />
   );

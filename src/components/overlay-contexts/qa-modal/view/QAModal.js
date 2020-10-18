@@ -14,6 +14,7 @@ const QAModal = ({
   answer,
   onRecognitionHandler,
   finishRecognition,
+  resetRecognition,
   sendQuestion,
   onChangeQuestion,
 }) => {
@@ -42,6 +43,7 @@ const QAModal = ({
         state={recognition}
         onClickHandler={onRecognitionHandler}
         callBackHandler={finishRecognition}
+        resetRecognition={resetRecognition}
         sendQuestion={sendQuestion}
         onChangeQuestion={onChangeQuestion}
       />
