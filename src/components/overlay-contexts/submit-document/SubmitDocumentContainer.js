@@ -11,10 +11,13 @@ const SubmitDocumentContainer = (props) => {
   const buttons = [
     {
       name: 'YES',
-      onClickHandelr: () =>
-        props.onCreateQuestion(props.document, (success) => {
-          props.changeHandler();
-        }),
+      onClickHandelr: () => {
+        props.onCreateQuestion(props.document, () => {
+          console.log('Create Question');
+          // props.changeHandler();
+        });
+        props.changeHandler();
+      },
     },
     {
       name: 'NO',
