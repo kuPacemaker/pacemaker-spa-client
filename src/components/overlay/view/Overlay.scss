@@ -19,13 +19,16 @@
         @include animate();
 
         &.Show {
-            pointer-events: all;
             opacity: 0.95;
         }
 
         &.Hide {
-            pointer-events: none;
+            pointer-events: none !important;
             opacity: 0;
+        }
+
+        &.Active {
+            pointer-events: all;
         }
     }
 

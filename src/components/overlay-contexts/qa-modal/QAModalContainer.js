@@ -4,6 +4,7 @@ import { connect } from 'react-redux';
 import QAModal from './view/QAModal';
 import { askQuestion } from 'store/modules/action/qa';
 import { reset } from 'store/modules/creators/qa';
+import { active, sleep } from 'store/modules/creators/modal';
 
 const title = 'ASK ME ANYTHING!';
 
@@ -53,11 +54,13 @@ const QAModalContainer = (props) => {
   }, [props.visible]);
 
   useEffect(() => {
+    props.setActive();
     resetRecognition(recognition, setRecognition)();
   }, [props.answer]);
 
   const sendQuestion = (token, document) => (q) => {
     props.ask(token, document, q);
+    props.setSleep();
   };
   return (
     <QAModal
@@ -91,6 +94,8 @@ const mapDispatchToProps = (dispatch) => ({
   ask: (token, document, question) =>
     dispatch(askQuestion({ token, document, question })),
   reset: () => dispatch(reset()),
+  setActive: () => dispatch(active()),
+  setSleep: () => dispatch(sleep()),
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(QAModalContainer);

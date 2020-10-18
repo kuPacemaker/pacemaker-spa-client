@@ -15,6 +15,7 @@ const OverlayContainer = (props) => {
     <Overlay
       visible={props.visible}
       type={props.type}
+      active={props.active}
       overlayHandler={overlayHandler}
     />
   );
@@ -23,6 +24,7 @@ const OverlayContainer = (props) => {
 const mapStateToProps = ({ modal }) => ({
   visible: modal.visible,
   type: modal.type,
+  active: modal.active,
 });
 
 const mapDispatchToProps = (dispatch) =>

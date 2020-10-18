@@ -15,7 +15,7 @@ import QAModal from 'components/overlay-contexts/qa-modal';
 
 import './Overlay.scss';
 
-const Overlay = ({ visible, type, overlayHandler }) => {
+const Overlay = ({ visible, type, active, overlayHandler }) => {
   const goModifyAccount = () => {
     overlayHandler('MODIFY ACCOUNT');
   };
@@ -79,6 +79,7 @@ const Overlay = ({ visible, type, overlayHandler }) => {
         className={classNames('OverlayBackground', {
           Show: visible,
           Hide: !visible,
+          Active: active,
         })}
         onClick={() => overlayHandler()}
       ></div>
