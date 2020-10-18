@@ -6,9 +6,14 @@ import { LocalMainPage } from 'common/local-path';
 import ChannelThumbnail from './view/ChannelThumbnail';
 import { fetchChannel } from 'store/modules/action/channel';
 
-const clickChannelHandler = (history) => (boardType, channelId) => () => {
-  history.push(LocalMainPage.channel.root + boardType + '?id=' + channelId);
-  console.log('enter to Channel : ' + channelId);
+const clickChannelHandler = (token, boardType, channelId) => (
+  fetch,
+  callbackHandler
+) => () => {
+  fetch(
+    { token, type: boardType, channel: channelId },
+    callbackHandler(boardType, channelId)
+  );
 };
 
 const ChannelThumbnailContainer = ({
@@ -17,11 +22,16 @@ const ChannelThumbnailContainer = ({
   title,
   detail,
   image,
+  token,
   fetchChannel: fetch,
 }) => {
   const history = useHistory();
 
-  fetch();
+  const changeHistory = (boardType, channelId) => () => {
+    history.push(LocalMainPage.channel.root + boardType + '?id=' + channelId);
+  };
+
+  // fetch();
 
   const channelImage = require(`resources/images/channel/channel-image-${image}.jpg`);
   return (
@@ -29,12 +39,21 @@ const ChannelThumbnailContainer = ({
       title={title}
       detail={detail}
       image={channelImage}
-      onClickHandler={clickChannelHandler(history)(type, id)}
+      onClickHandler={clickChannelHandler(
+        token,
+        type,
+        id
+      )(fetch, changeHistory)}
     />
   );
 };
 
+const mapStateToProps = ({ account }) => ({ token: account.token });
+
 const mapDispatchToProps = (dispatch) =>
   bindActionCreators({ fetchChannel }, dispatch);
 
-export default connect(null, mapDispatchToProps)(ChannelThumbnailContainer);
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(ChannelThumbnailContainer);

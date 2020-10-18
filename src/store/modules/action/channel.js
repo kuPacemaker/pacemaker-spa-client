@@ -6,11 +6,11 @@ export const updateChannel = (data) => (dispatch) => {
   dispatch(update(data));
 };
 
-export const fetchChannel = (payload) => async (dispatch) => {
+export const fetchChannel = (payload, callbackHandler) => async (dispatch) => {
   try {
-    const data = await fetch();
-
+    const data = await fetch(payload);
     dispatch(update(data));
+    callbackHandler();
   } catch (e) {
     console.log(e);
   }

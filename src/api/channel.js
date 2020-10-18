@@ -133,10 +133,11 @@ const sleep = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
 
 /**
  *
- * @param {token, channelId} payload
+ * @param {token, type, channel} payload
  */
 // FIXME: 추후 대체될 것
 export const fetch = async (payload) => {
+  console.log(payload);
   await sleep(250);
 
   return new Promise((resolve) => resolve(testData));
