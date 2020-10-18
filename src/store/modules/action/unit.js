@@ -29,10 +29,17 @@ export const getUnit = (payload, callbackHandler) => async (dispatch) => {
 export const makeQuestion = (payload, callbackHandler) => async (dispatch) => {
   try {
     const response = await generateQuestion(payload);
-    const passages = response.data.passages[0];
-    const paper = makePaper(passages.aqset, passages.nouns);
+    console.log(response);
+    const passages = response.data.passages;
+    const nouns = [];
+    const qaSets = [];
+    passages.forEach((passage) => {
+      nouns.push(...passage.nouns);
+      qaSets.push(...passage.aqset);
+    });
+
+    const paper = makePaper(qaSets, nouns);
     dispatch(update_question(paper));
-    // historyHandler();
     if (callbackHandler) callbackHandler(true);
   } catch (e) {
     if (callbackHandler) callbackHandler(false);
