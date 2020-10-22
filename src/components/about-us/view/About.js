@@ -1,12 +1,14 @@
 import React from 'react';
+import classNames from 'classnames';
+
 import concepts from 'resources/images/concept/aboutus-image.jpg';
 import background from 'resources/images/background/background-up.png';
 import './About.scss';
 
-const About = ({ articles }) => {
+const About = ({ articles, visible }) => {
   return (
     <div
-      className="About"
+      className={classNames('About', { Invisible: !visible })}
       style={{ backgroundImage: 'url(' + background + ')' }}
     >
       <div className="context">

@@ -1,9 +1,14 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 
 import About from './view/About';
 
 const AboutContainer = ({ articles }) => {
-  return <About articles={articles} />;
+  const [visible, setVisible] = useState(false);
+
+  useEffect(() => {
+    setVisible(true);
+  }, []);
+  return <About articles={articles} visible={visible} />;
 };
 
 // const mapStateToProps = ({ counter }) => ({

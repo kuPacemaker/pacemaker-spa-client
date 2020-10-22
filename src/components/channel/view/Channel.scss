@@ -9,6 +9,8 @@
     right: 0;
     bottom: $stepSize *3;
 
+    @include fade-in();
+
     .TopBar {
         margin-left: $sidemargin *2;
 

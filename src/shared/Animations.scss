@@ -24,6 +24,14 @@
     transition: all 0.2s ease;
 }
 
+@mixin fade-in() {
+    opacity: 1;
+    transition: opacity 0.25s ease;
+
+    &.Invisible {
+        opacity: 0;
+    }
+}
 
 @mixin square($size) {
     $calculated: $stepSize * $size;

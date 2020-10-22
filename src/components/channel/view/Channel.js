@@ -1,4 +1,4 @@
-import React, { useRef, useState } from 'react';
+import React, { useRef, useState, useEffect } from 'react';
 import { useHistory } from 'react-router-dom';
 import classNames from 'classnames';
 
@@ -19,14 +19,19 @@ const Channel = ({
   leader,
   image,
   units,
-  channelCode,
   runners,
   onClickCreateUnit,
   onClickAccessCode,
 }) => {
+  const [visible, setVisible] = useState(false);
   const [state, setState] = useState({ tab: 'units', isBottom: false });
   const history = useHistory();
   const context = useRef(null);
+
+  //TODO: 여기에 State가 있으면 안되는게 맞는거같음. 근데 컨테이너로 올리면 언제 초기화를 할지가 불분명.
+  useEffect(() => {
+    setVisible(true);
+  }, []);
 
   const changeTab = (name) => () => {
     setState({ ...state, tab: name });
@@ -42,7 +47,7 @@ const Channel = ({
     history.goBack();
   };
   return (
-    <div className="Channel">
+    <div className={classNames('Channel', { Invisible: !visible })}>
       <div className="TopBar">
         <img
           draggable="false"

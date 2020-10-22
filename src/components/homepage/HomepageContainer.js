@@ -1,17 +1,19 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { connect } from 'react-redux';
 
 import Homepage from './view/Homepage';
 
 const HomePageContainer = ({ preface, token }) => {
-  return <Homepage preface={preface} token={token} />;
+  const [visible, setVisible] = useState(false);
+  useEffect(() => {
+    setVisible(true);
+  }, []);
+  return <Homepage preface={preface} token={token} visible={visible} />;
 };
 
 const mapStateToProps = ({ account }) => ({
   token: account.token,
 });
 
-const mapDispatchToProps = (dispatch) => ({});
-
-export default connect(mapStateToProps, mapDispatchToProps)(HomePageContainer);
+export default connect(mapStateToProps, null)(HomePageContainer);
 // export default HomePageContainer;

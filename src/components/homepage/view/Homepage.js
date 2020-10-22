@@ -1,4 +1,5 @@
 import React from 'react';
+import classNames from 'classnames';
 import { Link } from 'react-router-dom';
 import './Homepage.scss';
 import concepts from 'resources/images/concept/home-image.jpg';
@@ -7,10 +8,10 @@ import arrow from 'resources/images/icon/arrow-right.png';
 
 import LocalPath from 'common/local-path';
 
-const Homepage = ({ preface, token }) => {
+const Homepage = ({ preface, token, visible }) => {
   return (
     <div
-      className="Homepage"
+      className={classNames('Homepage', { Invisible: !visible })}
       style={{ backgroundImage: 'url(' + background + ')' }}
     >
       <div className="Context">

@@ -1,5 +1,6 @@
 import React, { useRef, useState, useEffect } from 'react';
 import { useHistory } from 'react-router-dom';
+import classNames from 'classnames';
 
 import FloatingIcons from 'components/floating-icons';
 
@@ -23,6 +24,7 @@ const Unit = (props) => {
     rotate: false,
   });
 
+  const [visible, setVisible] = useState(false);
   const [tab, setTab] = useState(props.tab);
 
   const history = useHistory();
@@ -45,6 +47,7 @@ const Unit = (props) => {
   // 현상을 분석해보니 이 훅이 먼저 동작하고 데이터를 받음.
   //TODO: 현재 필요한 것은 Loading Page. 그리고 Pending Reducer를 만들어서 Ajax를 받는 도중임을 명심해야함.
   useEffect(() => {
+    setVisible(true);
     if (tab !== 'root') return;
     if (props.document && props.document.visible) {
       setTab('document');
@@ -128,7 +131,7 @@ const Unit = (props) => {
   };
 
   return (
-    <div className="Unit">
+    <div className={classNames('Unit', { Invisible: !visible })}>
       <div className="TopBar">
         <img
           draggable="false"

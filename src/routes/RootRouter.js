@@ -20,3 +20,6 @@ const RootRouter = () => {
 };
 
 export default RootRouter;
+
+//TODO: React Transition Group에 대해서 좀 더 알아보자
+//React Motion 이것도

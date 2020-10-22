@@ -1,11 +1,20 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import Newspeed from './view/Newspeed';
 import { fetchNewspeed } from 'store/modules/action/newspeed';
 
 const NewspeedContainer = (props) => {
-  return <Newspeed peeds={props.peeds} fetchNewspeed={props.fetchNewspeed} />;
+  const [visible, setVisible] = useState(false);
+
+  useEffect(() => {
+    setVisible(true);
+    // initialize newspeed
+    if (!props.peeds) props.fetchNewspeed();
+  }, []);
+
+  if (!props.peeds) return <div />;
+  return <Newspeed peeds={props.peeds} visible={visible} />;
 };
 
 const mapStateToProps = ({ newspeed }) => {

@@ -1,16 +1,15 @@
-import React, { useState, useRef, useEffect } from 'react';
+import React, { useState, useRef } from 'react';
 import classNames from 'classnames';
 import Peed from 'components/peed';
 import background from 'resources/images/background/background-right.png';
 import arrow from 'resources/images/icon/arrow-down.png';
 
-// import background from '../../../resources/images/background-up.png';
 import './Newspeed.scss';
 
 const scrollToRef = (ref, to) =>
   ref.current.scrollTo({ top: to, left: 0, behavior: 'smooth' });
 
-const Newspeed = ({ peeds, fetchNewspeed }) => {
+const Newspeed = ({ peeds, visible }) => {
   const container = useRef(null);
   const [state, setState] = useState({
     isBottom: false,
@@ -33,14 +32,9 @@ const Newspeed = ({ peeds, fetchNewspeed }) => {
     setState({ ...state, isBottom: !state.isBottom });
   };
 
-  useEffect(() => {
-    // initialize newspeed
-    if (!peeds) fetchNewspeed();
-  }, []);
-
   return (
     <div
-      className="Newspeed"
+      className={classNames('Newspeed', { Invisible: !visible })}
       style={{ backgroundImage: 'url(' + background + ')' }}
     >
       <div className="ArrowFrame">

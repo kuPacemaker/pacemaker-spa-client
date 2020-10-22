@@ -14,6 +14,11 @@ const Board = ({ type, title, channels, createChannelHandler }) => {
   const [state, setState] = useState({
     isEnd: false,
   });
+  const [visible, setVisible] = useState(false);
+
+  useEffect(() => {
+    setVisible(true);
+  }, []);
 
   useEffect(() => {
     if (!scroll) return;
@@ -36,7 +41,7 @@ const Board = ({ type, title, channels, createChannelHandler }) => {
   };
 
   return (
-    <div className="Board">
+    <div className={classNames('Board', { Invisible: !visible })}>
       <div className="Title">{title}</div>
       <div className="Context">
         <div className="ScrollContainer">
