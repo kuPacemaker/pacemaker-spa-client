@@ -90,16 +90,16 @@ const UnitThumbnail = ({
   index,
   title,
   state,
-  onUnitClickHandler,
-  onIconClickHandler,
+  onClickHandler,
+  // onIconClickHandler,
 }) => {
   return (
     <div className="UnitThumbnail">
-      <div className="ContextSet" onClick={onUnitClickHandler(type, id, '')}>
+      <div className="ContextSet" name="root" onClick={onClickHandler}>
         <div className="UnitIndex">Unit {index}</div>
         <div className="UnitTitle">{title}</div>
       </div>
-      <IconSet type={type} state={state} onClickHandler={onIconClickHandler} />
+      <IconSet type={type} state={state} onClickHandler={onClickHandler} />
     </div>
   );
 };

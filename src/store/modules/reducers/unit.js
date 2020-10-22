@@ -17,23 +17,14 @@ const initialState = {
     isOpened: false,
     document: {
       id: '',
-      visible: '',
+      visible: false,
       title: '',
       body: '',
     },
     paper: {
       isStart: false,
       isEnd: false,
-      questions: [
-        {
-          id: '',
-          quiz: '',
-          answer: '',
-          user_answer: '',
-          answer_set: '',
-          verified: false,
-        },
-      ],
+      questions: [],
     },
   },
 };

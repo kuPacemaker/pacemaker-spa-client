@@ -30,6 +30,7 @@ const Unit = (props) => {
   const quizContainer = useRef(null);
 
   useEffect(() => {
+    if (props.paper.questions.length === 0) return;
     const staging = props.paper.questions.filter(
       (question) => !question.verified
     );
@@ -40,11 +41,15 @@ const Unit = (props) => {
     setTab('upload');
   }, [props.paper.questions]);
 
+  //FIXME: 현재 데이터를 받는 부분이 UnitContainer, 받은 후에 페이지가 뜬다고 가정했으나,
+  // 현상을 분석해보니 이 훅이 먼저 동작하고 데이터를 받음.
+  //TODO: 현재 필요한 것은 Loading Page. 그리고 Pending Reducer를 만들어서 Ajax를 받는 도중임을 명심해야함.
   useEffect(() => {
-    if (props.document.id && props.document.visible) {
+    if (tab !== 'root') return;
+    if (props.document && props.document.visible) {
       setTab('document');
     }
-  }, []);
+  }, [props.document.id]);
 
   const showReservation = () => {
     setState({ ...state, reservation: !state.reservation });
@@ -68,6 +73,7 @@ const Unit = (props) => {
 
   const iconMap = {
     leader: {
+      root: [],
       document: [
         {
           type: 'qa',
@@ -102,6 +108,7 @@ const Unit = (props) => {
       ],
     },
     runner: {
+      root: [],
       document: [
         {
           type: 'qa',

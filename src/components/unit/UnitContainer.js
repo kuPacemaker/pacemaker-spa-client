@@ -134,6 +134,7 @@ const UnitContainer = ({
     setPaper(data.unit.paper);
   }, [data.unit.document, data.unit.paper]);
 
+  //FIXME: Pending을 읽어서 AJAX끝났을때 받을 수 있게.
   if (data.unit.id !== '') {
     if (!data.unit.isOpened) history.goBack();
     return (
