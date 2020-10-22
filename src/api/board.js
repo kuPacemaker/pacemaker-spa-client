@@ -7,19 +7,19 @@ const dummy = {
       image: 0,
     },
     {
-      id: 1,
+      id: 0,
       title: 'Data Structure',
       detail: 'Wed. 15:00~18:00',
       image: 2,
     },
     {
-      id: 2,
+      id: 0,
       title: 'Basic Programming',
       detail: 'Wed. 15:00~18:00',
       image: 1,
     },
     {
-      id: 3,
+      id: 0,
       title: 'Data Structure',
       detail: 'When ever You Want!',
       image: 4,
@@ -27,20 +27,20 @@ const dummy = {
   ],
   runner: [
     {
-      id: 4,
+      id: 0,
       title: 'Basic Programming',
       detail: 'When ever You Want!',
       image: 2,
     },
-    { id: 5, title: 'Algorithm', detail: 'When ever You Want!', image: 6 },
+    { id: 0, title: 'Algorithm', detail: 'When ever You Want!', image: 6 },
     {
-      id: 6,
+      id: 0,
       title: 'Data Structure',
       detail: 'When ever You Want!',
       image: 7,
     },
     {
-      id: 7,
+      id: 0,
       title: 'Basic Programming',
       detail: 'When ever You Want!',
       image: 4,

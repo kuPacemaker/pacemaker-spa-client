@@ -49,7 +49,7 @@ const Unit = (props) => {
     if (props.document && props.document.visible) {
       setTab('document');
     }
-  }, [props.document.id]);
+  }, []);
 
   const showReservation = () => {
     setState({ ...state, reservation: !state.reservation });

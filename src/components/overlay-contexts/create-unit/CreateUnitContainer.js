@@ -55,8 +55,8 @@ const CreateUnitContainer = ({
 
 const mapStateToProps = ({ account, channel }) => ({
   token: account.token,
-  channelId: channel.channelData.id,
-  index: channel.channelData.units.length + 1,
+  channelId: channel.data.id,
+  index: channel.data.units.length + 1,
 });
 
 const mapDispatchToProps = (dispatch) =>

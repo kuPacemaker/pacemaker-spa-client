@@ -1,4 +1,4 @@
-import { update } from '../creators/channel';
+import { update, pending, success } from '../creators/channel';
 import { fetch } from 'api/channel';
 import { create } from 'api/unit';
 
@@ -8,8 +8,9 @@ export const updateChannel = (data) => (dispatch) => {
 
 export const fetchChannel = (payload, callbackHandler) => async (dispatch) => {
   try {
-    console.log('Fetch Channel!!', payload);
+    dispatch(pending());
     const data = await fetch(payload);
+    dispatch(success());
     dispatch(update(data));
     if (callbackHandler) callbackHandler();
   } catch (e) {

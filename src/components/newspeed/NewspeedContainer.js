@@ -5,14 +5,14 @@ import Newspeed from './view/Newspeed';
 import { fetchNewspeed } from 'store/modules/action/newspeed';
 
 const NewspeedContainer = (props) => {
-  return <Newspeed peeds={props.peeds} fetchNewspeed={props.fetchNewspeed}/>;
+  return <Newspeed peeds={props.peeds} fetchNewspeed={props.fetchNewspeed} />;
 };
 
-const mapStateToProps = (state) => {
+const mapStateToProps = ({ newspeed }) => {
   return {
-    peeds: state.newspeed.peeds,
-  }
-}
+    peeds: newspeed.data,
+  };
+};
 
 const mapDispatchToProps = (dispatch) =>
   bindActionCreators({ fetchNewspeed }, dispatch);

@@ -38,7 +38,7 @@ const SubmitPaperContainer = (props) => {
 
 const mapStateToProps = ({ account, unit }) => ({
   token: account.token,
-  paper: unit.unit.paper,
+  paper: unit.data.unit.paper,
 });
 
 const mapDispatchToProps = (dispatch) => ({

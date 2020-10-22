@@ -3,23 +3,25 @@ import produce from 'immer';
 import { UPDATE_QUESTION, UPDATE_ANSWER, RESET } from '../type/qa';
 
 const initialState = {
-  question: '',
-  answer: '',
+  data: {
+    question: '',
+    answer: '',
+  },
 };
 
 export default handleActions(
   {
     [RESET]: (state) =>
       produce(state, (draft) => {
-        [draft.question, draft.answer] = ['', ''];
+        [draft.data.question, draft.data.answer] = ['', ''];
       }),
     [UPDATE_QUESTION]: (state, action) =>
       produce(state, (draft) => {
-        draft.question = action.payload;
+        draft.data.question = action.payload;
       }),
     [UPDATE_ANSWER]: (state, action) =>
       produce(state, (draft) => {
-        draft.answer = action.payload;
+        draft.data.answer = action.payload;
       }),
   },
   initialState

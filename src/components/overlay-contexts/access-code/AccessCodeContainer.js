@@ -6,8 +6,8 @@ const AccessCodeContainer = (props) => {
   return <AccessCode visible={props.visible} data={props.data} />;
 };
 
-const mapStateToProps = (state) => ({
-  data: state.channel.channelData,
+const mapStateToProps = ({ channel }) => ({
+  data: channel.data,
 });
 
 export default connect(mapStateToProps, null)(AccessCodeContainer);

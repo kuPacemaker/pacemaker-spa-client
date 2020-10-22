@@ -70,7 +70,6 @@ const Newspeed = ({ peeds, fetchNewspeed }) => {
                   type={peed.type}
                   title={peed.title}
                   body={peed.body}
-                  to={peed.to}
                   arg={peed.arg}
                 />
               </div>

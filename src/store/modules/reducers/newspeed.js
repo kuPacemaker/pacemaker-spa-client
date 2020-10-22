@@ -3,14 +3,14 @@ import produce from 'immer';
 import { UPDATE } from '../type/newspeed';
 
 const initialState = {
-  peeds: null,
+  data: null,
 };
 
 export default handleActions(
   {
     [UPDATE]: (state, action) =>
       produce(state, (draft) => {
-        draft.peeds = action.payload.reverse();
+        draft.data = action.payload;
       }),
   },
   initialState

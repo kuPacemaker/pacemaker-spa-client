@@ -37,7 +37,7 @@ const SubmitDocumentContainer = (props) => {
 
 const mapStateToProps = ({ account, unit }) => ({
   token: account.token,
-  document: unit.unit.document,
+  document: unit.data.unit.document,
 });
 
 const mapDispatchToProps = (dispatch) => ({

@@ -1,4 +1,4 @@
-import { update, update_question } from '../creators/unit';
+import { update, update_question, pending, success } from '../creators/unit';
 
 import { makePaper } from 'common/paper/make-paper';
 import { fetch } from 'api/unit';
@@ -12,8 +12,9 @@ import { generateQuestion, markPaper } from 'api/paper';
 export const getUnit = (payload, callbackHandler) => async (dispatch) => {
   try {
     console.log('Fetch Unit!!', payload);
+    dispatch(pending());
     const unitData = await fetch();
-
+    dispatch(success());
     dispatch(update(unitData));
 
     if (callbackHandler) callbackHandler();

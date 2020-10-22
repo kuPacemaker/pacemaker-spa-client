@@ -33,8 +33,8 @@ const BoardContainer = ({
 };
 
 const mapStateToProps = ({ board }) => ({
-  leader: board.leader,
-  runner: board.runner,
+  leader: board.data.leader,
+  runner: board.data.runner,
 });
 
 const mapDispatchToProps = (dispatch) => ({

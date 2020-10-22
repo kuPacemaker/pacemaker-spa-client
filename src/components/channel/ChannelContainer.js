@@ -6,21 +6,23 @@ import { fetchChannel } from 'store/modules/action/channel';
 import Channel from './view/Channel';
 const ChannelContainer = ({
   type,
-  id,
+  id: channelId,
   data,
   token,
-  fetch,
+  isReady,
+  fetch: getChannelHandler,
   onClickAccessCode,
   onClickCreateUnit,
 }) => {
   useEffect(() => {
-    fetch(token, type, id);
-  }, [id]);
-  if (data) {
+    getChannelHandler(token, type, channelId);
+  }, []);
+
+  if (isReady && data) {
     const image = require(`resources/images/channel/channel-image-${data.image}.jpg`);
     return (
       <Channel
-        channelId={id}
+        channelId={channelId}
         type={type}
         title={data.title}
         detail={data.detail}
@@ -40,7 +42,8 @@ const ChannelContainer = ({
 
 const mapStateToProps = (state) => ({
   token: state.account.token,
-  data: state.channel.channelData,
+  data: state.channel.data,
+  isReady: state.channel.state.ready,
 });
 
 const mapDispatchToProps = (dispatch) => ({

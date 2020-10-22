@@ -85,9 +85,9 @@ const QAModalContainer = (props) => {
 
 const mapStateToProps = ({ account, unit, qa }) => ({
   token: account.token,
-  document: unit.unit.document,
-  question: qa.question,
-  answer: qa.answer,
+  document: unit.data.unit.document,
+  question: qa.data.question,
+  answer: qa.data.answer,
 });
 
 const mapDispatchToProps = (dispatch) => ({

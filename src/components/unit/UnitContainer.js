@@ -115,6 +115,7 @@ const UnitContainer = ({
   tab,
   data,
   token,
+  isReady,
   getUnit: getUnitHandler,
   update: updateHandler,
   show: showModalHandler,
@@ -122,51 +123,51 @@ const UnitContainer = ({
   updateDocs,
 }) => {
   const history = useHistory();
+
   const [document, setDocument] = useState(data.unit.document);
   const [paper, setPaper] = useState(data.unit.paper);
 
   useEffect(() => {
     getUnitHandler({ token: token, channel: channelId, unit: unitId });
-  }, [unitId]);
+  }, []);
 
   useEffect(() => {
     setDocument(data.unit.document);
     setPaper(data.unit.paper);
   }, [data.unit.document, data.unit.paper]);
 
-  //FIXME: Pending을 읽어서 AJAX끝났을때 받을 수 있게.
-  if (data.unit.id !== '') {
-    if (!data.unit.isOpened) history.goBack();
-    return (
-      <Unit
-        type={type}
-        channel={data.channel}
-        unit={data.unit}
-        tab={tab}
-        document={document}
-        paper={paper}
-        showModalHandler={showModalHandler}
-        createDocument={createDocument(createDocs)(token, channelId, unitId)}
-        updateDocument={updateDocument(updateDocs)(token, document)}
-        cancelDoceument={cancelDoceument(setDocument)(
-          document,
-          data.unit.document
-        )}
-        documentHandler={documentHandler(document, setDocument)}
-        updatePaper={updatePaper(updateHandler)(data, paper)}
-        verifyPaper={verifyPaper(updateHandler)(data, paper, setPaper)}
-        onVerifyHandler={onVerifyHandler(paper, setPaper)}
-        onAnswerHandler={onAnswerHandler(paper, setPaper)}
-      />
-    );
-  } else {
-    return <div />;
-  }
+  //AXIOS 시작하면 isReady: true->false
+  //AXIOS 종료되면 isReady: false->true
+  if (!isReady || data.channel === null) return <div />;
+  if (!data.unit.isOpened) history.goBack();
+  return (
+    <Unit
+      type={type}
+      channel={data.channel}
+      unit={data.unit}
+      tab={tab}
+      document={document}
+      paper={paper}
+      showModalHandler={showModalHandler}
+      createDocument={createDocument(createDocs)(token, channelId, unitId)}
+      updateDocument={updateDocument(updateDocs)(token, document)}
+      cancelDoceument={cancelDoceument(setDocument)(
+        document,
+        data.unit.document
+      )}
+      documentHandler={documentHandler(document, setDocument)}
+      updatePaper={updatePaper(updateHandler)(data, paper)}
+      verifyPaper={verifyPaper(updateHandler)(data, paper, setPaper)}
+      onVerifyHandler={onVerifyHandler(paper, setPaper)}
+      onAnswerHandler={onAnswerHandler(paper, setPaper)}
+    />
+  );
 };
 
 const mapStateToProps = ({ account, unit }) => ({
   token: account.token,
-  data: unit,
+  data: unit.data,
+  isReady: unit.state.ready,
 });
 
 const mapDispatchToProps = (dispatch) =>
