@@ -3,6 +3,7 @@ import { useHistory } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 
+import { getUnit } from 'store/modules/action/unit';
 import { update } from 'store/modules/creators/unit';
 import { show } from 'store/modules/creators/modal';
 import unitDocument from 'store/modules/action/document';
@@ -114,43 +115,52 @@ const UnitContainer = ({
   tab,
   data,
   token,
+  getUnit: getUnitHandler,
   update: updateHandler,
   show: showModalHandler,
   createDocs,
   updateDocs,
 }) => {
   const history = useHistory();
-  if (!data.unit.isOpened) history.goBack();
   const [document, setDocument] = useState(data.unit.document);
   const [paper, setPaper] = useState(data.unit.paper);
 
+  useEffect(() => {
+    if (data.unit.id === '')
+      getUnitHandler({ token: token, channel: channelId, unit: unitId });
+  }, []);
   useEffect(() => {
     setDocument(data.unit.document);
     setPaper(data.unit.paper);
   }, [data.unit.document, data.unit.paper]);
 
-  return (
-    <Unit
-      type={type}
-      channel={data.channel}
-      unit={data.unit}
-      tab={tab}
-      document={document}
-      paper={paper}
-      showModalHandler={showModalHandler}
-      createDocument={createDocument(createDocs)(token, channelId, unitId)}
-      updateDocument={updateDocument(updateDocs)(token, document)}
-      cancelDoceument={cancelDoceument(setDocument)(
-        document,
-        data.unit.document
-      )}
-      documentHandler={documentHandler(document, setDocument)}
-      updatePaper={updatePaper(updateHandler)(data, paper)}
-      verifyPaper={verifyPaper(updateHandler)(data, paper, setPaper)}
-      onVerifyHandler={onVerifyHandler(paper, setPaper)}
-      onAnswerHandler={onAnswerHandler(paper, setPaper)}
-    />
-  );
+  if (data.unit.id !== '') {
+    if (!data.unit.isOpened) history.goBack();
+    return (
+      <Unit
+        type={type}
+        channel={data.channel}
+        unit={data.unit}
+        tab={tab}
+        document={document}
+        paper={paper}
+        showModalHandler={showModalHandler}
+        createDocument={createDocument(createDocs)(token, channelId, unitId)}
+        updateDocument={updateDocument(updateDocs)(token, document)}
+        cancelDoceument={cancelDoceument(setDocument)(
+          document,
+          data.unit.document
+        )}
+        documentHandler={documentHandler(document, setDocument)}
+        updatePaper={updatePaper(updateHandler)(data, paper)}
+        verifyPaper={verifyPaper(updateHandler)(data, paper, setPaper)}
+        onVerifyHandler={onVerifyHandler(paper, setPaper)}
+        onAnswerHandler={onAnswerHandler(paper, setPaper)}
+      />
+    );
+  } else {
+    return <div />;
+  }
 };
 
 const mapStateToProps = ({ account, unit }) => ({
@@ -161,6 +171,7 @@ const mapStateToProps = ({ account, unit }) => ({
 const mapDispatchToProps = (dispatch) =>
   bindActionCreators(
     {
+      getUnit,
       show,
       update,
       createDocs: unitDocument.create,

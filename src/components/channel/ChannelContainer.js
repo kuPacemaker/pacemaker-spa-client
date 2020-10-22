@@ -1,19 +1,23 @@
-import React from 'react';
-import { Redirect } from 'react-router-dom';
+import React, { useEffect } from 'react';
 import { connect } from 'react-redux';
 import { show } from 'store/modules/creators/modal';
+import { fetchChannel } from 'store/modules/action/channel';
 
 import Channel from './view/Channel';
 const ChannelContainer = ({
   type,
   id,
   data,
+  token,
+  fetch,
   onClickAccessCode,
   onClickCreateUnit,
 }) => {
+  useEffect(() => {
+    if (data === null) fetch(token, type, id);
+  }, []);
   if (data) {
     const image = require(`resources/images/channel/channel-image-${data.image}.jpg`);
-
     return (
       <Channel
         channelId={id}
@@ -30,13 +34,18 @@ const ChannelContainer = ({
       />
     );
   } else {
-    return <Redirect to="/" />;
+    return <div />;
   }
 };
 
-const mapStateToProps = (state) => ({ data: state.channel.channelData });
+const mapStateToProps = (state) => ({
+  token: state.account.token,
+  data: state.channel.channelData,
+});
 
 const mapDispatchToProps = (dispatch) => ({
+  fetch: (token, type, id) =>
+    dispatch(fetchChannel({ token, type, channel: id })),
   onClickAccessCode: () => dispatch(show('ACCESS CODE')),
   onClickCreateUnit: () => dispatch(show('CREATE UNIT')),
 });

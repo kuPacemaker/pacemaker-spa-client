@@ -83,8 +83,9 @@ export const refresh = async (payload) => {
                 type: newspeed_type,
                 title: newspeed_title,
                 body: newspeed_body,
-                to: newspeed_direction,
-                arg: direction_argument,
+                to: newspeed_direction, << 삭제
+                arg: direction_argument, <<변경
+                --> arg : {channelId, unitId}
             },
             ...
         ]

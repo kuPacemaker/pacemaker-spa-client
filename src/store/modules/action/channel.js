@@ -10,7 +10,7 @@ export const fetchChannel = (payload, callbackHandler) => async (dispatch) => {
   try {
     const data = await fetch(payload);
     dispatch(update(data));
-    callbackHandler();
+    if (callbackHandler) callbackHandler();
   } catch (e) {
     console.log(e);
   }
@@ -23,7 +23,7 @@ export const createUnit = (payload, callbackHandler) => async (dispatch) => {
   try {
     const data = await create(payload);
     dispatch(update(data));
-    callbackHandler();
+    if (callbackHandler) callbackHandler();
   } catch (e) {
     console.log(e);
   }

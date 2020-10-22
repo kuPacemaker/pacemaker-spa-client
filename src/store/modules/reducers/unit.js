@@ -4,7 +4,6 @@ import produce from 'immer';
 import { UPDATE, UPDATE_DOCUMENT, UPDATE_QUESTION } from '../type/unit';
 
 const initialState = {
-  id: '',
   channel: {
     id: '',
     title: '',

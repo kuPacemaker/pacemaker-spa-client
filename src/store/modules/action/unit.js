@@ -37,9 +37,9 @@ export const makeQuestion = (payload, callbackHandler) => async (dispatch) => {
       nouns.push(...passage.nouns);
       qaSets.push(...passage.aqset);
     });
-
     const paper = makePaper(qaSets, nouns);
     dispatch(update_question(paper));
+
     if (callbackHandler) callbackHandler(true);
   } catch (e) {
     if (callbackHandler) callbackHandler(false);
