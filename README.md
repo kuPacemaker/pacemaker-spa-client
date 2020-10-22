@@ -23,6 +23,13 @@ PACEMAKER가 무엇인지에 대해서는 '다음'을 참고하세요.
 
 그 이외의 브렌치는 모두 dev 브랜치를 기반으로 하는 개발용 브렌치이며 언제든 삭제되거나 병합될 수 있습니다.
 
+
+## !!주의!!
+
+현재 이 프로젝트는 1920*960(FHD에서 전체화면을 하지 않은 브라우저의 View)에 최적화되어 있습니다.
+이외의 해상도에서는 정상 작동을 보장할 수 없습니다!
+테스트시에는 1920*1080 통상화면이나 1920*960의 전체화면을 설정하시기 바랍니다.
+
 ## CRA README Default
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
