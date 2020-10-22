@@ -11,6 +11,7 @@ import { generateQuestion, markPaper } from 'api/paper';
  */
 export const getUnit = (payload, callbackHandler) => async (dispatch) => {
   try {
+    console.log('Fetch Unit!!', payload);
     const unitData = await fetch();
 
     dispatch(update(unitData));

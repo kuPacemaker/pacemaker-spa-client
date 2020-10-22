@@ -14,8 +14,8 @@ const ChannelContainer = ({
   onClickCreateUnit,
 }) => {
   useEffect(() => {
-    if (data === null) fetch(token, type, id);
-  }, []);
+    fetch(token, type, id);
+  }, [id]);
   if (data) {
     const image = require(`resources/images/channel/channel-image-${data.image}.jpg`);
     return (

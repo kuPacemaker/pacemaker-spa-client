@@ -8,6 +8,7 @@ export const updateChannel = (data) => (dispatch) => {
 
 export const fetchChannel = (payload, callbackHandler) => async (dispatch) => {
   try {
+    console.log('Fetch Channel!!', payload);
     const data = await fetch(payload);
     dispatch(update(data));
     if (callbackHandler) callbackHandler();
