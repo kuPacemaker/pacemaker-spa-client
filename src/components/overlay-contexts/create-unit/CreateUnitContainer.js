@@ -39,7 +39,10 @@ const CreateUnitContainer = ({
   };
 
   const requestCreateUnit = () => {
-    create({ token, id: channelId, title: state.title, index }, changeHandler);
+    create(
+      { token, channel: channelId, index, title: state.title },
+      changeHandler
+    );
   };
   return (
     <CreateUnit

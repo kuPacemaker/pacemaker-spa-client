@@ -23,8 +23,8 @@ const initialState = {
       document: {
         id: null,
         visible: false,
-        title: null,
-        body: null,
+        title: '',
+        body: '',
       },
       paper: {
         isStart: false,
