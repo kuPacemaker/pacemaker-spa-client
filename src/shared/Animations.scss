@@ -26,10 +26,11 @@
 
 @mixin fade-in() {
     opacity: 1;
-    transition: opacity 0.25s ease;
+    transition: opacity 200ms ease-in;
 
     &.Invisible {
         opacity: 0;
+        pointer-events: none;
     }
 }
 

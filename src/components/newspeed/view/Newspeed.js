@@ -9,7 +9,7 @@ import './Newspeed.scss';
 const scrollToRef = (ref, to) =>
   ref.current.scrollTo({ top: to, left: 0, behavior: 'smooth' });
 
-const Newspeed = ({ peeds, visible }) => {
+const Newspeed = ({ peeds }) => {
   const container = useRef(null);
   const [state, setState] = useState({
     isBottom: false,
@@ -34,7 +34,7 @@ const Newspeed = ({ peeds, visible }) => {
 
   return (
     <div
-      className={classNames('Newspeed', { Invisible: !visible })}
+      className={classNames('Newspeed')}
       style={{ backgroundImage: 'url(' + background + ')' }}
     >
       <div className="ArrowFrame">

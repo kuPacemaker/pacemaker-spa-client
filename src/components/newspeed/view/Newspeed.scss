@@ -12,8 +12,6 @@
     padding-left: 5%;
     padding-right: 5%;
 
-    @include fade-in();
-
     .ArrowFrame {
         position: absolute;
         @include square(4);

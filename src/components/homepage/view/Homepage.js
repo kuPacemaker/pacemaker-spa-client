@@ -8,10 +8,10 @@ import arrow from 'resources/images/icon/arrow-right.png';
 
 import LocalPath from 'common/local-path';
 
-const Homepage = ({ preface, token, visible }) => {
+const Homepage = ({ preface, token }) => {
   return (
     <div
-      className={classNames('Homepage', { Invisible: !visible })}
+      className={classNames('Homepage')}
       style={{ backgroundImage: 'url(' + background + ')' }}
     >
       <div className="Context">

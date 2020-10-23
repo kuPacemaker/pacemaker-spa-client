@@ -4,7 +4,6 @@ import { Newspeed, Board, Channel, Unit } from 'pages';
 import { LocalMainPage } from 'common/local-path';
 
 const MainPageRouter = ({ location }) => {
-  console.log(location);
   return (
     <>
       <Switch>

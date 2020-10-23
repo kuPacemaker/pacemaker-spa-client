@@ -1,14 +1,10 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import { connect } from 'react-redux';
 
 import Homepage from './view/Homepage';
 
 const HomePageContainer = ({ preface, token }) => {
-  const [visible, setVisible] = useState(false);
-  useEffect(() => {
-    setVisible(true);
-  }, []);
-  return <Homepage preface={preface} token={token} visible={visible} />;
+  return <Homepage preface={preface} token={token} />;
 };
 
 const mapStateToProps = ({ account }) => ({

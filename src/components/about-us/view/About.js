@@ -1,11 +1,17 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import classNames from 'classnames';
 
 import concepts from 'resources/images/concept/aboutus-image.jpg';
 import background from 'resources/images/background/background-up.png';
 import './About.scss';
 
-const About = ({ articles, visible }) => {
+const About = ({ articles }) => {
+  const [visible, setVisible] = useState(false);
+
+  useEffect(() => {
+    setVisible(true);
+  }, []);
+
   return (
     <div
       className={classNames('About', { Invisible: !visible })}

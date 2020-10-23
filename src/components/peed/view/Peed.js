@@ -54,21 +54,21 @@ const Peed = ({ type, title, body, arg }) => {
       ? `${LocalMainPage.unit.root}${types[type][3].type}?channel=${arg.channel}&id=${arg.unit}&tab=${types[type][3].tab}`
       : `${LocalMainPage.channel.root}${types[type][3].type}?id=${arg.channel}`;
   return (
-    <Link draggable="false" to={to}>
-      <div className={classNames('Peed', types[type][1])}>
-        <img
-          draggable="false"
-          className="PeedImage"
-          src={types[type][2]}
-          alt=""
-        />
-        <div className="MessageBox">
-          <div className="Source">{types[type][0]}</div>
+    <div className={classNames('Peed', types[type][1])}>
+      <img
+        draggable="false"
+        className="PeedImage"
+        src={types[type][2]}
+        alt=""
+      />
+      <div className="MessageBox">
+        <div className="Source">{types[type][0]}</div>
+        <Link draggable="false" to={to}>
           <div className="Title">{title}</div>
-          <div className="Body">{body}</div>
-        </div>
+        </Link>
+        <div className="Body">{body}</div>
       </div>
-    </Link>
+    </div>
   );
 };
 

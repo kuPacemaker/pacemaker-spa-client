@@ -11,7 +11,6 @@ import { generateQuestion, markPaper } from 'api/paper';
  */
 export const getUnit = (payload, callbackHandler) => async (dispatch) => {
   try {
-    console.log('Fetch Unit!!', payload);
     dispatch(pending());
     const unitData = await fetch();
     dispatch(success());
@@ -42,9 +41,8 @@ export const makeQuestion = (payload, callbackHandler) => async (dispatch) => {
     const paper = makePaper(qaSets, nouns);
     dispatch(update_question(paper));
 
-    if (callbackHandler) callbackHandler(true);
+    if (callbackHandler) callbackHandler();
   } catch (e) {
-    if (callbackHandler) callbackHandler(false);
     console.log(e);
   }
 };
