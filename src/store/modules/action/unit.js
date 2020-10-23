@@ -32,10 +32,9 @@ export const makeQuestion = (payload, callbackHandler) => async (dispatch) => {
     const response = await generateQuestion(payload);
     console.log(response);
     const passages = response.data.passages;
-    const nouns = [];
+    const nouns = response.data.nouns;
     const qaSets = [];
     passages.forEach((passage) => {
-      nouns.push(...passage.nouns);
       qaSets.push(...passage.aqset);
     });
     const paper = makePaper(qaSets, nouns);

@@ -17,7 +17,7 @@ const makeMultipleChoiceQuestions = (answer, question, nouns) => {
   answers.push(answer);
   while (answers.length < 4) {
     let i = getRandomInt(0, nouns.length);
-    if (nouns[i] === answer) continue;
+    if (answers.includes(nouns[i])) continue;
     answers.push(nouns[i]);
   }
   return {

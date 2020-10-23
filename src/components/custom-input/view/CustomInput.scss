@@ -19,4 +19,15 @@
         -webkit-appearance: none;
         margin: 0;
     }
+
+    ::-moz-selection {
+        /* Code for Firefox */
+        color: white;
+        background-color: black;
+    }
+
+    ::selection {
+        color: white;
+        background-color: black;
+    }
 }
