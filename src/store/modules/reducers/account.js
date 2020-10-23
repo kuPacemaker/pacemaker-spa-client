@@ -4,10 +4,10 @@ import produce from 'immer';
 import { SIGNIN, SIGNOUT } from '../type/account';
 
 const initialState = {
-  id: '',
-  name: '',
-  type: '',
-  token: '',
+  id: null,
+  name: null,
+  type: null,
+  token: null,
 };
 
 export default handleActions(

@@ -12,7 +12,7 @@ import { generateQuestion, markPaper } from 'api/paper';
 export const getUnit = (payload, callbackHandler) => async (dispatch) => {
   try {
     dispatch(pending());
-    const unitData = await fetch();
+    const unitData = await fetch(payload);
     dispatch(success());
     dispatch(update(unitData));
 

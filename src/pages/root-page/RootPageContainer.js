@@ -1,6 +1,7 @@
 import React, { useEffect } from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
+import { Redirect } from 'react-router-dom';
 
 import Images from 'resources/images';
 
@@ -31,6 +32,7 @@ const RootPageContainer = (props) => {
       }
     }
   }, []);
+  if (props.token === null) return <Redirect to="/" />;
   return <RootPage />;
 };
 
