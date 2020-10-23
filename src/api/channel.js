@@ -22,7 +22,7 @@ const dummy = {
       id: '3SgNy6]r{L',
       title: 'Study of Genesis',
       detail: 'When ever You Want!',
-      image: 4,
+      image: 0,
     },
   ],
   runner: [
@@ -40,10 +40,10 @@ const dummy = {
       image: 7,
     },
     {
-      id: 0,
-      title: 'Basic Programming',
+      id: '3SgNy6]r{L',
+      title: 'Study of Genesis',
       detail: 'When ever You Want!',
-      image: 4,
+      image: 0,
     },
   ],
 };
@@ -128,7 +128,7 @@ let testData = {
     detail: 'Wed. 15:00~18:00',
     leader: 'Lumy Kelvin',
     code: 'XDWQAS221',
-    image: 0,
+    image: 7,
     units: [
       {
         id: 1,

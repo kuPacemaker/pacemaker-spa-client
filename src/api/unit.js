@@ -300,7 +300,7 @@ let testData = {
     detail: 'Wed. 15:00~18:00',
     leader: 'Lumy Kelvin',
     code: 'XDWQAS221',
-    image: 0,
+    image: 7,
     units: [
       {
         id: 1,

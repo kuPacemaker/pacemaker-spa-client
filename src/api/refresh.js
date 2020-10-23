@@ -59,12 +59,6 @@ const dummy = {
     leader: [
       {
         id: 0,
-        title: 'Basic Programming',
-        detail: 'Tue. 15:00~18:00',
-        image: 0,
-      },
-      {
-        id: 0,
         title: 'Data Structure',
         detail: 'Wed. 15:00~18:00',
         image: 2,
@@ -77,9 +71,15 @@ const dummy = {
       },
       {
         id: 0,
-        title: 'Data Structure',
+        title: 'Reviews of Student News',
         detail: 'When ever You Want!',
-        image: 4,
+        image: 7,
+      },
+      {
+        id: '3SgNy6]r{L',
+        title: 'Study of Genesis',
+        detail: 'When ever You Want!',
+        image: 0,
       },
     ],
     runner: [
@@ -92,15 +92,15 @@ const dummy = {
       { id: 0, title: 'Algorithm', detail: 'When ever You Want!', image: 6 },
       {
         id: 0,
-        title: 'Data Structure',
+        title: 'Reviews of Student News',
         detail: 'When ever You Want!',
         image: 7,
       },
       {
-        id: 0,
-        title: 'Basic Programming',
+        id: '3SgNy6]r{L',
+        title: 'Study of Genesis',
         detail: 'When ever You Want!',
-        image: 4,
+        image: 0,
       },
     ],
   },

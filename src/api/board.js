@@ -22,7 +22,7 @@ const dummy = {
       id: '3SgNy6]r{L',
       title: 'Study of Genesis',
       detail: 'When ever You Want!',
-      image: 4,
+      image: 0,
     },
   ],
   runner: [

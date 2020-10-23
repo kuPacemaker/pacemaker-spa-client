@@ -14,9 +14,9 @@ const onChangeQuestion = (setQuestion) => (data) => {
 };
 
 const onRecognitionHandler = (recognition, setRecognition) => (
-  resetHandler
+  setAnswer
 ) => () => {
-  resetHandler();
+  setAnswer('');
   setRecognition({
     ...recognition,
     onSpeach: true,
@@ -42,6 +42,7 @@ const resetRecognition = (recognition, setRecognition) => () => {
 
 const QAModalContainer = (props) => {
   const [question, setQuestion] = useState('');
+  const [answer, setAnswer] = useState('');
 
   const [recognition, setRecognition] = useState({
     onSpeach: false,
@@ -49,19 +50,23 @@ const QAModalContainer = (props) => {
   });
 
   useEffect(() => {
-    if (!props.visible) return;
-    props.reset();
-  }, [props.visible]);
+    return () => {
+      props.reset();
+    };
+  }, []);
 
   useEffect(() => {
     props.setActive();
+    setAnswer(props.answer);
     resetRecognition(recognition, setRecognition)();
   }, [props.answer]);
 
   const sendQuestion = (token, document) => (q) => {
+    setQuestion(question + '?');
     props.ask(token, document, q);
     props.setSleep();
   };
+
   return (
     <QAModal
       show={props.visible}
@@ -69,12 +74,12 @@ const QAModalContainer = (props) => {
       info={recognition.info}
       recognition={recognition.onSpeach}
       question={question}
-      answer={props.answer}
+      answer={answer}
       onOverlayHandler={props.changeHandler}
       onRecognitionHandler={onRecognitionHandler(
         recognition,
         setRecognition
-      )(props.reset)}
+      )(setAnswer)}
       finishRecognition={finishRecognition(recognition, setRecognition)}
       resetRecognition={resetRecognition(recognition, setRecognition)}
       sendQuestion={sendQuestion(props.token, props.document)}
