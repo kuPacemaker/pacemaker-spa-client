@@ -136,9 +136,7 @@ const sleep = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
  */
 // FIXME: 추후 대체될 것
 export const refresh = async (payload) => {
-  console.log(payload);
   await sleep(250);
-
   return new Promise((resolve) => resolve(dummy));
 };
 

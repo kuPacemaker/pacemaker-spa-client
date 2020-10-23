@@ -14,8 +14,8 @@ export default handleActions(
   {
     [UPDATE]: (state, action) =>
       produce(state, (draft) => {
-        draft.data.leader = action.payload.leader.reverse();
-        draft.data.runner = action.payload.runner.reverse();
+        draft.data.leader = action.payload.leader.slice().reverse();
+        draft.data.runner = action.payload.runner.slice().reverse();
       }),
   },
   initialState

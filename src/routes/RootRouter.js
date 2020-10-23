@@ -5,6 +5,7 @@ import Help from './HelpRouter';
 import Admission from './AdmissionRouter';
 import MainPage from './MainPageRouter';
 import LocalPath from 'common/local-path';
+
 const RootRouter = () => {
   return (
     <>
