@@ -2,12 +2,6 @@ const dummy = {
   leader: [
     {
       id: 0,
-      title: 'Algorithm',
-      detail: 'When ever You Want!',
-      image: 6,
-    },
-    {
-      id: 0,
       title: 'Data Structure',
       detail: 'Wed. 15:00~18:00',
       image: 2,
@@ -17,6 +11,12 @@ const dummy = {
       title: 'Basic Programming',
       detail: 'Wed. 15:00~18:00',
       image: 1,
+    },
+    {
+      id: 0,
+      title: 'Reviews of Student News',
+      detail: 'When ever You Want!',
+      image: 7,
     },
     {
       id: '3SgNy6]r{L',
@@ -40,7 +40,7 @@ const dummy = {
     },
     {
       id: 0,
-      title: 'Data Structure',
+      title: 'Reviews of Student News',
       detail: 'When ever You Want!',
       image: 7,
     },
@@ -52,291 +52,146 @@ const dummy = {
     },
   ],
 };
-
 let testData = {
-  leader: {
-    '3SgNy6]r{L': {
-      id: '3SgNy6]r{L',
-      title: 'Study of Genesis',
-      detail: 'When ever You Want!',
-      leader: 'Lumy Kelvin',
-      code: 'XDWQAS221',
-      image: 0,
-      units: [
-        {
-          id: 1,
-          index: 1,
-          title: 'Genesis 1st',
-          state: {
-            hasDocument: true,
-            hasPaper: true,
-            startQuiz: true,
-            endQuiz: true,
-          },
+  '3SgNy6]r{L': {
+    id: '3SgNy6]r{L',
+    title: 'Study of Genesis',
+    detail: 'When ever You Want!',
+    leader: 'Lumy Kelvin',
+    code: 'XDWQAS221',
+    image: 0,
+    units: [
+      {
+        id: 1,
+        index: 1,
+        title: 'Genesis 1st',
+        state: {
+          hasDocument: true,
+          hasPaper: false,
+          startQuiz: false,
+          endQuiz: false,
         },
-        {
-          id: 2,
-          index: 2,
-          title: 'Genesis 2nd',
-          state: {
-            hasDocument: true,
-            hasPaper: false,
-            startQuiz: false,
-            endQuiz: false,
-          },
+      },
+      {
+        id: 2,
+        index: 2,
+        title: 'Genesis 2nd',
+        state: {
+          hasDocument: true,
+          hasPaper: false,
+          startQuiz: false,
+          endQuiz: false,
         },
-        {
-          id: 3,
-          index: 3,
-          title: 'Genesis 3rd',
-          state: {
-            hasDocument: false,
-            hasPaper: false,
-            startQuiz: false,
-            endQuiz: false,
-          },
+      },
+      {
+        id: 0,
+        index: 3,
+        title: 'Genesis 3rd',
+        state: {
+          hasDocument: false,
+          hasPaper: false,
+          startQuiz: false,
+          endQuiz: false,
         },
-        {
-          id: 4,
-          index: 4,
-          title: 'Genesis 4th',
-          state: {
-            hasDocument: false,
-            hasPaper: false,
-            startQuiz: false,
-            endQuiz: false,
-          },
+      },
+      {
+        id: 0,
+        index: 4,
+        title: 'Genesis 4th',
+        state: {
+          hasDocument: false,
+          hasPaper: false,
+          startQuiz: false,
+          endQuiz: false,
         },
-        {
-          id: 5,
-          index: 5,
-          title: 'Genesis 5th',
-          state: {
-            hasDocument: false,
-            hasPaper: false,
-            startQuiz: false,
-            endQuiz: false,
-          },
+      },
+      {
+        id: 0,
+        index: 5,
+        title: 'Genesis 5th',
+        state: {
+          hasDocument: false,
+          hasPaper: false,
+          startQuiz: false,
+          endQuiz: false,
         },
-      ],
-      runners: [
-        'Amelia',
-        'Avery',
-        'Adela',
-        'Bonita',
-        'Charlotte',
-        'Frances',
-        'Erica',
-      ],
-    },
-    0: {
-      id: 0,
-      title: 'Reviews of Student News',
-      detail: 'Wed. 15:00~18:00',
-      leader: 'Lumy Kelvin',
-      code: 'XDWQAS221',
-      image: 0,
-      units: [
-        {
-          id: 1,
-          index: 1,
-          title: '2020 Election',
-          state: {
-            hasDocument: true,
-            hasPaper: true,
-            startQuiz: true,
-            endQuiz: true,
-          },
-        },
-        {
-          id: 2,
-          index: 2,
-          title: 'Mosquitoes',
-          state: {
-            hasDocument: true,
-            hasPaper: false,
-            startQuiz: false,
-            endQuiz: false,
-          },
-        },
-        {
-          id: 3,
-          index: 3,
-          title: 'Food and Drink',
-          state: {
-            hasDocument: false,
-            hasPaper: false,
-            startQuiz: false,
-            endQuiz: false,
-          },
-        },
-        {
-          id: 4,
-          index: 4,
-          title: 'Architecture',
-          state: {
-            hasDocument: false,
-            hasPaper: false,
-            startQuiz: false,
-            endQuiz: false,
-          },
-        },
-        {
-          id: 5,
-          index: 5,
-          title: 'Impact Your World',
-          state: {
-            hasDocument: false,
-            hasPaper: false,
-            startQuiz: false,
-            endQuiz: false,
-          },
-        },
-      ],
-      runners: ['AA', 'BB', 'CC', 'DD', 'EE', 'FF', 'GG'],
-    },
+      },
+    ],
+    runners: [
+      'Amelia',
+      'Avery',
+      'Adela',
+      'Bonita',
+      'Charlotte',
+      'Frances',
+      'Erica',
+    ],
   },
-  runner: {
-    '3SgNy6]r{L': {
-      id: '3SgNy6]r{L',
-      title: 'Genesis',
-      detail: 'When ever You Want!',
-      leader: 'Lumy Kelvin',
-      code: 'XDWQAS221',
-      image: 4,
-      units: [
-        {
-          id: 1,
-          index: 1,
-          title: '2020 Election',
-          state: {
-            hasDocument: true,
-            hasPaper: true,
-            startQuiz: true,
-            endQuiz: true,
-          },
+  0: {
+    id: 0,
+    title: 'Reviews of Student News',
+    detail: 'Wed. 15:00~18:00',
+    leader: 'Lumy Kelvin',
+    code: 'XDWQAS221',
+    image: 7,
+    units: [
+      {
+        id: 1,
+        index: 1,
+        title: '2020 Election',
+        state: {
+          hasDocument: true,
+          hasPaper: true,
+          startQuiz: true,
+          endQuiz: true,
         },
-        {
-          id: 2,
-          index: 2,
-          title: 'Mosquitoes',
-          state: {
-            hasDocument: true,
-            hasPaper: false,
-            startQuiz: false,
-            endQuiz: false,
-          },
+      },
+      {
+        id: 2,
+        index: 2,
+        title: 'Mosquitoes',
+        state: {
+          hasDocument: true,
+          hasPaper: false,
+          startQuiz: false,
+          endQuiz: false,
         },
-        {
-          id: 3,
-          index: 3,
-          title: 'Food and Drink',
-          state: {
-            hasDocument: false,
-            hasPaper: false,
-            startQuiz: false,
-            endQuiz: false,
-          },
+      },
+      {
+        id: 0,
+        index: 3,
+        title: 'Food and Drink',
+        state: {
+          hasDocument: false,
+          hasPaper: false,
+          startQuiz: false,
+          endQuiz: false,
         },
-        {
-          id: 4,
-          index: 4,
-          title: 'Architecture',
-          state: {
-            hasDocument: false,
-            hasPaper: false,
-            startQuiz: false,
-            endQuiz: false,
-          },
+      },
+      {
+        id: 0,
+        index: 4,
+        title: 'Architecture',
+        state: {
+          hasDocument: false,
+          hasPaper: false,
+          startQuiz: false,
+          endQuiz: false,
         },
-        {
-          id: 5,
-          index: 5,
-          title: 'Impact Your World',
-          state: {
-            hasDocument: false,
-            hasPaper: false,
-            startQuiz: false,
-            endQuiz: false,
-          },
+      },
+      {
+        id: 0,
+        index: 5,
+        title: 'Impact Your World',
+        state: {
+          hasDocument: false,
+          hasPaper: false,
+          startQuiz: false,
+          endQuiz: false,
         },
-      ],
-      runners: [
-        'Amelia',
-        'Avery',
-        'Adela',
-        'Bonita',
-        'Charlotte',
-        'Frances',
-        'Erica',
-      ],
-    },
-    0: {
-      id: 0,
-      title: 'Reviews of Student News',
-      detail: 'Wed. 15:00~18:00',
-      leader: 'Lumy Kelvin',
-      code: 'XDWQAS221',
-      image: 0,
-      units: [
-        {
-          id: 1,
-          index: 1,
-          title: '2020 Election',
-          state: {
-            hasDocument: true,
-            hasPaper: true,
-            startQuiz: true,
-            endQuiz: true,
-          },
-        },
-        {
-          id: 2,
-          index: 2,
-          title: 'Mosquitoes',
-          state: {
-            hasDocument: true,
-            hasPaper: false,
-            startQuiz: false,
-            endQuiz: false,
-          },
-        },
-        {
-          id: 3,
-          index: 3,
-          title: 'Food and Drink',
-          state: {
-            hasDocument: false,
-            hasPaper: false,
-            startQuiz: false,
-            endQuiz: false,
-          },
-        },
-        {
-          id: 4,
-          index: 4,
-          title: 'Architecture',
-          state: {
-            hasDocument: false,
-            hasPaper: false,
-            startQuiz: false,
-            endQuiz: false,
-          },
-        },
-        {
-          id: 5,
-          index: 5,
-          title: 'Impact Your World',
-          state: {
-            hasDocument: false,
-            hasPaper: false,
-            startQuiz: false,
-            endQuiz: false,
-          },
-        },
-      ],
-      runners: ['AA', 'BB', 'CC', 'DD', 'EE', 'FF', 'GG'],
-    },
+      },
+    ],
+    runners: ['AA', 'BB', 'CC', 'DD', 'EE', 'FF', 'GG'],
   },
 };
 
@@ -351,9 +206,7 @@ const sleep = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
 export const fetch = async (payload) => {
   await sleep(250);
 
-  return new Promise((resolve) =>
-    resolve(testData[payload.type][payload.channel])
-  );
+  return new Promise((resolve) => resolve(testData[payload.channel]));
 };
 
 // FIXME: 추후 요걸로 대체

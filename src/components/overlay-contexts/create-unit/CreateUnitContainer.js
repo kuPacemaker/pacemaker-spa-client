@@ -40,7 +40,7 @@ const CreateUnitContainer = ({
 
   const requestCreateUnit = () => {
     create(
-      { token, channel: channelId, type: 'leader', index, title: state.title },
+      { token, channel: channelId, index, title: state.title },
       changeHandler
     );
   };
