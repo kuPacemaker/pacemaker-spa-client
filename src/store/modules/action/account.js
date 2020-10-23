@@ -7,7 +7,7 @@ export const requestSignIn = (payload, callbackHandler) => async (dispatch) => {
     const userInfo = await apiSignIn(payload);
     dispatch(signin(userInfo));
     localStorage.setItem('account', encode(payload));
-    if (callbackHandler) callbackHandler();
+    if (callbackHandler) callbackHandler(userInfo.token);
   } catch (e) {
     console.log(e);
   }

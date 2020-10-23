@@ -4,9 +4,9 @@ import { create, enter } from 'api/channel';
 
 export const getBoard = (payload) => async (dispatch) => {
   try {
-    const boardData = await fetch();
+    const data = await fetch();
 
-    dispatch(update(boardData));
+    dispatch(update(data));
   } catch (e) {
     console.log(e);
   }
@@ -18,10 +18,10 @@ export const getBoard = (payload) => async (dispatch) => {
  */
 export const createChannel = (payload) => async (dispatch) => {
   try {
-    const boardData = await create(payload);
+    const data = await create(payload);
 
     // 최신화된 데이터를 리덕스 스토어에 반영
-    dispatch(update(boardData));
+    dispatch(update(data));
   } catch (e) {
     console.log(e);
   }
@@ -33,10 +33,10 @@ export const createChannel = (payload) => async (dispatch) => {
  */
 export const enterChannel = (payload) => async (dispatch) => {
   try {
-    const boardData = await enter(payload);
+    const data = await enter(payload);
 
     // 최신화된 데이터를 리덕스 스토어에 반영
-    dispatch(update(boardData));
+    dispatch(update(data));
   } catch (e) {
     console.log(e);
   }

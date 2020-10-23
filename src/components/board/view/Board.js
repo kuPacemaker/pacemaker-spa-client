@@ -18,6 +18,9 @@ const Board = ({ type, title, channels, createChannelHandler }) => {
 
   useEffect(() => {
     setVisible(true);
+    return () => {
+      setVisible(false);
+    };
   }, []);
 
   useEffect(() => {

@@ -45,6 +45,9 @@ const Unit = (props) => {
 
   useEffect(() => {
     setVisible(true);
+    return () => {
+      setVisible(false);
+    };
   }, []);
 
   useEffect(() => {

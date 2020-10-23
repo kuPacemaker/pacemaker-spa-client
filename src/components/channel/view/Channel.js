@@ -29,8 +29,12 @@ const Channel = ({
   const context = useRef(null);
 
   //TODO: 여기에 State가 있으면 안되는게 맞는거같음. 근데 컨테이너로 올리면 언제 초기화를 할지가 불분명.
+
   useEffect(() => {
     setVisible(true);
+    return () => {
+      setVisible(false);
+    };
   }, []);
 
   const changeTab = (name) => () => {

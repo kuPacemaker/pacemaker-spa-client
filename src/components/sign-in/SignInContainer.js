@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import { useHistory } from 'react-router-dom';
 
-import { getBoard } from 'store/modules/action/board';
+import { refresh } from 'store/modules/action/refresh';
 import { requestSignIn } from 'store/modules/action/account';
 import { LocalMainPage } from 'common/local-path';
 import LeftImageForm from 'components/left-image-form';
@@ -48,8 +48,8 @@ const SignInContainer = (props) => {
 
   // history.push('/main-page');
   const signInHandler = (historyHandler) => () => {
-    props.requestSignIn({ id: state.id, pw: state.pw }, () => {
-      props.getBoard(props.token);
+    props.requestSignIn({ id: state.id, pw: state.pw }, (token) => {
+      props.refresh({ token });
       historyHandler(LocalMainPage.newspeed);
     });
   };
@@ -73,6 +73,6 @@ const mapStateToProps = ({ account }) => ({
 });
 
 const mapDispatchToProps = (dispatch) =>
-  bindActionCreators({ requestSignIn, getBoard }, dispatch);
+  bindActionCreators({ requestSignIn, refresh }, dispatch);
 
 export default connect(mapStateToProps, mapDispatchToProps)(SignInContainer);

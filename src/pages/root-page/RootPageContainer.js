@@ -6,7 +6,7 @@ import { Redirect } from 'react-router-dom';
 import Images from 'resources/images';
 
 import { requestSignIn } from 'store/modules/action/account';
-import { getBoard } from 'store/modules/action/board';
+import { refresh } from 'store/modules/action/refresh';
 import { decode } from 'common/security/common';
 import RootPage from './RootPage';
 
@@ -24,9 +24,12 @@ const RootPageContainer = (props) => {
   useEffect(() => {
     if (localStorage.hasOwnProperty('account')) {
       try {
-        props.requestSignIn(decode(localStorage.getItem('account')), () => {
-          props.getBoard(props.token);
-        });
+        props.requestSignIn(
+          decode(localStorage.getItem('account')),
+          (token) => {
+            props.refresh({ token });
+          }
+        );
       } catch (e) {
         console.log(e);
       }
@@ -41,6 +44,6 @@ const mapStateToProps = ({ account }) => ({
 });
 
 const mapDispatchToProps = (dispatch) =>
-  bindActionCreators({ requestSignIn, getBoard }, dispatch);
+  bindActionCreators({ requestSignIn, refresh }, dispatch);
 
 export default connect(mapStateToProps, mapDispatchToProps)(RootPageContainer);

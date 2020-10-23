@@ -10,6 +10,7 @@ const About = ({ articles }) => {
 
   useEffect(() => {
     setVisible(true);
+    return () => setVisible(false);
   }, []);
 
   return (
