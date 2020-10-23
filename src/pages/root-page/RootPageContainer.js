@@ -3,22 +3,21 @@ import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import { useHistory } from 'react-router-dom';
 
-import Images from 'resources/images';
-
 import { requestSignIn } from 'store/modules/action/account';
 import { refresh } from 'store/modules/action/refresh';
 import { decode } from 'common/security/common';
 import RootPage from './RootPage';
 
-const preload = (images) => {
-  for (const key in images) {
-    if (images.hasOwnProperty(key)) {
-      const element = images[key];
-      let image = new Image();
-      image.src = element;
-    }
-  }
-};
+// import Images from 'resources/images';
+// const preload = (images) => {
+//   for (const key in images) {
+//     if (images.hasOwnProperty(key)) {
+//       const element = images[key];
+//       let image = new Image();
+//       image.src = element;
+//     }
+//   }
+// };
 
 const RootPageContainer = (props) => {
   useEffect(() => {

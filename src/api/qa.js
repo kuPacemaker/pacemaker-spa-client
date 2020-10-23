@@ -1,6 +1,6 @@
 import axios from 'axios';
 // FIXME: 추후 대체될 것
-const sleep = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
+// const sleep = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
 
 /**
  *

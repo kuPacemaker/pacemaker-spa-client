@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import { connect } from 'react-redux';
-import { useHistory } from 'react-router-dom';
 
 import EnterChannel from './view/EnterChannel';
 import { enterChannel } from 'store/modules/action/board';
