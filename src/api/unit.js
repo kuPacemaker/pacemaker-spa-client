@@ -26,83 +26,290 @@ const dummy = {
 };
 
 let testData = {
-  id: 'fzf(ykBAqA~R:b!$18%F:c(oq9Lme"',
-  title: 'Reviews of Student News',
-  detail: 'Wed. 15:00~18:00',
-  leader: 'Lumy Kelvin',
-  code: 'XDWQAS221',
-  image: 0,
-  units: [
-    {
-      id: 1,
-      index: 1,
-      title: '2020 Election',
-      state: {
-        hasDocument: true,
-        hasPaper: true,
-        startQuiz: true,
-        endQuiz: true,
-      },
+  leader: {
+    '3SgNy6]r{L': {
+      id: '3SgNy6]r{L',
+      title: 'Study of Genesis',
+      detail: 'When ever You Want!',
+      leader: 'Lumy Kelvin',
+      code: 'XDWQAS221',
+      image: 0,
+      units: [
+        {
+          id: 1,
+          index: 1,
+          title: 'Genesis 1st',
+          state: {
+            hasDocument: true,
+            hasPaper: true,
+            startQuiz: true,
+            endQuiz: true,
+          },
+        },
+        {
+          id: 2,
+          index: 2,
+          title: 'Genesis 2nd',
+          state: {
+            hasDocument: true,
+            hasPaper: false,
+            startQuiz: false,
+            endQuiz: false,
+          },
+        },
+        {
+          id: 3,
+          index: 3,
+          title: 'Genesis 3rd',
+          state: {
+            hasDocument: false,
+            hasPaper: false,
+            startQuiz: false,
+            endQuiz: false,
+          },
+        },
+        {
+          id: 4,
+          index: 4,
+          title: 'Genesis 4th',
+          state: {
+            hasDocument: false,
+            hasPaper: false,
+            startQuiz: false,
+            endQuiz: false,
+          },
+        },
+        {
+          id: 5,
+          index: 5,
+          title: 'Genesis 5th',
+          state: {
+            hasDocument: false,
+            hasPaper: false,
+            startQuiz: false,
+            endQuiz: false,
+          },
+        },
+      ],
+      runners: [
+        'Amelia',
+        'Avery',
+        'Adela',
+        'Bonita',
+        'Charlotte',
+        'Frances',
+        'Erica',
+      ],
     },
-    {
-      id: 2,
-      index: 2,
-      title: 'Mosquitoes',
-      state: {
-        hasDocument: true,
-        hasPaper: false,
-        startQuiz: false,
-        endQuiz: false,
-      },
+    0: {
+      id: 0,
+      title: 'Reviews of Student News',
+      detail: 'Wed. 15:00~18:00',
+      leader: 'Lumy Kelvin',
+      code: 'XDWQAS221',
+      image: 0,
+      units: [
+        {
+          id: 1,
+          index: 1,
+          title: '2020 Election',
+          state: {
+            hasDocument: true,
+            hasPaper: true,
+            startQuiz: true,
+            endQuiz: true,
+          },
+        },
+        {
+          id: 2,
+          index: 2,
+          title: 'Mosquitoes',
+          state: {
+            hasDocument: true,
+            hasPaper: false,
+            startQuiz: false,
+            endQuiz: false,
+          },
+        },
+        {
+          id: 3,
+          index: 3,
+          title: 'Food and Drink',
+          state: {
+            hasDocument: false,
+            hasPaper: false,
+            startQuiz: false,
+            endQuiz: false,
+          },
+        },
+        {
+          id: 4,
+          index: 4,
+          title: 'Architecture',
+          state: {
+            hasDocument: false,
+            hasPaper: false,
+            startQuiz: false,
+            endQuiz: false,
+          },
+        },
+        {
+          id: 5,
+          index: 5,
+          title: 'Impact Your World',
+          state: {
+            hasDocument: false,
+            hasPaper: false,
+            startQuiz: false,
+            endQuiz: false,
+          },
+        },
+      ],
+      runners: ['AA', 'BB', 'CC', 'DD', 'EE', 'FF', 'GG'],
     },
-    {
-      id: 3,
-      index: 3,
-      title: 'Food and Drink',
-      state: {
-        hasDocument: false,
-        hasPaper: false,
-        startQuiz: false,
-        endQuiz: false,
-      },
+  },
+  runner: {
+    '3SgNy6]r{L': {
+      id: '3SgNy6]r{L',
+      title: 'Genesis',
+      detail: 'When ever You Want!',
+      leader: 'Lumy Kelvin',
+      code: 'XDWQAS221',
+      image: 4,
+      units: [
+        {
+          id: 1,
+          index: 1,
+          title: '2020 Election',
+          state: {
+            hasDocument: true,
+            hasPaper: true,
+            startQuiz: true,
+            endQuiz: true,
+          },
+        },
+        {
+          id: 2,
+          index: 2,
+          title: 'Mosquitoes',
+          state: {
+            hasDocument: true,
+            hasPaper: false,
+            startQuiz: false,
+            endQuiz: false,
+          },
+        },
+        {
+          id: 3,
+          index: 3,
+          title: 'Food and Drink',
+          state: {
+            hasDocument: false,
+            hasPaper: false,
+            startQuiz: false,
+            endQuiz: false,
+          },
+        },
+        {
+          id: 4,
+          index: 4,
+          title: 'Architecture',
+          state: {
+            hasDocument: false,
+            hasPaper: false,
+            startQuiz: false,
+            endQuiz: false,
+          },
+        },
+        {
+          id: 5,
+          index: 5,
+          title: 'Impact Your World',
+          state: {
+            hasDocument: false,
+            hasPaper: false,
+            startQuiz: false,
+            endQuiz: false,
+          },
+        },
+      ],
+      runners: [
+        'Amelia',
+        'Avery',
+        'Adela',
+        'Bonita',
+        'Charlotte',
+        'Frances',
+        'Erica',
+      ],
     },
-    {
-      id: 4,
-      index: 4,
-      title: 'Architecture',
-      state: {
-        hasDocument: false,
-        hasPaper: false,
-        startQuiz: false,
-        endQuiz: false,
-      },
+    0: {
+      id: 0,
+      title: 'Reviews of Student News',
+      detail: 'Wed. 15:00~18:00',
+      leader: 'Lumy Kelvin',
+      code: 'XDWQAS221',
+      image: 0,
+      units: [
+        {
+          id: 1,
+          index: 1,
+          title: '2020 Election',
+          state: {
+            hasDocument: true,
+            hasPaper: true,
+            startQuiz: true,
+            endQuiz: true,
+          },
+        },
+        {
+          id: 2,
+          index: 2,
+          title: 'Mosquitoes',
+          state: {
+            hasDocument: true,
+            hasPaper: false,
+            startQuiz: false,
+            endQuiz: false,
+          },
+        },
+        {
+          id: 3,
+          index: 3,
+          title: 'Food and Drink',
+          state: {
+            hasDocument: false,
+            hasPaper: false,
+            startQuiz: false,
+            endQuiz: false,
+          },
+        },
+        {
+          id: 4,
+          index: 4,
+          title: 'Architecture',
+          state: {
+            hasDocument: false,
+            hasPaper: false,
+            startQuiz: false,
+            endQuiz: false,
+          },
+        },
+        {
+          id: 5,
+          index: 5,
+          title: 'Impact Your World',
+          state: {
+            hasDocument: false,
+            hasPaper: false,
+            startQuiz: false,
+            endQuiz: false,
+          },
+        },
+      ],
+      runners: ['AA', 'BB', 'CC', 'DD', 'EE', 'FF', 'GG'],
     },
-    {
-      id: 5,
-      index: 5,
-      title: 'Impact Your World',
-      state: {
-        hasDocument: false,
-        hasPaper: false,
-        startQuiz: false,
-        endQuiz: false,
-      },
-    },
-  ],
-  runners: [
-    'AA',
-    'BB',
-    'CC',
-    'DD',
-    'AA',
-    'BB',
-    'CC',
-    'DD',
-    'AA',
-    'BB',
-    'CC',
-    'DD',
-  ],
+  },
 };
 
 // FIXME: 추후 대체될 것
@@ -122,26 +329,45 @@ export const fetch = async (payload) => {
 let id = 5;
 /**
  *
- * @param {token, channel, index, title} payload
+ * @param {token, channel, type, index, title} payload
  */
 export const create = async (payload) => {
   await sleep(250);
 
-  testData = {
-    ...testData,
-    units: testData.units.concat({
-      id: id + 1,
-      index: payload.index,
-      title: payload.title,
-      state: {
-        hasDocument: false,
-        hasPaper: false,
-        startQuiz: false,
-        endQuiz: false,
-      },
-    }),
-  };
-  return new Promise((resolve) => resolve(testData));
+  // testData = {
+  //   ...testData,
+  //   units: testData.units.concat({
+  //     id: id + 1,
+  //     index: payload.index,
+  //     title: payload.title,
+  //     state: {
+  //       hasDocument: false,
+  //       hasPaper: false,
+  //       startQuiz: false,
+  //       endQuiz: false,
+  //     },
+  //   }),
+  // };
+
+  console.log(payload);
+
+  testData[payload.type][payload.channel].units = testData[payload.type][
+    payload.channel
+  ].units.concat({
+    id: id + 1,
+    index: payload.index,
+    title: payload.title,
+    state: {
+      hasDocument: false,
+      hasPaper: false,
+      startQuiz: false,
+      endQuiz: false,
+    },
+  });
+
+  return new Promise((resolve) =>
+    resolve(testData[payload.type][payload.channel])
+  );
 };
 
 // FIXME: 실제 서버와 통신하는 부분

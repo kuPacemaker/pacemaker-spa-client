@@ -2,9 +2,9 @@ const dummy = {
   leader: [
     {
       id: 0,
-      title: 'Basic Programming',
-      detail: 'Tue. 15:00~18:00',
-      image: 0,
+      title: 'Algorithm',
+      detail: 'When ever You Want!',
+      image: 6,
     },
     {
       id: 0,
@@ -19,10 +19,10 @@ const dummy = {
       image: 1,
     },
     {
-      id: 0,
-      title: 'Data Structure',
+      id: '3SgNy6]r{L',
+      title: 'Study of Genesis',
       detail: 'When ever You Want!',
-      image: 4,
+      image: 0,
     },
   ],
   runner: [
@@ -32,7 +32,12 @@ const dummy = {
       detail: 'When ever You Want!',
       image: 2,
     },
-    { id: 0, title: 'Algorithm', detail: 'When ever You Want!', image: 6 },
+    {
+      id: 0,
+      title: 'Algorithm',
+      detail: 'When ever You Want!',
+      image: 6,
+    },
     {
       id: 0,
       title: 'Data Structure',
@@ -40,10 +45,10 @@ const dummy = {
       image: 7,
     },
     {
-      id: 0,
-      title: 'Basic Programming',
+      id: '3SgNy6]r{L',
+      title: 'Study of Genesis',
       detail: 'When ever You Want!',
-      image: 4,
+      image: 0,
     },
   ],
 };
