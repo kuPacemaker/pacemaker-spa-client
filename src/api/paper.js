@@ -11,7 +11,7 @@ const sleep = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
 
 // FIXME: 추후 대체될 것
 export const generateQuestion = async (payload) => {
-  return await axios.post('/restful/qg', {
+  return await axios.post('/restful/qg/', {
     bkd: payload.body,
   });
 };

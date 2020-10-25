@@ -38,6 +38,7 @@ export const makeQuestion = (payload, callbackHandler) => async (dispatch) => {
       qaSets.push(...passage.aqset);
     });
     const paper = makePaper(qaSets, nouns);
+    console.log(paper);
     dispatch(update_question(paper));
 
     if (callbackHandler) callbackHandler();

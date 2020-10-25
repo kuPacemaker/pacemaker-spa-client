@@ -9,7 +9,7 @@ import check from 'resources/images/icon/check-symbol.png';
 
 const alphabat = 'ABCDEFGHIJKLMNOPQUSTUVWXYZ';
 
-const Paper = ({ questions, onAnswerHandler }) => {
+const Paper = ({ questions, onAnswerHandler, isEnd }) => {
   const [state, setState] = useState({
     index: 0,
   });
@@ -29,7 +29,10 @@ const Paper = ({ questions, onAnswerHandler }) => {
           {questions[state.index].answer_set.split('/').map((answer, index) => (
             <div
               key={index}
-              className="Answer"
+              className={classNames('Answer', {
+                Disable: isEnd,
+                Correct: isEnd && questions[state.index].answer === answer,
+              })}
               onClick={onAnswerHandler(state.index, answer)}
             >
               <img

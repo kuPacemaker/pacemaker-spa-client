@@ -52,7 +52,7 @@ const dummy = {
       type: 'QUESTION_GENERATION',
       title: 'NEW QUESTIONS WERE RECEIVED',
       body: 'Basic Computer Programming, Kelvin, Tue. 15:00~18:00',
-      arg: { channel: 0, unit: 0 },
+      arg: { channel: 0, unit: 2 },
     },
   ],
   board: {

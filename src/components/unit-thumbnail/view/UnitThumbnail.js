@@ -5,7 +5,7 @@ import edit from 'resources/images/icon/edit.png';
 import document from 'resources/images/icon/document.png';
 import upload from 'resources/images/icon/upload.png';
 import remove from 'resources/images/icon/remove.png';
-import quiz from 'resources/images/icon/quiz.png';
+import paper from 'resources/images/icon/quiz.png';
 import answer from 'resources/images/icon/answer.png';
 
 import './UnitThumbnail.scss';
@@ -63,8 +63,8 @@ const IconSet = ({ type, state, onClickHandler }) => {
             On: state.startQuiz,
             Off: !state.startQuiz,
           })}
-          name="paper"
-          src={state.endQuiz ? answer : quiz}
+          name={state.endQuiz ? 'answer' : 'paper'}
+          src={state.endQuiz ? answer : paper}
           alt=""
           onClick={onClickHandler}
         />

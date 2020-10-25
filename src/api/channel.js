@@ -147,8 +147,8 @@ let testData = {
         title: 'Mosquitoes',
         state: {
           hasDocument: true,
-          hasPaper: false,
-          startQuiz: false,
+          hasPaper: true,
+          startQuiz: true,
           endQuiz: false,
         },
       },

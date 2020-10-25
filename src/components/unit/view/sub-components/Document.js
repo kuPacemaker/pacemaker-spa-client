@@ -9,7 +9,11 @@ const Document = ({ type, title, body, changeTab }) => (
         <img draggable="false" src={edit} alt="" onClick={changeTab('edit')} />
       )}
     </div>
-    <div className="DocumentBody">{body}</div>
+    <div className="DocumentBody">
+      {body.split('\n').map((line, i) => (
+        <p key={i}>{line}</p>
+      ))}
+    </div>
   </>
 );
 

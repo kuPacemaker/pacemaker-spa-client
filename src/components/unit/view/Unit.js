@@ -32,6 +32,7 @@ const Unit = (props) => {
   const quizContainer = useRef(null);
 
   useEffect(() => {
+    if (props.type === 'runner') return;
     if (props.paper.questions.length === 0) return;
     const staging = props.paper.questions.filter(
       (question) => !question.verified
@@ -129,6 +130,7 @@ const Unit = (props) => {
           },
         },
       ],
+      answer: [],
     },
   };
 
@@ -161,7 +163,7 @@ const Unit = (props) => {
             />
           </div>
         </div>
-        {tab === 'upload' && state.ready && (
+        {props.type === 'leader' && tab === 'upload' && state.ready && (
           <Reservation
             onClickHandler={showReservation}
             hide={!state.reservation}
@@ -204,7 +206,7 @@ const Unit = (props) => {
             />
           </div>
         )}
-        {tab === 'upload' && (
+        {props.type && tab === 'upload' && (
           <div className="QuizContext">
             <div className="TabTitle">QUIZ</div>
             <div
@@ -222,10 +224,11 @@ const Unit = (props) => {
             </div>
           </div>
         )}
-        {tab === 'paper' && (
+        {(tab === 'paper' || tab === 'answer') && (
           <Paper
             questions={props.paper.questions}
             onAnswerHandler={props.onAnswerHandler}
+            isEnd={props.unit.paper.isEnd}
           />
         )}
       </div>

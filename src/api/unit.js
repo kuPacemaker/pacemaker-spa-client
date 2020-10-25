@@ -44,9 +44,54 @@ const dummy = {
           body: `Coronavirus 'going away' Nowhere was the distinction between the two candidates more apparent than in their approach to the pandemic. Asked about his support for more lockdowns if the scientists recommended it, Mr Biden, a Democrat, did not rule it out. But Mr Trump, a Republican, said it was wrong to inflict further damage on the economy because of an infection from which most people recover. "This is a massive country with a massive economy," said the president. "People are losing their jobs, they're committing suicide. There's depression, alcohol, drugs at a level nobody's ever seen before." media captionPresidential debate: Trump and Biden clash on Covid response Mr Trump, 74, declared that the virus was "going away" and that a vaccine would be ready by the end of the year, while Mr Biden warned the nation was heading towards "a dark winter". The president said: "We're learning to live with it." Mr Biden, 77, countered: "Come on. We're dying with it." Mr Biden laid blame for the 220,000-plus American deaths as a consequence of the pandemic at Mr Trump's door. "Anyone who's responsible for that many deaths should not remain president of the United States of America," he said.`,
         },
         paper: {
-          isStart: false,
-          isEnd: false,
-          questions: [],
+          isStart: true,
+          isEnd: true,
+          questions: [
+            {
+              answer: 'aedes aegypti mosquito',
+              answer_set:
+                'company/controversial plan/aedes aegypti mosquito/populations',
+              id:
+                'What mosquito can carry dangerous diseases like Zika virus and Dengue fever ?',
+              quiz:
+                'What mosquito can carry dangerous diseases like Zika virus and Dengue fever ?',
+              user_answer: 'company',
+              verified: true,
+            },
+            {
+              answer: 'aedes aegypti mosquito',
+              answer_set:
+                'company/controversial plan/aedes aegypti mosquito/populations',
+              id:
+                'What mosquito can carry dangerous diseases like Zika virus and Dengue fever ?',
+              quiz:
+                'What mosquito can carry dangerous diseases like Zika virus and Dengue fever ?',
+              user_answer: 'company',
+              verified: true,
+            },
+            {
+              answer: 'aedes aegypti mosquito',
+              answer_set:
+                'company/controversial plan/aedes aegypti mosquito/populations',
+              id:
+                'What mosquito can carry dangerous diseases like Zika virus and Dengue fever ?',
+              quiz:
+                'What mosquito can carry dangerous diseases like Zika virus and Dengue fever ?',
+              user_answer: 'company',
+              verified: true,
+            },
+            {
+              answer: 'aedes aegypti mosquito',
+              answer_set:
+                'company/controversial plan/aedes aegypti mosquito/populations',
+              id:
+                'What mosquito can carry dangerous diseases like Zika virus and Dengue fever ?',
+              quiz:
+                'What mosquito can carry dangerous diseases like Zika virus and Dengue fever ?',
+              user_answer: 'company',
+              verified: true,
+            },
+          ],
         },
       },
     },
@@ -70,9 +115,54 @@ const dummy = {
             'A controversial plan is moving ahead to release genetically modified mosquitoes into the Florida Keys. More than 750,000 of the insects are set to be introduced there. Why? The aedes aegypti mosquito can carry dangerous diseases like the Zika virus, Dengue fever and yellow fever. Officials are looking for new ways to kill of these insects without using pesticides and genetically modified mosquitoes might be a way to do this. Only female mosquitoes bite people. The altered insects that are set to be released in Florida are male. They`ve been modified so that the female offspring they produce will die before they hatch from their eggs and grow big enough to bite people. And the company that developed these GMO mosquitoes say they`ve been very successful in controlling mosquito populations in Panama, Brazil and the Cayman Islands.',
         },
         paper: {
-          isStart: false,
+          isStart: true,
           isEnd: false,
-          questions: [],
+          questions: [
+            {
+              answer: 'aedes aegypti mosquito',
+              answer_set:
+                'company/controversial plan/aedes aegypti mosquito/populations',
+              id:
+                'What mosquito can carry dangerous diseases like Zika virus and Dengue fever ?',
+              quiz:
+                'What mosquito can carry dangerous diseases like Zika virus and Dengue fever ?',
+              user_answer: '',
+              verified: true,
+            },
+            {
+              answer: 'aedes aegypti mosquito',
+              answer_set:
+                'company/controversial plan/aedes aegypti mosquito/populations',
+              id:
+                'What mosquito can carry dangerous diseases like Zika virus and Dengue fever ?',
+              quiz:
+                'What mosquito can carry dangerous diseases like Zika virus and Dengue fever ?',
+              user_answer: '',
+              verified: true,
+            },
+            {
+              answer: 'aedes aegypti mosquito',
+              answer_set:
+                'company/controversial plan/aedes aegypti mosquito/populations',
+              id:
+                'What mosquito can carry dangerous diseases like Zika virus and Dengue fever ?',
+              quiz:
+                'What mosquito can carry dangerous diseases like Zika virus and Dengue fever ?',
+              user_answer: '',
+              verified: true,
+            },
+            {
+              answer: 'aedes aegypti mosquito',
+              answer_set:
+                'company/controversial plan/aedes aegypti mosquito/populations',
+              id:
+                'What mosquito can carry dangerous diseases like Zika virus and Dengue fever ?',
+              quiz:
+                'What mosquito can carry dangerous diseases like Zika virus and Dengue fever ?',
+              user_answer: '',
+              verified: true,
+            },
+          ],
         },
       },
     },
@@ -260,8 +350,8 @@ let testData = {
         title: 'Mosquitoes',
         state: {
           hasDocument: true,
-          hasPaper: false,
-          startQuiz: false,
+          hasPaper: true,
+          startQuiz: true,
           endQuiz: false,
         },
       },

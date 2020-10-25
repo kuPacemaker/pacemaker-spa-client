@@ -38,6 +38,14 @@
                 margin-top: 10px;
                 font-size: $unitList;
 
+                &.Disable {
+                    pointer-events: none;
+                }
+
+                &.Correct {
+                    font-weight: 900;
+                }
+
                 .Checked {
                     position: absolute;
                     @include square_px(35px);
