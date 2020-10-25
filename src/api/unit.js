@@ -412,7 +412,7 @@ export const fetch = async (payload) => {
 let id = 5;
 /**
  *
- * @param {token, channel, index, title} payload
+ * @param {token, channel, type, index, title} payload
  */
 export const create = async (payload) => {
   await sleep(250);

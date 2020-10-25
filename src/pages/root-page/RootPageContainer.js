@@ -43,12 +43,12 @@ const RootPageContainer = (props) => {
       history.push('/');
       return;
     }
-    if (intervalId === 0) {
-      const id = setInterval(() => {
-        props.refresh({ token: props.token });
-      }, 10000);
-      setIntervalId(id);
-    }
+    // if (intervalId === 0) {
+    //   const id = setInterval(() => {
+    //     props.refresh({ token: props.token });
+    //   }, 10000);
+    //   setIntervalId(id);
+    // }
   }, [props.token]);
 
   return <RootPage />;

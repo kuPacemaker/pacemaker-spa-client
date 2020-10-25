@@ -32,7 +32,12 @@ const dummy = {
       detail: 'When ever You Want!',
       image: 2,
     },
-    { id: 0, title: 'Algorithm', detail: 'When ever You Want!', image: 6 },
+    {
+      id: 0,
+      title: 'Algorithm',
+      detail: 'When ever You Want!',
+      image: 6,
+    },
     {
       id: 0,
       title: 'Reviews of Student News',
@@ -40,10 +45,10 @@ const dummy = {
       image: 7,
     },
     {
-      id: 0,
-      title: 'Basic Programming',
+      id: '3SgNy6]r{L',
+      title: 'Study of Genesis',
       detail: 'When ever You Want!',
-      image: 4,
+      image: 0,
     },
   ],
 };

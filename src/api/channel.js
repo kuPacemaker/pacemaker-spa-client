@@ -32,7 +32,12 @@ const dummy = {
       detail: 'When ever You Want!',
       image: 2,
     },
-    { id: 0, title: 'Algorithm', detail: 'When ever You Want!', image: 6 },
+    {
+      id: 0,
+      title: 'Algorithm',
+      detail: 'When ever You Want!',
+      image: 6,
+    },
     {
       id: 0,
       title: 'Reviews of Student News',
