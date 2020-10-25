@@ -48,47 +48,57 @@ const dummy = {
           isEnd: true,
           questions: [
             {
-              answer: 'aedes aegypti mosquito',
-              answer_set:
-                'company/controversial plan/aedes aegypti mosquito/populations',
+              answer: 'mosquitoes',
+              answer_set: 'plan/mosquitoes/Brazil/GMO',
+              id: 'What is being released into the Florida Keys ?',
+              quiz: 'What is being released into the Florida Keys ?',
+              user_answer: 'plan',
+              verified: true,
+            },
+            {
+              answer: 'insects',
+              answer_set: 'insects/fever/yellow fever/Zika',
               id:
-                'What mosquito can carry dangerous diseases like Zika virus and Dengue fever ?',
+                'What is being modified to be released into the Florida Keys ?',
               quiz:
-                'What mosquito can carry dangerous diseases like Zika virus and Dengue fever ?',
-              user_answer: 'company',
+                'What is being modified to be released into the Florida Keys ?',
+              user_answer: 'fever',
+              verified: true,
+            },
+            {
+              answer: 'Florida',
+              answer_set: 'female mosquitoes/Florida/cayman/florida keys',
+              id:
+                'What state is the planned release of genetically modified mosquitoes going to ?',
+              quiz:
+                'What state is the planned release of genetically modified mosquitoes going to ?',
+              user_answer: 'Florida',
+              verified: true,
+            },
+            {
+              answer: 'people',
+              answer_set: 'female mosquitoes/Keys/people/brazil',
+              id: 'Who can only female mosquitoes bite ?',
+              quiz: 'Who can only female mosquitoes bite ?',
+              user_answer: 'brazil',
+              verified: true,
+            },
+            {
+              answer: 'fever',
+              answer_set: 'fever/pesticides/company/Zika',
+              id: 'What disease can the aedes aegypti mosquito carry ?',
+              quiz: 'What disease can the aedes aegypti mosquito carry ?',
+              user_answer: 'pesticides',
               verified: true,
             },
             {
               answer: 'aedes aegypti mosquito',
-              answer_set:
-                'company/controversial plan/aedes aegypti mosquito/populations',
+              answer_set: 'Florida/company/aedes aegypti mosquito/florida',
               id:
                 'What mosquito can carry dangerous diseases like Zika virus and Dengue fever ?',
               quiz:
                 'What mosquito can carry dangerous diseases like Zika virus and Dengue fever ?',
-              user_answer: 'company',
-              verified: true,
-            },
-            {
-              answer: 'aedes aegypti mosquito',
-              answer_set:
-                'company/controversial plan/aedes aegypti mosquito/populations',
-              id:
-                'What mosquito can carry dangerous diseases like Zika virus and Dengue fever ?',
-              quiz:
-                'What mosquito can carry dangerous diseases like Zika virus and Dengue fever ?',
-              user_answer: 'company',
-              verified: true,
-            },
-            {
-              answer: 'aedes aegypti mosquito',
-              answer_set:
-                'company/controversial plan/aedes aegypti mosquito/populations',
-              id:
-                'What mosquito can carry dangerous diseases like Zika virus and Dengue fever ?',
-              quiz:
-                'What mosquito can carry dangerous diseases like Zika virus and Dengue fever ?',
-              user_answer: 'company',
+              user_answer: 'Florida',
               verified: true,
             },
           ],
@@ -119,42 +129,52 @@ const dummy = {
           isEnd: false,
           questions: [
             {
-              answer: 'aedes aegypti mosquito',
-              answer_set:
-                'company/controversial plan/aedes aegypti mosquito/populations',
+              answer: 'mosquitoes',
+              answer_set: 'plan/mosquitoes/Brazil/GMO',
+              id: 'What is being released into the Florida Keys ?',
+              quiz: 'What is being released into the Florida Keys ?',
+              user_answer: '',
+              verified: true,
+            },
+            {
+              answer: 'insects',
+              answer_set: 'insects/fever/yellow fever/Zika',
               id:
-                'What mosquito can carry dangerous diseases like Zika virus and Dengue fever ?',
+                'What is being modified to be released into the Florida Keys ?',
               quiz:
-                'What mosquito can carry dangerous diseases like Zika virus and Dengue fever ?',
+                'What is being modified to be released into the Florida Keys ?',
+              user_answer: '',
+              verified: true,
+            },
+            {
+              answer: 'Florida',
+              answer_set: 'female mosquitoes/Florida/cayman/florida keys',
+              id:
+                'What state is the planned release of genetically modified mosquitoes going to ?',
+              quiz:
+                'What state is the planned release of genetically modified mosquitoes going to ?',
+              user_answer: '',
+              verified: true,
+            },
+            {
+              answer: 'people',
+              answer_set: 'female mosquitoes/Keys/people/brazil',
+              id: 'Who can only female mosquitoes bite ?',
+              quiz: 'Who can only female mosquitoes bite ?',
+              user_answer: '',
+              verified: true,
+            },
+            {
+              answer: 'fever',
+              answer_set: 'fever/pesticides/company/Zika',
+              id: 'What disease can the aedes aegypti mosquito carry ?',
+              quiz: 'What disease can the aedes aegypti mosquito carry ?',
               user_answer: '',
               verified: true,
             },
             {
               answer: 'aedes aegypti mosquito',
-              answer_set:
-                'company/controversial plan/aedes aegypti mosquito/populations',
-              id:
-                'What mosquito can carry dangerous diseases like Zika virus and Dengue fever ?',
-              quiz:
-                'What mosquito can carry dangerous diseases like Zika virus and Dengue fever ?',
-              user_answer: '',
-              verified: true,
-            },
-            {
-              answer: 'aedes aegypti mosquito',
-              answer_set:
-                'company/controversial plan/aedes aegypti mosquito/populations',
-              id:
-                'What mosquito can carry dangerous diseases like Zika virus and Dengue fever ?',
-              quiz:
-                'What mosquito can carry dangerous diseases like Zika virus and Dengue fever ?',
-              user_answer: '',
-              verified: true,
-            },
-            {
-              answer: 'aedes aegypti mosquito',
-              answer_set:
-                'company/controversial plan/aedes aegypti mosquito/populations',
+              answer_set: 'Florida/company/aedes aegypti mosquito/florida',
               id:
                 'What mosquito can carry dangerous diseases like Zika virus and Dengue fever ?',
               quiz:
