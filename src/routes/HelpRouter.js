@@ -1,6 +1,6 @@
 import React from 'react';
 import { Route, Redirect, Switch } from 'react-router-dom';
-import { AboutUs } from 'pages';
+import { AboutUs, Contact } from 'pages';
 import { LocalHelp } from 'common/local-path';
 
 const HelpRouter = () => {
@@ -8,7 +8,7 @@ const HelpRouter = () => {
     <>
       <Switch>
         <Route exact path={LocalHelp.aboutus} component={AboutUs} />
-        <Route exact path={LocalHelp.contact} component={AboutUs} />
+        <Route exact path={LocalHelp.contact} component={Contact} />
         <Redirect exact path={LocalHelp.root} to={LocalHelp.aboutus} />
       </Switch>
     </>
