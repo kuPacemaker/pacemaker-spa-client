@@ -12,6 +12,7 @@ import EnterChannel from 'components/overlay-contexts/enter-channel';
 import ModifyAccount from 'components/overlay-contexts/modify-account';
 import Menu from 'components/overlay-contexts/overlay-menu';
 import QAModal from 'components/overlay-contexts/qa-modal';
+import AlertModal from 'components/overlay-contexts/alert-modal';
 
 import './Overlay.scss';
 
@@ -70,6 +71,9 @@ const Overlay = ({ visible, type, active, overlayHandler }) => {
       break;
     case 'QA':
       context = <QAModal visible={visible} changeHandler={overlayHandler} />;
+      break;
+    case 'ALERT MODAL':
+      context = <AlertModal visible={visible} changeHandler={overlayHandler} />;
       break;
     default:
   }

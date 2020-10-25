@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import { useHistory } from 'react-router-dom';
 
-import { modifyAccount } from 'store/modules/action/account';
+import { requestModifyAccount } from 'store/modules/action/account';
 import ModifyAccount from './view/ModifyAccount';
 import LocalPath from 'common/local-path';
 
@@ -36,7 +36,7 @@ const ModifyAccountContainer = ({
   visible,
   changeHandler,
   token,
-  modifyAccount: requestModifyAccount,
+  requestModifyAccount: modifyAccount,
 }) => {
   const [state, setState] = useState({
     name: '',
@@ -67,7 +67,7 @@ const ModifyAccountContainer = ({
   };
 
   const modiftAccountHandler = (historyHandler) => () => {
-    requestModifyAccount(
+    modifyAccount(
       {
         token: token,
         pw: state.currentPassword,
@@ -97,7 +97,7 @@ const mapStateToProps = ({ account }) => ({
 });
 
 const mapDispatchToProps = (dispatch) =>
-  bindActionCreators({ modifyAccount }, dispatch);
+  bindActionCreators({ requestModifyAccount }, dispatch);
 
 export default connect(
   mapStateToProps,

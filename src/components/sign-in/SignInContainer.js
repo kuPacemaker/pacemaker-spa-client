@@ -5,6 +5,8 @@ import { useHistory } from 'react-router-dom';
 
 import { refresh } from 'store/modules/action/refresh';
 import { requestSignIn } from 'store/modules/action/account';
+import { show } from 'store/modules/creators/modal';
+
 import { LocalMainPage } from 'common/local-path';
 import LeftImageForm from 'components/left-image-form';
 import image from 'resources/images/concept/signin-image.jpg';
@@ -49,8 +51,17 @@ const SignInContainer = (props) => {
   // history.push('/main-page');
   const signInHandler = (historyHandler) => () => {
     props.requestSignIn({ id: state.id, pw: state.pw }, (token) => {
-      props.refresh({ token });
-      historyHandler(LocalMainPage.newspeed);
+      if (token) {
+        props.refresh({ token });
+        historyHandler(LocalMainPage.newspeed);
+      } else {
+        props.show('ALERT MODAL', {
+          title: 'SIGN-IN DENIED\nID OR PW DO NOT MATCH!',
+          body:
+            'Did you forget your password?\nYou can reset your password from below button.',
+          callback: () => console.log('로그인 실패!'),
+        });
+      }
     });
   };
 
@@ -73,6 +84,6 @@ const mapStateToProps = ({ account }) => ({
 });
 
 const mapDispatchToProps = (dispatch) =>
-  bindActionCreators({ requestSignIn, refresh }, dispatch);
+  bindActionCreators({ requestSignIn, refresh, show }, dispatch);
 
 export default connect(mapStateToProps, mapDispatchToProps)(SignInContainer);

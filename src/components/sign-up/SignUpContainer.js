@@ -1,11 +1,18 @@
 import React, { useState } from 'react';
+import { connect } from 'react-redux';
+import { bindActionCreators } from 'redux';
+import { useHistory } from 'react-router-dom';
+
+import { requestSignUp } from 'store/modules/action/account';
+import { show } from 'store/modules/creators/modal';
+import { LocalAdmission } from 'common/local-path';
 
 import RightImageForm from 'components/right-image-form';
 import image from 'resources/images/concept/signup-image.jpg';
 
 const title = 'SIGN-UP';
 const subTitle = 'START A PERFECT MARATHON WITH PACEMAKER';
-const pwRule = RegExp(/^[A-Za-z\d]{4,5}$/);
+const pwRule = [/[0-9]/, /[a-zA-Z]/, /[~!@$%<>^&*]/];
 
 const inputForms = [
   {
@@ -30,7 +37,8 @@ const inputForms = [
   },
 ];
 
-const SignUpContainer = (prop) => {
+const SignUpContainer = (props) => {
+  const history = useHistory();
   const [state, setState] = useState({
     name: '',
     id: '',
@@ -56,16 +64,52 @@ const SignUpContainer = (prop) => {
     }
   };
 
-  const signUpHandler = () => {
-    console.log(state);
-    console.log(checkPwHandler(pwRule));
+  const signUpHandler = (historyHandler) => () => {
+    if (
+      state.id.length === 0 ||
+      state.name.length === 0 ||
+      state.pw.length === 0 ||
+      state.repw.length === 0
+    )
+      return;
+    const invalid = checkPwHandler(pwRule);
+    if (invalid) {
+      props.show('ALERT MODAL', {
+        title: `${invalid}\nCHECK PASSWORD`,
+        body:
+          'Please check your password again!\nMake your password 6 or more\nwith a combination of letters, numbers and marks',
+      });
+    } else {
+      props.requestSignUp(
+        { id: state.id, pw: state.pw, name: state.name },
+        (success) => {
+          if (success) {
+            props.show('ALERT MODAL', {
+              title: 'SIGN-UP SUCCESS\nSIGN-IN TO PACEMAKER!',
+              body:
+                'Now You are one of the PACEMAKER members!\nWe Cheer the way you go.',
+              callback: () => historyHandler(LocalAdmission.signin),
+            });
+          } else {
+            props.show('ALERT MODAL', {
+              title: 'SIGN-UP DENIED\nYOU ALREADY SIGN-UP!',
+              body:
+                'This e-mail is already signed up!\nYou can try to find your account.',
+            });
+          }
+        }
+      );
+    }
   };
   const checkPwHandler = (regex) => {
-    if (!regex.test(state.pw))
-      return ['INVALID_PASSWORD', 'INVALID PASSWORD MESSAGE'];
-    if (state.pw !== state.repw)
-      return ['PASSWORD_MISMATCH', 'PASSWORD MISMATCH MESSAGE'];
-    return ['CORRECT_PASSWORD', ''];
+    if (
+      !regex[0].test(state.pw) ||
+      !regex[1].test(state.pw) ||
+      !regex[2].test(state.pw)
+    )
+      return 'INVALID PASSWORD';
+    if (state.pw !== state.repw) return 'PASSWORD MISMATCH';
+    return;
   };
 
   return (
@@ -74,19 +118,13 @@ const SignUpContainer = (prop) => {
       subTitle={subTitle}
       inputForms={inputForms}
       onChangeHandler={onChangeHandler}
-      signUpHandler={signUpHandler}
+      signUpHandler={signUpHandler(history.push)}
       image={image}
     />
   );
 };
 
-// const mapStateToProps = ({ counter }) => ({
-//   color: counter.color,
-//   number: counter.number,
-// });
+const mapDispatchToProps = (dispatch) =>
+  bindActionCreators({ requestSignUp, show }, dispatch);
 
-// const mapDispatchToProps = (dispatch) =>
-//   bindActionCreators({ incrementAsync, decrement, getPost }, dispatch);
-
-// export default connect(mapStateToProps, mapDispatchToProps)(CounterContainer);
-export default SignUpContainer;
+export default connect(null, mapDispatchToProps)(SignUpContainer);

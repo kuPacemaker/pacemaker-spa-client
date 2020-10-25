@@ -1,22 +1,29 @@
 // FIXME: 추후 대체될 것
 const sleep = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
 
+const DUMMY_ACCOUNT = {
+  admin: {
+    name: 'Lumy Kelvin',
+    type: 'ADMIN',
+    token: 'admin',
+  },
+};
 /**
  *
  * @param {id, pw} payload
  */
 // FIXME: 추후 대체될 것
 export const apiSignIn = async (payload) => {
-  const dummy = {
-    id: payload.id,
-    name: 'Lumy Kelvin',
-    type: 'MASTER',
-    token: payload.pw,
-  };
-
   await sleep(250);
-
-  return new Promise((resolve) => resolve(dummy));
+  if (DUMMY_ACCOUNT.hasOwnProperty(payload.id)) {
+    return new Promise((resolve) =>
+      resolve({
+        id: payload.id,
+        ...DUMMY_ACCOUNT[payload.id],
+      })
+    );
+  }
+  return new Promise((resolve) => resolve({ token: undefined }));
 };
 
 // FIXME: 추후 대체될 것

@@ -1,4 +1,11 @@
 import React, { useState } from 'react';
+import { connect } from 'react-redux';
+import { bindActionCreators } from 'redux';
+import { useHistory } from 'react-router-dom';
+
+import { requestFindAccount } from 'store/modules/action/account';
+import { show } from 'store/modules/creators/modal';
+import { LocalAdmission } from 'common/local-path';
 
 import RightImageForm from 'components/right-image-form';
 import image from 'resources/images/concept/find-account-image.jpg';
@@ -19,7 +26,8 @@ const inputForms = [
   },
 ];
 
-const SignUpContainer = (prop) => {
+const SignUpContainer = (props) => {
+  const history = useHistory();
   const [state, setState] = useState({
     name: '',
     id: '',
@@ -37,8 +45,23 @@ const SignUpContainer = (prop) => {
     }
   };
 
-  const FindAccountHandler = () => {
-    console.log(state);
+  const FindAccountHandler = (historyHandler) => () => {
+    if (state.id.length === 0 || state.name.length === 0) return;
+    props.requestFindAccount({ id: state.id, name: state.name }, (success) => {
+      if (success) {
+        props.show('ALERT MODAL', {
+          title: 'RESET PASSWORD\nCHECK YOUR E-MAIL!',
+          body:
+            'Now we reset your password!\nPlease check your e-mail and sign-in.\nYou should change the temporary password later.',
+          callback: () => historyHandler(LocalAdmission.signin),
+        });
+      } else {
+        props.show('ALERT MODAL', {
+          title: 'E-MAIL NOT FOUND\nNOT SIGN-UP YET!',
+          body: `We can't find this e-mail!\nYou always can create a new account for pacemaker.`,
+        });
+      }
+    });
   };
 
   return (
@@ -47,20 +70,13 @@ const SignUpContainer = (prop) => {
       subTitle={subTitle}
       inputForms={inputForms}
       onChangeHandler={onChangeHandler}
-      signUpHandler={FindAccountHandler}
+      signUpHandler={FindAccountHandler(history.push)}
       image={image}
     />
   );
 };
 
-// const mapStateToProps = ({ counter }) => ({
-//   color: counter.color,
-//   number: counter.number,
-// });
+const mapDispatchToProps = (dispatch) =>
+  bindActionCreators({ requestFindAccount, show }, dispatch);
 
-// const mapDispatchToProps = (dispatch) =>
-//   bindActionCreators({ incrementAsync, decrement, getPost }, dispatch);
-
-// export default connect(mapStateToProps, mapDispatchToProps)(CounterContainer);\
-
-export default SignUpContainer;
+export default connect(null, mapDispatchToProps)(SignUpContainer);
