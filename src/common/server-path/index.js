@@ -1,1 +1,1 @@
-export { GQQA } from './server-path';
+export { gqqa } from './server-path';
