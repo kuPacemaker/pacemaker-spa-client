@@ -40,6 +40,7 @@ main.statistics['root'] = main.root + '/statistics/';
 main.board['leaderpath'] = main.board.root + main.board.elements.leader;
 main.board['runnerpath'] = main.board.root + main.board.elements.runner;
 
+main.newspeed['path'] = main.newspeed.root;
 main.board['path'] = main.board.root + ':type';
 main.channel['path'] = main.channel.root + ':type';
 main.unit['path'] = main.unit.root + ':type';

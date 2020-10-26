@@ -7,7 +7,7 @@ const MainPageRouter = ({ location }) => {
   return (
     <>
       <Switch>
-        <Route exact path={LocalMainPage.newspeed.root} component={Newspeed} />
+        <Route exact path={LocalMainPage.newspeed.path} component={Newspeed} />
         <Route exact path={LocalMainPage.board.path} component={Board} />
         <Route exact path={LocalMainPage.channel.path} component={Channel} />
         <Route exact path={LocalMainPage.unit.path} component={Unit} />
