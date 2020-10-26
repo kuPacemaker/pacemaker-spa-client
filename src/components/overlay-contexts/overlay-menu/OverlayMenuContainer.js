@@ -3,10 +3,8 @@ import { useHistory } from 'react-router-dom';
 import LocalPath from 'common/local-path';
 import OverlayMenu from './view/OverlayMenu';
 
-console.log(LocalPath);
-
 const main = [
-  ['MY FEED', LocalPath.main.newspeed],
+  ['MY FEED', LocalPath.main.newspeed.root],
   ['FOR LEADER', LocalPath.main.board.leaderpath],
   ['FOR RUNNER', LocalPath.main.board.runnerpath],
   ['MY DOCUMENTS', LocalPath.main.documents],
