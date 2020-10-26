@@ -11,7 +11,9 @@ const sleep = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
 
 const server = {};
 server['qg'] =
-  process.env.NODE_ENV === 'development' ? gqqa.qg : gqqa.generateQuestion();
+  process.env.NODE_ENV === 'development'
+    ? gqqa.api + gqqa.qg
+    : gqqa.generateQuestion();
 
 // FIXME: 추후 대체될 것
 export const generateQuestion = async (payload) => {
