@@ -5,6 +5,7 @@ import { useHistory } from 'react-router-dom';
 
 import { requestSignIn } from 'store/modules/action/account';
 import { refresh } from 'store/modules/action/refresh';
+import LocalPath from 'common/local-path';
 import { decode } from 'common/security/common';
 import RootPage from './RootPage';
 
@@ -40,7 +41,7 @@ const RootPageContainer = (props) => {
     if (props.token === null) {
       clearInterval(intervalId);
       setIntervalId(0);
-      history.push('/');
+      history.push(LocalPath.root);
       return;
     }
     if (intervalId === 0) {
