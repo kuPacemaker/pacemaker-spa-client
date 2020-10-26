@@ -7,7 +7,7 @@ const main = [
   ['MY FEED', LocalPath.main.newspeed.path],
   ['FOR LEADER', LocalPath.main.board.leaderpath],
   ['FOR RUNNER', LocalPath.main.board.runnerpath],
-  ['MY DOCUMENTS', LocalPath.main.documents],
+  ['MY DOCUMENTS', LocalPath.main.documents.path],
 ];
 const optional = [
   ['ABOUT US', LocalPath.help.aboutus],

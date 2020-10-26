@@ -16,11 +16,6 @@ const MainPageRouter = ({ location }) => {
           path={LocalMainPage.documents.path}
           component={Documents}
         />
-        {/* <Route
-            exact
-            path={LocalMainPage.statistics.path}
-            component={Newspeed}
-          /> */}
         <Redirect
           path={LocalMainPage.root + '*'}
           to={LocalMainPage.newspeed.path}

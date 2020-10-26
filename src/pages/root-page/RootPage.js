@@ -10,8 +10,8 @@ const RootPage = () => {
   return (
     <>
       <HeaderContainer />
-      <RootRouter />
       <FooterContaioner />
+      <RootRouter />
       <Overlay />
     </>
   );

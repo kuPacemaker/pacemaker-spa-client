@@ -45,7 +45,7 @@ main.newspeed['path'] = main.newspeed.root;
 main.board['path'] = main.board.root + ':type';
 main.channel['path'] = main.channel.root + ':type';
 main.unit['path'] = main.unit.root + ':type';
-main.documents['path'] = main.documents.root + ':id';
+main.documents['path'] = main.documents.root;
 main.statistics['path'] = main.statistics.root + ':id';
 
 path['help'] = help;

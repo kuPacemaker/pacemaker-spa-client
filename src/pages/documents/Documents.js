@@ -1,13 +1,6 @@
 import React from 'react';
-import Document from 'components/about-us';
+import Document from 'components/documents';
 
-const articles = [
-  ['Title', ''],
-  ['MainArticle', ''],
-  ['SubArticle', ''],
-  ['SubArticle', ''],
-];
-
-const DocumentPage = () => <Document articles={articles} />;
+const DocumentPage = () => <Document />;
 
 export default DocumentPage;
