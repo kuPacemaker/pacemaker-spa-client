@@ -12,7 +12,7 @@ const buttons = {
       ['SEARCH', undefined],
     ],
     right: [
-      ['NEWS', LocalPath.main.newspeed],
+      ['NEWS', LocalPath.main.newspeed.path],
       ['MY ACCOUNT', undefined],
     ],
   },

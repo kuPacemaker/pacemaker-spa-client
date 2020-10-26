@@ -1,22 +1,23 @@
 const path = {
-  root: '/pacemaker-spa-client',
+  base: '/pacemaker-spa-client',
+  root: '/pacemaker-spa-client/',
 };
 
 const help = {
-  root: path.root + '/help',
+  root: path.base + '/help',
 };
 help['aboutus'] = help.root + '/about-us';
 help['contact'] = help.root + '/contact';
 
 const admission = {
-  root: path.root + '/admission',
+  root: path.base + '/admission',
 };
 admission['signin'] = admission.root;
 admission['signup'] = admission.root + '/sign-up';
 admission['findaccount'] = admission.root + '/find-account';
 
 const main = {
-  root: path.root + '/main-page',
+  root: path.base + '/main-page',
   newspeed: {},
   board: {
     elements: {

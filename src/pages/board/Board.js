@@ -8,7 +8,10 @@ const BoardPage = ({ match }) => {
   if (LocalMainPage.board.elements.hasOwnProperty(type))
     return <Board type={type} />;
   return (
-    <Redirect path={LocalMainPage.root + '*'} to={LocalMainPage.newspeed} />
+    <Redirect
+      path={LocalMainPage.root + '*'}
+      to={LocalMainPage.newspeed.path}
+    />
   );
 };
 

@@ -21,7 +21,10 @@ const MainPageRouter = ({ location }) => {
             path={LocalMainPage.statistics.path}
             component={Newspeed}
           /> */}
-        <Redirect path={LocalMainPage.root + '*'} to={LocalMainPage.newspeed} />
+        <Redirect
+          path={LocalMainPage.root + '*'}
+          to={LocalMainPage.newspeed.path}
+        />
       </Switch>
     </>
   );
