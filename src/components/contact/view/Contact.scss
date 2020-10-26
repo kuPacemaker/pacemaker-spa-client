@@ -33,6 +33,8 @@
         right: 0;
 
         .ArrowBar {
+            margin-top: 10px;
+            margin-bottom: 10px;
             pointer-events: none;
             width: 100%;
             overflow-y: hidden;
@@ -47,8 +49,7 @@
 
             .ArrowContainer {
                 height: 5.25vw;
-                width: 120vw;
-
+                white-space: nowrap;
 
                 .Arrow {
                     margin-left: 1.25vw;
@@ -59,7 +60,55 @@
 
         }
 
-        .OurPeople {}
+        .OurPeople {
+            pointer-events: none;
+            width: 100%;
+            overflow-y: hidden;
+            overflow-x: scroll;
+
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+
+            &::-webkit-scrollbar {
+                display: none;
+            }
+
+            .PeopleContainer {
+                height: 100%;
+                white-space: nowrap;
+
+
+
+                .Person {
+                    padding-top: 15px;
+                    position: relative;
+                    display: inline-block;
+
+                    &.Tag {
+                        font-weight: 600;
+                    }
+
+                    div {
+                        $font: 25px;
+                        $pad: 14px;
+                        text-align: left;
+                        padding: $pad 50px $pad 50px;
+                        border-top: 2px black solid;
+                        font-size: $font;
+
+                        span {
+                            display: block;
+                            height: $font + $pad *2;
+                            line-height: $font+$pad *2;
+                        }
+                    }
+
+                    .Page {
+                        border-bottom: 2px black solid;
+                    }
+                }
+            }
+        }
     }
 
 }

@@ -15,13 +15,36 @@ const onScrollHandler = (right, left) => (e) => {
   const step = rightRef.offsetWidth / 100;
   const delta = e.deltaY > 0 ? +step : -step;
   const rightValue = Number(rightRef.scrollLeft) - delta;
+  const leftValue = Number(left.current.scrollLeft) + delta;
   if (rightValue > center + step * 7 || rightValue < center - step * 7) {
     scrollToRef(right, center);
   } else scrollToRef(right, rightValue);
+  scrollToRef(left, leftValue);
+};
+
+const Person = ({ name, position, email, page, isTag = false }) => {
+  return (
+    <div className={'Person' + (isTag ? ' Tag' : '')}>
+      <div className="Name">
+        <span>{name}</span>
+      </div>
+      <div className="Position">
+        {position.map((item, i) => (
+          <span key={i}>{item}</span>
+        ))}
+      </div>
+      <div className="EMail">
+        <span>{email}</span>
+      </div>
+      <div className="Page">
+        <span>{page}</span>
+      </div>
+    </div>
+  );
 };
 
 const Contact = ({ title, collaborators, contributors, visible }) => {
-  const cardScroll = useRef(null);
+  const peopleScroll = useRef(null);
   const arrowScroll = useRef(null);
 
   useEffect(() => {
@@ -40,7 +63,7 @@ const Contact = ({ title, collaborators, contributors, visible }) => {
       </div>
       <div
         className="Context"
-        onWheel={onScrollHandler(arrowScroll, cardScroll)}
+        onWheel={onScrollHandler(arrowScroll, peopleScroll)}
       >
         <div className="ArrowBar" ref={arrowScroll}>
           <div className="ArrowContainer">
@@ -49,27 +72,36 @@ const Contact = ({ title, collaborators, contributors, visible }) => {
             ))}
           </div>
         </div>
-        <div className="OurPeople">
-          {collaborators.map((collaborator, index) => (
-            <div key={index}>
-              {collaborator.name}={collaborator.position}={collaborator.email}=
-              {collaborator.github}
-            </div>
-          ))}
-          {contributors.map((contributor, index) => (
-            <div key={index}>
-              {contributor.name}={contributor.position}={contributor.email}=
-              {contributor.github}
-            </div>
-          ))}
+        <div className="OurPeople" ref={peopleScroll}>
+          <div className="PeopleContainer">
+            <Person
+              isTag={true}
+              name="NAME"
+              position={['POSITION', '', '']}
+              email="E-MAIL"
+              page="PAGE"
+            />
 
-          {/* {collaborators.map((article, index) => (
-            <div key={index} className={article[0]}>
-              {article[1].split('\n').map((item, i) => (
-                <p key={i}>{item}</p>
-              ))}
-            </div>
-          ))} */}
+            {collaborators.map((collaborator, index) => (
+              <Person
+                key={index}
+                name={collaborator.name}
+                position={collaborator.position}
+                email={collaborator.email}
+                page={collaborator.github}
+              />
+            ))}
+
+            {contributors.map((contributor, index) => (
+              <Person
+                key={index}
+                name={contributor.name}
+                position={contributor.position}
+                email={contributor.email}
+                page={contributor.github}
+              />
+            ))}
+          </div>
         </div>
       </div>
     </div>
