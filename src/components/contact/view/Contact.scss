@@ -1,7 +1,7 @@
 @import 'shared/StyleValues.scss';
 @import 'shared/Animations.scss';
 
-.About {
+.Contact {
     position: fixed;
     pointer-events: none;
     top: 0;
@@ -11,57 +11,103 @@
 
     @include fade-in();
 
-    .context {
-        margin: 5% $sidemargin 5% $sidemargin;
-        height: 90%;
+    p {
+        margin-block-start: 0em;
+        margin-block-end: 0em;
+    }
 
-        .ArticleBox {
-            position: relative;
-            top: 15%;
-            left: $stepSize *3;
-            width: 75%;
+    .TopBar {
+        position: absolute;
+        top: 15%;
+        left: $sidemargin;
+        line-height: calc(100% - 3px);
+        font-size: 65px;
+    }
 
-            p {
-                margin-block-start: 0em;
-                margin-block-end: 0em;
+    .Context {
+        position: absolute;
+        pointer-events: all;
+        top: calc(15% + 130px);
+        bottom: $stepSize *3;
+        left: 0;
+        right: 0;
+
+        .ArrowBar {
+            margin-top: 10px;
+            margin-bottom: 10px;
+            pointer-events: none;
+            width: 100%;
+            overflow-y: hidden;
+            overflow-x: scroll;
+
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+
+            &::-webkit-scrollbar {
+                display: none;
             }
 
-            .Title {
-                p {
-                    height: $article;
-                    font-size: $midArticle;
+            .ArrowContainer {
+                height: 5.25vw;
+                white-space: nowrap;
+
+                .Arrow {
+                    margin-left: 1.25vw;
+                    @include square_px(5vw);
+                    margin-right: 1.25vw;
                 }
             }
 
-            .MainArticle {
-                margin-top: 10px;
-                margin-bottom: 50px;
-
-                p {
-                    height: $article;
-                    font-size: $subTitle;
-                    letter-spacing: 1px;
-                }
-            }
-
-            .SubArticle {
-                margin-bottom: 30px;
-                width: 55%;
-
-                p {
-                    height: $midArticle;
-                    font-size: $midArticle;
-                    letter-spacing: 1px;
-                }
-
-            }
         }
 
-        .ConceptsImage {
-            position: fixed;
-            margin-top: 5%;
-            right: $sidemargin;
-            height: 65%;
+        .OurPeople {
+            pointer-events: none;
+            width: 100%;
+            overflow-y: hidden;
+            overflow-x: scroll;
+
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+
+            &::-webkit-scrollbar {
+                display: none;
+            }
+
+            .PeopleContainer {
+                height: 100%;
+                white-space: nowrap;
+
+
+
+                .Person {
+                    padding-top: 15px;
+                    position: relative;
+                    display: inline-block;
+
+                    &.Tag {
+                        font-weight: 600;
+                    }
+
+                    div {
+                        $font: 25px;
+                        $pad: 14px;
+                        text-align: left;
+                        padding: $pad 50px $pad 50px;
+                        border-top: 2px black solid;
+                        font-size: $font;
+
+                        span {
+                            display: block;
+                            height: $font + $pad *2;
+                            line-height: $font+$pad *2;
+                        }
+                    }
+
+                    .Page {
+                        border-bottom: 2px black solid;
+                    }
+                }
+            }
         }
     }
 

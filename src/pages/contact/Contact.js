@@ -16,13 +16,13 @@ const collaborators = [
   },
   {
     name: 'Andrew Chan',
-    position: ['Backend Developer', 'Backend Designer'],
+    position: ['Backend Developer', 'Backend Designer', ''],
     email: 'lunox273@gmail.com',
     github: 'https://github.com/KLumy',
   },
   {
-    name: 'Kelvin Kwak',
-    position: ['Project Manager'],
+    name: 'Lumy Kelvin',
+    position: ['Project Manager', '', ''],
     email: 'lunox273@gmail.com',
     github: 'https://github.com/KLumy',
   },
@@ -31,13 +31,13 @@ const collaborators = [
 const contributors = [
   {
     name: 'Changhoon Lee',
-    position: ['Brand Marketer', 'Web Designer'],
+    position: ['Brand Marketer', 'Web Designer', ''],
     email: 'lsgrt77@gmail.com',
     github: 'https://www.instagram.com/chhn_hoon/',
   },
   {
     name: 'Hanbum Lee',
-    position: ['Frontend Developer', 'Fallback Developer'],
+    position: ['Frontend Developer', 'Fallback Developer', ''],
     email: 'lkanen16@gmail.com',
     github: 'https://github.com/Laki16',
   },
