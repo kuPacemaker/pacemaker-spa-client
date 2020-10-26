@@ -16,7 +16,9 @@ import { gqqa } from 'common/server-path';
 
 const server = {};
 server['qa'] =
-  process.env.NODE_ENV === 'development' ? gqqa.qa : gqqa.answerQuestion();
+  process.env.NODE_ENV === 'development'
+    ? gqqa.api + gqqa.qa
+    : gqqa.answerQuestion();
 
 export const ask = async (payload) => {
   return await axios.post(server.qa, {
