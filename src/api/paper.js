@@ -1,5 +1,5 @@
 import axios from 'axios';
-
+import { gqqa } from 'common/server-path';
 // FIXME: 추후 대체될 것
 const sleep = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
 
@@ -9,9 +9,15 @@ const sleep = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
 //   return new Promise((resolve) => resolve());
 // };
 
+const server = {};
+server['qg'] =
+  process.env.NODE_ENV === 'development'
+    ? gqqa.api + gqqa.qg
+    : gqqa.generateQuestion();
+
 // FIXME: 추후 대체될 것
 export const generateQuestion = async (payload) => {
-  return await axios.post('/restful/qg/', {
+  return await axios.post(server.qg, {
     bkd: payload.body,
   });
 };

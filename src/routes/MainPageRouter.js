@@ -7,7 +7,7 @@ const MainPageRouter = ({ location }) => {
   return (
     <>
       <Switch>
-        <Route exact path={LocalMainPage.newspeed} component={Newspeed} />
+        <Route exact path={LocalMainPage.newspeed.path} component={Newspeed} />
         <Route exact path={LocalMainPage.board.path} component={Board} />
         <Route exact path={LocalMainPage.channel.path} component={Channel} />
         <Route exact path={LocalMainPage.unit.path} component={Unit} />
@@ -16,7 +16,15 @@ const MainPageRouter = ({ location }) => {
           path={LocalMainPage.documents.path}
           component={Documents}
         />
-        <Redirect path={LocalMainPage.root + '*'} to={LocalMainPage.newspeed} />
+        {/* <Route
+            exact
+            path={LocalMainPage.statistics.path}
+            component={Newspeed}
+          /> */}
+        <Redirect
+          path={LocalMainPage.root + '*'}
+          to={LocalMainPage.newspeed.path}
+        />
       </Switch>
     </>
   );
