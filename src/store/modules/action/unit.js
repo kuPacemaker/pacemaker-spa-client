@@ -52,14 +52,30 @@ export const makeQuestion = (payload, callbackHandler) => async (dispatch) => {
  * @param {token, document} payload
  * @param {*} historyHandler
  */
+export const makeReservation = (payload, callbackHandler) => async (
+  dispatch
+) => {
+  try {
+    console.log(payload);
+    console.log('Make Reservation!!');
+    if (callbackHandler) callbackHandler();
+  } catch (e) {
+    console.log(e);
+  }
+};
+
+/**
+ *
+ * @param {token, document} payload
+ * @param {*} historyHandler
+ */
 export const submitPaper = (payload, callbackHandler) => async (dispatch) => {
   try {
     await markPaper(payload);
     // dispatch(update());
     // historyHandler();
-    if (callbackHandler) callbackHandler(true);
+    if (callbackHandler) callbackHandler();
   } catch (e) {
-    if (callbackHandler) callbackHandler(false);
     console.log(e);
   }
 };

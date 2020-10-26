@@ -164,8 +164,9 @@ const Unit = (props) => {
         </div>
         {props.type === 'leader' && tab === 'upload' && state.ready && (
           <Reservation
-            onClickHandler={showReservation}
             hide={!state.reservation}
+            onClickHandler={showReservation}
+            onReservationHandler={props.onReservationHandler}
           />
         )}
       </div>

@@ -5,7 +5,7 @@ import './Reservation.scss';
 import upload from 'resources/images/icon/upload_line.png';
 import remove from 'resources/images/icon/cross.png';
 
-const Reservation = ({ onReservationHandler, onClickHandler, hide }) => {
+const Reservation = ({ hide, onClickHandler, onReservationHandler }) => {
   return (
     <div className="Reservation">
       <div className="TitleButton" onClick={onClickHandler}>

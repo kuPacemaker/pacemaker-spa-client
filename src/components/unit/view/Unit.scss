@@ -39,6 +39,7 @@
         height: 80px;
         border-top: 3px black solid;
         border-bottom: 3px black solid;
+        z-index: 2;
 
         .InformationContext {
             margin-top: 20px;
@@ -76,6 +77,8 @@
     }
 
     .Context {
+        z-index: 0;
+
         .RootImage {
             pointer-events: all;
             position: relative;
@@ -179,28 +182,12 @@
                 }
             }
         }
-
-
     }
-
 
     .IconContainer {
         position: fixed;
+        z-index: 1;
         bottom: 7.5%;
         right: 5%;
-    }
-
-    .ImageContainer {
-        position: absolute;
-        top: 20%;
-        left: $sidemargin*2;
-        width: 25%;
-        height: 80%;
-
-        .ChannelImage {
-            display: block;
-            margin: 0 auto;
-            height: 100%;
-        }
     }
 }

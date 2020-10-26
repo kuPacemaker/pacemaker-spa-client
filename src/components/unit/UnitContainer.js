@@ -3,7 +3,7 @@ import { useHistory } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 
-import { getUnit } from 'store/modules/action/unit';
+import { getUnit, makeReservation } from 'store/modules/action/unit';
 import { update } from 'store/modules/creators/unit';
 import { show } from 'store/modules/creators/modal';
 import unitDocument from 'store/modules/action/document';
@@ -108,6 +108,10 @@ const verifyPaper = (updateHandler) => (
   });
 };
 
+const onReservationHandler = (reservation, payload) => () => {
+  reservation(payload, () => console.log('callback'));
+};
+
 const UnitContainer = ({
   type,
   channelId,
@@ -119,6 +123,7 @@ const UnitContainer = ({
   getUnit: getUnitHandler,
   update: updateHandler,
   show: showModalHandler,
+  reservation,
   createDocs,
   updateDocs,
 }) => {
@@ -160,6 +165,7 @@ const UnitContainer = ({
       verifyPaper={verifyPaper(updateHandler)(data, paper, setPaper)}
       onVerifyHandler={onVerifyHandler(paper, setPaper)}
       onAnswerHandler={onAnswerHandler(paper, setPaper)}
+      onReservationHandler={onReservationHandler(reservation, {})}
     />
   );
 };
@@ -176,6 +182,7 @@ const mapDispatchToProps = (dispatch) =>
       getUnit,
       show,
       update,
+      reservation: makeReservation,
       createDocs: unitDocument.create,
       updateDocs: unitDocument.update,
     },
