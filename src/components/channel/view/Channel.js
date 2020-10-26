@@ -22,6 +22,7 @@ const Channel = ({
   runners,
   onClickCreateUnit,
   onClickAccessCode,
+  onClickNotReadyFunction,
 }) => {
   const [visible, setVisible] = useState(false);
   const [state, setState] = useState({ tab: 'units', isBottom: false });
@@ -76,7 +77,17 @@ const Channel = ({
         <div className="Tab ShowRunnerList" onClick={changeTab('runners')}>
           RUNNER LIST
         </div>
-        <div className="Tab ShowStatistics">STATISTICS</div>
+        <div
+          className="Tab ShowStatistics"
+          onClick={() =>
+            onClickNotReadyFunction({
+              title: 'OOPS..!\nNOT READY YET...',
+              body: `The feature is not ready yet!\nWe'll update the feature soon...\nWe will notify you when an update is available!`,
+            })
+          }
+        >
+          STATISTICS
+        </div>
       </div>
       <div
         className="Context"

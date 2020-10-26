@@ -32,14 +32,6 @@ const Contact = ({ collaborators, contributors, visible }) => {
               {contributor.github}
             </div>
           ))}
-
-          {/* {collaborators.map((article, index) => (
-            <div key={index} className={article[0]}>
-              {article[1].split('\n').map((item, i) => (
-                <p key={i}>{item}</p>
-              ))}
-            </div>
-          ))} */}
         </div>
       </div>
     </div>

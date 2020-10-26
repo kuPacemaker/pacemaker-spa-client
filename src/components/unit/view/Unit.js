@@ -41,7 +41,6 @@ const Unit = (props) => {
       ...state,
       ready: staging.length === 0,
     });
-    setTab('upload');
   }, [props.paper.questions]);
 
   useEffect(() => {

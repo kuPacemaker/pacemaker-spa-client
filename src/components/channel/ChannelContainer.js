@@ -13,6 +13,7 @@ const ChannelContainer = ({
   fetch: getChannelHandler,
   onClickAccessCode,
   onClickCreateUnit,
+  onClickNotReadyFunction,
 }) => {
   useEffect(() => {
     getChannelHandler(token, type, channelId);
@@ -33,6 +34,7 @@ const ChannelContainer = ({
         runners={data.runners}
         onClickAccessCode={onClickAccessCode}
         onClickCreateUnit={onClickCreateUnit}
+        onClickNotReadyFunction={onClickNotReadyFunction}
       />
     );
   } else {
@@ -51,6 +53,7 @@ const mapDispatchToProps = (dispatch) => ({
     dispatch(fetchChannel({ token, type, channel: id })),
   onClickAccessCode: () => dispatch(show('ACCESS CODE')),
   onClickCreateUnit: () => dispatch(show('CREATE UNIT')),
+  onClickNotReadyFunction: (arg) => dispatch(show('ALERT MODAL', arg)),
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(ChannelContainer);
