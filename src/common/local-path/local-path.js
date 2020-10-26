@@ -1,38 +1,41 @@
+const path = {
+  root: '/pacemaker-spa-client',
+};
+
 const help = {
-  root: '/help',
-  aboutus: '/help/about-us',
-  contact: '/help/contact',
+  root: path.root + '/help',
 };
+help['aboutus'] = help.root + '/about-us';
+help['contact'] = help.root + '/contact';
+
 const admission = {
-  root: '/admission',
-  signin: '/admission',
-  signup: '/admission/sign-up',
-  findaccount: '/admission/find-account',
+  root: path.root + '/admission',
 };
+admission['signin'] = admission.root;
+admission['signup'] = admission.root + '/sign-up';
+admission['findaccount'] = admission.root + '/find-account';
+
 const main = {
-  root: '/main-page',
-  newspeed: '/main-page/newspeeds',
+  root: path.root + '/main-page',
+  newspeed: {},
   board: {
-    root: '/main-page/board/',
     elements: {
       leader: 'leader',
       runner: 'runner',
     },
   },
-  channel: {
-    root: '/main-page/channel/',
-  },
-  unit: {
-    root: '/main-page/unit/',
-  },
-
-  documents: {
-    root: '/main-page/my-documents/',
-  },
-  statistics: {
-    root: '/main-page/statistics/',
-  },
+  channel: {},
+  unit: {},
+  documents: {},
+  statistics: {},
 };
+
+main.newspeed['root'] = main.root + '/newspeeds';
+main.board['root'] = main.root + '/newspeeds';
+main.channel['root'] = main.root + '/channel/';
+main.unit['root'] = main.root + '/unit/';
+main.documents['root'] = main.root + '/my-documents/';
+main.statistics['root'] = main.root + '/statistics/';
 
 main.board['leaderpath'] = main.board.root + main.board.elements.leader;
 main.board['runnerpath'] = main.board.root + main.board.elements.runner;
@@ -43,11 +46,8 @@ main.unit['path'] = main.unit.root + ':type';
 main.documents['path'] = main.documents.root + ':id';
 main.statistics['path'] = main.statistics.root + ':id';
 
-const path = {
-  root: '/pacemaker-spa-client',
-};
-path['help'] = path.root + help;
-path['admission'] = path.root + admission;
-path['main'] = path.root + main;
+path['help'] = help;
+path['admission'] = admission;
+path['main'] = main;
 
 export default path;
