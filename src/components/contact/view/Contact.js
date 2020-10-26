@@ -22,11 +22,14 @@ const onScrollHandler = (right, left) => (e) => {
   scrollToRef(left, leftValue);
 };
 
-const Person = ({ name, position, email, page, isTag = false }) => {
+const Person = ({ type, name, position, email, page, isTag = false }) => {
   return (
     <div className={'Person' + (isTag ? ' Tag' : '')}>
       <div className="Name">
         <span>{name}</span>
+      </div>
+      <div className="Type">
+        <span>{type}</span>
       </div>
       <div className="Position">
         {position.map((item, i) => (
@@ -77,30 +80,38 @@ const Contact = ({ title, collaborators, contributors, visible }) => {
             <Person
               isTag={true}
               name="NAME"
+              type="TYPE"
               position={['POSITION', '', '']}
               email="E-MAIL"
               page="PAGE"
             />
-
             {collaborators.map((collaborator, index) => (
               <Person
                 key={index}
+                type="Collaborator"
                 name={collaborator.name}
                 position={collaborator.position}
                 email={collaborator.email}
                 page={collaborator.github}
               />
             ))}
-
             {contributors.map((contributor, index) => (
               <Person
                 key={index}
+                type="Contributor"
                 name={contributor.name}
                 position={contributor.position}
                 email={contributor.email}
                 page={contributor.github}
               />
             ))}
+            <Person
+              name="&nbsp;"
+              type="&nbsp;"
+              position={['', '', '']}
+              email="&nbsp;"
+              page="&nbsp;"
+            />
           </div>
         </div>
       </div>

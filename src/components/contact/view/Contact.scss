@@ -16,10 +16,12 @@
         margin-block-end: 0em;
     }
 
+    $side:$sidemargin * 1.5;
+
     .TopBar {
         position: absolute;
         top: 15%;
-        left: $sidemargin;
+        left: $side;
         line-height: calc(100% - 3px);
         font-size: 65px;
     }
@@ -87,10 +89,10 @@
                     }
 
                     div {
-                        $font: 25px;
-                        $pad: 14px;
+                        $font: 22px;
+                        $pad: 12px;
                         text-align: left;
-                        padding: $pad 50px $pad 50px;
+                        padding: $pad 25px $pad $side;
                         border-top: 2px black solid;
                         font-size: $font;
 

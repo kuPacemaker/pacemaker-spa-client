@@ -4,7 +4,7 @@ import Contact from 'components/contact';
 const collaborators = [
   {
     name: 'Kelvin Kwak',
-    position: ['Project Manager', 'Frontend Developer', 'Frontend Designer'],
+    position: ['Project Manager', 'Service Architect', 'Frontend Developer'],
     email: 'lunox273@gmail.com',
     github: 'https://github.com/KLumy',
   },
