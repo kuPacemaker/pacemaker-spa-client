@@ -3,7 +3,7 @@ export const app = {
 };
 
 export const gqqa = {
-  base: 'http://117.16.136.170',
+  base: 'https://117.16.136.170',
   api: '/restful/',
   qg: 'qg/',
   qa: 'qa/',
