@@ -1,5 +1,5 @@
 import axios from 'axios';
-import { GQQA } from 'common/server-path';
+import { gqqa } from 'common/server-path';
 // FIXME: 추후 대체될 것
 // const sleep = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
 
@@ -14,12 +14,12 @@ import { GQQA } from 'common/server-path';
 //   return new Promise((resolve) => resolve({ answer: 'asdasd' }));
 // };
 
+const server = {};
+server['qa'] =
+  process.env.NODE_ENV === 'development' ? gqqa.qa : gqqa.answerQuestion();
+
 export const ask = async (payload) => {
-  const path =
-    process.env.NODE_ENV === 'development'
-      ? '/restful/qa/'
-      : GQQA.answerQuestion();
-  return await axios.post(path, {
+  return await axios.post(server.qa, {
     bkd: payload.document.body,
     q: payload.question,
   });

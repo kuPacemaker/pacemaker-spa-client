@@ -157,6 +157,5 @@
     "presets": [
       "react-app"
     ]
-  },
-  "proxy": "http://117.16.136.170/"
+  }
 }
