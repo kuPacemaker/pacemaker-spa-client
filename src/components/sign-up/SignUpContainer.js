@@ -75,7 +75,7 @@ const SignUpContainer = (props) => {
     const invalid = checkPwHandler(pwRule);
     if (invalid) {
       props.show('ALERT MODAL', {
-        title: `${invalid}\nCHECK PASSWORD`,
+        title: `${invalid}\nCHECK YOUR PASSWORD`,
         body:
           'Please check your password again!\nMake your password 6 or more\nwith a combination of letters, numbers and marks',
       });

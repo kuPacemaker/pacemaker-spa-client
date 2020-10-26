@@ -1,15 +1,46 @@
 import React from 'react';
 import Contact from 'components/contact';
+
 const collaborators = [
-  'FOR A PERFECT REMOTE CLASS',
-  'YOU NEED A PERFECT PACEMAKER',
-  'TO RUN WITH YOU',
+  {
+    name: 'Kelvin Kwak',
+    position: ['Project Manager', 'Frontend Developer', 'Frontend Designer'],
+    email: 'lunox273@gmail.com',
+    github: 'https://github.com/KLumy',
+  },
+  {
+    name: 'binchoo',
+    position: ['NLP Researcr', 'Server Infra', 'QA/QG Service Developer'],
+    email: 'jbinchoo@gmail.com',
+    github: 'https://github.com/binchoo',
+  },
+  {
+    name: 'Andrew Chan',
+    position: ['Backend Developer', 'Backend Designer'],
+    email: 'lunox273@gmail.com',
+    github: 'https://github.com/KLumy',
+  },
+  {
+    name: 'Kelvin Kwak',
+    position: ['Project Manager'],
+    email: 'lunox273@gmail.com',
+    github: 'https://github.com/KLumy',
+  },
 ];
 
 const contributors = [
-  'FOR A PERFECT REMOTE CLASS',
-  'YOU NEED A PERFECT PACEMAKER',
-  'TO RUN WITH YOU',
+  {
+    name: 'Changhoon Lee',
+    position: ['Brand Marketer', 'Web Designer'],
+    email: 'lsgrt77@gmail.com',
+    github: 'https://www.instagram.com/chhn_hoon/',
+  },
+  {
+    name: 'Hanbum Lee',
+    position: ['Frontend Developer', 'Fallback Developer'],
+    email: 'lkanen16@gmail.com',
+    github: 'https://github.com/Laki16',
+  },
 ];
 
 const ContactPage = () => (

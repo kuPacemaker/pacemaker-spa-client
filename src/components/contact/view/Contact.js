@@ -1,19 +1,12 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import classNames from 'classnames';
 
 import concepts from 'resources/images/concept/aboutus-image.jpg';
-import background from 'resources/images/background/background-up.png';
+import background from 'resources/images/background/background-right.png';
 
 import './Contact.scss';
 
-const Contact = ({ collaborators, contributors }) => {
-  const [visible, setVisible] = useState(false);
-
-  useEffect(() => {
-    setVisible(true);
-    return () => setVisible(false);
-  }, []);
-
+const Contact = ({ collaborators, contributors, visible }) => {
   return (
     <div
       className={classNames('About', { Invisible: !visible })}
@@ -27,8 +20,18 @@ const Contact = ({ collaborators, contributors }) => {
           alt=""
         />
         <div className="ArticleBox">
-          <div>{collaborators}</div>
-          <div>{contributors}</div>
+          {collaborators.map((collaborator, index) => (
+            <div key={index}>
+              {collaborator.name}={collaborator.position}={collaborator.email}=
+              {collaborator.github}
+            </div>
+          ))}
+          {contributors.map((contributor, index) => (
+            <div key={index}>
+              {contributor.name}={contributor.position}={contributor.email}=
+              {contributor.github}
+            </div>
+          ))}
 
           {/* {collaborators.map((article, index) => (
             <div key={index} className={article[0]}>
