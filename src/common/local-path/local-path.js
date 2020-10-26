@@ -44,10 +44,10 @@ main.documents['path'] = main.documents.root + ':id';
 main.statistics['path'] = main.statistics.root + ':id';
 
 const path = {
-  root: '/',
-  help: help,
-  admission: admission,
-  main: main,
+  root: '/pacemaker-spa-client',
 };
+path['help'] = path.root + help;
+path['admission'] = path.root + admission;
+path['main'] = path.root + main;
 
 export default path;
