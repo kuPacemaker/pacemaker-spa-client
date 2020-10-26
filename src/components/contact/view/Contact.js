@@ -12,11 +12,11 @@ const scrollToRef = (ref, to, behavior = 'auto') =>
 const onScrollHandler = (right, left) => (e) => {
   const rightRef = right.current;
   const center = (rightRef.scrollWidth - rightRef.offsetWidth) / 2;
-  const step = rightRef.offsetWidth / 100;
+  const step = rightRef.offsetWidth / 76;
   const delta = e.deltaY > 0 ? +step : -step;
   const rightValue = Number(rightRef.scrollLeft) - delta;
   const leftValue = Number(left.current.scrollLeft) + delta;
-  if (rightValue > center + step * 6 || rightValue < center - step * 6) {
+  if (rightValue > center + step * 5 || rightValue < center - step * 5) {
     scrollToRef(right, center);
   } else scrollToRef(right, rightValue);
   scrollToRef(left, leftValue);
