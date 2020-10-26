@@ -33,8 +33,6 @@
         right: 0;
 
         .ArrowBar {
-            margin-top: 10px;
-            margin-bottom: 10px;
             pointer-events: none;
             width: 100%;
             overflow-y: hidden;
@@ -48,12 +46,12 @@
             }
 
             .ArrowContainer {
-                height: 5.25vw;
+                height: 4vw;
                 white-space: nowrap;
 
                 .Arrow {
                     margin-left: 1.25vw;
-                    @include square_px(5vw);
+                    @include square_px(4vw);
                     margin-right: 1.25vw;
                 }
             }

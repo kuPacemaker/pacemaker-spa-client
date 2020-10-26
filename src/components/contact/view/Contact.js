@@ -4,7 +4,7 @@ import classNames from 'classnames';
 import arrow_right from 'resources/images/icon/arrow-right.png';
 import './Contact.scss';
 
-const arrow = Array.from('>'.repeat(16));
+const arrow = Array.from('>'.repeat(20));
 
 const scrollToRef = (ref, to, behavior = 'auto') =>
   ref.current.scrollTo({ top: 0, left: to, behavior: behavior });
@@ -16,7 +16,7 @@ const onScrollHandler = (right, left) => (e) => {
   const delta = e.deltaY > 0 ? +step : -step;
   const rightValue = Number(rightRef.scrollLeft) - delta;
   const leftValue = Number(left.current.scrollLeft) + delta;
-  if (rightValue > center + step * 7 || rightValue < center - step * 7) {
+  if (rightValue > center + step * 6 || rightValue < center - step * 6) {
     scrollToRef(right, center);
   } else scrollToRef(right, rightValue);
   scrollToRef(left, leftValue);
