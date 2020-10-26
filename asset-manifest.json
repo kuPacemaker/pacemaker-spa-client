@@ -1,14 +1,14 @@
 {
   "files": {
     "main.css": "/pacemaker-spa-client/static/css/main.95410f75.chunk.css",
-    "main.js": "/pacemaker-spa-client/static/js/main.c5fb2af7.chunk.js",
-    "main.js.map": "/pacemaker-spa-client/static/js/main.c5fb2af7.chunk.js.map",
+    "main.js": "/pacemaker-spa-client/static/js/main.50b79bbd.chunk.js",
+    "main.js.map": "/pacemaker-spa-client/static/js/main.50b79bbd.chunk.js.map",
     "runtime-main.js": "/pacemaker-spa-client/static/js/runtime-main.7c465467.js",
     "runtime-main.js.map": "/pacemaker-spa-client/static/js/runtime-main.7c465467.js.map",
     "static/js/2.9cd2e1dd.chunk.js": "/pacemaker-spa-client/static/js/2.9cd2e1dd.chunk.js",
     "static/js/2.9cd2e1dd.chunk.js.map": "/pacemaker-spa-client/static/js/2.9cd2e1dd.chunk.js.map",
     "index.html": "/pacemaker-spa-client/index.html",
-    "precache-manifest.4c5526d78507e8d689b9ac7755d09931.js": "/pacemaker-spa-client/precache-manifest.4c5526d78507e8d689b9ac7755d09931.js",
+    "precache-manifest.e4a736750489dc1efd666185d3d0795e.js": "/pacemaker-spa-client/precache-manifest.e4a736750489dc1efd666185d3d0795e.js",
     "service-worker.js": "/pacemaker-spa-client/service-worker.js",
     "static/css/main.95410f75.chunk.css.map": "/pacemaker-spa-client/static/css/main.95410f75.chunk.css.map",
     "static/js/2.9cd2e1dd.chunk.js.LICENSE.txt": "/pacemaker-spa-client/static/js/2.9cd2e1dd.chunk.js.LICENSE.txt",
@@ -38,6 +38,6 @@
     "static/js/runtime-main.7c465467.js",
     "static/js/2.9cd2e1dd.chunk.js",
     "static/css/main.95410f75.chunk.css",
-    "static/js/main.c5fb2af7.chunk.js"
+    "static/js/main.50b79bbd.chunk.js"
   ]
 }
