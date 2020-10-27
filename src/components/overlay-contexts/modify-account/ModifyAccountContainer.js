@@ -14,21 +14,25 @@ const inputForms = [
     title: 'NAME',
     type: 'text',
     fontSize: '1.35em',
+    max: 56,
   },
   {
     title: 'CURRENT PASSWARD',
     type: 'password',
     fontSize: '1.35em',
+    max: 48,
   },
   {
     title: 'NEW PASSWORD',
     type: 'password',
     fontSize: '1.35em',
+    max: 50,
   },
   {
     title: 'COMFIRM NEW PASSWORD',
     type: 'password',
     fontSize: '1.35em',
+    max: 46,
   },
 ];
 
