@@ -19,21 +19,25 @@ const inputForms = [
     title: 'NAME',
     type: 'text',
     fontSize: '1.35em',
+    max: 30,
   },
   {
     title: 'E-MAIL',
     type: 'email',
     fontSize: '1.35em',
+    max: 30,
   },
   {
     title: 'PASSWORD',
     type: 'password',
     fontSize: '1.35em',
+    max: 27,
   },
   {
     title: 'CONFIRM PASSWORD',
     type: 'password',
     fontSize: '1.35em',
+    max: 23,
   },
 ];
 

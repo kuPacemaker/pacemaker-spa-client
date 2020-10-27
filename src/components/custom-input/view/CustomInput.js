@@ -5,7 +5,7 @@ const CustomInput = ({
   title,
   type,
   size,
-  maxLength = 32,
+  maxLength = 20,
   placeholder = '',
   onChangeHandler = undefined,
 }) => {
