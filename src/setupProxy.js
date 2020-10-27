@@ -2,7 +2,7 @@ const { createProxyMiddleware } = require('http-proxy-middleware');
 
 module.exports = function (app) {
   app.use(
-    createProxyMiddleware('/app/', {
+    createProxyMiddleware('/polls/', {
       target: 'https://117.16.136.171/',
       secure: false,
     })
