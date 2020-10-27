@@ -21,10 +21,10 @@ const collaborators = [
     github: 'https://github.com/KLumy',
   },
   {
-    name: 'Lumy Kelvin',
-    position: ['Project Manager', '', ''],
-    email: 'lunox273@gmail.com',
-    github: 'https://github.com/KLumy',
+    name: 'yulhee',
+    position: ['Database Developer', 'Database Designer', ''],
+    email: 'sksmss100@gmail.com',
+    github: 'https://github.com/baeyulhee',
   },
 ];
 
