@@ -46,7 +46,7 @@
 //   return new Promise((resolve) => resolve({ message: false }));
 // };
 
-import axios from 'axios';
+import { axios } from 'common/api-instance';
 import { app } from 'common/server-path';
 
 const server = {};
@@ -76,6 +76,9 @@ export const signIn = async (payload) => {
 
 export const signUp = async (payload) => {
   return await axios.post(server.signUp, payload);
+};
+export const findAccount = async (payload) => {
+  return await axios.post(server.findAccount, payload);
 };
 
 export const modifyAccount = async (payload) => {

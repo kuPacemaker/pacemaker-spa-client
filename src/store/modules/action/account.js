@@ -1,17 +1,19 @@
 import { signin, signout } from '../creators/account';
-import { apiSignIn, modifyAccount } from 'api/account';
+import { signIn, signUp, findAccount, modifyAccount } from 'api/account';
 import { encode } from 'common/security/common';
 
 export const requestSignIn = (payload, callbackHandler) => async (dispatch) => {
   try {
-    const userInfo = await apiSignIn(payload);
-    if (!userInfo.token) {
-      if (callbackHandler) callbackHandler();
+    const response = await signIn(payload);
+    const { state, ...data } = response.data;
+    console.log(state, data);
+    if (state === 'success') {
+      dispatch(signin(data));
+      localStorage.setItem('account', encode(payload));
+      if (callbackHandler) callbackHandler(data.token);
       return;
     }
-    dispatch(signin(userInfo));
-    localStorage.setItem('account', encode(payload));
-    if (callbackHandler) callbackHandler(userInfo.token);
+    if (callbackHandler) callbackHandler();
   } catch (e) {
     console.log(e);
   }
@@ -19,8 +21,9 @@ export const requestSignIn = (payload, callbackHandler) => async (dispatch) => {
 
 export const requestSignUp = (payload, callbackHandler) => async (dispatch) => {
   try {
-    console.log('Sign Up Test');
-    if (callbackHandler) callbackHandler(true);
+    const response = await signUp(payload);
+    const { state, message } = response.data;
+    if (callbackHandler) callbackHandler(state === 'success');
   } catch (e) {
     console.log(e);
   }
@@ -30,8 +33,9 @@ export const requestFindAccount = (payload, callbackHandler) => async (
   dispatch
 ) => {
   try {
-    console.log('Sign Up Test');
-    if (callbackHandler) callbackHandler(true);
+    const response = await findAccount(payload);
+    const { state, message } = response.data;
+    if (callbackHandler) callbackHandler(state === 'success');
   } catch (e) {
     console.log(e);
   }
@@ -40,8 +44,12 @@ export const requestFindAccount = (payload, callbackHandler) => async (
 export const requestModifyAccount = (payload, callbackHandler) => async (
   dispatch
 ) => {
-  const response = await modifyAccount(payload);
-  console.log(response.message);
-  if (response.message) dispatch(signout());
-  if (callbackHandler) callbackHandler(response.message);
+  try {
+    const response = await modifyAccount(payload);
+    const { state, message } = response.data;
+    if (state === 'success') dispatch(signout());
+    if (callbackHandler) callbackHandler(state === 'success');
+  } catch (e) {
+    console.log(e);
+  }
 };

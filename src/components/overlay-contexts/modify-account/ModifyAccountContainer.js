@@ -91,13 +91,11 @@ const ModifyAccountContainer = ({
           token,
           id,
           pw: state.currentPassword,
-          new_pw: state.newPassword,
+          pw_new: state.newPassword,
           name: state.name,
         },
         (success) => {
-          console.log(success);
           if (success) {
-            console.log('YES');
             changeHandler();
             historyHandler(LocalPath.root);
             showModal('ALERT MODAL', {
@@ -106,7 +104,6 @@ const ModifyAccountContainer = ({
                 'Your account data is changed!\nPlease sign-in with your new data.',
             });
           } else {
-            console.log('NO');
             showModal('ALERT MODAL', {
               title: 'MODIFY DENIED\nPASSWORD MISMATCH!',
               body:
@@ -141,4 +138,3 @@ export default connect(
   mapStateToProps,
   mapDispatchToProps
 )(ModifyAccountContainer);
-// export default ModifyAccountContainer;
