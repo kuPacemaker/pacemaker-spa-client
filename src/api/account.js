@@ -46,7 +46,7 @@
 //   return new Promise((resolve) => resolve({ message: false }));
 // };
 
-import { axios } from 'common/api-instance';
+import { axios } from 'common/api-wrapper';
 import { app } from 'common/server-path';
 
 const server = {};

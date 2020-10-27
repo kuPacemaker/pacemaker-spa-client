@@ -1,4 +1,4 @@
-import axios from 'axios';
+import { axios } from 'common/api-wrapper';
 import { gqqa } from 'common/server-path';
 // FIXME: 추후 대체될 것
 const sleep = (ms) => new Promise((resolve) => setTimeout(resolve, ms));

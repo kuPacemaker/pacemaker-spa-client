@@ -1,5 +1,4 @@
-import axios from 'axios';
-
+import { axios } from 'common/api-wrapper';
 /**
  * WARN: 특별히 객체를 설명하지 않는 경우에는 해당 이름의 id를 의미한다.a1
  *      ex) channel -> channel_id, unit -> unit_id

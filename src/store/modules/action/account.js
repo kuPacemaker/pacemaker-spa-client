@@ -6,7 +6,6 @@ export const requestSignIn = (payload, callbackHandler) => async (dispatch) => {
   try {
     const response = await signIn(payload);
     const { state, ...data } = response.data;
-    console.log(state, data);
     if (state === 'success') {
       dispatch(signin(data));
       localStorage.setItem('account', encode(payload));
@@ -22,7 +21,7 @@ export const requestSignIn = (payload, callbackHandler) => async (dispatch) => {
 export const requestSignUp = (payload, callbackHandler) => async (dispatch) => {
   try {
     const response = await signUp(payload);
-    const { state, message } = response.data;
+    const { state } = response.data;
     if (callbackHandler) callbackHandler(state === 'success');
   } catch (e) {
     console.log(e);
@@ -34,7 +33,7 @@ export const requestFindAccount = (payload, callbackHandler) => async (
 ) => {
   try {
     const response = await findAccount(payload);
-    const { state, message } = response.data;
+    const { state } = response.data;
     if (callbackHandler) callbackHandler(state === 'success');
   } catch (e) {
     console.log(e);
@@ -46,7 +45,7 @@ export const requestModifyAccount = (payload, callbackHandler) => async (
 ) => {
   try {
     const response = await modifyAccount(payload);
-    const { state, message } = response.data;
+    const { state } = response.data;
     if (state === 'success') dispatch(signout());
     if (callbackHandler) callbackHandler(state === 'success');
   } catch (e) {
