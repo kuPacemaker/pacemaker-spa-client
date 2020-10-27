@@ -6,13 +6,13 @@ import { useHistory } from 'react-router-dom';
 import { requestSignUp } from 'store/modules/action/account';
 import { show } from 'store/modules/creators/modal';
 import { LocalAdmission } from 'common/local-path';
+import { checkPassword } from 'common/security/check-password';
 
 import RightImageForm from 'components/right-image-form';
 import image from 'resources/images/concept/signup-image.jpg';
 
 const title = 'SIGN-UP';
 const subTitle = 'START A PERFECT MARATHON WITH PACEMAKER';
-const pwRule = [/[0-9]/, /[a-zA-Z]/, /[~!@$%<>^&*]/];
 
 const inputForms = [
   {
@@ -76,7 +76,7 @@ const SignUpContainer = (props) => {
       state.repw.length === 0
     )
       return;
-    const invalid = checkPwHandler(pwRule);
+    const invalid = checkPassword(state.pw, state.repw);
     if (invalid) {
       props.show('ALERT MODAL', {
         title: `${invalid}\nCHECK YOUR PASSWORD`,
@@ -104,16 +104,6 @@ const SignUpContainer = (props) => {
         }
       );
     }
-  };
-  const checkPwHandler = (regex) => {
-    if (
-      !regex[0].test(state.pw) ||
-      !regex[1].test(state.pw) ||
-      !regex[2].test(state.pw)
-    )
-      return 'INVALID PASSWORD';
-    if (state.pw !== state.repw) return 'PASSWORD MISMATCH';
-    return;
   };
 
   return (

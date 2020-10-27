@@ -437,34 +437,20 @@ let id = 5;
 export const create = async (payload) => {
   await sleep(250);
 
-  // testData = {
-  //   ...testData,
-  //   units: testData.units.concat({
-  //     id: id + 1,
-  //     index: payload.index,
-  //     title: payload.title,
-  //     state: {
-  //       hasDocument: false,
-  //       hasPaper: false,
-  //       startQuiz: false,
-  //       endQuiz: false,
-  //     },
-  //   }),
-  // };
-
-  console.log(payload);
-
-  testData[payload.channel].units = testData[payload.channel].units.concat({
-    id: id + 1,
-    index: payload.index,
-    title: payload.title,
-    state: {
-      hasDocument: false,
-      hasPaper: false,
-      startQuiz: false,
-      endQuiz: false,
-    },
-  });
+  testData[payload.channel] = {
+    ...testData[payload.channel],
+    units: testData[payload.channel].units.concat({
+      id: id + 1,
+      index: payload.index,
+      title: payload.title,
+      state: {
+        hasDocument: false,
+        hasPaper: false,
+        startQuiz: false,
+        endQuiz: false,
+      },
+    }),
+  };
 
   return new Promise((resolve) => resolve(testData[payload.channel]));
 };
@@ -493,12 +479,12 @@ export const create = async (payload) => {
  */
 export const remove = async (payload) => {
   await sleep(250);
-
-  testData[payload.channel].units = testData[payload.channel].units.filter(
-    (unit) => {
+  testData[payload.channel] = {
+    ...testData[payload.channel],
+    units: testData[payload.channel].units.filter((unit) => {
       return unit.id !== payload.unit;
-    }
-  );
+    }),
+  };
 
   return new Promise((resolve) => resolve(testData[payload.channel]));
 };
@@ -509,17 +495,17 @@ export const remove = async (payload) => {
  */
 export const edit = async (payload) => {
   await sleep(250);
-
-  testData[payload.channel].units = testData[payload.channel].units.map(
-    (unit) => {
+  testData[payload.channel] = {
+    ...testData[payload.channel],
+    units: testData[payload.channel].units.map((unit) => {
       if (unit.id === payload.unit)
         return {
           ...unit,
           title: payload.title,
         };
       else return unit;
-    }
-  );
+    }),
+  };
 
   return new Promise((resolve) => resolve(testData[payload.channel]));
 };

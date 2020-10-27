@@ -18,7 +18,7 @@ const inputForms = [
     title: 'DESCRIPTION',
     type: 'text',
     fontSize: '1.35em',
-    max: 25,
+    max: 18,
   },
 ];
 

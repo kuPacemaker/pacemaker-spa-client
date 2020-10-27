@@ -1,5 +1,5 @@
 import { signin, signout } from '../creators/account';
-import { apiSignIn } from 'api/account';
+import { apiSignIn, modifyAccount } from 'api/account';
 import { encode } from 'common/security/common';
 
 export const requestSignIn = (payload, callbackHandler) => async (dispatch) => {
@@ -36,11 +36,11 @@ export const requestFindAccount = (payload, callbackHandler) => async (
     console.log(e);
   }
 };
-
-export const requestModifyAccount = (payload, callbackHandler) => (
+// {token, pw, new_pw, name}
+export const requestModifyAccount = (payload, callbackHandler) => async (
   dispatch
 ) => {
-  // {token, pw, new_pw, name}
-  dispatch(signout());
-  if (callbackHandler) callbackHandler();
+  const userInfo = await modifyAccount(payload);
+  if (userInfo.message) dispatch(signout());
+  if (callbackHandler) callbackHandler(userInfo.message);
 };
