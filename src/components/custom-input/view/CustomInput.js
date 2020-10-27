@@ -5,18 +5,19 @@ const CustomInput = ({
   title,
   type,
   size,
-  maxLength,
+  maxLength = 32,
+  placeholder = '',
   onChangeHandler = undefined,
 }) => {
-  // let len = 'calc(100% - ' + Number(title.length) * 0.65 + 'em - 50px)';
   return (
     <div className="CustomInput">
       <span style={{ fontSize: size }}>{title}</span>
 
       <input
         type={type}
-        style={{ fontSize: size }}
+        style={{ fontSize: size, width: maxLength + 'em' }}
         maxLength={maxLength}
+        placeholder={placeholder}
         onChange={(e) => onChangeHandler(e.target.value)}
       />
     </div>

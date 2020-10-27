@@ -11,8 +11,9 @@ const EditUnit = ({
   title,
   index,
   inputForms,
+  placeholder,
   onChangeHandler,
-  requestCreateUnit,
+  requestEditUnit,
 }) => {
   return (
     <div className="EditUnit">
@@ -34,7 +35,8 @@ const EditUnit = ({
                 type={input.type}
                 size={input.fontSize}
                 maxLength={input.max}
-                onChangeHandler={onChangeHandler(input.title)}
+                placeholder={placeholder}
+                onChangeHandler={onChangeHandler}
               />
             </div>
           </div>
@@ -44,7 +46,7 @@ const EditUnit = ({
             <div className="Padding" />
             <div
               className={classNames('Button', { Show: show, Hide: !show })}
-              onClick={requestCreateUnit}
+              onClick={requestEditUnit}
             >
               <img draggable="false" className="Arrow" src={arrow} alt="" />
               <span>START</span>

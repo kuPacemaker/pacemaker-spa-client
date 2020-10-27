@@ -13,6 +13,7 @@ import ModifyAccount from 'components/overlay-contexts/modify-account';
 import Menu from 'components/overlay-contexts/overlay-menu';
 import QAModal from 'components/overlay-contexts/qa-modal';
 import AlertModal from 'components/overlay-contexts/alert-modal';
+import RemoveUnit from 'components/overlay-contexts/remove-unit';
 
 import './Overlay.scss';
 
@@ -74,6 +75,9 @@ const Overlay = ({ visible, type, active, overlayHandler }) => {
       break;
     case 'ALERT MODAL':
       context = <AlertModal visible={visible} changeHandler={overlayHandler} />;
+      break;
+    case 'REMOVE UNIT':
+      context = <RemoveUnit visible={visible} changeHandler={overlayHandler} />;
       break;
     default:
   }

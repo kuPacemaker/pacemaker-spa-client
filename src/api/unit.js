@@ -478,3 +478,48 @@ export const create = async (payload) => {
 // export const create = async (payload) => {
 //   return await axios.post(`~~`, payload);
 // };
+
+// export const edit = async (payload) => {
+//   return await axios.post(`~~`, payload);
+// };
+
+// export const remove = async (payload) => {
+//   return await axios.post(`~~`, payload);
+// };
+
+/**
+ *
+ * @param {token, channel, unit} payload
+ */
+export const remove = async (payload) => {
+  await sleep(250);
+
+  testData[payload.channel].units = testData[payload.channel].units.filter(
+    (unit) => {
+      return unit.id !== payload.unit;
+    }
+  );
+
+  return new Promise((resolve) => resolve(testData[payload.channel]));
+};
+
+/**
+ *
+ * @param {token, channel, unit, title} payload
+ */
+export const edit = async (payload) => {
+  await sleep(250);
+
+  testData[payload.channel].units = testData[payload.channel].units.map(
+    (unit) => {
+      if (unit.id === payload.unit)
+        return {
+          ...unit,
+          title: payload.title,
+        };
+      else return unit;
+    }
+  );
+
+  return new Promise((resolve) => resolve(testData[payload.channel]));
+};

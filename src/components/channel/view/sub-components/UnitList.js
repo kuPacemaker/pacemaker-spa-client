@@ -7,7 +7,7 @@ const UnitList = ({ type, channel, units }) => (
       <div key={index} className="Line">
         <UnitThumbnail
           channel={channel}
-          id={unit.id}
+          unit={unit.id}
           index={unit.index}
           type={type}
           title={unit.title}

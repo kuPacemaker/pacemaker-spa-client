@@ -21,11 +21,13 @@ const inputForms = [
     title: 'E-MAIL',
     type: 'email',
     fontSize: '1.35em',
+    max: 22,
   },
   {
     title: 'PASSWORD',
     type: 'password',
     fontSize: '1.35em',
+    max: 20,
   },
 ];
 

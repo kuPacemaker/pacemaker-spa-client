@@ -4,10 +4,10 @@
     }
 
     input {
-        background-color: #FFFFFF00;
+        background-color: rgba($color: #000000, $alpha: 0.75);
         border: none;
-        width: 23em;
         padding: 0;
+
     }
 
     input:focus {

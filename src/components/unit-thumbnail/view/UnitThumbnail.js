@@ -10,7 +10,7 @@ import answer from 'resources/images/icon/answer.png';
 
 import './UnitThumbnail.scss';
 
-const IconSet = ({ type, state, onClickHandler }) => {
+const IconSet = ({ type, state, onClickHandler, showModalHandler }) => {
   if (type === 'leader')
     return (
       <div className="IconSet">
@@ -20,7 +20,7 @@ const IconSet = ({ type, state, onClickHandler }) => {
           name="edit"
           src={edit}
           alt=""
-          onClick={onClickHandler}
+          onClick={showModalHandler('edit')}
         />
         <img
           draggable="false"
@@ -50,7 +50,7 @@ const IconSet = ({ type, state, onClickHandler }) => {
           name="remove"
           src={remove}
           alt=""
-          onClick={onClickHandler}
+          onClick={showModalHandler('remove')}
         />
       </div>
     );
@@ -86,12 +86,11 @@ const IconSet = ({ type, state, onClickHandler }) => {
 
 const UnitThumbnail = ({
   type,
-  id,
   index,
   title,
   state,
   onClickHandler,
-  // onIconClickHandler,
+  showModalHandler,
 }) => {
   return (
     <div className="UnitThumbnail">
@@ -99,7 +98,12 @@ const UnitThumbnail = ({
         <div className="UnitIndex">Unit {index}</div>
         <div className="UnitTitle">{title}</div>
       </div>
-      <IconSet type={type} state={state} onClickHandler={onClickHandler} />
+      <IconSet
+        type={type}
+        state={state}
+        onClickHandler={onClickHandler}
+        showModalHandler={showModalHandler}
+      />
     </div>
   );
 };

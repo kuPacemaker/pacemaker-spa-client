@@ -29,7 +29,7 @@ const LeftImageFrom = ({
                       title={input.title}
                       type={input.type}
                       size={input.fontSize}
-                      maxLength={20}
+                      maxLength={input.max}
                       onChangeHandler={onChangeHandler(input.title)}
                     />
                   </div>

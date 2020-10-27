@@ -1,6 +1,6 @@
 import { update, pending, success } from '../creators/channel';
 import { fetch } from 'api/channel';
-import { create } from 'api/unit';
+import { create, remove, edit } from 'api/unit';
 
 export const updateChannel = (data) => (dispatch) => {
   dispatch(update(data));
@@ -33,3 +33,31 @@ export const createUnit = (payload, callbackHandler) => async (dispatch) => {
 // export const createChannel = (payload) => (dispatch) => {
 //   console.log('Test');
 // };
+
+/**
+ *
+ * @param {token, channel, unit } payload
+ */
+export const removeUnit = (payload, callbackHandler) => async (dispatch) => {
+  try {
+    const data = await remove(payload);
+    dispatch(update(data));
+    if (callbackHandler) callbackHandler();
+  } catch (e) {
+    console.log(e);
+  }
+};
+
+/**
+ *
+ * @param {token, channel, unit, title} payload
+ */
+export const editUnit = (payload, callbackHandler) => async (dispatch) => {
+  try {
+    const data = await edit(payload);
+    dispatch(update(data));
+    if (callbackHandler) callbackHandler();
+  } catch (e) {
+    console.log(e);
+  }
+};
