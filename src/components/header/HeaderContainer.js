@@ -36,7 +36,6 @@ const onClickHandler = (overlay) => (context) => {
       return;
     case buttons.signin.left[1][0]:
     default:
-      console.log('Do ' + context[0]);
       return;
   }
 };

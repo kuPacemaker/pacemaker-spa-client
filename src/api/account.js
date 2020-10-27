@@ -77,6 +77,7 @@ export const signIn = async (payload) => {
 export const signUp = async (payload) => {
   return await axios.post(server.signUp, payload);
 };
+
 export const findAccount = async (payload) => {
   return await axios.post(server.findAccount, payload);
 };
