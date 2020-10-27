@@ -10,15 +10,15 @@ const collaborators = [
   },
   {
     name: 'binchoo',
-    position: ['NLP Researcr', 'Server Infra', 'QA/QG Service Developer'],
+    position: ['NLP Researcher', 'Server Infra', 'QA/QG Service Developer'],
     email: 'jbinchoo@gmail.com',
     github: 'https://github.com/binchoo',
   },
   {
     name: 'Andrew Chan',
     position: ['Backend Developer', 'Backend Designer', ''],
-    email: 'lunox273@gmail.com',
-    github: 'https://github.com/KLumy',
+    email: 'smc5407@gmail.com',
+    github: 'https://github.com/SeongChan583446/',
   },
   {
     name: 'yulhee',
