@@ -77,8 +77,10 @@ const ModifyAccountContainer = ({
 
   const modiftAccountHandler = (historyHandler) => () => {
     if (state.currentPassword.length === 0) return;
-
-    const invalid = checkPassword(state.newPassword, state.newPassword_re);
+    const invalid =
+      state.newPassword.length === 0 && state.newPassword_re.length === 0
+        ? false
+        : checkPassword(state.newPassword, state.newPassword_re);
     if (invalid) {
       showModal('ALERT MODAL', {
         title: `${invalid}\nCHECK YOUR PASSWORD`,
