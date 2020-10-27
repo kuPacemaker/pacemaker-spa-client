@@ -21,19 +21,19 @@ const inputForms = [
   },
   {
     title: 'CURRENT PASSWARD',
-    type: 'text',
+    type: 'password',
     fontSize: '1.35em',
     max: 48,
   },
   {
     title: 'NEW PASSWORD',
-    type: 'text',
+    type: 'password',
     fontSize: '1.35em',
     max: 50,
   },
   {
     title: 'COMFIRM NEW PASSWORD',
-    type: 'text',
+    type: 'password',
     fontSize: '1.35em',
     max: 46,
   },
@@ -43,6 +43,7 @@ const ModifyAccountContainer = ({
   visible,
   changeHandler,
   token,
+  userId: id,
   show: showModal,
   requestModifyAccount: modifyAccount,
 }) => {
@@ -87,7 +88,8 @@ const ModifyAccountContainer = ({
     } else {
       modifyAccount(
         {
-          token: token,
+          token,
+          id,
           pw: state.currentPassword,
           new_pw: state.newPassword,
           name: state.name,
@@ -95,18 +97,20 @@ const ModifyAccountContainer = ({
         (success) => {
           console.log(success);
           if (success) {
+            console.log('YES');
             changeHandler();
             historyHandler(LocalPath.root);
             showModal('ALERT MODAL', {
-              title: 'SIGN-UP SUCCESS\nSIGN-IN TO PACEMAKER!',
+              title: 'MODIFY SUCCESS\nSIGN-IN AGAIN!',
               body:
-                'Now You are one of the PACEMAKER members!\nWe Cheer the way you go.',
+                'Your account data is changed!\nPlease sign-in with your new data.',
             });
           } else {
+            console.log('NO');
             showModal('ALERT MODAL', {
-              title: 'SIGN-UP DENIED\nYOU ALREADY SIGN-UP!',
+              title: 'MODIFY DENIED\nPASSWORD MISMATCH!',
               body:
-                'This e-mail is already signed up!\nYou can try to find your account.',
+                'The password you entered is incorrect!\nYou must enter the correct password to change the data.',
             });
           }
         }
@@ -127,6 +131,7 @@ const ModifyAccountContainer = ({
 
 const mapStateToProps = ({ account }) => ({
   token: account.token,
+  userId: account.id,
 });
 
 const mapDispatchToProps = (dispatch) =>

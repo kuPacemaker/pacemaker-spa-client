@@ -49,7 +49,7 @@ const EditUnit = ({
               onClick={requestEditUnit}
             >
               <img draggable="false" className="Arrow" src={arrow} alt="" />
-              <span>START</span>
+              <span>EDIT</span>
             </div>
           </div>
         </div>

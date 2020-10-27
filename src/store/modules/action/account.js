@@ -40,7 +40,8 @@ export const requestFindAccount = (payload, callbackHandler) => async (
 export const requestModifyAccount = (payload, callbackHandler) => async (
   dispatch
 ) => {
-  const userInfo = await modifyAccount(payload);
-  if (userInfo.message) dispatch(signout());
-  if (callbackHandler) callbackHandler(userInfo.message);
+  const response = await modifyAccount(payload);
+  console.log(response.message);
+  if (response.message) dispatch(signout());
+  if (callbackHandler) callbackHandler(response.message);
 };

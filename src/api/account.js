@@ -28,11 +28,14 @@ export const apiSignIn = async (payload) => {
 
 /**
  *
- * @param {id, pw} payload
+ * @param  {token, id, pw, new_pw, name} payload
  */
 // FIXME: 추후 대체될 것
 export const modifyAccount = async (payload) => {
   await sleep(250);
+  console.log(DUMMY_ACCOUNT);
+  console.log(payload.id);
+
   if (DUMMY_ACCOUNT.hasOwnProperty(payload.id)) {
     return new Promise((resolve) =>
       resolve({
