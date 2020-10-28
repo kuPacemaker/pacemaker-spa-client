@@ -67,7 +67,19 @@ export const fetch = async (payload) => {
   return new Promise((resolve) => resolve(dummy));
 };
 
-// FIXME: 추후 대체될 것
+// import { axios } from 'common/api-wrapper';
+// import { app } from 'common/server-path';
+
+// const board = {};
+// board['request'] =
+//   process.env.NODE_ENV === 'development'
+//     ? app.api + app.requestBoard
+//     : app.board.request();
+
+// /**
+//  *
+//  * @param {token} payload
+//  */
 // export const fetch = async (payload) => {
-//   return await axios.post(`~~`, info)
-// }
+//   return await axios.post(board.request, payload);
+// };

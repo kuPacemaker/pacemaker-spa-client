@@ -208,15 +208,7 @@ export const fetch = async (payload) => {
 
   return new Promise((resolve) => resolve(testData[payload.channel]));
 };
-
-// FIXME: 추후 요걸로 대체
-// export const fetch = async () => {
-//   return await axios.get(`~~`)
-// }
-
-// FIXME: for test
 let id = 1000;
-
 /**
  *
  * @param {token, title, detail, image} payload
@@ -228,11 +220,6 @@ export const create = async (payload) => {
 
   return new Promise((resolve) => resolve(dummy));
 };
-
-// FIXME: 추후 대체될 것
-// export const create = async (payload) => {
-//   return await axios.post(`~~`, data)
-// }
 /**
  *
  * @param {token, accessCode} payload
@@ -244,7 +231,45 @@ export const enter = async (payload) => {
   return new Promise((resolve) => resolve(dummy));
 };
 
-// FIXME: 추후 대체될 것
+// import { axios } from 'common/api-wrapper';
+// import { app } from 'common/server-path';
+
+// const channel = {};
+// channel['create'] =
+//   process.env.NODE_ENV === 'development'
+//     ? app.api + app.createChannel
+//     : app.channel.create();
+
+// channel['enter'] =
+//   process.env.NODE_ENV === 'development'
+//     ? app.api + app.enterChannel
+//     : app.channel.enter();
+
+// channel['request'] =
+//   process.env.NODE_ENV === 'development'
+//     ? app.api + app.requestChannel
+//     : app.channel.request();
+
+// /**
+//  *
+//  * @param {token, type, channel} payload
+//  */
+// export const fetch = async (payload) => {
+//   return await axios.post(channel.request, payload);
+// };
+
+// /**
+//  *
+//  * @param {token, title, detail, image} payload
+//  */
+// export const create = async (payload) => {
+//   return await axios.post(channel.create, payload);
+// };
+
+// /**
+//  *
+//  * @param {token, accessCode} payload
+//  */
 // export const enter = async (payload) => {
-//   return await axios.post(`~~`, payload)
-// }
+//   return await axios.post(channel.enter, payload);
+// };

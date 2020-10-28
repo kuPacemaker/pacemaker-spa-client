@@ -9,7 +9,7 @@ const NewspeedContainer = (props) => {
   useEffect(() => {
     setVisible(true);
     // initialize newspeed
-    if (!props.peeds) props.fetchNewspeed();
+    // if (!props.peeds) props.fetchNewspeed();
     return () => {
       setVisible(false);
     };

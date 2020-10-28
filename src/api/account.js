@@ -49,39 +49,39 @@
 import { axios } from 'common/api-wrapper';
 import { app } from 'common/server-path';
 
-const server = {};
-server['signIn'] =
+const account = {};
+account['signin'] =
   process.env.NODE_ENV === 'development'
     ? app.api + app.signIn
-    : app.account.signIn();
+    : app.account.signin();
 
-server['signUp'] =
+account['signup'] =
   process.env.NODE_ENV === 'development'
     ? app.api + app.signUp
-    : app.account.signUp();
+    : app.account.signup();
 
-server['findAccount'] =
+account['find'] =
   process.env.NODE_ENV === 'development'
     ? app.api + app.findAccount
-    : app.account.findAccount();
+    : app.account.find();
 
-server['modifyAccount'] =
+account['modify'] =
   process.env.NODE_ENV === 'development'
     ? app.api + app.modifyAccount
-    : app.account.modifyAccount();
+    : app.account.modify();
 
 export const signIn = async (payload) => {
-  return await axios.post(server.signIn, payload);
+  return await axios.post(account.signin, payload);
 };
 
 export const signUp = async (payload) => {
-  return await axios.post(server.signUp, payload);
+  return await axios.post(account.signup, payload);
 };
 
 export const findAccount = async (payload) => {
-  return await axios.post(server.findAccount, payload);
+  return await axios.post(account.find, payload);
 };
 
 export const modifyAccount = async (payload) => {
-  return await axios.post(server.modifyAccount, payload);
+  return await axios.post(account.modify, payload);
 };

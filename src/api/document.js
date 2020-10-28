@@ -62,11 +62,6 @@ export const create = async (payload) => {
   return new Promise((resolve) => resolve(documentForm));
 };
 
-// FIXME: 추후 대체될 것
-// export const create = async () => {
-//   return await axios.post(`~~`, info)
-// }
-
 /**
  *
  * @param {token, document} payload
@@ -78,10 +73,37 @@ export const update = async (payload) => {
   return new Promise((resolve) => resolve(payload.document));
 };
 
-// FIXME: 추후 대체될 것
-// export const update = async () => {
-//   return await axios.post(`~~`, info)
-// }
+// import { axios } from 'common/api-wrapper';
+// import { app } from 'common/server-path';
+
+// const bocuments = {};
+// bocuments['create'] =
+//   process.env.NODE_ENV === 'development'
+//     ? app.api + app.createBKD
+//     : app.documents.create();
+
+// bocuments['update'] =
+//   process.env.NODE_ENV === 'development'
+//     ? app.api + app.editBKD
+//     : app.documents.edit();
+
+// /**
+//  *
+//  * @param {token, channel, unit} payload
+//  */
+
+// export const create = async (payload) => {
+//   return await axios.post(bocuments.create, payload);
+// };
+
+// /**
+//  *
+//  * @param {token, document} payload
+//  */
+
+// export const update = async (payload) => {
+//   return await axios.post(bocuments.update, payload);
+// };
 
 export default {
   create,
