@@ -5,9 +5,11 @@ import { refresh as refreshData } from 'api/refresh';
 
 export const refresh = (payload, callbackHandler) => async (dispatch) => {
   try {
-    const data = await refreshData(payload);
-    dispatch(updateNewspeed(data.newspeed));
-    dispatch(updateBoard(data.board));
+    const response = await refreshData(payload);
+    const { state, board } = response.data;
+    if (state !== 'success') return;
+    dispatch(updateNewspeed(board.newsfeed));
+    dispatch(updateBoard(board.leader, board.runner));
     if (callbackHandler) callbackHandler();
   } catch (e) {
     console.log(e);
