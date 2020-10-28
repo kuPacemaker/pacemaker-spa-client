@@ -47,6 +47,7 @@ paper['submit'] =
   process.env.NODE_ENV === 'development'
     ? app.api + app.submitPaper
     : app.paper.submitPaper();
+
 /**
  *
  * @param {token, unit} payload
@@ -57,15 +58,36 @@ export const generateQuestion = async (payload) => {
     unit_id: payload.unit,
   });
 };
-
+/**
+ *
+ * @param {token, unit, removed} payload
+ */
 export const verifyQuestion = async (payload) => {
-  return await axios.post(paper.verify, payload);
+  return await axios.post(paper.verify, {
+    token: payload.token,
+    unit_id: payload.unit,
+    pair_ids: payload.removed,
+  });
 };
-
+/**
+ *
+ * @param {token, unit} payload
+ */
 export const makeReservation = async (payload) => {
-  return await axios.post(paper.reservation, payload);
+  return await axios.post(paper.reservation, {
+    token: payload.token,
+    unit_id: payload.unit,
+  });
 };
 
+/**
+ *
+ * @param {token, unit, answers} payload
+ */
 export const markPaper = async (payload) => {
-  return await axios.post(paper.submit, payload);
+  return await axios.post(paper.submit, {
+    token: payload.token,
+    unit_id: payload.unit,
+    pairs: payload.answers,
+  });
 };

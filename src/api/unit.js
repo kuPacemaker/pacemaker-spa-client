@@ -542,12 +542,12 @@ export const create = async (payload) => {
  * @param {token, channel, unit, index, title} payload
  */
 export const edit = async (payload) => {
-  return await axios.post(unit.edit, {
-    token: payload.token,
-    id: payload.unit,
-    index: payload.index,
-    title: payload.title,
-  });
+  // return await axios.post(unit.edit, {
+  //   token: payload.token,
+  //   id: payload.unit,
+  //   index: payload.index,
+  //   title: payload.title,
+  // });
 };
 
 /**
@@ -555,5 +555,5 @@ export const edit = async (payload) => {
  * @param {token, channel, unit} payload
  */
 export const remove = async (payload) => {
-  return await axios.post(unit.delete, payload);
+  // return await axios.post(unit.delete, payload);
 };

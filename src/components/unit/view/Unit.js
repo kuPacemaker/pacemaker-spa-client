@@ -159,6 +159,7 @@ const Unit = (props) => {
               type={props.type}
               unit={props.unit}
               onClickHandler={changeTab}
+              onRemoveUnitHandler={props.onRemoveUnitHandler}
             />
           </div>
         </div>

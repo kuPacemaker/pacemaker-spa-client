@@ -7,7 +7,13 @@ import {
   SUCCESS,
 } from '../type/unit';
 
-export const update = createAction(UPDATE, (data) => data);
+export const update = createAction(UPDATE, (data) => ({
+  channel: data.channel,
+  unit: {
+    ...data.unit,
+    paper: data.paper,
+  },
+}));
 
 export const update_document = createAction(UPDATE_DOCUMENT, (data) => data);
 

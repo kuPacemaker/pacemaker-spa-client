@@ -17,14 +17,14 @@ export const createChannel = (payload) => async (dispatch) => {
 
 /**
  *
- * @param {token, accessCode} payload
+ * @param {token, code} payload
  */
 export const enterChannel = (payload) => async (dispatch) => {
   try {
     const response = await enter(payload);
     const { state, ...data } = response.data;
     console.log(data);
-    dispatch(update(data));
+    dispatch(update(data.leader, data.runner));
   } catch (e) {
     console.log(e);
   }

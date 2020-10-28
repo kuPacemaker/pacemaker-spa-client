@@ -28,6 +28,7 @@ const Quiz = ({ data, onVerifyHandler }) => {
   }, [data.id]);
 
   const answers = data.answer_set.split('/');
+
   return (
     <div
       className="Quiz"

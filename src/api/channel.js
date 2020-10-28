@@ -275,11 +275,12 @@ export const create = async (payload) => {
 
 /**
  *
- * @param {token, accessCode} payload
+ * @param {token, code} payload
  */
 export const enter = async (payload) => {
+  console.log(payload);
   return await axios.post(channel.enter, {
     token: payload.token,
-    accesscode: payload.accessCode,
+    accesscode: payload.code,
   });
 };

@@ -47,7 +47,7 @@ export default handleActions(
       }),
     [UPDATE_QUESTION]: (state, action) =>
       produce(state, (draft) => {
-        draft.data.unit.paper.questions = action.payload;
+        draft.data.unit.paper = action.payload;
       }),
     [PENDING]: (state) =>
       produce(state, (draft) => {

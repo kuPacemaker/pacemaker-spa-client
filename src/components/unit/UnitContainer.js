@@ -3,9 +3,16 @@ import { useHistory } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 
-import { getUnit, makeReservation } from 'store/modules/action/unit';
+import {
+  getUnit,
+  makeReservation,
+  verifyQuestion,
+} from 'store/modules/action/unit';
+
 import { update } from 'store/modules/creators/unit';
 import { show } from 'store/modules/creators/modal';
+
+import { LocalMainPage } from 'common/local-path';
 import unitDocument from 'store/modules/action/document';
 
 import Unit from './view/Unit';
@@ -73,6 +80,7 @@ const cancelDoceument = (updateHandler) => (state, action) => (
 };
 
 const updatePaper = (updateHandler) => (state, action) => () => {
+  console.log('update');
   updateHandler({
     ...state,
     unit: {
@@ -84,32 +92,45 @@ const updatePaper = (updateHandler) => (state, action) => () => {
 
 // const editDocument = (token, document) => () => {};
 
-const verifyPaper = (updateHandler) => (
-  state,
+const verifyPaper = (verifyHandler) => (
+  token,
+  unit,
   local,
-  updateLocalState
+  setLocalState
 ) => () => {
-  const questions = local.questions.filter((question) => question.verified);
-
-  updateLocalState({
+  const verified = [];
+  const removed = [];
+  local.questions.forEach((question) => {
+    if (question.verified) verified.push(question);
+    else removed.push({ pair_id: question.id });
+  });
+  setLocalState({
     ...local,
-    questions: questions,
+    questions: verified,
   });
-
-  updateHandler({
-    ...state,
-    unit: {
-      ...state.unit,
-      paper: {
-        ...local,
-        questions: questions,
-      },
-    },
-  });
+  verifyHandler({ token, unit, removed });
 };
 
-const onReservationHandler = (reservation, payload) => () => {
-  reservation(payload, () => console.log('callback'));
+const onReservationHandler = (reservation) => (token, unit) => () => {
+  reservation({ token, unit }, () => console.log('callback'));
+};
+
+const onRemoveUnitHandler = (modal, history) => (
+  token,
+  channel,
+  unit
+) => () => {
+  modal(
+    'REMOVE UNIT',
+    {
+      token,
+      channel,
+      unit,
+    },
+    () => {
+      history(LocalMainPage.root);
+    }
+  );
 };
 
 const UnitContainer = ({
@@ -124,6 +145,7 @@ const UnitContainer = ({
   update: updateHandler,
   show: showModalHandler,
   reservation,
+  verifyQuestion: verifyHandler,
   createDocs,
   updateDocs,
 }) => {
@@ -154,6 +176,11 @@ const UnitContainer = ({
       tab={tab}
       document={document}
       paper={paper}
+      onRemoveUnitHandler={onRemoveUnitHandler(showModalHandler, history)(
+        token,
+        channelId,
+        unitId
+      )}
       showModalHandler={showModalHandler}
       createDocument={createDocument(createDocs)(token, channelId, unitId)}
       updateDocument={updateDocument(updateDocs)(token, document)}
@@ -164,10 +191,10 @@ const UnitContainer = ({
       documentHandler={documentHandler(document, setDocument)}
       //FIXME: updateHandler를 통해서 redux 접근. 이 부분을 서버통신으로 변경
       updatePaper={updatePaper(updateHandler)(data, paper)}
-      verifyPaper={verifyPaper(updateHandler)(data, paper, setPaper)}
+      verifyPaper={verifyPaper(verifyHandler)(token, unitId, paper, setPaper)}
       onVerifyHandler={onVerifyHandler(paper, setPaper)}
       onAnswerHandler={onAnswerHandler(paper, setPaper)}
-      onReservationHandler={onReservationHandler(reservation, {})}
+      onReservationHandler={onReservationHandler(reservation)(token, unitId)}
     />
   );
 };
@@ -184,6 +211,7 @@ const mapDispatchToProps = (dispatch) =>
       getUnit,
       show,
       update,
+      verifyQuestion,
       reservation: makeReservation,
       createDocs: unitDocument.create,
       updateDocs: unitDocument.update,

@@ -23,15 +23,7 @@ export const getUnit = (payload, callbackHandler) => async (dispatch) => {
     const { state, ...data } = response.data;
     console.log(data);
     dispatch(success());
-    dispatch(
-      update({
-        ...data,
-        unit: {
-          ...data.unit,
-          paper: data.paper,
-        },
-      })
-    );
+    dispatch(update(data));
 
     if (callbackHandler) callbackHandler();
   } catch (e) {
@@ -48,7 +40,7 @@ export const makeQuestion = (payload, callbackHandler) => async (dispatch) => {
   try {
     const response = await generateQuestion(payload);
     const { state, ...data } = response.data;
-    console.log(data);
+    dispatch(update_question(data));
     // console.log(response);
     // const passages = response.data.passages;
     // const nouns = response.data.nouns;
@@ -68,7 +60,7 @@ export const makeQuestion = (payload, callbackHandler) => async (dispatch) => {
 
 /**
  *
- * @param {token, document} payload
+ * @param {token, unit ,removed} payload
  * @param {*} historyHandler
  */
 export const verifyQuestion = (payload, callbackHandler) => async (
@@ -80,7 +72,7 @@ export const verifyQuestion = (payload, callbackHandler) => async (
     const { state, ...data } = response.data;
     console.log(payload);
     console.log(data);
-
+    dispatch(update_question(data));
     if (callbackHandler) callbackHandler();
   } catch (e) {
     console.log(e);
@@ -126,4 +118,10 @@ export const submitPaper = (payload, callbackHandler) => async (dispatch) => {
   }
 };
 
-export default { getUnit, makeQuestion, submitPaper };
+// export default {
+//   getUnit,
+//   makeQuestion,
+//   verifyQuestion,
+//   makeReservation,
+//   submitPaper,
+// };

@@ -7,7 +7,7 @@ import remove from 'resources/images/icon/remove.png';
 import quiz from 'resources/images/icon/quiz.png';
 import answer from 'resources/images/icon/answer.png';
 
-const TopIconSet = ({ type, unit, onClickHandler }) => {
+const TopIconSet = ({ type, unit, onClickHandler, onRemoveUnitHandler }) => {
   if (type === 'leader') {
     return (
       <>
@@ -29,7 +29,13 @@ const TopIconSet = ({ type, unit, onClickHandler }) => {
           alt=""
           onClick={onClickHandler('upload')}
         />
-        <img draggable="false" className="Icon" src={remove} alt="" />
+        <img
+          draggable="false"
+          className="Icon"
+          src={remove}
+          alt=""
+          onClick={onRemoveUnitHandler}
+        />
       </>
     );
   } else if (type === 'runner') {
