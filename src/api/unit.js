@@ -526,15 +526,25 @@ export const fetch = async (payload) => {
  * @param {token, channel, type, index, title} payload
  */
 export const create = async (payload) => {
-  return await axios.post(unit.create, payload);
+  return await axios.post(unit.create, {
+    token: payload.token,
+    channel_id: payload.channel,
+    index: payload.index,
+    title: payload.title,
+  });
 };
 
 /**
  *
- * @param {token, channel, unit, title} payload
+ * @param {token, channel, unit, index, title} payload
  */
 export const edit = async (payload) => {
-  return await axios.post(unit.edit, payload);
+  return await axios.post(unit.edit, {
+    token: payload.token,
+    id: payload.unit,
+    index: payload.index,
+    title: payload.title,
+  });
 };
 
 /**

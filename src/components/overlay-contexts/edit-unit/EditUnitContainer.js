@@ -33,7 +33,7 @@ const EditUnitContainer = ({
   };
 
   const requestEditUnit = () => {
-    edit({ token, channel, unit, title: unitName }, changeHandler);
+    edit({ token, channel, index, unit, title: unitName }, changeHandler);
   };
   return (
     <EditUnit

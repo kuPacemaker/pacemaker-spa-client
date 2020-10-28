@@ -8,9 +8,8 @@ import { create, enter } from 'api/channel';
 export const createChannel = (payload) => async (dispatch) => {
   try {
     const response = await create(payload);
-
-    console.log(response);
-    dispatch(update(response.data));
+    const { state, ...board } = response.data;
+    dispatch(update(board.leader, board.runner));
   } catch (e) {
     console.log(e);
   }
@@ -22,9 +21,9 @@ export const createChannel = (payload) => async (dispatch) => {
  */
 export const enterChannel = (payload) => async (dispatch) => {
   try {
-    const data = await enter(payload);
-
-    // 최신화된 데이터를 리덕스 스토어에 반영
+    const response = await enter(payload);
+    const { state, ...data } = response.data;
+    console.log(data);
     dispatch(update(data));
   } catch (e) {
     console.log(e);
