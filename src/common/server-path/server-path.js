@@ -54,7 +54,7 @@ export const app = {
     delete: () => app.base + app.api + app.deleteUnit,
     request: () => app.base + app.api + app.requestUnit,
   },
-  quiz: {
+  paper: {
     generateQuestion: () => app.base + app.api + app.generateQuestion,
     verifyQuestion: () => app.base + app.api + app.verifyQuestion,
     makeReservation: () => app.base + app.api + app.makeReservation,

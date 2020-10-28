@@ -4,6 +4,8 @@ import { makePaper } from 'common/paper/make-paper';
 import { fetch } from 'api/unit';
 import { generateQuestion, markPaper } from 'api/paper';
 
+// import { generateQuestion, markPaper } from 'api/paper';
+
 /**
  *
  * @param {token, channel, unit} payload
