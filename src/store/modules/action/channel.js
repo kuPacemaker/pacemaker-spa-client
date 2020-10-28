@@ -11,6 +11,7 @@ export const fetchChannel = (payload, callbackHandler) => async (dispatch) => {
     dispatch(pending());
     const response = await fetch(payload);
     const { state, ...data } = response.data;
+    console.log(data);
     dispatch(success());
     dispatch(update(data));
     if (callbackHandler) callbackHandler();
@@ -26,6 +27,7 @@ export const createUnit = (payload, callbackHandler) => async (dispatch) => {
   try {
     const response = await create(payload);
     const { state, ...data } = response.data;
+    console.log(data);
     dispatch(update(data));
     if (callbackHandler) callbackHandler();
   } catch (e) {
@@ -44,6 +46,7 @@ export const removeUnit = (payload, callbackHandler) => async (dispatch) => {
   try {
     const response = await remove(payload);
     const { state, ...data } = response.data;
+    console.log(data);
     dispatch(update(data));
     if (callbackHandler) callbackHandler();
   } catch (e) {

@@ -161,6 +161,7 @@ const UnitContainer = ({
         data.unit.document
       )}
       documentHandler={documentHandler(document, setDocument)}
+      //FIXME: updateHandler를 통해서 redux 접근. 이 부분을 서버통신으로 변경
       updatePaper={updatePaper(updateHandler)(data, paper)}
       verifyPaper={verifyPaper(updateHandler)(data, paper, setPaper)}
       onVerifyHandler={onVerifyHandler(paper, setPaper)}

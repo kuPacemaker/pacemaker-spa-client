@@ -34,6 +34,15 @@ paper['generate'] =
   process.env.NODE_ENV === 'development'
     ? app.api + app.generateQuestion
     : app.paper.generateQuestion();
+paper['verify'] =
+  process.env.NODE_ENV === 'development'
+    ? app.api + app.verifyQuestion
+    : app.paper.verifyQuestion();
+paper['reservation'] =
+  process.env.NODE_ENV === 'development'
+    ? app.api + app.makeReservation
+    : app.paper.makeReservation();
+
 paper['submit'] =
   process.env.NODE_ENV === 'development'
     ? app.api + app.submitPaper
@@ -41,6 +50,14 @@ paper['submit'] =
 
 export const generateQuestion = async (payload) => {
   return await axios.post(paper.generate, payload);
+};
+
+export const verifyQuestion = async (payload) => {
+  return await axios.post(paper.verify, payload);
+};
+
+export const makeReservation = async (payload) => {
+  return await axios.post(paper.reservation, payload);
 };
 
 export const markPaper = async (payload) => {
