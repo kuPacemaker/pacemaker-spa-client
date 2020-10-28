@@ -1,13 +1,13 @@
 import React from 'react';
 import { Route, Redirect, Switch } from 'react-router-dom';
-import { Newspeed, Board, Channel, Unit, Documents } from 'pages';
+import { Newsfeed, Board, Channel, Unit, Documents } from 'pages';
 import { LocalMainPage } from 'common/local-path';
 
 const MainPageRouter = ({ location }) => {
   return (
     <>
       <Switch>
-        <Route exact path={LocalMainPage.newspeed.path} component={Newspeed} />
+        <Route exact path={LocalMainPage.newsfeed.path} component={Newsfeed} />
         <Route exact path={LocalMainPage.board.path} component={Board} />
         <Route exact path={LocalMainPage.channel.path} component={Channel} />
         <Route exact path={LocalMainPage.unit.path} component={Unit} />
@@ -18,7 +18,7 @@ const MainPageRouter = ({ location }) => {
         />
         <Redirect
           path={LocalMainPage.root + '*'}
-          to={LocalMainPage.newspeed.path}
+          to={LocalMainPage.newsfeed.path}
         />
       </Switch>
     </>

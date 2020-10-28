@@ -1,15 +1,15 @@
 import React, { useState, useRef } from 'react';
 import classNames from 'classnames';
-import Peed from 'components/peed';
+import Feed from 'components/feed';
 import background from 'resources/images/background/background-right.png';
 import arrow from 'resources/images/icon/arrow-down.png';
 
-import './Newspeed.scss';
+import './Newsfeed.scss';
 
 const scrollToRef = (ref, to) =>
   ref.current.scrollTo({ top: to, left: 0, behavior: 'smooth' });
 
-const Newspeed = ({ peeds, visible }) => {
+const Newsfeed = ({ feeds, visible }) => {
   const container = useRef(null);
   const [state, setState] = useState({
     isBottom: false,
@@ -34,7 +34,7 @@ const Newspeed = ({ peeds, visible }) => {
 
   return (
     <div
-      className={classNames('Newspeed', { Invisible: !visible })}
+      className={classNames('Newsfeed', { Invisible: !visible })}
       style={{ backgroundImage: 'url(' + background + ')' }}
     >
       <div className="ArrowFrame">
@@ -56,15 +56,15 @@ const Newspeed = ({ peeds, visible }) => {
         ref={container}
       >
         <div>
-          {peeds &&
-            peeds.map((peed, index) => (
-              <div className="PeedBox" key={index}>
-                <Peed
+          {feeds &&
+            feeds.map((feed, index) => (
+              <div className="FeedBox" key={index}>
+                <Feed
                   key={index}
-                  type={peed.type}
-                  title={peed.title}
-                  body={peed.body}
-                  arg={peed.arg}
+                  type={feed.type}
+                  title={feed.title}
+                  body={feed.body}
+                  arg={feed.arg}
                 />
               </div>
             ))}
@@ -74,4 +74,4 @@ const Newspeed = ({ peeds, visible }) => {
   );
 };
 
-export default Newspeed;
+export default Newsfeed;

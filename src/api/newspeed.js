@@ -1,4 +1,4 @@
-// const testPeeds = [
+// const testFeeds = [
 //   {
 //     type: 'SYSTEM_NOTICE',
 //     title: 'NEW FUNCTION IS AVAILABLE',
@@ -65,14 +65,14 @@
 // export const fetch = async (payload) => {
 //   await sleep(250);
 
-//   return new Promise((resolve) => resolve(testPeeds));
+//   return new Promise((resolve) => resolve(testFeeds));
 // };
 // import { axios } from 'common/api-wrapper';
 // import { app } from 'common/server-path';
 
-// const newspeed = {};
+// const newsfeed = {};
 
-// newspeed['signin'] =
+// newsfeed['signin'] =
 //   process.env.NODE_ENV === 'development'
 //     ? app.api + app.signIn
 //     : app.account.signin();

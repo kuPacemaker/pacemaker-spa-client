@@ -1,7 +1,7 @@
 @import 'shared/StyleValues.scss';
 @import 'shared/Animations.scss';
 
-.Peed {
+.Feed {
     position: relative;
     width: 100%;
     height: 100%;
@@ -9,7 +9,7 @@
     margin-top: 50px;
     margin-bottom: 50px;
 
-    .PeedImage {
+    .FeedImage {
         position: absolute;
         border: 1px #0000001F solid;
         width: 50%;
@@ -39,8 +39,8 @@
     }
 }
 
-.RightImagePeed {
-    .PeedImage {
+.RightImageFeed {
+    .FeedImage {
         right: 2%;
     }
 
@@ -49,8 +49,8 @@
     }
 }
 
-.LeftImagePeed {
-    .PeedImage {
+.LeftImageFeed {
+    .FeedImage {
         left: 2%;
     }
 

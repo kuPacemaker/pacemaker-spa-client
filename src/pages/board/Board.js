@@ -10,7 +10,7 @@ const BoardPage = ({ match }) => {
   return (
     <Redirect
       path={LocalMainPage.root + '*'}
-      to={LocalMainPage.newspeed.path}
+      to={LocalMainPage.newsfeed.path}
     />
   );
 };

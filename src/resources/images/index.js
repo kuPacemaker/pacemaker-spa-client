@@ -1,11 +1,11 @@
 import background from './background';
 import channel from './channel';
 import concept from './concept';
-import peeds from './peeds';
+import feeds from './feeds';
 
 export default {
   ...background,
   ...channel,
   ...concept,
-  ...peeds,
+  ...feeds,
 };

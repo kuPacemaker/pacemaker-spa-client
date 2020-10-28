@@ -1,7 +1,7 @@
 @import 'shared/StyleValues.scss';
 @import 'shared/Animations.scss';
 
-.Newspeed {
+.Newsfeed {
     position: absolute;
     background-size: cover;
     pointer-events: none;
@@ -51,7 +51,7 @@
             display: none;
         }
 
-        .PeedBox {
+        .FeedBox {
             margin: 0 auto;
             width: 1200px;
             height: 400px;

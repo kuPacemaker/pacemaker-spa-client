@@ -6,7 +6,7 @@ import board from './board';
 import channel from './channel';
 import modal from './modal';
 import unit from './unit';
-import newspeed from './newspeed';
+import newsfeed from './newsfeed';
 import qa from './qa';
 
 export default (history) =>
@@ -16,7 +16,7 @@ export default (history) =>
     channel,
     modal,
     unit,
-    newspeed,
+    newsfeed,
     qa,
     router: connectRouter(history),
     // 다른 리듀서를 만들게되면 여기에 넣어줌..

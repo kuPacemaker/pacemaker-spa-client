@@ -1,5 +1,5 @@
 // const dummy = {
-//   newspeed: [
+//   newsfeed: [
 //     {
 //       type: 'SYSTEM_NOTICE',
 //       title: 'NEW FUNCTION IS AVAILABLE',
@@ -116,9 +116,9 @@
 //  * 60초~300초마다 계속 호출되면서 화면을 새로고침하는 함수.
 //  * @param {token} payload
 //  * @return {
-//               newspeed: [
-//                       newspeed_obj,...
-//                     ] << 새로운 문제의 생성이나 시험지 도착이 Newpeed로 들어와야 함.
+//               newsfeed: [
+//                       newsfeed_obj,...
+//                     ] << 새로운 문제의 생성이나 시험지 도착이 Newfeed로 들어와야 함.
 //               board: {
 //                     leader: [
 //                             channel_obj,

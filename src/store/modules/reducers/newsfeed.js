@@ -1,6 +1,6 @@
 import { handleActions } from 'redux-actions';
 import produce from 'immer';
-import { UPDATE } from '../type/newspeed';
+import { UPDATE } from '../type/newsfeed';
 
 const initialState = {
   data: null,

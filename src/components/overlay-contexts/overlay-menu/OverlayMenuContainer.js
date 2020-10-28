@@ -4,7 +4,7 @@ import LocalPath from 'common/local-path';
 import OverlayMenu from './view/OverlayMenu';
 
 const main = [
-  ['MY FEED', LocalPath.main.newspeed.path],
+  ['MY FEED', LocalPath.main.newsfeed.path],
   ['FOR LEADER', LocalPath.main.board.leaderpath],
   ['FOR RUNNER', LocalPath.main.board.runnerpath],
   ['MY DOCUMENTS', LocalPath.main.documents.path],

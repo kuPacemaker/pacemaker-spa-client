@@ -18,7 +18,7 @@ admission['findaccount'] = admission.root + '/find-account';
 
 const main = {
   root: path.base + '/main-page',
-  newspeed: {},
+  newsfeed: {},
   board: {
     elements: {
       leader: 'leader',
@@ -31,8 +31,8 @@ const main = {
   statistics: {},
 };
 
-main.newspeed['root'] = main.root + '/newspeeds';
-main.board['root'] = main.root + '/newspeeds';
+main.newsfeed['root'] = main.root + '/newsfeeds';
+main.board['root'] = main.root + '/newsfeeds';
 main.channel['root'] = main.root + '/channel/';
 main.unit['root'] = main.root + '/unit/';
 main.documents['root'] = main.root + '/my-documents/';
@@ -41,7 +41,7 @@ main.statistics['root'] = main.root + '/statistics/';
 main.board['leaderpath'] = main.board.root + main.board.elements.leader;
 main.board['runnerpath'] = main.board.root + main.board.elements.runner;
 
-main.newspeed['path'] = main.newspeed.root;
+main.newsfeed['path'] = main.newsfeed.root;
 main.board['path'] = main.board.root + ':type';
 main.channel['path'] = main.channel.root + ':type';
 main.unit['path'] = main.unit.root + ':type';

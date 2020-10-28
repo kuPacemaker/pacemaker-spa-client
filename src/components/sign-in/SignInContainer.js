@@ -55,7 +55,7 @@ const SignInContainer = (props) => {
     props.requestSignIn({ id: state.id, pw: state.pw }, (token) => {
       if (token) {
         props.refresh({ token });
-        historyHandler(LocalMainPage.newspeed.path);
+        historyHandler(LocalMainPage.newsfeed.path);
       } else {
         props.show('ALERT MODAL', {
           title: 'SIGN-IN DENIED\nID OR PW DO NOT MATCH!',
