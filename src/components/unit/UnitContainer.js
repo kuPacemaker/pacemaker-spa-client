@@ -80,13 +80,9 @@ const cancelDoceument = (updateHandler) => (state, action) => (
 };
 
 const updatePaper = (updateHandler) => (state, action) => () => {
-  console.log('update');
   updateHandler({
     ...state,
-    unit: {
-      ...state.unit,
-      paper: action,
-    },
+    paper: action,
   });
 };
 

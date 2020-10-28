@@ -13,11 +13,19 @@ const SubmitPaperContainer = (props) => {
   const buttons = [
     {
       name: 'YES',
-      onClickHandelr: () =>
-        props.submit(props.paper, (success) => {
-          props.changeHandler();
-          history.goBack();
-        }),
+      onClickHandelr: () => {
+        const answers = props.paper.questions.map((question) => ({
+          id: question.id,
+          user_answer: question.user_answer,
+        }));
+        props.submit(
+          { token: props.token, unit: props.unit, answers },
+          (success) => {
+            props.changeHandler();
+            history.goBack();
+          }
+        );
+      },
     },
     {
       name: 'NO',
@@ -38,6 +46,7 @@ const SubmitPaperContainer = (props) => {
 
 const mapStateToProps = ({ account, unit }) => ({
   token: account.token,
+  unit: unit.data.unit.id,
   paper: unit.data.unit.paper,
 });
 

@@ -90,28 +90,19 @@ export const makeReservation = (payload, callbackHandler) => async (
 
 /**
  *
- * @param {token, document} payload
+ * @param {token, unit, answers} payload
  * @param {*} historyHandler
  */
 export const submitPaper = (payload, callbackHandler) => async (dispatch) => {
   try {
     console.log(payload);
-    // const response = await markPaper(payload);
-    // const { state, ...data } = response.data;
-    // if (state !== 'success') return;
-    // console.log(data);
+    const response = await submit(payload);
+    const { state, ...data } = response.data;
+    if (state !== 'success') return;
+    console.log(data);
     // dispatch(update());
-    // historyHandler();
     if (callbackHandler) callbackHandler();
   } catch (e) {
     console.log(e);
   }
 };
-
-// export default {
-//   getUnit,
-//   makeQuestion,
-//   verifyQuestion,
-//   makeReservation,
-//   submitPaper,
-// };
