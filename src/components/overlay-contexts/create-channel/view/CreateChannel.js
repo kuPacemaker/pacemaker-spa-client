@@ -17,7 +17,7 @@ const CreateChannel = ({
   requestCreateChannel,
 }) => {
   return (
-    <div className="CreateChannel">
+    <div className={classNames('CreateChannel', { Show: show, Hide: !show })}>
       <div className="Title">{title}</div>
       <div className="InputForms">
         {inputForms.map((input, index) => (

@@ -13,6 +13,14 @@
     background-color: white;
     opacity: 1;
 
+    &.Show {
+        pointer-events: all;
+    }
+
+    &.Hide {
+        pointer-events: none;
+    }
+
     .Title {
         margin-top: 7.5%;
         padding-left: $sidemargin;

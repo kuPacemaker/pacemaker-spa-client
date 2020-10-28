@@ -538,7 +538,7 @@ export const create = async (payload) => {
 };
 
 /**
- *
+ * FIXME: 현재 서버api 오류. 동작하지 않음.
  * @param {token, channel, unit, index, title} payload
  */
 export const edit = async (payload) => {
@@ -548,12 +548,14 @@ export const edit = async (payload) => {
   //   index: payload.index,
   //   title: payload.title,
   // });
+  return;
 };
 
 /**
- *
+ * FIXME: 현재 서버api 오류. 동작하지 않음.
  * @param {token, channel, unit} payload
  */
 export const remove = async (payload) => {
   // return await axios.post(unit.delete, payload);
+  return;
 };

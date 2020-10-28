@@ -9,6 +9,7 @@ export const createChannel = (payload) => async (dispatch) => {
   try {
     const response = await create(payload);
     const { state, ...board } = response.data;
+    if (state !== 'success') return;
     dispatch(update(board.leader, board.runner));
   } catch (e) {
     console.log(e);
@@ -23,7 +24,7 @@ export const enterChannel = (payload) => async (dispatch) => {
   try {
     const response = await enter(payload);
     const { state, ...data } = response.data;
-    console.log(data);
+    if (state !== 'success') return;
     dispatch(update(data.leader, data.runner));
   } catch (e) {
     console.log(e);

@@ -84,7 +84,7 @@ export const makeReservation = async (payload) => {
  *
  * @param {token, unit, answers} payload
  */
-export const markPaper = async (payload) => {
+export const submitPaper = async (payload) => {
   return await axios.post(paper.submit, {
     token: payload.token,
     unit_id: payload.unit,

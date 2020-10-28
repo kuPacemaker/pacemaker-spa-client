@@ -55,6 +55,7 @@ const CreateChannelContainer = ({
   };
 
   const requestCreateChannel = () => {
+    if (state.title.length === 0 || state.detail.length === 0) return;
     create({ token, ...state });
     changeHandler();
   };
