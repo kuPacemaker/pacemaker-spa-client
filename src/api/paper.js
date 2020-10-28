@@ -47,9 +47,15 @@ paper['submit'] =
   process.env.NODE_ENV === 'development'
     ? app.api + app.submitPaper
     : app.paper.submitPaper();
-
+/**
+ *
+ * @param {token, unit} payload
+ */
 export const generateQuestion = async (payload) => {
-  return await axios.post(paper.generate, payload);
+  return await axios.post(paper.generate, {
+    token: payload.token,
+    unit_id: payload.unit,
+  });
 };
 
 export const verifyQuestion = async (payload) => {

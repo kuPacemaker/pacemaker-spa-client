@@ -27,6 +27,7 @@ const RootPageContainer = (props) => {
         props.requestSignIn(
           decode(localStorage.getItem('account')),
           (token) => {
+            console.log(token);
             props.refresh({ token });
           }
         );
@@ -44,12 +45,12 @@ const RootPageContainer = (props) => {
       history.push(LocalPath.root);
       return;
     }
-    if (intervalId === 0) {
-      const id = setInterval(() => {
-        props.refresh({ token: props.token });
-      }, 30000);
-      setIntervalId(id);
-    }
+    // if (intervalId === 0) {
+    //   const id = setInterval(() => {
+    //     props.refresh({ token: props.token });
+    //   }, 30000);
+    //   setIntervalId(id);
+    // }
   }, [props.token]);
 
   return <RootPage />;

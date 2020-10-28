@@ -133,6 +133,7 @@ const UnitContainer = ({
   const [paper, setPaper] = useState(data.unit.paper);
 
   useEffect(() => {
+    if (token === null) return;
     getUnitHandler({ token: token, channel: channelId, unit: unitId });
   }, []);
 

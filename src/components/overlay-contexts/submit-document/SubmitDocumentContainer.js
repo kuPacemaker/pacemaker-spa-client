@@ -12,9 +12,8 @@ const SubmitDocumentContainer = (props) => {
     {
       name: 'YES',
       onClickHandelr: () => {
-        props.onCreateQuestion(props.document, () => {
+        props.onCreateQuestion({ token: props.token, unit: props.unit }, () => {
           console.log('Create Question');
-          // props.changeHandler();
         });
         props.changeHandler();
       },
@@ -37,7 +36,7 @@ const SubmitDocumentContainer = (props) => {
 
 const mapStateToProps = ({ account, unit }) => ({
   token: account.token,
-  document: unit.data.unit.document,
+  unit: unit.data.unit.id,
 });
 
 const mapDispatchToProps = (dispatch) => ({

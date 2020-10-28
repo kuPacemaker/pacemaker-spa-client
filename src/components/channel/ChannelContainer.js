@@ -16,6 +16,7 @@ const ChannelContainer = ({
   onClickNotReadyFunction,
 }) => {
   useEffect(() => {
+    if (token === null) return;
     getChannelHandler(token, type, channelId);
   }, []);
 

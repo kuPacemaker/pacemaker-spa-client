@@ -22,8 +22,16 @@ export const getUnit = (payload, callbackHandler) => async (dispatch) => {
     const response = await fetch(payload);
     const { state, ...data } = response.data;
     console.log(data);
-    // dispatch(success());
-    // dispatch(update(data));
+    dispatch(success());
+    dispatch(
+      update({
+        ...data,
+        unit: {
+          ...data.unit,
+          paper: data.paper,
+        },
+      })
+    );
 
     if (callbackHandler) callbackHandler();
   } catch (e) {
@@ -33,7 +41,7 @@ export const getUnit = (payload, callbackHandler) => async (dispatch) => {
 
 /**
  *
- * @param {token, document} payload
+ * @param {token, unit, document} payload
  * @param {*} historyHandler
  */
 export const makeQuestion = (payload, callbackHandler) => async (dispatch) => {

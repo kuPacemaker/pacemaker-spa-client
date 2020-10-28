@@ -8,8 +8,6 @@ const NewsfeedContainer = (props) => {
   const [visible, setVisible] = useState(false);
   useEffect(() => {
     setVisible(true);
-    // initialize newsfeed
-    // if (!props.feeds) props.fetchNewsfeed();
     return () => {
       setVisible(false);
     };

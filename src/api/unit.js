@@ -518,7 +518,10 @@ unit['request'] =
  * @param {token, channel, unit} payload
  */
 export const fetch = async (payload) => {
-  return await axios.post(unit.request, payload);
+  return await axios.post(unit.request, {
+    token: payload.token,
+    unit_id: payload.unit,
+  });
 };
 
 /**
