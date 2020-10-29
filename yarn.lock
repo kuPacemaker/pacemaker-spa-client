@@ -9181,6 +9181,11 @@ react-speech-recognition@^3.2.3:
   resolved "https://registry.yarnpkg.com/react-speech-recognition/-/react-speech-recognition-3.2.3.tgz#974fa44c3460e5c5199aaaf601b0f3c1c34f76ec"
   integrity sha512-xt6vVrJXZvXIp6W7dCAJTAVwNO1L0rN6BHvM3J5NkILYuhY403AkQsRb0NWSjkR6ZpaRhv7otFjD1r7x7h4HQA==
 
+react-ticker@^1.2.2:
+  version "1.2.2"
+  resolved "https://registry.yarnpkg.com/react-ticker/-/react-ticker-1.2.2.tgz#12cda5ff8266c6fe90ffcd8c58e12ba1596ddf24"
+  integrity sha512-PXUujoPJvajxwOfosuuujlrBUrjgGp4FB4haWFOI25ujhMppW4SuLkiOdQ9AylrWN3yTHWdk2kbQWe3n9SjFGA==
+
 react-transition-group@^4.4.1:
   version "4.4.1"
   resolved "https://registry.yarnpkg.com/react-transition-group/-/react-transition-group-4.4.1.tgz#63868f9325a38ea5ee9535d828327f85773345c9"
