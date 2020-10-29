@@ -37,9 +37,6 @@ export const createUnit = (payload, callbackHandler) => async (dispatch) => {
     console.log(e);
   }
 };
-// export const createChannel = (payload) => (dispatch) => {
-//   console.log('Test');
-// };
 
 /**
  *
@@ -49,7 +46,6 @@ export const removeUnit = (payload, callbackHandler) => async (dispatch) => {
   try {
     const response = await remove(payload);
     const { state, message, ...data } = response.data;
-    console.log(data);
     if (state === 'success') {
       dispatch(update(data));
     }
@@ -67,7 +63,6 @@ export const editUnit = (payload, callbackHandler) => async (dispatch) => {
   try {
     const response = await edit(payload);
     const { state, message, ...data } = response.data;
-    console.log(data);
     if (state === 'success') {
       dispatch(update(data));
     }

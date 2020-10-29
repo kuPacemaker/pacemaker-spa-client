@@ -18,7 +18,6 @@ export const getUnit = (payload, callbackHandler) => async (dispatch) => {
     dispatch(pending());
     const response = await fetch(payload);
     const { state, message, ...data } = response.data;
-    console.log(data);
     if (state === 'success') {
       dispatch(success());
       dispatch(update(data));
@@ -38,7 +37,6 @@ export const makeQuestion = (payload, callbackHandler) => async (dispatch) => {
   try {
     const response = await generateQuestion(payload);
     const { state, message, ...data } = response.data;
-    console.log(data);
     if (state === 'success') {
       dispatch(update_question(data));
     }
@@ -57,10 +55,8 @@ export const verifyQuestion = (payload, callbackHandler) => async (
   dispatch
 ) => {
   try {
-    console.log(payload);
     const response = await verify(payload);
     const { state, message, ...data } = response.data;
-    console.log(data);
     if (state === 'success') {
       dispatch(update_question(data));
     }
@@ -80,8 +76,7 @@ export const makeReservation = (payload, callbackHandler) => async (
 ) => {
   try {
     const response = await reservation(payload);
-    const { state, message, ...data } = response.data;
-    console.log(data);
+    const { state, message } = response.data;
     if (state === 'success');
     if (callbackHandler) callbackHandler(state === 'success', message);
   } catch (e) {
@@ -96,10 +91,8 @@ export const makeReservation = (payload, callbackHandler) => async (
  */
 export const submitPaper = (payload, callbackHandler) => async (dispatch) => {
   try {
-    console.log(payload);
     const response = await submit(payload);
-    const { state, message, ...data } = response.data;
-    console.log(data);
+    const { state, message } = response.data;
     if (state === 'success');
     if (callbackHandler) callbackHandler(state === 'success', message);
   } catch (e) {
