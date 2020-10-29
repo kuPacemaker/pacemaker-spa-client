@@ -39,6 +39,7 @@
             width: 100%;
             overflow-y: hidden;
             overflow-x: scroll;
+            white-space: nowrap;
 
             -ms-overflow-style: none;
             scrollbar-width: none;
@@ -47,67 +48,12 @@
                 display: none;
             }
 
-            .ArrowContainer {
-                height: 4vw;
-                white-space: nowrap;
-
-                .Arrow {
-                    margin-left: 1.25vw;
-                    @include square_px(4vw);
-                    margin-right: 1.25vw;
-                }
+            .Arrow {
+                margin-left: 1.25vw;
+                @include square_px(4vw);
+                margin-right: 1.25vw;
             }
 
-        }
-
-        .OurPeople {
-            pointer-events: none;
-            width: 100%;
-            overflow-y: hidden;
-            overflow-x: scroll;
-
-            -ms-overflow-style: none;
-            scrollbar-width: none;
-
-            &::-webkit-scrollbar {
-                display: none;
-            }
-
-            .PeopleContainer {
-                height: 100%;
-                white-space: nowrap;
-
-
-
-                .Person {
-                    padding-top: 15px;
-                    position: relative;
-                    display: inline-block;
-
-                    &.Tag {
-                        font-weight: 600;
-                    }
-
-                    div {
-                        $font: 22px;
-                        $pad: 12px;
-                        text-align: left;
-                        padding: $pad 25px $pad $side;
-                        border-top: 2px black solid;
-                        font-size: $font;
-
-                        span {
-                            display: block;
-                            height: $font + $pad *2;
-                            line-height: $font+$pad *2;
-                        }
-                    }
-
-                    .Page {
-                        border-bottom: 2px black solid;
-                    }
-                }
-            }
         }
     }
 
