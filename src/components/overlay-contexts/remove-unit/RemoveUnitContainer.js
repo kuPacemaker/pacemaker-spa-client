@@ -2,6 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 
 import Modal from '../default-modal';
+import { show } from 'store/modules/creators/modal';
 import { removeUnit } from 'store/modules/action/channel';
 
 const title = 'DO YOU WANT TO\nREMOVE THIS UNIT?';
@@ -14,8 +15,11 @@ const RemoveUnitContainer = (props) => {
       onClickHandelr: () =>
         props.remove(
           { token: props.token, channel: props.channel, unit: props.unit },
-          () => {
-            props.changeHandler();
+          (state, message) => {
+            if (state) props.changeHandler();
+            else {
+              props.onShowWarningModal(message);
+            }
           }
         ),
     },
@@ -45,6 +49,7 @@ const mapStateToProps = ({ account, modal }) => ({
 const mapDispatchToProps = (dispatch) => ({
   remove: (payload, callbackHandler) =>
     dispatch(removeUnit(payload, callbackHandler)),
+  onShowWarningModal: (message) => dispatch(show('ERROR MODAL', { message })),
 });
 
 export default connect(

@@ -59,13 +59,19 @@ const onVerifyHandler = (state, setState) => (id) => () => {
 const createDocument = (createDocs) => (token, channel, unit) => (
   callbackHandler
 ) => () => {
-  createDocs({ token, channel, unit }, callbackHandler);
+  createDocs({ token, channel, unit }, (state, message) => {
+    if (state) callbackHandler();
+    else show('ERROR MODAL', { message });
+  });
 };
 
 const updateDocument = (updateDocs) => (token, document) => (
   callbackHandler
 ) => () => {
-  updateDocs({ token, document }, callbackHandler);
+  updateDocs({ token, document }, (state, message) => {
+    if (state) callbackHandler();
+    else show('ERROR MODAL', { message });
+  });
 };
 
 const cancelDoceument = (updateHandler) => (state, action) => (
@@ -104,11 +110,17 @@ const verifyPaper = (verifyHandler) => (
     ...local,
     questions: verified,
   });
-  verifyHandler({ token, unit, removed });
+  verifyHandler({ token, unit, removed }, (state, message) => {
+    if (state);
+    else show('ERROR MODAL', { message });
+  });
 };
 
 const onReservationHandler = (reservation) => (token, unit) => () => {
-  reservation({ token, unit }, () => console.log('callback'));
+  reservation({ token, unit }, (state, message) => {
+    if (state);
+    else show('ERROR MODAL', { message });
+  });
 };
 
 const onRemoveUnitHandler = (modal, history) => (

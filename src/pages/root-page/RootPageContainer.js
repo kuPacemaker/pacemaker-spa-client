@@ -28,7 +28,6 @@ const RootPageContainer = (props) => {
         props.requestSignIn(
           decode(localStorage.getItem('account')),
           (token) => {
-            console.log(token);
             props.refresh({ token });
           }
         );

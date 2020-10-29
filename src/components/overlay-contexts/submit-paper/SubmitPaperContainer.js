@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 import { useHistory } from 'react-router-dom';
 
 import Modal from '../default-modal';
+import { show } from 'store/modules/creators/modal';
 import { submitPaper } from 'store/modules/action/unit';
 
 const title = 'DO YOU WANT TO\nSUBMIT YOUR QUIZ?';
@@ -20,9 +21,13 @@ const SubmitPaperContainer = (props) => {
         }));
         props.submit(
           { token: props.token, unit: props.unit, answers },
-          (success) => {
-            props.changeHandler();
-            history.goBack();
+          (state, message) => {
+            if (state) {
+              props.changeHandler();
+              history.goBack();
+            } else {
+              props.onShowWarningModal(message);
+            }
           }
         );
       },
@@ -53,6 +58,7 @@ const mapStateToProps = ({ account, unit }) => ({
 const mapDispatchToProps = (dispatch) => ({
   submit: (paper, callbackHandler) =>
     dispatch(submitPaper(paper, callbackHandler)),
+  onShowWarningModal: (message) => dispatch(show('ERROR MODAL', { message })),
 });
 
 export default connect(
