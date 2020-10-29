@@ -51,8 +51,8 @@ const types = {
 const Feed = ({ type, title, body, arg }) => {
   const to =
     types[type][3].to === 'unit'
-      ? `${LocalMainPage.unit.root}${types[type][3].type}?channel=${arg.channel}&id=${arg.unit}&tab=${types[type][3].tab}`
-      : `${LocalMainPage.channel.root}${types[type][3].type}?id=${arg.channel}`;
+      ? `${LocalMainPage.unit.root}${types[type][3].type}?channel=${arg.channel_id}&id=${arg.unit_id}&tab=${types[type][3].tab}`
+      : `${LocalMainPage.channel.root}${types[type][3].type}?id=${arg.channel_id}`;
   return (
     <div className={classNames('Feed', types[type][1])}>
       <img
