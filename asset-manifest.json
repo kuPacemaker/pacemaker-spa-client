@@ -1,17 +1,17 @@
 {
   "files": {
-    "main.css": "/pacemaker-spa-client/static/css/main.ca9f51d1.chunk.css",
-    "main.js": "/pacemaker-spa-client/static/js/main.d47ac7ad.chunk.js",
-    "main.js.map": "/pacemaker-spa-client/static/js/main.d47ac7ad.chunk.js.map",
+    "main.css": "/pacemaker-spa-client/static/css/main.c79785a2.chunk.css",
+    "main.js": "/pacemaker-spa-client/static/js/main.3587e2b0.chunk.js",
+    "main.js.map": "/pacemaker-spa-client/static/js/main.3587e2b0.chunk.js.map",
     "runtime-main.js": "/pacemaker-spa-client/static/js/runtime-main.7c465467.js",
     "runtime-main.js.map": "/pacemaker-spa-client/static/js/runtime-main.7c465467.js.map",
-    "static/js/2.53c6bc02.chunk.js": "/pacemaker-spa-client/static/js/2.53c6bc02.chunk.js",
-    "static/js/2.53c6bc02.chunk.js.map": "/pacemaker-spa-client/static/js/2.53c6bc02.chunk.js.map",
+    "static/js/2.c28f4cf6.chunk.js": "/pacemaker-spa-client/static/js/2.c28f4cf6.chunk.js",
+    "static/js/2.c28f4cf6.chunk.js.map": "/pacemaker-spa-client/static/js/2.c28f4cf6.chunk.js.map",
     "index.html": "/pacemaker-spa-client/index.html",
-    "precache-manifest.7fd9768613a1a3c296f68c87938967a2.js": "/pacemaker-spa-client/precache-manifest.7fd9768613a1a3c296f68c87938967a2.js",
+    "precache-manifest.b9d4d8fe4d1d77527f08d196088b9255.js": "/pacemaker-spa-client/precache-manifest.b9d4d8fe4d1d77527f08d196088b9255.js",
     "service-worker.js": "/pacemaker-spa-client/service-worker.js",
-    "static/css/main.ca9f51d1.chunk.css.map": "/pacemaker-spa-client/static/css/main.ca9f51d1.chunk.css.map",
-    "static/js/2.53c6bc02.chunk.js.LICENSE.txt": "/pacemaker-spa-client/static/js/2.53c6bc02.chunk.js.LICENSE.txt",
+    "static/css/main.c79785a2.chunk.css.map": "/pacemaker-spa-client/static/css/main.c79785a2.chunk.css.map",
+    "static/js/2.c28f4cf6.chunk.js.LICENSE.txt": "/pacemaker-spa-client/static/js/2.c28f4cf6.chunk.js.LICENSE.txt",
     "static/media/style.css": "/pacemaker-spa-client/static/media/HelveticaNeueLTProUltLtIt.eb615e16.woff",
     "static/media/aboutus-image.jpg": "/pacemaker-spa-client/static/media/aboutus-image.862cf6e3.jpg",
     "static/media/account-image.jpg": "/pacemaker-spa-client/static/media/account-image.d67f626b.jpg",
@@ -25,19 +25,19 @@
     "static/media/channel-image-5.jpg": "/pacemaker-spa-client/static/media/channel-image-5.4d8bec1e.jpg",
     "static/media/channel-image-6.jpg": "/pacemaker-spa-client/static/media/channel-image-6.104c69a5.jpg",
     "static/media/channel-image-7.jpg": "/pacemaker-spa-client/static/media/channel-image-7.998b089a.jpg",
+    "static/media/feed-image-1.png": "/pacemaker-spa-client/static/media/feed-image-1.2b0effb8.png",
+    "static/media/feed-image-2.png": "/pacemaker-spa-client/static/media/feed-image-2.17147648.png",
+    "static/media/feed-image-3.png": "/pacemaker-spa-client/static/media/feed-image-3.bcfcb205.png",
+    "static/media/feed-image-4.png": "/pacemaker-spa-client/static/media/feed-image-4.18adc76c.png",
     "static/media/find-account-image.jpg": "/pacemaker-spa-client/static/media/find-account-image.770d4f85.jpg",
     "static/media/home-image.jpg": "/pacemaker-spa-client/static/media/home-image.c7d6d2ac.jpg",
-    "static/media/peed-image-1.png": "/pacemaker-spa-client/static/media/peed-image-1.2b0effb8.png",
-    "static/media/peed-image-2.png": "/pacemaker-spa-client/static/media/peed-image-2.17147648.png",
-    "static/media/peed-image-3.png": "/pacemaker-spa-client/static/media/peed-image-3.bcfcb205.png",
-    "static/media/peed-image-4.png": "/pacemaker-spa-client/static/media/peed-image-4.18adc76c.png",
     "static/media/signin-image.jpg": "/pacemaker-spa-client/static/media/signin-image.23697687.jpg",
     "static/media/signup-image.jpg": "/pacemaker-spa-client/static/media/signup-image.84e1d2dd.jpg"
   },
   "entrypoints": [
     "static/js/runtime-main.7c465467.js",
-    "static/js/2.53c6bc02.chunk.js",
-    "static/css/main.ca9f51d1.chunk.css",
-    "static/js/main.d47ac7ad.chunk.js"
+    "static/js/2.c28f4cf6.chunk.js",
+    "static/css/main.c79785a2.chunk.css",
+    "static/js/main.3587e2b0.chunk.js"
   ]
 }
