@@ -10,40 +10,38 @@ import check from 'resources/images/icon/check-symbol.png';
 const alphabat = 'ABCDEFGHIJKLMNOPQUSTUVWXYZ';
 
 const Paper = ({ questions, onAnswerHandler, isEnd }) => {
-  const [state, setState] = useState({
-    index: 0,
-  });
+  const [index, setState] = useState(0);
   const changeQuiz = (sign, length) => () => {
-    if (state.index + sign < 0 || state.index + sign >= length) return;
-    setState({ ...state, index: state.index + sign });
+    if (index + sign < 0 || index + sign >= length) return;
+    setState(index + sign);
   };
   if (questions.length === 0) return <></>;
   return (
     <div className="Paper">
       <div className="QuizPaper">
-        <div className="QuizNumber">{state.index + 1}.</div>
-        <div className="QuizBody">{questions[state.index].quiz}</div>
+        <div className="QuizNumber">{index + 1}.</div>
+        <div className="QuizBody">{questions[index].quiz}</div>
       </div>
       <div className="AnswerContainer">
         <div className="AnswerSet">
-          {questions[state.index].answer_set.split('/').map((answer, index) => (
+          {questions[index].answer_set.split('|^|').map((answer, i) => (
             <div
-              key={index}
+              key={i}
               className={classNames('Answer', {
                 Disable: isEnd,
-                Correct: isEnd && questions[state.index].answer === answer,
+                Correct: isEnd && questions[index].answer === answer,
               })}
-              onClick={onAnswerHandler(state.index, answer)}
+              onClick={onAnswerHandler(index, answer)}
             >
               <img
                 draggable="false"
                 className={classNames('Checked', {
-                  Show: questions[state.index].user_answer === answer,
+                  Show: questions[index].user_answer === answer,
                 })}
                 src={check}
                 alt=""
               />
-              {`${alphabat.charAt(index)}) ${answer}`}
+              {`${alphabat.charAt(i)}) ${answer}`}
             </div>
           ))}
         </div>
@@ -57,7 +55,7 @@ const Paper = ({ questions, onAnswerHandler, isEnd }) => {
           onClick={changeQuiz(-1, questions.length)}
         />
         <div className="Index">
-          {state.index + 1}/{questions.length}
+          {index + 1}/{questions.length}
         </div>
         <img
           draggable="false"

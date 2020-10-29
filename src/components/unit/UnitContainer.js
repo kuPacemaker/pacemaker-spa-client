@@ -92,8 +92,6 @@ const updatePaper = (updateHandler) => (state, action) => () => {
   });
 };
 
-// const editDocument = (token, document) => () => {};
-
 const verifyPaper = (verifyHandler) => (
   token,
   unit,
@@ -116,10 +114,18 @@ const verifyPaper = (verifyHandler) => (
   });
 };
 
-const onReservationHandler = (reservation) => (token, unit) => () => {
+const onReservationHandler = (reservation, showModalHandler) => (
+  token,
+  unit
+) => () => {
   reservation({ token, unit }, (state, message) => {
-    if (state);
-    else show('ERROR MODAL', { message });
+    console.log(state, message);
+    if (state)
+      showModalHandler('ALERT MODAL', {
+        title: 'MAKE RESERVATIN\nPAPER IS DELIVERED!',
+        body: `The paper has now been delivered to Runner.\nYou can check the paper by going to this channel's runner page.`,
+      });
+    else showModalHandler('ERROR MODAL', { message });
   });
 };
 
@@ -205,7 +211,10 @@ const UnitContainer = ({
       verifyPaper={verifyPaper(verifyHandler)(token, unitId, paper, setPaper)}
       onVerifyHandler={onVerifyHandler(paper, setPaper)}
       onAnswerHandler={onAnswerHandler(paper, setPaper)}
-      onReservationHandler={onReservationHandler(reservation)(token, unitId)}
+      onReservationHandler={onReservationHandler(reservation, showModalHandler)(
+        token,
+        unitId
+      )}
     />
   );
 };

@@ -61,7 +61,6 @@ const SignInContainer = (props) => {
           title: 'SIGN-IN DENIED\nID OR PW DO NOT MATCH!',
           body:
             'Did you forget your password?\nYou can reset your password from below button.',
-          callback: () => console.log('로그인 실패!'),
         });
       }
     });
