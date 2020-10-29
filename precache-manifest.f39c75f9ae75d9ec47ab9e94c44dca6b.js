@@ -1,23 +1,23 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "fd8ed65085f700d93f3cf9a7f4f4a01f",
+    "revision": "715b773bcb23dac7dc320220949a76d5",
     "url": "/pacemaker-spa-client/index.html"
   },
   {
-    "revision": "1daf3b572cd35999d250",
+    "revision": "2fecf5a96a6081f3c01a",
     "url": "/pacemaker-spa-client/static/css/main.c79785a2.chunk.css"
   },
   {
-    "revision": "e0e3571f28beba310482",
-    "url": "/pacemaker-spa-client/static/js/2.c28f4cf6.chunk.js"
+    "revision": "b806c788daed950fe02c",
+    "url": "/pacemaker-spa-client/static/js/2.424e7ce4.chunk.js"
   },
   {
     "revision": "5235a5429e626c15d61916dfe11adc52",
-    "url": "/pacemaker-spa-client/static/js/2.c28f4cf6.chunk.js.LICENSE.txt"
+    "url": "/pacemaker-spa-client/static/js/2.424e7ce4.chunk.js.LICENSE.txt"
   },
   {
-    "revision": "1daf3b572cd35999d250",
-    "url": "/pacemaker-spa-client/static/js/main.3587e2b0.chunk.js"
+    "revision": "2fecf5a96a6081f3c01a",
+    "url": "/pacemaker-spa-client/static/js/main.e3de9684.chunk.js"
   },
   {
     "revision": "4c0919c190be8dbbde4d",
