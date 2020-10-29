@@ -10,11 +10,12 @@ export const fetchChannel = (payload, callbackHandler) => async (dispatch) => {
   try {
     dispatch(pending());
     const response = await fetch(payload);
-    const { state, ...data } = response.data;
-    if (state !== 'success') return;
-    dispatch(success());
-    dispatch(update(data));
-    if (callbackHandler) callbackHandler();
+    const { state, message, ...data } = response.data;
+    if (state === 'success') {
+      dispatch(success());
+      dispatch(update(data));
+    }
+    if (callbackHandler) callbackHandler(state === 'success', message);
   } catch (e) {
     console.log(e);
   }
@@ -27,10 +28,11 @@ export const fetchChannel = (payload, callbackHandler) => async (dispatch) => {
 export const createUnit = (payload, callbackHandler) => async (dispatch) => {
   try {
     const response = await create(payload);
-    const { state, ...data } = response.data;
-    if (state !== 'success') return;
-    dispatch(update(data));
-    if (callbackHandler) callbackHandler();
+    const { state, message, ...data } = response.data;
+    if (state === 'success') {
+      dispatch(update(data));
+    }
+    if (callbackHandler) callbackHandler(state === 'success', message);
   } catch (e) {
     console.log(e);
   }
@@ -46,11 +48,12 @@ export const createUnit = (payload, callbackHandler) => async (dispatch) => {
 export const removeUnit = (payload, callbackHandler) => async (dispatch) => {
   try {
     const response = await remove(payload);
-    const { state, ...data } = response.data;
-    if (state !== 'success') return;
+    const { state, message, ...data } = response.data;
     console.log(data);
-    dispatch(update(data));
-    if (callbackHandler) callbackHandler();
+    if (state === 'success') {
+      dispatch(update(data));
+    }
+    if (callbackHandler) callbackHandler(state === 'success', message);
   } catch (e) {
     console.log(e);
   }
@@ -63,11 +66,12 @@ export const removeUnit = (payload, callbackHandler) => async (dispatch) => {
 export const editUnit = (payload, callbackHandler) => async (dispatch) => {
   try {
     const response = await edit(payload);
-    const { state, ...data } = response.data;
-    if (state !== 'success') return;
+    const { state, message, ...data } = response.data;
     console.log(data);
-    dispatch(update(data));
-    if (callbackHandler) callbackHandler();
+    if (state === 'success') {
+      dispatch(update(data));
+    }
+    if (callbackHandler) callbackHandler(state === 'success', message);
   } catch (e) {
     console.log(e);
   }

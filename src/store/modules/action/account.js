@@ -5,14 +5,14 @@ import { encode } from 'common/security/common';
 export const requestSignIn = (payload, callbackHandler) => async (dispatch) => {
   try {
     const response = await signIn(payload);
-    const { state, ...data } = response.data;
+    const { state, message, ...data } = response.data;
     if (state === 'success') {
       dispatch(signin(data));
       localStorage.setItem('account', encode(payload));
       if (callbackHandler) callbackHandler(data.token);
       return;
     }
-    if (callbackHandler) callbackHandler();
+    if (callbackHandler) callbackHandler(state === 'success', message);
   } catch (e) {
     console.log(e);
   }
@@ -21,8 +21,8 @@ export const requestSignIn = (payload, callbackHandler) => async (dispatch) => {
 export const requestSignUp = (payload, callbackHandler) => async (dispatch) => {
   try {
     const response = await signUp(payload);
-    const { state } = response.data;
-    if (callbackHandler) callbackHandler(state === 'success');
+    const { state, message } = response.data;
+    if (callbackHandler) callbackHandler(state === 'success', message);
   } catch (e) {
     console.log(e);
   }
@@ -33,8 +33,8 @@ export const requestFindAccount = (payload, callbackHandler) => async (
 ) => {
   try {
     const response = await findAccount(payload);
-    const { state } = response.data;
-    if (callbackHandler) callbackHandler(state === 'success');
+    const { state, message } = response.data;
+    if (callbackHandler) callbackHandler(state === 'success', message);
   } catch (e) {
     console.log(e);
   }
@@ -45,9 +45,9 @@ export const requestModifyAccount = (payload, callbackHandler) => async (
 ) => {
   try {
     const response = await modifyAccount(payload);
-    const { state } = response.data;
+    const { state, message } = response.data;
     if (state === 'success') dispatch(signout());
-    if (callbackHandler) callbackHandler(state === 'success');
+    if (callbackHandler) callbackHandler(state === 'success', message);
   } catch (e) {
     console.log(e);
   }

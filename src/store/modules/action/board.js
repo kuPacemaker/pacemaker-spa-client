@@ -8,10 +8,11 @@ import { create, remove, enter, exit } from 'api/channel';
 export const createChannel = (payload, callbackHandler) => async (dispatch) => {
   try {
     const response = await create(payload);
-    const { state, ...board } = response.data;
-    if (state !== 'success') return;
-    dispatch(update(board.leader, board.runner));
-    if (callbackHandler) callbackHandler();
+    const { state, message, ...board } = response.data;
+    if (state === 'success') {
+      dispatch(update(board.leader, board.runner));
+    }
+    if (callbackHandler) callbackHandler(state === 'success');
   } catch (e) {
     console.log(e);
   }
@@ -24,10 +25,11 @@ export const createChannel = (payload, callbackHandler) => async (dispatch) => {
 export const removeChannel = (payload, callbackHandler) => async (dispatch) => {
   try {
     const response = await remove(payload);
-    const { state, ...board } = response.data;
-    if (state !== 'success') return;
-    dispatch(update(board.leader, board.runner));
-    if (callbackHandler) callbackHandler();
+    const { state, message, ...board } = response.data;
+    if (state === 'success') {
+      dispatch(update(board.leader, board.runner));
+    }
+    if (callbackHandler) callbackHandler(state === 'success');
   } catch (e) {
     console.log(e);
   }
@@ -40,10 +42,11 @@ export const removeChannel = (payload, callbackHandler) => async (dispatch) => {
 export const exitChannel = (payload, callbackHandler) => async (dispatch) => {
   try {
     const response = await exit(payload);
-    const { state, ...board } = response.data;
-    if (state !== 'success') return;
-    dispatch(update(board.leader, board.runner));
-    if (callbackHandler) callbackHandler();
+    const { state, message, ...board } = response.data;
+    if (state === 'success') {
+      dispatch(update(board.leader, board.runner));
+    }
+    if (callbackHandler) callbackHandler(state === 'success', message);
   } catch (e) {
     console.log(e);
   }
@@ -56,10 +59,11 @@ export const exitChannel = (payload, callbackHandler) => async (dispatch) => {
 export const enterChannel = (payload, callbackHandler) => async (dispatch) => {
   try {
     const response = await enter(payload);
-    const { state, ...data } = response.data;
-    if (state !== 'success') return;
-    dispatch(update(data.leader, data.runner));
-    if (callbackHandler) callbackHandler();
+    const { state, message, ...data } = response.data;
+    if (state === 'success') {
+      dispatch(update(data.leader, data.runner));
+    }
+    if (callbackHandler) callbackHandler(state === 'success', message);
   } catch (e) {
     console.log(e);
   }

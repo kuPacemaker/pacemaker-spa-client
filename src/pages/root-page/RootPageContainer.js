@@ -9,16 +9,16 @@ import LocalPath from 'common/local-path';
 import { decode } from 'common/security/common';
 import RootPage from './RootPage';
 
-import Images from 'resources/images';
-const preload = (images) => {
-  for (const key in images) {
-    if (images.hasOwnProperty(key)) {
-      const element = images[key];
-      let image = new Image();
-      image.src = element;
-    }
-  }
-};
+// import Images from 'resources/images';
+// const preload = (images) => {
+//   for (const key in images) {
+//     if (images.hasOwnProperty(key)) {
+//       const element = images[key];
+//       let image = new Image();
+//       image.src = element;
+//     }
+//   }
+// };
 
 const RootPageContainer = (props) => {
   useEffect(() => {

@@ -8,8 +8,6 @@ import {
   submitPaper as submit,
 } from 'api/paper';
 
-// import { generateQuestion, markPaper } from 'api/paper';
-
 /**
  *
  * @param {token, channel, unit} payload
@@ -19,13 +17,13 @@ export const getUnit = (payload, callbackHandler) => async (dispatch) => {
   try {
     dispatch(pending());
     const response = await fetch(payload);
-    const { state, ...data } = response.data;
-    if (state !== 'success') return;
+    const { state, message, ...data } = response.data;
     console.log(data);
-    dispatch(success());
-    dispatch(update(data));
-
-    if (callbackHandler) callbackHandler();
+    if (state === 'success') {
+      dispatch(success());
+      dispatch(update(data));
+    }
+    if (callbackHandler) callbackHandler(state === 'success', message);
   } catch (e) {
     console.log(e);
   }
@@ -39,11 +37,12 @@ export const getUnit = (payload, callbackHandler) => async (dispatch) => {
 export const makeQuestion = (payload, callbackHandler) => async (dispatch) => {
   try {
     const response = await generateQuestion(payload);
-    const { state, ...data } = response.data;
-    if (state !== 'success') return;
+    const { state, message, ...data } = response.data;
     console.log(data);
-    dispatch(update_question(data));
-    if (callbackHandler) callbackHandler();
+    if (state === 'success') {
+      dispatch(update_question(data));
+    }
+    if (callbackHandler) callbackHandler(state === 'success', message);
   } catch (e) {
     console.log(e);
   }
@@ -60,11 +59,12 @@ export const verifyQuestion = (payload, callbackHandler) => async (
   try {
     console.log(payload);
     const response = await verify(payload);
-    const { state, ...data } = response.data;
-    if (state !== 'success') return;
+    const { state, message, ...data } = response.data;
     console.log(data);
-    dispatch(update_question(data));
-    if (callbackHandler) callbackHandler();
+    if (state === 'success') {
+      dispatch(update_question(data));
+    }
+    if (callbackHandler) callbackHandler(state === 'success', message);
   } catch (e) {
     console.log(e);
   }
@@ -80,9 +80,10 @@ export const makeReservation = (payload, callbackHandler) => async (
 ) => {
   try {
     const response = await reservation(payload);
-    const { state, ...data } = response.data;
-    if (state !== 'success') return;
-    if (callbackHandler) callbackHandler(data);
+    const { state, message, ...data } = response.data;
+    console.log(data);
+    if (state === 'success');
+    if (callbackHandler) callbackHandler(state === 'success', message);
   } catch (e) {
     console.log(e);
   }
@@ -97,11 +98,10 @@ export const submitPaper = (payload, callbackHandler) => async (dispatch) => {
   try {
     console.log(payload);
     const response = await submit(payload);
-    const { state, ...data } = response.data;
-    if (state !== 'success') return;
+    const { state, message, ...data } = response.data;
     console.log(data);
-    // dispatch(update());
-    if (callbackHandler) callbackHandler();
+    if (state === 'success');
+    if (callbackHandler) callbackHandler(state === 'success', message);
   } catch (e) {
     console.log(e);
   }

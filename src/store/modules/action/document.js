@@ -9,11 +9,12 @@ import document from 'api/document';
 export const create = (payload, callbackHandler) => async (dispatch) => {
   try {
     const response = await document.create(payload);
-    const { state, ...data } = response.data;
-    if (state !== 'success') return;
+    const { state, message, ...data } = response.data;
     console.log(data);
-    dispatch(update_document(data));
-    if (callbackHandler) callbackHandler();
+    if (state === 'success') {
+      dispatch(update_document(data));
+    }
+    if (callbackHandler) callbackHandler(state === 'success', message);
   } catch (e) {
     console.log(e);
   }
@@ -27,11 +28,12 @@ export const create = (payload, callbackHandler) => async (dispatch) => {
 export const update = (payload, callbackHandler) => async (dispatch) => {
   try {
     const response = await document.update(payload);
-    const { state, ...data } = response.data;
-    if (state !== 'success') return;
+    const { state, message, ...data } = response.data;
     console.log(data);
-    dispatch(update_document(data));
-    if (callbackHandler !== undefined) callbackHandler();
+    if (state === 'success') {
+      dispatch(update_document(data));
+    }
+    if (callbackHandler) callbackHandler(state === 'success', message);
   } catch (e) {
     console.log(e);
   }
