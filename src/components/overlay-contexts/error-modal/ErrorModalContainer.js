@@ -11,12 +11,11 @@ const title = 'OPPS!\nSOMETHING WRONG...';
 const message =
   '\nThe request was rejected by the PACEMAKER server!\nIf the same problem persists, please contact us.';
 const ErrorModalContainer = (props) => {
-  if (props.argument === undefined) return <div />;
+  if (props.message === undefined) return <div />;
   const buttons = [
     {
       name: 'OK',
       onClickHandelr: () => {
-        if (props.argument.callback) props.argument.callback();
         props.changeHandler();
       },
     },
