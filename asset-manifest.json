@@ -1,21 +1,20 @@
 {
   "files": {
     "main.css": "/pacemaker-spa-client/static/css/main.c79785a2.chunk.css",
-    "main.js": "/pacemaker-spa-client/static/js/main.d4e169cc.chunk.js",
-    "main.js.map": "/pacemaker-spa-client/static/js/main.d4e169cc.chunk.js.map",
+    "main.js": "/pacemaker-spa-client/static/js/main.54b5bad8.chunk.js",
+    "main.js.map": "/pacemaker-spa-client/static/js/main.54b5bad8.chunk.js.map",
     "runtime-main.js": "/pacemaker-spa-client/static/js/runtime-main.7c465467.js",
     "runtime-main.js.map": "/pacemaker-spa-client/static/js/runtime-main.7c465467.js.map",
-    "static/js/2.6163792a.chunk.js": "/pacemaker-spa-client/static/js/2.6163792a.chunk.js",
-    "static/js/2.6163792a.chunk.js.map": "/pacemaker-spa-client/static/js/2.6163792a.chunk.js.map",
+    "static/js/2.424e7ce4.chunk.js": "/pacemaker-spa-client/static/js/2.424e7ce4.chunk.js",
+    "static/js/2.424e7ce4.chunk.js.map": "/pacemaker-spa-client/static/js/2.424e7ce4.chunk.js.map",
     "index.html": "/pacemaker-spa-client/index.html",
-    "precache-manifest.2027944b942623ddfb921a589c3cc768.js": "/pacemaker-spa-client/precache-manifest.2027944b942623ddfb921a589c3cc768.js",
+    "precache-manifest.c72ce5e39771f1eff03325e0aa3dc5b9.js": "/pacemaker-spa-client/precache-manifest.c72ce5e39771f1eff03325e0aa3dc5b9.js",
     "service-worker.js": "/pacemaker-spa-client/service-worker.js",
     "static/css/main.c79785a2.chunk.css.map": "/pacemaker-spa-client/static/css/main.c79785a2.chunk.css.map",
-    "static/js/2.6163792a.chunk.js.LICENSE.txt": "/pacemaker-spa-client/static/js/2.6163792a.chunk.js.LICENSE.txt",
+    "static/js/2.424e7ce4.chunk.js.LICENSE.txt": "/pacemaker-spa-client/static/js/2.424e7ce4.chunk.js.LICENSE.txt",
     "static/media/style.css": "/pacemaker-spa-client/static/media/HelveticaNeueLTProUltLtIt.eb615e16.woff",
     "static/media/aboutus-image.jpg": "/pacemaker-spa-client/static/media/aboutus-image.862cf6e3.jpg",
     "static/media/account-image.jpg": "/pacemaker-spa-client/static/media/account-image.d67f626b.jpg",
-    "static/media/background-down.png": "/pacemaker-spa-client/static/media/background-down.b5ac8e3a.png",
     "static/media/background-right.png": "/pacemaker-spa-client/static/media/background-right.b64b6dc0.png",
     "static/media/background-up.png": "/pacemaker-spa-client/static/media/background-up.f52ccc43.png",
     "static/media/channel-image-0.jpg": "/pacemaker-spa-client/static/media/channel-image-0.2c97bbb4.jpg",
@@ -37,8 +36,8 @@
   },
   "entrypoints": [
     "static/js/runtime-main.7c465467.js",
-    "static/js/2.6163792a.chunk.js",
+    "static/js/2.424e7ce4.chunk.js",
     "static/css/main.c79785a2.chunk.css",
-    "static/js/main.d4e169cc.chunk.js"
+    "static/js/main.54b5bad8.chunk.js"
   ]
 }
