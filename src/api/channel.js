@@ -20,8 +20,8 @@ channel['enter'] =
     : app.channel.enter();
 channel['exit'] =
   process.env.NODE_ENV === 'development'
-    ? app.api + app.deleteChannel
-    : app.channel.delete();
+    ? app.api + app.exitChannel
+    : app.channel.exit();
 
 /**
  *

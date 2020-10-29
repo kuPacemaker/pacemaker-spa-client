@@ -6,7 +6,7 @@ import Modal from '../default-modal';
 import { exitChannel } from 'store/modules/action/board';
 
 const title = 'DO YOU WANT TO\nEXIT THIS CHANNEL?';
-const body = 'Exit channel is irreversible once executed.';
+const body = 'Exit channel is irreversible once executed.\n';
 
 const ExitChannelContainer = (props) => {
   const history = useHistory();
