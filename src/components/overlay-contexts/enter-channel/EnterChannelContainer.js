@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { connect } from 'react-redux';
-
+import { show } from 'store/modules/creators/modal';
 import EnterChannel from './view/EnterChannel';
 import { enterChannel } from 'store/modules/action/board';
 
@@ -21,7 +21,12 @@ const EnterChannelContainer = (props) => {
 
   const onEnterHandler = (token, code) => () => {
     props.changeHandler();
-    props.enter(token, code);
+    props.enter(token, code, (state, message) => {
+      if (state);
+      else {
+        props.onShowWarningModal(message);
+      }
+    });
   };
   return (
     <EnterChannel
@@ -40,7 +45,9 @@ const mapStateToProps = ({ account }) => ({
 });
 
 const mapDispatchToProps = (dispatch) => ({
-  enter: (token, code) => dispatch(enterChannel({ token, code })),
+  enter: (token, code, callback) =>
+    dispatch(enterChannel({ token, code }, callback)),
+  onShowWarningModal: (message) => dispatch(show('ERROR MODAL', { message })),
 });
 
 export default connect(

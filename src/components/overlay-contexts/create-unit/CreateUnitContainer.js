@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
-
+import { show } from 'store/modules/creators/modal';
 import { createUnit } from 'store/modules/action/channel';
 import CreateUnit from './view/CreateUnit';
 
@@ -23,6 +23,7 @@ const CreateUnitContainer = ({
   index,
   channelId,
   createUnit: create,
+  show,
 }) => {
   const [state, setState] = useState({
     title: '',
@@ -39,7 +40,13 @@ const CreateUnitContainer = ({
   };
 
   const requestCreateUnit = () => {
-    create({ token, channel: channelId, title: state.title }, changeHandler);
+    create(
+      { token, channel: channelId, title: state.title },
+      (state, message) => {
+        if (state) changeHandler();
+        else show('ERROR MODAL', { message });
+      }
+    );
   };
   return (
     <CreateUnit
@@ -60,7 +67,7 @@ const mapStateToProps = ({ account, channel }) => ({
 });
 
 const mapDispatchToProps = (dispatch) =>
-  bindActionCreators({ createUnit }, dispatch);
+  bindActionCreators({ createUnit, show }, dispatch);
 
 export default connect(
   mapStateToProps,

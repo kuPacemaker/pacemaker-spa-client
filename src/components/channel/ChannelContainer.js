@@ -16,10 +16,16 @@ const ChannelContainer = ({
   onClickRemoveChannel,
   onClickExitChannel,
   onClickNotReadyFunction,
+  onShowWarningModal,
 }) => {
   useEffect(() => {
     if (token === null) return;
-    getChannelHandler(token, type, channelId);
+    getChannelHandler(token, type, channelId, (state, message) => {
+      if (state);
+      else {
+        onShowWarningModal(message);
+      }
+    });
   }, []);
 
   if (isReady && data) {
@@ -54,13 +60,14 @@ const mapStateToProps = (state) => ({
 });
 
 const mapDispatchToProps = (dispatch) => ({
-  fetch: (token, type, id) =>
-    dispatch(fetchChannel({ token, type, channel: id })),
+  fetch: (token, type, id, callback) =>
+    dispatch(fetchChannel({ token, type, channel: id }, callback)),
   onClickAccessCode: () => dispatch(show('ACCESS CODE')),
   onClickCreateUnit: () => dispatch(show('CREATE UNIT')),
   onClickRemoveChannel: () => dispatch(show('REMOVE CHANNEL')),
   onClickExitChannel: () => dispatch(show('EXIT UNIT')),
   onClickNotReadyFunction: (arg) => dispatch(show('ALERT MODAL', arg)),
+  onShowWarningModal: (message) => dispatch(show('ERROR MODAL', { message })),
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(ChannelContainer);

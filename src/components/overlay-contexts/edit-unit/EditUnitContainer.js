@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 
+import { show } from 'store/modules/creators/modal';
 import { editUnit } from 'store/modules/action/channel';
 import EditUnit from './view/EditUnit';
 
@@ -25,6 +26,7 @@ const EditUnitContainer = ({
   placeholder,
   changeHandler,
   editUnit: edit,
+  show,
 }) => {
   const [unitName, setState] = useState('');
 
@@ -33,7 +35,10 @@ const EditUnitContainer = ({
   };
 
   const requestEditUnit = () => {
-    edit({ token, channel, unit, title: unitName }, changeHandler);
+    edit({ token, channel, unit, title: unitName }, (state, message) => {
+      if (state) changeHandler();
+      else show('ERROR MODAL', { message });
+    });
   };
   return (
     <EditUnit
@@ -57,6 +62,6 @@ const mapStateToProps = ({ account, modal }) => ({
 });
 
 const mapDispatchToProps = (dispatch) =>
-  bindActionCreators({ editUnit }, dispatch);
+  bindActionCreators({ editUnit, show }, dispatch);
 
 export default connect(mapStateToProps, mapDispatchToProps)(EditUnitContainer);

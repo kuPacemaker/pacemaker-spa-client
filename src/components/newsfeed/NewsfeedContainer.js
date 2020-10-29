@@ -1,8 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { connect } from 'react-redux';
-import { bindActionCreators } from 'redux';
 import Newsfeed from './view/Newsfeed';
-import { fetchNewsfeed } from 'store/modules/action/newsfeed';
 
 const NewsfeedContainer = (props) => {
   const [visible, setVisible] = useState(false);
@@ -23,7 +21,4 @@ const mapStateToProps = ({ newsfeed }) => {
   };
 };
 
-const mapDispatchToProps = (dispatch) =>
-  bindActionCreators({ fetchNewsfeed }, dispatch);
-
-export default connect(mapStateToProps, mapDispatchToProps)(NewsfeedContainer);
+export default connect(mapStateToProps, null)(NewsfeedContainer);

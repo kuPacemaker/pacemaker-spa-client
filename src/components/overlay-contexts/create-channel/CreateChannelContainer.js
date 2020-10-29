@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
-
+import { show } from 'store/modules/creators/modal';
 import { createChannel } from 'store/modules/action/board';
 import CreateChannel from './view/CreateChannel';
 
@@ -27,6 +27,7 @@ const CreateChannelContainer = ({
   token,
   changeHandler,
   createChannel: create,
+  show,
 }) => {
   const [state, setState] = useState({
     title: '',
@@ -56,7 +57,10 @@ const CreateChannelContainer = ({
 
   const requestCreateChannel = () => {
     if (state.title.length === 0 || state.detail.length === 0) return;
-    create({ token, ...state });
+    create({ token, ...state }, (state, message) => {
+      if (state) changeHandler();
+      else show('ERROR MODAL', { message });
+    });
     changeHandler();
   };
 
@@ -78,7 +82,7 @@ const mapStateToProps = ({ account }) => ({
 });
 
 const mapDispatchToProps = (dispatch) =>
-  bindActionCreators({ createChannel }, dispatch);
+  bindActionCreators({ createChannel, show }, dispatch);
 
 export default connect(
   mapStateToProps,

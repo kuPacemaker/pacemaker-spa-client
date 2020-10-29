@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 import { useHistory } from 'react-router-dom';
 
 import Modal from '../default-modal';
+import { show } from 'store/modules/creators/modal';
 import { exitChannel } from 'store/modules/action/board';
 
 const title = 'DO YOU WANT TO\nEXIT THIS CHANNEL?';
@@ -17,9 +18,13 @@ const ExitChannelContainer = (props) => {
       onClickHandelr: () => {
         props.exit(
           { token: props.token, channel: props.channel },
-          (success) => {
-            props.changeHandler();
-            history.goBack();
+          (state, message) => {
+            if (state) {
+              props.changeHandler();
+              history.goBack();
+            } else {
+              props.onShowWarningModal(message);
+            }
           }
         );
       },
@@ -49,6 +54,7 @@ const mapStateToProps = ({ account, channel }) => ({
 const mapDispatchToProps = (dispatch) => ({
   exit: (payload, callbackHandler) =>
     dispatch(exitChannel(payload, callbackHandler)),
+  onShowWarningModal: (message) => dispatch(show('ERROR MODAL', { message })),
 });
 
 export default connect(
