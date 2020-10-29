@@ -3,7 +3,6 @@ import { connect } from 'react-redux';
 
 import QAModal from './view/QAModal';
 import { askQuestion } from 'store/modules/action/qa';
-import { reset } from 'store/modules/creators/qa';
 import { active, sleep } from 'store/modules/creators/modal';
 
 const title = 'ASK ME ANYTHING!';
@@ -51,20 +50,18 @@ const QAModalContainer = (props) => {
 
   useEffect(() => {
     return () => {
-      props.reset();
+      setQuestion('');
+      setAnswer('');
     };
   }, []);
 
-  useEffect(() => {
-    console.log('ASD');
-    props.setActive();
-    setAnswer(props.answer);
-    resetRecognition(recognition, setRecognition)();
-  }, [props.answer]);
-
   const sendQuestion = (token, document) => (q) => {
     setQuestion(question + '?');
-    props.ask(token, document, q + '?');
+    props.ask(token, document, q + '?', (response) => {
+      props.setActive();
+      setAnswer(response);
+      resetRecognition(recognition, setRecognition);
+    });
     props.setSleep();
   };
 
@@ -89,17 +86,14 @@ const QAModalContainer = (props) => {
   );
 };
 
-const mapStateToProps = ({ account, unit, qa }) => ({
+const mapStateToProps = ({ account, unit }) => ({
   token: account.token,
   document: unit.data.unit.document,
-  question: qa.data.question,
-  answer: qa.data.answer,
 });
 
 const mapDispatchToProps = (dispatch) => ({
-  ask: (token, document, question) =>
-    dispatch(askQuestion({ token, document, question })),
-  reset: () => dispatch(reset()),
+  ask: (token, document, question, callback) =>
+    dispatch(askQuestion({ token, document, question }, callback)),
   setActive: () => dispatch(active()),
   setSleep: () => dispatch(sleep()),
 });

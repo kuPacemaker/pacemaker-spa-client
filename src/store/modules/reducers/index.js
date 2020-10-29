@@ -7,7 +7,6 @@ import channel from './channel';
 import modal from './modal';
 import unit from './unit';
 import newsfeed from './newsfeed';
-import qa from './qa';
 
 export default (history) =>
   combineReducers({
@@ -17,7 +16,6 @@ export default (history) =>
     modal,
     unit,
     newsfeed,
-    qa,
     router: connectRouter(history),
     // 다른 리듀서를 만들게되면 여기에 넣어줌..
   });
