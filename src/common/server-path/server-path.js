@@ -14,6 +14,7 @@ export const app = {
   editChannel: 'editChannel/',
   deleteChannel: 'deleteChannel/',
   enterChannel: 'enterChannel/',
+  exitChannel: 'exitChannel/',
   requestChannel: 'requestChannel/',
   createUnit: 'createUnit/',
   editUnit: 'editUnit/',
@@ -46,6 +47,7 @@ export const app = {
     edit: () => app.base + app.api + app.editChannel,
     delete: () => app.base + app.api + app.deleteChannel,
     enter: () => app.base + app.api + app.enterChannel,
+    exit: () => app.base + app.api + app.exitChannel,
     request: () => app.base + app.api + app.requestChannel,
   },
   unit: {
@@ -66,11 +68,11 @@ export const app = {
   },
 };
 
-export const gqqa = {
+export const unilm = {
   base: 'https://117.16.136.170',
   api: '/restful/',
   qg: 'qg/',
   qa: 'qa/',
-  generateQuestion: () => gqqa.base + gqqa.api + gqqa.qg,
-  answerQuestion: () => gqqa.base + gqqa.api + gqqa.qa,
+  generateQuestion: () => unilm.base + unilm.api + unilm.qg,
+  answerQuestion: () => unilm.base + unilm.api + unilm.qa,
 };

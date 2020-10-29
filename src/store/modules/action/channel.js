@@ -19,6 +19,7 @@ export const fetchChannel = (payload, callbackHandler) => async (dispatch) => {
     console.log(e);
   }
 };
+
 /**
  *
  * @param {token, channelId, title, index} payload

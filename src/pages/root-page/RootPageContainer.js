@@ -9,19 +9,20 @@ import LocalPath from 'common/local-path';
 import { decode } from 'common/security/common';
 import RootPage from './RootPage';
 
-// import Images from 'resources/images';
-// const preload = (images) => {
-//   for (const key in images) {
-//     if (images.hasOwnProperty(key)) {
-//       const element = images[key];
-//       let image = new Image();
-//       image.src = element;
-//     }
-//   }
-// };
+import Images from 'resources/images';
+const preload = (images) => {
+  for (const key in images) {
+    if (images.hasOwnProperty(key)) {
+      const element = images[key];
+      let image = new Image();
+      image.src = element;
+    }
+  }
+};
 
 const RootPageContainer = (props) => {
   useEffect(() => {
+    // preload(Images);
     if (localStorage.hasOwnProperty('account')) {
       try {
         props.requestSignIn(
@@ -45,12 +46,12 @@ const RootPageContainer = (props) => {
       history.push(LocalPath.root);
       return;
     }
-    // if (intervalId === 0) {
-    //   const id = setInterval(() => {
-    //     props.refresh({ token: props.token });
-    //   }, 30000);
-    //   setIntervalId(id);
-    // }
+    if (intervalId === 0) {
+      const id = setInterval(() => {
+        props.refresh({ token: props.token });
+      }, 10000);
+      setIntervalId(id);
+    }
   }, [props.token]);
 
   return <RootPage />;

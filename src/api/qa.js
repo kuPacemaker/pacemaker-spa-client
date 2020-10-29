@@ -1,11 +1,11 @@
 import { axios } from 'common/api-wrapper';
-import { gqqa } from 'common/server-path';
+import { unilm } from 'common/server-path';
 
 const server = {};
 server['qa'] =
   process.env.NODE_ENV === 'development'
-    ? gqqa.api + gqqa.qa
-    : gqqa.answerQuestion();
+    ? unilm.api + unilm.qa
+    : unilm.answerQuestion();
 
 /**
  *
