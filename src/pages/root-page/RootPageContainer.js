@@ -48,7 +48,7 @@ const RootPageContainer = (props) => {
     if (intervalId === 0) {
       const id = setInterval(() => {
         props.refresh({ token: props.token });
-      }, 10000);
+      }, 3000);
       setIntervalId(id);
     }
   }, [props.token]);

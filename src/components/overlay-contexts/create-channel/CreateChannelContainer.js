@@ -12,13 +12,13 @@ const inputForms = [
     title: 'NAME',
     type: 'text',
     fontSize: '1.35em',
-    max: 15,
+    max: 18,
   },
   {
     title: 'DESCRIPTION',
     type: 'text',
     fontSize: '1.35em',
-    max: 18,
+    max: 28,
   },
 ];
 

@@ -56,6 +56,7 @@ const QAModalContainer = (props) => {
   }, []);
 
   useEffect(() => {
+    console.log('ASD');
     props.setActive();
     setAnswer(props.answer);
     resetRecognition(recognition, setRecognition)();
@@ -63,7 +64,7 @@ const QAModalContainer = (props) => {
 
   const sendQuestion = (token, document) => (q) => {
     setQuestion(question + '?');
-    props.ask(token, document, q);
+    props.ask(token, document, q + '?');
     props.setSleep();
   };
 
