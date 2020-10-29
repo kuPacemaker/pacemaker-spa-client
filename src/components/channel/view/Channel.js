@@ -6,6 +6,8 @@ import UnitList from './sub-components/UnitList';
 import RunnerList from './sub-components/RunnerList';
 import arrow_left from 'resources/images/icon/arrow-left.png';
 import arrow_down from 'resources/images/icon/arrow-down.png';
+import remove_icon from 'resources/images/icon/delete.png';
+import exit_icon from 'resources/images/icon/exit.png';
 
 import plus from 'resources/images/icon/plus.png';
 
@@ -22,6 +24,8 @@ const Channel = ({
   runners,
   onClickCreateUnit,
   onClickAccessCode,
+  onClickRemoveChannel,
+  onClickExitChannel,
   onClickNotReadyFunction,
 }) => {
   const [visible, setVisible] = useState(false);
@@ -66,6 +70,15 @@ const Channel = ({
         <div className="ChannelTitle">{title}</div>
         <div className="ChannelDetail">{detail}</div>
         <div className="ChannelLeader">{leader}</div>
+        <img
+          draggable="false"
+          className="RemoveOrExit"
+          src={type === 'leader' ? remove_icon : exit_icon}
+          alt=""
+          onClick={
+            type === 'leader' ? onClickRemoveChannel : onClickExitChannel
+          }
+        />
       </div>
       <div className="ChannelTabBar">
         <div className="Tab ShowChannelCode" onClick={onClickAccessCode}>

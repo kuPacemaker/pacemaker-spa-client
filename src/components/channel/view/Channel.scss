@@ -1,126 +1,129 @@
 @import 'shared/StyleValues.scss';
 @import 'shared/Animations.scss';
 
-
 .Channel {
-    position: fixed;
-    top: $stepSize *3;
-    left: 0;
-    right: 0;
-    bottom: $stepSize *3;
+  position: fixed;
+  top: $stepSize * 3;
+  left: 0;
+  right: 0;
+  bottom: $stepSize * 3;
 
-    @include fade-in();
+  @include fade-in();
 
-    .TopBar {
-        margin-left: $sidemargin *2;
+  .TopBar {
+    margin-left: $sidemargin * 2;
 
-        .ArrowLeft {
-            pointer-events: all;
-            @include square(3);
-        }
+    .ArrowLeft {
+      pointer-events: all;
+      @include square(3);
+    }
+  }
+
+  .ChannelInformationBar {
+    position: relative;
+    margin-top: $stepSize * 2;
+    margin-left: 35%;
+
+    .ChannelTitle {
+      font-size: $topMenu;
     }
 
-    .ChannelInformationBar {
-        margin-top: $stepSize*2;
-        margin-left: 35%;
-
-        .ChannelTitle {
-            font-size: $topMenu;
-        }
-
-        .ChannelDetail {
-            font-size: $midArticle;
-        }
-
-        .ChannelLeader {
-            font-size: $midArticle;
-        }
+    .ChannelDetail {
+      font-size: $midArticle;
     }
 
-    .ChannelTabBar {
-        text-align: right;
-        margin-top: $stepSize;
-        padding-right: 35px;
-        padding-bottom: $stepSize / 2;
-        border-bottom: 3px black solid;
+    .ChannelLeader {
+      font-size: $midArticle;
+    }
+    .RemoveOrExit {
+      position: absolute;
+      bottom: 0;
+      right: $stepSize * 3;
+      pointer-events: all;
+      @include square(3);
+    }
+  }
 
-        .Tab {
-            display: inline;
-            margin-right: 35px;
-            font-size: $channelTab;
-            // @include underline_effect(3px, 0.5s);
-        }
+  .ChannelTabBar {
+    text-align: right;
+    margin-top: $stepSize;
+    padding-right: $stepSize * 2;
+    padding-bottom: $stepSize / 2;
+    border-bottom: 3px black solid;
+
+    .Tab {
+      display: inline;
+      margin-right: $stepSize;
+      font-size: $channelTab;
+      // @include underline_effect(3px, 0.5s);
+    }
+  }
+
+  .Context {
+    pointer-events: all;
+    width: 100%;
+    height: 55%;
+
+    overflow-y: scroll;
+    overflow-x: hidden;
+
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+
+    &::-webkit-scrollbar {
+      display: none;
     }
 
-    .Context {
-        pointer-events: all;
+    .Container {
+      .Line {
+        pointer-events: none;
+        border-bottom: 1px black solid;
+        height: 80px;
         width: 100%;
-        height: 55%;
+        padding-left: 35%;
 
-        overflow-y: scroll;
-        overflow-x: hidden;
-
-        -ms-overflow-style: none;
-        scrollbar-width: none;
-
-        &::-webkit-scrollbar {
-            display: none;
+        .Runner {
+          padding-top: 25px;
+          font-size: $unitList;
         }
-
-        .Container {
-            .Line {
-                pointer-events: none;
-                border-bottom: 1px black solid;
-                height: 80px;
-                width: 100%;
-                padding-left: 35%;
-
-                .Runner {
-                    padding-top: 25px;
-                    font-size: $unitList;
-                }
-            }
-        }
+      }
     }
+  }
 
-    .FloatingIconSet {
-        position: fixed;
-        right: 5%;
+  .FloatingIconSet {
+    position: fixed;
+    right: 5%;
 
-        bottom: 12.5%;
+    bottom: 12.5%;
 
-        .Icon {
-            @include square(3);
-            margin-right: 25px;
-            pointer-events: all;
+    .Icon {
+      @include square(3);
+      margin-right: 25px;
+      pointer-events: all;
 
-            &.ArrowDown {
-                &.Up {
-                    @include animate-rotate(180deg);
-                }
-
-                &.Down {
-                    @include animate-rotate(0deg);
-                }
-            }
-
+      &.ArrowDown {
+        &.Up {
+          @include animate-rotate(180deg);
         }
 
-    }
-
-    .ImageContainer {
-        position: absolute;
-        top: 20%;
-        left: $sidemargin*2;
-        width: 25%;
-        height: 80%;
-
-        .ChannelImage {
-            display: block;
-            margin: 0 auto;
-            height: 100%;
+        &.Down {
+          @include animate-rotate(0deg);
         }
+      }
     }
+  }
 
+  .ImageContainer {
+    position: absolute;
+    top: 20%;
+    left: $sidemargin * 2;
+    width: 25%;
+    height: 80%;
 
+    .ChannelImage {
+      display: block;
+      margin: 0 auto;
+      height: 100%;
+    }
+  }
 }

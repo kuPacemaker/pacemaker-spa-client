@@ -3,23 +3,19 @@ import { connect } from 'react-redux';
 import { useHistory } from 'react-router-dom';
 
 import Modal from '../default-modal';
-import { submitPaper } from 'store/modules/action/unit';
+import { exitChannel } from 'store/modules/action/board';
 
-const title = 'DO YOU WANT TO\nSUBMIT YOUR QUIZ?';
-const body = 'Answers cannot be modified after submission.';
+const title = 'DO YOU WANT TO\nEXIT THIS CHANNEL?';
+const body = 'Exit channel is irreversible once executed.';
 
-const SubmitPaperContainer = (props) => {
+const ExitChannelContainer = (props) => {
   const history = useHistory();
   const buttons = [
     {
       name: 'YES',
       onClickHandelr: () => {
-        const answers = props.paper.questions.map((question) => ({
-          id: question.id,
-          user_answer: question.user_answer,
-        }));
-        props.submit(
-          { token: props.token, unit: props.unit, answers },
+        props.exit(
+          { token: props.token, channel: props.channel },
           (success) => {
             props.changeHandler();
             history.goBack();
@@ -44,18 +40,17 @@ const SubmitPaperContainer = (props) => {
   );
 };
 
-const mapStateToProps = ({ account, unit }) => ({
+const mapStateToProps = ({ account, channel }) => ({
   token: account.token,
-  unit: unit.data.unit.id,
-  paper: unit.data.unit.paper,
+  channel: channel.data.id,
 });
 
 const mapDispatchToProps = (dispatch) => ({
-  submit: (paper, callbackHandler) =>
-    dispatch(submitPaper(paper, callbackHandler)),
+  exit: (payload, callbackHandler) =>
+    dispatch(exitChannel(payload, callbackHandler)),
 });
 
 export default connect(
   mapStateToProps,
   mapDispatchToProps
-)(SubmitPaperContainer);
+)(ExitChannelContainer);

@@ -51,7 +51,7 @@ const Unit = (props) => {
   }, []);
 
   useEffect(() => {
-    if (tab === 'root' && props.document.id != null) {
+    if (tab === 'root' && props.document.id !== null) {
       setTab('document');
     }
   }, [props.document.id]);

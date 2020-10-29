@@ -1,6 +1,7 @@
 import { createAction } from 'redux-actions';
 import {
   UPDATE,
+  RESET,
   UPDATE_DOCUMENT,
   UPDATE_QUESTION,
   PENDING,
@@ -16,6 +17,8 @@ export const update = createAction(UPDATE, (data) => ({
 }));
 
 export const update_document = createAction(UPDATE_DOCUMENT, (data) => data);
+
+export const reset = createAction(RESET);
 
 export const update_question = createAction(UPDATE_QUESTION, (data) => data);
 

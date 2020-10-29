@@ -4,11 +4,14 @@ import classNames from 'classnames';
 import AccessCode from 'components/overlay-contexts/access-code';
 import Account from 'components/overlay-contexts/account';
 import CreateChannel from 'components/overlay-contexts/create-channel';
+import RemoveChannel from 'components/overlay-contexts/remove-channel';
+import EnterChannel from 'components/overlay-contexts/enter-channel';
+import ExitChannel from 'components/overlay-contexts/exit-channel';
 import CreateUnit from 'components/overlay-contexts/create-unit';
 import EditUnit from 'components/overlay-contexts/edit-unit';
 import SubmitDocument from 'components/overlay-contexts/submit-document';
 import SubmitPaper from 'components/overlay-contexts/submit-paper';
-import EnterChannel from 'components/overlay-contexts/enter-channel';
+
 import ModifyAccount from 'components/overlay-contexts/modify-account';
 import Menu from 'components/overlay-contexts/overlay-menu';
 import QAModal from 'components/overlay-contexts/qa-modal';
@@ -46,9 +49,19 @@ const Overlay = ({ visible, type, active, overlayHandler }) => {
         <CreateChannel visible={visible} changeHandler={overlayHandler} />
       );
       break;
+    case 'REMOVE CHANNEL':
+      context = (
+        <RemoveChannel visible={visible} changeHandler={overlayHandler} />
+      );
+      break;
     case 'ENTER CHANNEL':
       context = (
         <EnterChannel visible={visible} changeHandler={overlayHandler} />
+      );
+      break;
+    case 'EXIT UNIT':
+      context = (
+        <ExitChannel visible={visible} changeHandler={overlayHandler} />
       );
       break;
     case 'ACCESS CODE':

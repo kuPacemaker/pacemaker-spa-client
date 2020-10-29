@@ -9,7 +9,7 @@ import {
   verifyQuestion,
 } from 'store/modules/action/unit';
 
-import { update } from 'store/modules/creators/unit';
+import { update, reset } from 'store/modules/creators/unit';
 import { show } from 'store/modules/creators/modal';
 
 import { LocalMainPage } from 'common/local-path';
@@ -139,6 +139,7 @@ const UnitContainer = ({
   isReady,
   getUnit: getUnitHandler,
   update: updateHandler,
+  reset: resetHandler,
   show: showModalHandler,
   reservation,
   verifyQuestion: verifyHandler,
@@ -153,6 +154,9 @@ const UnitContainer = ({
   useEffect(() => {
     if (token === null) return;
     getUnitHandler({ token: token, channel: channelId, unit: unitId });
+    return () => {
+      resetHandler();
+    };
   }, []);
 
   useEffect(() => {
@@ -185,7 +189,6 @@ const UnitContainer = ({
         data.unit.document
       )}
       documentHandler={documentHandler(document, setDocument)}
-      //FIXME: updateHandler를 통해서 redux 접근. 이 부분을 서버통신으로 변경
       updatePaper={updatePaper(updateHandler)(data, paper)}
       verifyPaper={verifyPaper(verifyHandler)(token, unitId, paper, setPaper)}
       onVerifyHandler={onVerifyHandler(paper, setPaper)}
@@ -207,6 +210,7 @@ const mapDispatchToProps = (dispatch) =>
       getUnit,
       show,
       update,
+      reset,
       verifyQuestion,
       reservation: makeReservation,
       createDocs: unitDocument.create,
