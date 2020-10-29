@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import classNames from 'classnames';
 import Ticker from 'react-ticker';
 import arrow_right from 'resources/images/icon/arrow-right.png';
@@ -9,6 +9,11 @@ import Person from './sub-components/Person';
 const arrow = Array.from('>'.repeat(20));
 
 const Contact = ({ title, collaborators, contributors, visible }) => {
+  const [speed, setSpeed] = useState(6);
+  const onHoverHandler = (enter) => () => {
+    if (enter) setSpeed(2);
+    else setSpeed(6);
+  };
   return (
     <div className={classNames('Contact', { Invisible: !visible })}>
       <div className="TopBar">
@@ -18,7 +23,7 @@ const Contact = ({ title, collaborators, contributors, visible }) => {
       </div>
       <div className="Context">
         <div className="ArrowBar">
-          <Ticker direction="toRight">
+          <Ticker speed={speed} direction="toRight">
             {() => (
               <>
                 {arrow.map((_, index) => (
@@ -28,9 +33,13 @@ const Contact = ({ title, collaborators, contributors, visible }) => {
             )}
           </Ticker>
         </div>
-        <Ticker>
+        <Ticker speed={speed} direction="toLeft">
           {() => (
-            <div style={{ whiteSpace: 'nowrap' }}>
+            <div
+              style={{ whiteSpace: 'nowrap' }}
+              onMouseEnter={onHoverHandler(true)}
+              onMouseLeave={onHoverHandler(false)}
+            >
               <Person
                 isTag={true}
                 name="NAME"

@@ -5,9 +5,9 @@
 $side:$sidemargin * 1.5;
 
 .Person {
-    padding-top: 15px;
     position: relative;
     display: inline-block;
+    padding-top: 15px;
 
     &.Tag {
         font-weight: 600;
