@@ -6,7 +6,8 @@ import Modal from '../default-modal';
 import { removeChannel } from 'store/modules/action/board';
 
 const title = 'DO YOU WANT TO\nREMOVE THIS CHANNEL?';
-const body = 'Remove channel is irreversible once executed.';
+const body =
+  'Are you sure you want to delete this channel?\nRemove channel is irreversible once executed.';
 
 const RemoveChannelContainer = (props) => {
   const history = useHistory();
