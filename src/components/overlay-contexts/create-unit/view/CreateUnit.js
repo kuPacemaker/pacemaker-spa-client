@@ -15,7 +15,7 @@ const CreateUnit = ({
   requestCreateUnit,
 }) => {
   return (
-    <div className="CreateUnit">
+    <div className={classNames('CreateUnit', { Show: show, Hide: !show })}>
       <div className="Title">{title}</div>
       <div className="UnitIndex">UNIT. {index}</div>
       <div className="InputForms">

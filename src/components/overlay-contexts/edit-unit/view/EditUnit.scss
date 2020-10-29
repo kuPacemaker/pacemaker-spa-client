@@ -1,88 +1,94 @@
 @import 'shared/StyleValues.scss';
 @import 'shared/Animations.scss';
 
-
 .EditUnit {
-    position: relative;
-    display: block;
-    margin: 0 auto;
-    margin-top: 250px;
-    width: 800px;
-    height: 425px;
-    border: 1px black solid;
-    background-color: white;
-    opacity: 1;
+  position: relative;
+  display: block;
+  margin: 0 auto;
+  margin-top: 250px;
+  width: 800px;
+  height: 425px;
+  border: 1px black solid;
+  background-color: white;
+  opacity: 1;
 
-    .Title {
-        margin-top: 50px;
-        padding-left: $sidemargin;
-        font-size: 50px;
-    }
+  &.Show {
+    pointer-events: all;
+  }
 
-    .UnitIndex {
-        margin-top: 35px;
-        padding-left: $sidemargin;
-        font-size: 2em;
-    }
+  &.Hide {
+    pointer-events: none;
+  }
 
-    .InputForms {
-        margin-top: 25px;
+  .Title {
+    margin-top: 50px;
+    padding-left: $sidemargin;
+    font-size: 50px;
+  }
 
-        .InputLine {
-            position: relative;
-            width: 100%;
-            height: 70px;
-            border-top: 1px solid black;
+  .UnitIndex {
+    margin-top: 35px;
+    padding-left: $sidemargin;
+    font-size: 2em;
+  }
 
-            .Input {
-                height: 100%;
-                padding-top: 20px;
-                margin-left: $sidemargin;
+  .InputForms {
+    margin-top: 25px;
 
-                &.Show {
-                    pointer-events: all;
-                }
+    .InputLine {
+      position: relative;
+      width: 100%;
+      height: 70px;
+      border-top: 1px solid black;
 
-                &.Hide {
-                    pointer-events: none;
-                }
-            }
+      .Input {
+        height: 100%;
+        padding-top: 20px;
+        margin-left: $sidemargin;
 
-            .Start {
-                margin-top: 40px;
-
-                .Padding {
-                    display: inline-block;
-                    width: 40%;
-                }
-
-                .Button {
-                    display: inline-block;
-
-                    span {
-                        display: inline-block;
-                        font-size: 30px;
-                        vertical-align: top;
-                        margin-top: 7px;
-                    }
-
-                    .Arrow {
-                        @include square_px(50px);
-                        position: relative;
-                        display: inline-block;
-                        margin-right: 10px;
-
-                    }
-
-                    &.Show {
-                        pointer-events: all;
-                    }
-
-                    &.Hide {
-                        pointer-events: none;
-                    }
-                }
-            }
+        &.Show {
+          pointer-events: all;
         }
+
+        &.Hide {
+          pointer-events: none;
+        }
+      }
+
+      .Start {
+        margin-top: 40px;
+
+        .Padding {
+          display: inline-block;
+          width: 40%;
+        }
+
+        .Button {
+          display: inline-block;
+
+          span {
+            display: inline-block;
+            font-size: 30px;
+            vertical-align: top;
+            margin-top: 7px;
+          }
+
+          .Arrow {
+            @include square_px(50px);
+            position: relative;
+            display: inline-block;
+            margin-right: 10px;
+          }
+
+          &.Show {
+            pointer-events: all;
+          }
+
+          &.Hide {
+            pointer-events: none;
+          }
+        }
+      }
     }
+  }
 }

@@ -16,7 +16,12 @@ const EditUnit = ({
   requestEditUnit,
 }) => {
   return (
-    <div className="EditUnit">
+    <div
+      className={classNames('EditUnit', {
+        Show: show,
+        Hide: !show,
+      })}
+    >
       <div className="Title">{title}</div>
       <div className="UnitIndex">UNIT. {index}</div>
       <div className="InputForms">

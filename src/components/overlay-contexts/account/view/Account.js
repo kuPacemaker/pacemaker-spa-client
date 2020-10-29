@@ -7,7 +7,12 @@ import './Account.scss';
 
 const Account = ({ user, show, texts, moveToModify, signoutHandler }) => {
   return (
-    <div className="Account">
+    <div
+      className={classNames('Account', {
+        Show: show,
+        Hide: !show,
+      })}
+    >
       <div className="Context">
         <img draggable="false" className="Close" src={cross} alt="" />
         <div className="Title">
