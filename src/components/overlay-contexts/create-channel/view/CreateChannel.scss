@@ -1,115 +1,113 @@
 @import 'shared/StyleValues.scss';
 @import 'shared/Animations.scss';
 
-
 .CreateChannel {
-    position: relative;
-    display: block;
-    margin: 0 auto;
-    margin-top: 150px;
-    width: 1000px;
-    height: 600px;
-    border: 1px black solid;
-    background-color: white;
-    opacity: 1;
+  position: relative;
+  display: block;
+  margin: 0 auto;
+  margin-top: 9%;
+  width: 1000px;
+  height: 600px;
+  border: 1px black solid;
+  background-color: white;
+  opacity: 1;
 
-    &.Show {
-        pointer-events: all;
-    }
+  &.Show {
+    pointer-events: all;
+  }
 
-    &.Hide {
-        pointer-events: none;
-    }
+  &.Hide {
+    pointer-events: none;
+  }
 
-    .Title {
-        margin-top: 7.5%;
-        padding-left: $sidemargin;
-        font-size: 50px;
-    }
+  .Title {
+    margin-top: 7.5%;
+    padding-left: $sidemargin;
+    font-size: 50px;
+  }
 
-    .InputForms {
-        margin-top: 12.5%;
+  .InputForms {
+    margin-top: 12.5%;
 
-        .InputLine {
+    .InputLine {
+      position: relative;
+      width: 100%;
+      height: 65px;
+      border-top: 1px solid black;
+
+      .Input {
+        height: 100%;
+        padding-top: 20px;
+        margin-left: $sidemargin;
+
+        &.Show {
+          pointer-events: all;
+        }
+
+        &.Hide {
+          pointer-events: none;
+        }
+      }
+
+      .Start {
+        margin-top: 10px;
+
+        .Padding {
+          display: inline-block;
+          width: 45%;
+        }
+
+        .Button {
+          display: inline-block;
+
+          span {
+            display: inline-block;
+            font-size: 30px;
+            vertical-align: top;
+            margin-top: 7px;
+          }
+
+          .Arrow {
+            @include square_px(50px);
             position: relative;
-            width: 100%;
-            height: 65px;
-            border-top: 1px solid black;
+            display: inline-block;
+            margin-right: 10px;
+          }
 
-            .Input {
-                height: 100%;
-                padding-top: 20px;
-                margin-left: $sidemargin;
+          &.Show {
+            pointer-events: all;
+          }
 
-                &.Show {
-                    pointer-events: all;
-                }
-
-                &.Hide {
-                    pointer-events: none;
-                }
-            }
-
-            .Start {
-                margin-top: 10px;
-
-                .Padding {
-                    display: inline-block;
-                    width: 45%;
-                }
-
-                .Button {
-                    display: inline-block;
-
-                    span {
-                        display: inline-block;
-                        font-size: 30px;
-                        vertical-align: top;
-                        margin-top: 7px;
-                    }
-
-                    .Arrow {
-                        @include square_px(50px);
-                        position: relative;
-                        display: inline-block;
-                        margin-right: 10px;
-
-                    }
-
-                    &.Show {
-                        pointer-events: all;
-                    }
-
-                    &.Hide {
-                        pointer-events: none;
-                    }
-                }
-            }
+          &.Hide {
+            pointer-events: none;
+          }
         }
+      }
+    }
+  }
+
+  .ImageContainer {
+    position: absolute;
+    bottom: 50px;
+    right: 50px;
+
+    .ChannelImage {
+      width: 300px;
     }
 
-    .ImageContainer {
-        position: absolute;
-        bottom: 50px;
-        right: 50px;
+    .ChangeImage {
+      margin-top: 10px;
+      font-size: 18px;
+      text-align: center;
+      text-decoration: underline;
 
-        .ChannelImage {
-            width: 300px;
-        }
+      &.Show {
+        pointer-events: all;
+      }
 
-        .ChangeImage {
-            margin-top: 10px;
-            font-size: 18px;
-            text-align: center;
-            text-decoration: underline;
-
-            &.Show {
-                pointer-events: all;
-            }
-
-            &.Hide {
-                pointer-events: none;
-            }
-        }
+      &.Hide {
+        pointer-events: none;
+      }
     }
+  }
 }
