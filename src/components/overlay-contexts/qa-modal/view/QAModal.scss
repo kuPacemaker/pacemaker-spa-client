@@ -1,105 +1,100 @@
 @import 'shared/StyleValues.scss';
 @import 'shared/Animations.scss';
 
-
 .QAModal {
+  position: relative;
+  display: block;
+  margin: 0 auto;
+  margin-top: 10%;
+  width: 950px;
+  height: 575px;
+  border: 1px black solid;
+  background-color: white;
+  opacity: 1;
+
+  overflow: hidden;
+
+  &.Show {
+    pointer-events: all;
+  }
+
+  &.Hide {
+    pointer-events: none;
+  }
+
+  .TopArticle {
+    padding: 50px 175px 50px 50px;
+    text-align: left;
+
+    .Title {
+      font-size: 50px;
+    }
+
+    .Info {
+      color: #555;
+      font-size: 30px;
+    }
+  }
+
+  .InputLine {
     position: relative;
-    display: block;
-    margin: 0 auto;
-    margin-top: 10%;
-    width: 950px;
-    height: 575px;
-    border: 1px black solid;
-    background-color: white;
-    opacity: 1;
+    width: 100%;
+    padding: 20px 50px 20px 50px;
+    pointer-events: none;
+    border-top: 1px solid black;
+    text-align: left;
 
-    overflow: hidden;
-
-    &.Show {
-        pointer-events: all;
+    .Tag {
+      display: inline-block;
+      width: 60px;
+      font-size: 50px;
     }
 
-    &.Hide {
-        pointer-events: none;
+    .Body {
+      pointer-events: all;
+      resize: none;
+      border: none;
+      width: 90%;
+      margin-top: -40px;
+      margin-left: 60px;
+      display: block;
+
+      &.Question {
+        font-size: 32px;
+        height: 45px;
+      }
+
+      &.Answer {
+        font-size: 27px;
+        height: 100px;
+      }
+
+      &:focus {
+        outline: none;
+      }
+
+      &::-webkit-scrollbar {
+        display: none;
+      }
+
+      -ms-overflow-style: none;
+      scrollbar-width: none;
     }
 
-    .TopArticle {
-        padding: 50px 175px 50px 50px;
-        text-align: left;
-
-        .Title {
-            font-size: 50px;
-        }
-
-        .Info {
-            color: #555;
-            font-size: 30px;
-        }
+    ::-moz-selection {
+      /* Code for Firefox */
+      color: white;
+      background-color: black;
     }
 
-    .InputLine {
-        position: relative;
-        width: 100%;
-        padding: 20px 50px 20px 50px;
-        pointer-events: none;
-        border-top: 1px solid black;
-        text-align: left;
-
-        .Tag {
-            display: inline-block;
-            width: 60px;
-            font-size: 50px;
-        }
-
-        .Body {
-            pointer-events: all;
-            resize: none;
-            border: none;
-            width: 90%;
-            margin-top: -40px;
-            margin-left: 60px;
-            display: block;
-
-
-            &.Question {
-                font-size: 32px;
-                height: 45px;
-            }
-
-            &.Answer {
-                font-size: 27px;
-                height: 100px;
-            }
-
-            &:focus {
-                outline: none;
-            }
-
-            &::-webkit-scrollbar {
-                display: none;
-            }
-
-            -ms-overflow-style: none;
-            scrollbar-width: none;
-
-        }
-
-        ::-moz-selection {
-            /* Code for Firefox */
-            color: white;
-            background-color: black;
-        }
-
-        ::selection {
-            color: white;
-            background-color: black;
-        }
-
+    ::selection {
+      color: white;
+      background-color: black;
     }
+  }
 
-    p {
-        margin-block-start: 0em;
-        margin-block-end: 0em;
-    }
-
+  p {
+    margin-block-start: 0em;
+    margin-block-end: 0em;
+  }
 }

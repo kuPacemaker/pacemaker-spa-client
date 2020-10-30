@@ -1,58 +1,52 @@
 @import 'shared/Animations.scss';
 
 .Overlay {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  pointer-events: none;
+
+  .OverlayBackground {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-color: #ffffff;
+    z-index: -1;
+    @include animate();
+
+    &.Show {
+      opacity: 0.95;
+    }
+
+    &.Hide {
+      pointer-events: none !important;
+      opacity: 0;
+    }
+
+    &.Active {
+      pointer-events: all;
+    }
+  }
+
+  .Container {
     position: fixed;
     top: 0;
     bottom: 0;
     left: 0;
     right: 0;
     pointer-events: none;
+    @include animate();
 
-    .OverlayBackground {
-        position: fixed;
-        top: 0;
-        bottom: 0;
-        left: 0;
-        right: 0;
-        background-color: #FFFFFF;
-        z-index: -1;
-        @include animate();
-
-        &.Show {
-            opacity: 0.95;
-        }
-
-        &.Hide {
-            pointer-events: none !important;
-            opacity: 0;
-        }
-
-        &.Active {
-            pointer-events: all;
-        }
+    &.Show {
+      opacity: 1;
     }
 
-    .Container {
-        position: fixed;
-        top: 0;
-        bottom: 0;
-        left: 0;
-        right: 0;
-        pointer-events: none;
-        @include animate();
-
-
-
-        &.Show {
-            opacity: 1;
-        }
-
-        &.Hide {
-            opacity: 0;
-        }
-
+    &.Hide {
+      opacity: 0;
     }
-
-
-
+  }
 }

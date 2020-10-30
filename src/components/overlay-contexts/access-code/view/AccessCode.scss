@@ -1,51 +1,51 @@
 @import 'shared/StyleValues.scss';
 
 .AccessCode {
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    text-align: center;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  text-align: center;
 
-    .Context {
-        position: relative;
-        margin-top: 15%;
-        width: 700px;
-        height: 420px;
-        border: 1px black solid;
-        display: inline-block;
-        background-color: white;
+  .Context {
+    position: relative;
+    margin-top: 15%;
+    width: 700px;
+    height: 420px;
+    border: 1px black solid;
+    display: inline-block;
+    background-color: white;
 
-        .Title {
-            margin-top: 15%;
-            font-size: $topArticle;
-            text-align: center;
-        }
-
-        .Content {
-            margin-top: 30px;
-            font-size: $title;
-            text-align: center;
-            user-select: all;
-        }
-
-        ::-moz-selection {
-            /* Code for Firefox */
-            color: white;
-            background-color: black;
-        }
-
-        ::selection {
-            color: white;
-            background-color: black;
-        }
-
-        &.Show {
-            pointer-events: all;
-        }
-
-        &.Hide {
-            pointer-events: none;
-        }
+    .Title {
+      margin-top: 15%;
+      font-size: $topArticle;
+      text-align: center;
     }
+
+    .Content {
+      margin-top: 30px;
+      font-size: $title;
+      text-align: center;
+      user-select: all;
+    }
+
+    ::-moz-selection {
+      /* Code for Firefox */
+      color: white;
+      background-color: black;
+    }
+
+    ::selection {
+      color: white;
+      background-color: black;
+    }
+
+    &.Show {
+      pointer-events: all;
+    }
+
+    &.Hide {
+      pointer-events: none;
+    }
+  }
 }
