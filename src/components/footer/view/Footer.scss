@@ -2,48 +2,48 @@
 @import 'shared/Animations.scss';
 
 .Footer {
+  position: fixed;
+  pointer-events: none;
+  height: $stepSize * 1.75;
+  width: 100%;
+  bottom: 0;
+
+  span {
+    margin-left: $sidemargin;
+    font-size: $additional;
+  }
+
+  .IconSet {
     position: fixed;
-    pointer-events: none;
-    height: $stepSize * 1.75;
-    width: 100%;
-    bottom: 0;
+    display: inline-block;
+    right: $sidemargin;
+    height: $stepSize * 1.3;
 
-    span {
-        margin-left: $sidemargin;
-        font-size: $additional;
+    .Icon {
+      @include square(1.1);
+      display: inline-block;
+      pointer-events: all;
+      margin-left: $stepSize * 0.75;
+      background-size: cover;
+
+      opacity: 0.65;
+      transition: opacity 0.15s ease-in;
+
+      &.Facebook {
+        background-image: url('./resources/images/facebook.png');
+      }
+
+      &.Instargram {
+        background-image: url('./resources/images/instargram.png');
+      }
+
+      &.Youtube {
+        background-image: url('./resources/images/youtube.png');
+      }
+
+      &:hover {
+        opacity: 1;
+      }
     }
-
-    .IconSet {
-        position: fixed;
-        display: inline-block;
-        right: $sidemargin;
-        height: $stepSize * 1.3;
-
-        .Icon {
-            @include square(1.1);
-            display: inline-block;
-            pointer-events: all;
-            margin-left: $stepSize * 0.75;
-            background-size: cover;
-
-            opacity: 0.65;
-            transition: opacity 0.15s ease-in;
-
-            &.Facebook {
-                background-image: url('./resources/images/facebook.png');
-            }
-
-            &.Instargram {
-                background-image: url('./resources/images/instargram.png');
-            }
-
-            &.Youtube {
-                background-image: url('./resources/images/youtube.png');
-            }
-
-            &:hover {
-                opacity: 1;
-            }
-        }
-    }
+  }
 }

@@ -1,54 +1,58 @@
 @import 'shared/StyleValues.scss';
 @import 'shared/Animations.scss';
 
-
 .OverlayMenu {
-    position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+
+  .MenuView {
+    display: table;
+    margin: 0 auto;
+    width: 700px;
+    height: 100%;
 
     .MenuContext {
-        display: block;
-        margin: 0 auto;
-        margin-top: 7.5%;
-        width: 700px;
+      display: table-cell;
+      vertical-align: middle;
+      width: 700px;
+      padding-bottom: 75px;
 
-        .MainMenu {
-            text-align: center;
-            margin-bottom: 15px;
+      .MainMenu {
+        text-align: center;
+        margin-bottom: 15px;
+      }
+
+      .Line {
+        position: absolute;
+        left: 0;
+        right: 0;
+        border-top: 1px solid;
+      }
+
+      .OptionalMenu {
+        text-align: center;
+        margin-top: 30px;
+      }
+
+      .MenuItem {
+        display: inline-block;
+        font-size: $title;
+        margin-top: 10px;
+        margin-bottom: 10px;
+        line-height: calc(100% - 4px);
+        @include underline-effect(4px, 0.5s);
+
+        &.Show {
+          pointer-events: all;
         }
 
-
-        .Line {
-            position: absolute;
-            left: 0;
-            right: 0;
-            border-top: 1px solid;
+        &.Hide {
+          pointer-events: none;
         }
-
-        .OptionalMenu {
-            text-align: center;
-            margin-top: 30px;
-        }
-
-        .MenuItem {
-            display: inline-block;
-            font-size: $title;
-            margin-top: 10px;
-            margin-bottom: 10px;
-            line-height: calc(100% - 4px);
-            @include underline-effect(4px, 0.5s);
-
-            &.Show {
-                pointer-events: all;
-            }
-
-            &.Hide {
-                pointer-events: none;
-            }
-        }
+      }
     }
-
+  }
 }
