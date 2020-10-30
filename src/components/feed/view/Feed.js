@@ -40,19 +40,23 @@ const types = {
   ],
 };
 
-const makeRandomLR = () => parseInt(Math.random() + 0.5) === 0;
+const makeRandomInt = (min, max) => {
+  min = Math.ceil(min);
+  max = Math.floor(max);
+  return Math.floor(Math.random() * (max - min)) + min; //최댓값은 제외, 최솟값은 포함
+};
 
 const Feed = ({ type, title, body, arg }) => {
   const to =
     types[type][2].to === 'unit'
       ? `${LocalMainPage.unit.root}${types[type][2].type}?channel=${arg.channel_id}&id=${arg.unit_id}&tab=${types[type][2].tab}`
       : `${LocalMainPage.channel.root}${types[type][2].type}?id=${arg.channel_id}`;
-  const [isRight, setPosition] = useState(null);
+  const [index, setPosition] = useState(0);
   useEffect(() => {
-    setPosition(makeRandomLR());
+    setPosition(makeRandomInt(0, 5));
   }, []);
   return (
-    <div className={'Feed ' + (isRight ? 'RightImageFeed' : 'LeftImageFeed')}>
+    <div className={`Feed FeedType_${index}`}>
       <img
         draggable="false"
         className="FeedImage"
