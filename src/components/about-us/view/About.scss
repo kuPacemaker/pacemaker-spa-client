@@ -59,7 +59,7 @@
       position: fixed;
       margin-top: 5%;
       right: $sidemargin;
-      height: 70%;
+      height: calc(50% + 200px);
 
       .ConceptsImage {
         height: 100%;
