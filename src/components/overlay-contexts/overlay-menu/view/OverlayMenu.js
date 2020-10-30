@@ -14,27 +14,29 @@ const MenuItem = ({ show, item, onClickHandler }) => (
 const OverlayMenu = ({ show, main, optional, onClickHandler }) => {
   return (
     <div className="OverlayMenu">
-      <div className="MenuContext">
-        <div className="MainMenu">
-          {main.map((item, index) => (
-            <MenuItem
-              key={index}
-              show={show}
-              item={item}
-              onClickHandler={onClickHandler}
-            />
-          ))}
-        </div>
-        <div className="Line"></div>
-        <div className="OptionalMenu">
-          {optional.map((item, index) => (
-            <MenuItem
-              key={index}
-              show={show}
-              item={item}
-              onClickHandler={onClickHandler}
-            />
-          ))}
+      <div className="MenuView">
+        <div className="MenuContext">
+          <div className="MainMenu">
+            {main.map((item, index) => (
+              <MenuItem
+                key={index}
+                show={show}
+                item={item}
+                onClickHandler={onClickHandler}
+              />
+            ))}
+          </div>
+          <div className="Line"></div>
+          <div className="OptionalMenu">
+            {optional.map((item, index) => (
+              <MenuItem
+                key={index}
+                show={show}
+                item={item}
+                onClickHandler={onClickHandler}
+              />
+            ))}
+          </div>
         </div>
       </div>
     </div>

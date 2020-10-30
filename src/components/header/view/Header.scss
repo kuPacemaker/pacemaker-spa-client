@@ -2,39 +2,39 @@
 @import 'shared/Animations.scss';
 
 .Header {
+  position: fixed;
+  top: 0;
+  height: $stepSize * 2;
+  width: 100%;
+
+  .LeftButtonSet {
     position: fixed;
-    top: 0;
-    height: $stepSize * 2;
-    width: 100%;
+    left: $sidemargin;
+    top: $stepSize;
+  }
 
-    .LeftButtonSet {
-        position: fixed;
-        left: $sidemargin;
-        top: $stepSize;
-    }
+  .CenterTitle {
+    position: fixed;
+    width: 200px;
+    top: $stepSize / 2;
+    left: calc(50% - 100px);
+    text-align: center;
+    font-size: $midArticle;
+    font-weight: bold;
+  }
 
-    .CenterTitle {
-        position: fixed;
-        width: 200px;
-        top: $stepSize / 2;
-        left: calc(50% - 100px);
-        text-align: center;
-        font-size: $midArticle;
-        font-weight: bold;
-    }
+  .RightButtonSet {
+    position: fixed;
+    right: $sidemargin;
+    top: $stepSize;
+  }
 
-    .RightButtonSet {
-        position: fixed;
-        right: $sidemargin;
-        top: $stepSize;
+  span {
+    .LetterButton {
+      @include underline_effect(1.5px, 0.35s);
+      font-size: $smallArticle;
+      color: #000;
+      margin: 0 10px 0 10px;
     }
-
-    span {
-        .LetterButton {
-            @include underline_effect(1.5px, 0.35s);
-            font-size: $smallArticle;
-            color: #000;
-            margin: 0 10px 0 10px;
-        }
-    }
+  }
 }

@@ -1,27 +1,26 @@
 @import 'shared/StyleValues.scss';
 @import 'shared/Animations.scss';
 
-
 .FloatingIcons {
-    .Icon {
-        @include square(3);
-        @include animate();
-        pointer-events: all;
-        opacity: 1;
-        display: block;
-        margin-bottom: 25px;
-    }
+  .Icon {
+    @include square(3);
+    @include animate();
+    pointer-events: all;
+    opacity: 1;
+    display: block;
+    margin-bottom: 25px;
+  }
 
-    .RotateIcon {
-        transform: rotate(0deg);
+  .RotateIcon {
+    transform: rotate(0deg);
 
-        &.Rotate {
-            transform: rotate(180deg);
-        }
+    &.Rotate {
+      transform: rotate(180deg);
     }
+  }
 
-    .Disable {
-        pointer-events: none;
-        opacity: 0;
-    }
+  .Disable {
+    pointer-events: none;
+    opacity: 0;
+  }
 }

@@ -1,34 +1,33 @@
 @import 'shared/StyleValues.scss';
 @import 'shared/Animations.scss';
 
-
-$side:$sidemargin * 1.5;
+$side: $sidemargin * 1.5;
 
 .Person {
-    position: relative;
-    display: inline-block;
-    padding-top: 15px;
+  position: relative;
+  display: inline-block;
+  padding-top: 15px;
 
-    &.Tag {
-        font-weight: 600;
+  &.Tag {
+    font-weight: 600;
+  }
+
+  div {
+    $font: 22px;
+    $pad: 12px;
+    text-align: left;
+    padding: $pad 25px $pad $side;
+    border-top: 2px black solid;
+    font-size: $font;
+
+    span {
+      display: block;
+      height: $font + $pad * 2;
+      line-height: $font + $pad * 2;
     }
+  }
 
-    div {
-        $font: 22px;
-        $pad: 12px;
-        text-align: left;
-        padding: $pad 25px $pad $side;
-        border-top: 2px black solid;
-        font-size: $font;
-
-        span {
-            display: block;
-            height: $font + $pad *2;
-            line-height: $font+$pad *2;
-        }
-    }
-
-    .Page {
-        border-bottom: 2px black solid;
-    }
+  .Page {
+    border-bottom: 2px black solid;
+  }
 }

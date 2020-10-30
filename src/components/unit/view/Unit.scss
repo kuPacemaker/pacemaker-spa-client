@@ -2,192 +2,199 @@
 @import 'shared/Animations.scss';
 
 .Unit {
+  position: fixed;
+  top: $stepSize * 3;
+  left: 0;
+  right: 0;
+  bottom: $stepSize * 3;
+
+  @include fade-in();
+
+  .TopBar {
+    margin-left: $sidemargin * 2;
+
+    .ArrowLeft {
+      pointer-events: all;
+      @include square(3);
+    }
+  }
+
+  .ChannelInformationBar {
+    position: relative;
+    margin-top: 15px;
+    margin-left: $sidemargin * 2;
+
+    .ChannelTitle {
+      font-size: $topArticle;
+    }
+
+    .ChannelDetail {
+      font-size: $article;
+    }
+  }
+
+  .UnitInformationBar {
+    position: relative;
+    margin-top: 15px;
+    height: 80px;
+    border-top: 3px black solid;
+    border-bottom: 3px black solid;
+    z-index: 2;
+
+    .InformationContext {
+      margin-top: 20px;
+      margin-left: $sidemargin * 2;
+
+      div {
+        display: inline;
+        vertical-align: middle;
+      }
+
+      .UnitIndex {
+        font-size: $unitList;
+        margin-right: 25px;
+      }
+
+      .UnitTitle {
+        font-size: $unitList;
+        margin-right: 100px;
+      }
+
+      .UnitIconSet {
+        .Icon {
+          pointer-events: all;
+          margin-right: 25px;
+          @include square(1.25);
+
+          &.Disable {
+            pointer-events: none;
+            opacity: 0.5;
+          }
+        }
+      }
+    }
+  }
+
+  .Context {
+    position: absolute;
+    height: calc(75% - #{$stepSize * 2});
+    width: 100%;
+    z-index: 0;
+
+    .RootImage {
+      pointer-events: all;
+      position: relative;
+      display: block;
+      margin: 0 auto;
+      margin-top: 125px;
+      height: 300px;
+      opacity: 0.1;
+
+      @include animate();
+
+      &:hover {
+        opacity: 0.35;
+      }
+    }
+
+    .DocumentContainer {
+      position: relative;
+
+      width: calc(100% - #{$sidemargin * 6});
+      height: calc(100% - #{$sidemargin * 1});
+      margin-top: $stepSize;
+      margin-left: $sidemargin * 2;
+      margin-right: $sidemargin * 4;
+
+      .DocumentTitle {
+        position: relative;
+        margin-bottom: 15px;
+
+        div {
+          vertical-align: baseline;
+          display: inline;
+          font-size: $channelThumbnail;
+        }
+
+        input {
+          width: 100%;
+          vertical-align: baseline;
+          font-size: $channelThumbnail;
+        }
+
+        img {
+          margin-left: 25px;
+          pointer-events: all;
+          @include square(1);
+        }
+      }
+
+      .DocumentBody {
+        position: absolute;
+        pointer-events: all;
+        font-size: $midArticle;
+        height: 90%;
+        width: 100%;
+        overflow-x: hidden;
+        overflow-y: scroll;
+        border: 1px gray solid;
+        padding: 25px 25px 25px 25px;
+
+        -ms-overflow-style: none;
+        scrollbar-width: none;
+
+        &::-webkit-scrollbar {
+          display: none;
+        }
+
+        p {
+          margin-block-start: 0em;
+          margin-block-end: 0em;
+        }
+      }
+
+      ::-moz-selection {
+        /* Code for Firefox */
+        color: white;
+        background-color: black;
+      }
+
+      ::selection {
+        color: white;
+        background-color: black;
+      }
+    }
+
+    .QuizContext {
+      .TabTitle {
+        font-size: $channelThumbnail;
+        margin-top: $stepSize;
+        padding-bottom: $stepSize;
+        padding-left: $sidemargin * 2;
+        border-bottom: 2px black solid;
+      }
+
+      .QuizContainer {
+        height: 420px;
+        width: 100%;
+
+        overflow-x: hidden;
+        overflow-y: scroll;
+
+        -ms-overflow-style: none;
+        scrollbar-width: none;
+
+        &::-webkit-scrollbar {
+          display: none;
+        }
+      }
+    }
+  }
+
+  .IconContainer {
     position: fixed;
-    top: $stepSize *3;
-    left: 0;
-    right: 0;
-    bottom: $stepSize *3;
-
-    @include fade-in();
-
-    .TopBar {
-        margin-left: $sidemargin *2;
-
-        .ArrowLeft {
-            pointer-events: all;
-            @include square(3);
-        }
-    }
-
-    .ChannelInformationBar {
-        position: relative;
-        margin-top: 15px;
-        margin-left: $sidemargin *2;
-
-        .ChannelTitle {
-            font-size: $topArticle;
-        }
-
-        .ChannelDetail {
-            font-size: $article;
-        }
-    }
-
-    .UnitInformationBar {
-        position: relative;
-        margin-top: 15px;
-        height: 80px;
-        border-top: 3px black solid;
-        border-bottom: 3px black solid;
-        z-index: 2;
-
-        .InformationContext {
-            margin-top: 20px;
-            margin-left: $sidemargin *2;
-
-            div {
-                display: inline;
-                vertical-align: middle;
-            }
-
-            .UnitIndex {
-                font-size: $unitList;
-                margin-right: 25px;
-            }
-
-            .UnitTitle {
-                font-size: $unitList;
-                margin-right: 100px;
-            }
-
-            .UnitIconSet {
-
-                .Icon {
-                    pointer-events: all;
-                    margin-right: 25px;
-                    @include square(1.25);
-
-                    &.Disable {
-                        pointer-events: none;
-                        opacity: 0.5;
-                    }
-                }
-            }
-        }
-    }
-
-    .Context {
-        z-index: 0;
-
-        .RootImage {
-            pointer-events: all;
-            position: relative;
-            display: block;
-            margin: 0 auto;
-            margin-top: 125px;
-            height: 300px;
-            opacity: 0.1;
-
-            @include animate();
-
-            &:hover {
-                opacity: 0.35;
-            }
-        }
-
-        .DocumentContainer {
-            margin-top: $stepSize;
-            margin-left: $sidemargin *2;
-            margin-right: $sidemargin *4;
-
-            .DocumentTitle {
-                margin-bottom: 15px;
-
-                div {
-                    vertical-align: baseline;
-                    display: inline;
-                    font-size: $channelThumbnail;
-                }
-
-                input {
-                    width: 100%;
-                    vertical-align: baseline;
-                    font-size: $channelThumbnail;
-                }
-
-                img {
-                    margin-left: 25px;
-                    pointer-events: all;
-                    @include square(1);
-                }
-
-            }
-
-            .DocumentBody {
-                pointer-events: all;
-                font-size: $midArticle;
-                height: 450px;
-                width: 100%;
-                overflow-x: hidden;
-                overflow-y: scroll;
-                border: 1px gray solid;
-                padding: 25px 25px 25px 25px;
-
-                -ms-overflow-style: none;
-                scrollbar-width: none;
-
-                &::-webkit-scrollbar {
-                    display: none;
-                }
-
-                p {
-                    margin-block-start: 0em;
-                    margin-block-end: 0em;
-                }
-            }
-
-            ::-moz-selection {
-                /* Code for Firefox */
-                color: white;
-                background-color: black;
-            }
-
-            ::selection {
-                color: white;
-                background-color: black;
-            }
-        }
-
-        .QuizContext {
-            .TabTitle {
-                font-size: $channelThumbnail;
-                margin-top: $stepSize;
-                padding-bottom: $stepSize;
-                padding-left: $sidemargin *2;
-                border-bottom: 2px black solid;
-            }
-
-            .QuizContainer {
-                height: 420px;
-                width: 100%;
-
-                overflow-x: hidden;
-                overflow-y: scroll;
-
-                -ms-overflow-style: none;
-                scrollbar-width: none;
-
-                &::-webkit-scrollbar {
-                    display: none;
-                }
-            }
-        }
-    }
-
-    .IconContainer {
-        position: fixed;
-        z-index: 1;
-        bottom: 7.5%;
-        right: 5%;
-    }
+    z-index: 1;
+    bottom: 7.5%;
+    right: 5%;
+  }
 }

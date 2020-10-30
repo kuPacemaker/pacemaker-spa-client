@@ -1,35 +1,34 @@
 @import 'shared/StyleValues.scss';
 
 .ChannelThumbnail {
-    height: 100%;
-    // width: 100%;
+  height: 100%;
+  // width: 100%;
 
-    .ChannelImage {
-        // position: ;
-        display: block;
-        margin: auto;
-        margin-right: 0;
-        height: 85%;
+  .ChannelImage {
+    // position: ;
+    display: block;
+    margin: auto;
+    margin-right: 0;
+    height: 85%;
+  }
+
+  .ChannelContext {
+    display: block;
+    width: 100%;
+    margin-top: 10px;
+
+    .ChannelTitle {
+      text-align: right;
+      word-break: normal;
+      white-space: normal;
+      font-size: $channelThumbnail;
     }
 
-    .ChannelContext {
-        display: block;
-        width: 100%;
-        margin-top: 10px;
-
-        .ChannelTitle {
-            text-align: right;
-            word-break: normal;
-            white-space: normal;
-            font-size: $channelThumbnail;
-        }
-
-        .ChannelDetail {
-            text-align: right;
-            word-break: normal;
-            white-space: normal;
-            font-size: $article;
-        }
+    .ChannelDetail {
+      text-align: right;
+      word-break: normal;
+      white-space: normal;
+      font-size: $article;
     }
-
+  }
 }

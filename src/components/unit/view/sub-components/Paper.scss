@@ -1,84 +1,88 @@
 @import 'shared/StyleValues.scss';
 @import 'shared/Animations.scss';
 
-
 .Paper {
-    pointer-events: none;
+  position: relative;
+  pointer-events: none;
+  width: calc(100%);
+  height: calc(90%);
 
-    .QuizPaper {
-        margin-top: $stepSize * 2;
-        margin-left: $sidemargin;
-        margin-right: $sidemargin;
-        text-align: center;
+  .QuizPaper {
+    position: relative;
+    margin-top: 2vw;
+    margin-left: $sidemargin;
+    margin-right: $sidemargin;
+    text-align: center;
 
-        .QuizNumber {
-            margin-right: 15px;
-            display: inline-block;
-            font-size: $topMenu;
-        }
-
-        .QuizBody {
-            vertical-align: super;
-            display: inline-block;
-            font-size: $channelThumbnail;
-        }
+    .QuizNumber {
+      margin-right: 15px;
+      display: inline-block;
+      font-size: $topMenu;
     }
 
-    .AnswerContainer {
-        margin-top: $stepSize * 2;
-        text-align: center;
+    .QuizBody {
+      vertical-align: super;
+      display: inline-block;
+      font-size: $channelThumbnail;
+    }
+  }
 
-        .AnswerSet {
-            display: inline-block;
-            text-align: left;
+  .AnswerContainer {
+    position: relative;
+    margin-top: 3vw;
+    text-align: center;
 
-            .Answer {
-                position: relative;
-                pointer-events: all;
-                margin-top: 10px;
-                font-size: $unitList;
+    .AnswerSet {
+      display: inline-block;
+      text-align: left;
 
-                &.Disable {
-                    pointer-events: none;
-                }
+      .Answer {
+        position: relative;
+        pointer-events: all;
+        margin-top: 10px;
+        font-size: $unitList;
 
-                &.Correct {
-                    font-weight: 900;
-                }
-
-                .Checked {
-                    position: absolute;
-                    @include square_px(35px);
-                    left: -2px;
-                    top: -10px;
-                    pointer-events: none;
-                    display: none;
-
-                    &.Show {
-                        display: block;
-                    }
-                }
-            }
+        &.Disable {
+          pointer-events: none;
         }
+
+        &.Correct {
+          font-weight: 900;
+        }
+
+        .Checked {
+          position: absolute;
+          @include square_px(35px);
+          left: -2px;
+          top: -10px;
+          pointer-events: none;
+          display: none;
+
+          &.Show {
+            display: block;
+          }
+        }
+      }
+    }
+  }
+
+  .IconSet {
+    position: absolute;
+    bottom: 5%;
+    width: 100%;
+    text-align: center;
+
+    img {
+      @include square_px(60px);
+      vertical-align: bottom;
+      pointer-events: all;
     }
 
-    .IconSet {
-        position: absolute;
-        bottom: 5%;
-        width: 100%;
-        text-align: center;
-
-        img {
-            @include square_px(60px);
-            vertical-align: bottom;
-            pointer-events: all;
-        }
-
-        .Index {
-            margin-left: 50px;
-            margin-right: 50px;
-            display: inline-block;
-            font-size: $topArticle;
-        }
+    .Index {
+      margin-left: 50px;
+      margin-right: 50px;
+      display: inline-block;
+      font-size: $topArticle;
     }
+  }
 }
