@@ -119,7 +119,6 @@ const onReservationHandler = (reservation, showModalHandler) => (
   unit
 ) => () => {
   reservation({ token, unit }, (state, message) => {
-    console.log(state, message);
     if (state)
       showModalHandler('ALERT MODAL', {
         title: 'MAKE RESERVATIN\nPAPER IS DELIVERED!',

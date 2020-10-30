@@ -74,7 +74,6 @@ export const exit = async (payload) => {
  * @param {token, code} payload
  */
 export const enter = async (payload) => {
-  console.log(payload);
   return await axios.post(channel.enter, {
     token: payload.token,
     accesscode: payload.code,
