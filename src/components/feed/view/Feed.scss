@@ -39,22 +39,50 @@
   }
 }
 
-.RightImageFeed {
-  .FeedImage {
-    right: 2%;
-  }
-
-  .MessageBox {
-    right: 10%;
-  }
-}
-
-.LeftImageFeed {
+.FeedType_0 {
   .FeedImage {
     left: 2%;
   }
 
   .MessageBox {
     left: 10%;
+  }
+}
+
+.FeedType_1 {
+  .FeedImage {
+    left: 12%;
+  }
+
+  .MessageBox {
+    left: 20%;
+  }
+}
+.FeedType_2 {
+  .FeedImage {
+    left: 22%;
+  }
+
+  .MessageBox {
+    left: 30%;
+  }
+}
+.FeedType_3 {
+  .FeedImage {
+    right: 12%;
+  }
+
+  .MessageBox {
+    right: 20%;
+  }
+}
+
+.FeedType_4 {
+  .FeedImage {
+    right: 2%;
+  }
+
+  .MessageBox {
+    right: 10%;
   }
 }
