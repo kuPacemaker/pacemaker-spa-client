@@ -100,11 +100,10 @@
     .DocumentContainer {
       position: relative;
 
-      width: calc(100% - #{$sidemargin * 6});
+      width: calc(95% - #{$sidemargin * 4});
       height: calc(100% - #{$sidemargin * 1});
       margin-top: $stepSize;
       margin-left: $sidemargin * 2;
-      margin-right: $sidemargin * 4;
 
       .DocumentTitle {
         position: relative;
