@@ -19,25 +19,25 @@ const inputForms = [
     title: 'NAME',
     type: 'text',
     fontSize: '1.35em',
-    max: 30,
+    max: 28,
   },
   {
     title: 'E-MAIL',
     type: 'email',
     fontSize: '1.35em',
-    max: 30,
+    max: 28,
   },
   {
     title: 'PASSWORD',
     type: 'password',
     fontSize: '1.35em',
-    max: 27,
+    max: 26,
   },
   {
     title: 'CONFIRM PASSWORD',
     type: 'password',
     fontSize: '1.35em',
-    max: 23,
+    max: 22,
   },
 ];
 
@@ -87,6 +87,7 @@ const SignUpContainer = (props) => {
       props.requestSignUp(
         { id: state.id, pw: state.pw, name: state.name },
         (success) => {
+          console.log(success);
           if (success) {
             props.show('ALERT MODAL', {
               title: 'SIGN-UP SUCCESS\nSIGN-IN TO PACEMAKER!',
