@@ -2,60 +2,60 @@
 @import 'shared/Animations.scss';
 
 .Quiz {
-    border-bottom: 2px black solid;
-    padding-bottom: 5px;
+  border-bottom: 2px black solid;
+  padding-bottom: 5px;
 
-    .RemoveQuiz {
-        pointer-events: all;
-        margin-left: $sidemargin*2;
-        @include square(1);
-        @include animate();
+  .RemoveQuiz {
+    pointer-events: all;
+    margin-left: $sidemargin * 2;
+    @include square(1);
+    @include animate();
 
-        &.Hide {
-            pointer-events: none;
-            opacity: 0;
-        }
+    &.Hide {
+      pointer-events: none;
+      opacity: 0;
+    }
+  }
+
+  .QuizBody {
+    position: relative;
+    width: 85%;
+    margin-left: 20px;
+    display: inline-block;
+    vertical-align: bottom;
+    margin-top: 5px;
+    font-size: $channelTab;
+    @include animate();
+
+    &.Remove {
+      text-decoration: line-through;
+      opacity: 0.5;
+    }
+  }
+
+  .AnswerSet {
+    margin-top: 5px;
+    margin-left: $sidemargin * 3;
+    pointer-events: none;
+    @include animate();
+
+    .Answer {
+      display: inline-block;
+      margin-right: 15px;
+      font-size: $midArticle;
+
+      &.Checked {
+        font-weight: bold;
+      }
     }
 
-    .QuizBody {
-        position: relative;
-        width: 85%;
-        margin-left: 20px;
-        display: inline-block;
-        vertical-align: bottom;
-        margin-top: 5px;
-        font-size: $channelTab;
-        @include animate();
-
-        &.Remove {
-            text-decoration: line-through;
-            opacity: 0.5;
-        }
+    &.Hide {
+      opacity: 0 !important;
+      margin-top: -27px;
     }
 
-    .AnswerSet {
-        margin-top: 5px;
-        margin-left: $sidemargin *3;
-        pointer-events: none;
-        @include animate();
-
-        .Answer {
-            display: inline-block;
-            margin-right: 15px;
-            font-size: $midArticle;
-
-            &.Checked {
-                font-weight: bold;
-            }
-        }
-
-        &.Hide {
-            opacity: 0 !important;
-            margin-top: -27px;
-        }
-
-        &.Remove {
-            opacity: 0.5;
-        }
+    &.Remove {
+      opacity: 0.5;
     }
+  }
 }

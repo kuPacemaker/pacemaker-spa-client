@@ -35,6 +35,7 @@
     .ChannelLeader {
       font-size: $midArticle;
     }
+
     .RemoveOrExit {
       position: absolute;
       bottom: 0;
@@ -116,8 +117,8 @@
   .ImageContainer {
     position: absolute;
     top: 20%;
-    left: $sidemargin * 2;
-    width: 25%;
+    left: $sidemargin;
+    width: calc(27.5% + #{$sidemargin});
     height: 80%;
 
     .ChannelImage {

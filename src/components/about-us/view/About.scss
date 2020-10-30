@@ -2,67 +2,68 @@
 @import 'shared/Animations.scss';
 
 .About {
-    position: fixed;
-    pointer-events: none;
-    top: 0;
-    background-size: cover;
-    height: 100%;
-    width: 100%;
+  position: fixed;
+  pointer-events: none;
+  top: 0;
+  background-size: cover;
+  height: 100%;
+  width: 100%;
 
-    @include fade-in();
+  @include fade-in();
 
-    .context {
-        margin: 5% $sidemargin 5% $sidemargin;
-        height: 90%;
+  .context {
+    margin: 5% $sidemargin 5% $sidemargin;
+    height: 90%;
 
-        .ArticleBox {
-            position: relative;
-            top: 15%;
-            left: $stepSize *3;
-            width: 75%;
+    .ArticleBox {
+      position: relative;
+      top: 15%;
+      left: $stepSize * 3;
+      width: 75%;
 
-            p {
-                margin-block-start: 0em;
-                margin-block-end: 0em;
-            }
+      p {
+        margin-block-start: 0em;
+        margin-block-end: 0em;
+      }
 
-            .Title {
-                p {
-                    height: $article;
-                    font-size: $midArticle;
-                }
-            }
-
-            .MainArticle {
-                margin-top: 10px;
-                margin-bottom: 50px;
-
-                p {
-                    height: $article;
-                    font-size: $subTitle;
-                    letter-spacing: 1px;
-                }
-            }
-
-            .SubArticle {
-                margin-bottom: 30px;
-                width: 55%;
-
-                p {
-                    height: $midArticle;
-                    font-size: $midArticle;
-                    letter-spacing: 1px;
-                }
-
-            }
+      .Title {
+        p {
+          height: $article;
+          font-size: $midArticle;
         }
+      }
 
-        .ConceptsImage {
-            position: fixed;
-            margin-top: 5%;
-            right: $sidemargin;
-            height: 65%;
+      .MainArticle {
+        margin-top: 10px;
+        margin-bottom: 50px;
+
+        p {
+          height: $article;
+          font-size: $subTitle;
+          letter-spacing: 1px;
         }
+      }
+
+      .SubArticle {
+        margin-bottom: 30px;
+        width: 55%;
+
+        p {
+          height: $midArticle;
+          font-size: $midArticle;
+          letter-spacing: 1px;
+        }
+      }
     }
+    .ImageBox {
+      position: fixed;
+      margin-top: 5%;
+      right: $sidemargin;
+      height: 70%;
 
+      .ConceptsImage {
+        height: 100%;
+      }
+    }
+  }
 }
