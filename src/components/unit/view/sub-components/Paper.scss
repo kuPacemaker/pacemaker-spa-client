@@ -3,10 +3,14 @@
 
 
 .Paper {
+    position: relative;
     pointer-events: none;
+    width: calc(100%);
+    height: calc(90%);
 
     .QuizPaper {
-        margin-top: $stepSize * 2;
+        position: relative;
+        margin-top: 2vw;
         margin-left: $sidemargin;
         margin-right: $sidemargin;
         text-align: center;
@@ -25,7 +29,8 @@
     }
 
     .AnswerContainer {
-        margin-top: $stepSize * 2;
+        position: relative;
+        margin-top: 3vw;
         text-align: center;
 
         .AnswerSet {

@@ -77,6 +77,9 @@
     }
 
     .Context {
+        position: absolute;
+        height: calc(75% - #{$stepSize *2});
+        width: 100%;
         z-index: 0;
 
         .RootImage {
@@ -96,11 +99,16 @@
         }
 
         .DocumentContainer {
+            position: relative;
+
+            width: calc(100% - #{$sidemargin *6});
+            height: calc(100% - #{$sidemargin *1});
             margin-top: $stepSize;
             margin-left: $sidemargin *2;
             margin-right: $sidemargin *4;
 
             .DocumentTitle {
+                position: relative;
                 margin-bottom: 15px;
 
                 div {
@@ -124,9 +132,10 @@
             }
 
             .DocumentBody {
+                position: absolute;
                 pointer-events: all;
                 font-size: $midArticle;
-                height: 450px;
+                height: 90%;
                 width: 100%;
                 overflow-x: hidden;
                 overflow-y: scroll;

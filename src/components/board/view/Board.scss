@@ -21,16 +21,18 @@
     }
 
     .Context {
+        position: relative;
         margin-top: $stepSize * 2;
-
-        height: 100%;
+        height: calc(100% - #{$stepSize * 2});
 
         .ScrollContainer {
+            position: relative;
             height: 100%;
             margin-left: $stepSize;
             width: calc(100% - #{$stepSize * 8});
 
             .Scroll {
+                position: relative;
                 pointer-events: all;
                 height: 100%;
                 white-space: nowrap;
@@ -46,10 +48,9 @@
 
                 .ChannelContainer {
                     display: inline-block;
-
+                    position: relative;
                     margin: 0 4vw 0 4vw;
-                    // width: 24vw; //400px;
-                    height: 30vw; //calc(100% - #{$stepSize *2 });
+                    height: 100%;
                 }
             }
         }
