@@ -1,6 +1,6 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "09ed9661bc05e81919d8f4961f7ad717",
+    "revision": "b1fe1f5da4678a7bdb00962de3326cb8",
     "url": "/pacemaker-spa-client/index.html"
   },
   {
