@@ -4,6 +4,7 @@ import { bindActionCreators } from 'redux';
 import { useHistory } from 'react-router-dom';
 
 import { requestSignIn } from 'store/modules/action/account';
+import { show } from 'store/modules/creators/modal';
 import { refresh } from 'store/modules/action/refresh';
 import LocalPath from 'common/local-path';
 import { decode } from 'common/security/common';
@@ -29,6 +30,7 @@ const RootPageContainer = (props) => {
       }
     }
   }, []);
+
   const history = useHistory();
   const [intervalId, setIntervalId] = useState(0);
   useEffect(() => {
@@ -40,7 +42,10 @@ const RootPageContainer = (props) => {
     }
     if (intervalId === 0) {
       const id = setInterval(() => {
-        props.refresh({ token: props.token });
+        props.refresh({ token: props.token }, (success, message) => {
+          if (success);
+          else props.show('ERROR MODAL', { message });
+        });
       }, 30000);
       setIntervalId(id);
     }
@@ -54,6 +59,6 @@ const mapStateToProps = ({ account }) => ({
 });
 
 const mapDispatchToProps = (dispatch) =>
-  bindActionCreators({ requestSignIn, refresh }, dispatch);
+  bindActionCreators({ requestSignIn, refresh, show }, dispatch);
 
 export default connect(mapStateToProps, mapDispatchToProps)(RootPageContainer);
