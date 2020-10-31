@@ -15,8 +15,8 @@ import RootPage from './RootPage';
 import Images from 'resources/images';
 
 const RootPageContainer = (props) => {
-  preload(Images);
   useEffect(() => {
+    preload(Images);
     if (localStorage.hasOwnProperty('account')) {
       try {
         props.requestSignIn(
