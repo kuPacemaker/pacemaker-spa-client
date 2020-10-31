@@ -1,7 +1,5 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import { connect } from 'react-redux';
-import { bindActionCreators } from 'redux';
-import { requestSignOut } from 'store/modules/action/account';
 
 import Modal from '../default-modal';
 /**
@@ -13,10 +11,6 @@ const title = 'OPPS!\nSOMETHING WRONG...';
 const message =
   '\nThe request was rejected by the PACEMAKER server!\nIf the same problem persists, please contact us.';
 const ErrorModalContainer = (props) => {
-  useEffect(() => {
-    if (props.message === 'Token is not exist') props.requestSignOut();
-  }, [props.message]);
-
   if (props.message === undefined) return <div />;
   const buttons = [
     {
@@ -40,10 +34,5 @@ const ErrorModalContainer = (props) => {
 const mapStateToProps = ({ modal }) => ({
   message: modal.argument.message,
 });
-const mapDispatchToProps = (dispatch) =>
-  bindActionCreators({ requestSignOut }, dispatch);
 
-export default connect(
-  mapStateToProps,
-  mapDispatchToProps
-)(ErrorModalContainer);
+export default connect(mapStateToProps, null)(ErrorModalContainer);

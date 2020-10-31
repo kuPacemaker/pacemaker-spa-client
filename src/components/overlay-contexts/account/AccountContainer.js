@@ -2,7 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { useHistory } from 'react-router-dom';
 import Account from './view/Account';
-import { requestSignOut } from 'store/modules/action/account';
+import { signout } from 'store/modules/creators/account';
 
 import LocalPath from 'common/local-path';
 
@@ -38,7 +38,7 @@ const mapStateToProps = ({ account }) => ({
 });
 
 const mapDispatchToProps = (dispatch) => ({
-  signout: () => dispatch(requestSignOut()),
+  signout: () => dispatch(signout()),
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(AccountContainer);

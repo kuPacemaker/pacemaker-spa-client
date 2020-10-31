@@ -22,7 +22,9 @@ const ChannelContainer = ({
     if (token === null) return;
     getChannelHandler(token, type, channelId, (state, message) => {
       if (state);
-      else onShowWarningModal(message);
+      else {
+        onShowWarningModal({});
+      }
     });
   }, []);
 

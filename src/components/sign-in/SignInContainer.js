@@ -52,8 +52,8 @@ const SignInContainer = (props) => {
 
   // history.push('/main-page');
   const signInHandler = (historyHandler) => () => {
-    props.requestSignIn({ id: state.id, pw: state.pw }, (state, token) => {
-      if (state) {
+    props.requestSignIn({ id: state.id, pw: state.pw }, (token) => {
+      if (token) {
         props.refresh({ token });
         historyHandler(LocalMainPage.newsfeed.path);
       } else {

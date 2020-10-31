@@ -26,12 +26,6 @@ export const signIn = async (payload) => {
   return await axios.post(account.signin, payload);
 };
 
-export const signOut = async (payload) => {
-  return new Promise((resolve) =>
-    resolve({ data: { state: 'success', message: 'Sign Out Success' } })
-  );
-};
-
 export const signUp = async (payload) => {
   return await axios.post(account.signup, payload);
 };
