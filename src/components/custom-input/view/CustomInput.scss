@@ -1,32 +1,33 @@
 .CustomInput {
-  span {
-    margin-right: 25px;
-  }
+    span {
+        margin-right: 25px;
+    }
 
-  input {
-    background-color: rgba($color: #000, $alpha: 0);
-    border: none;
-    padding: 0;
-  }
+    input {
+        background-color: rgba($color: #000, $alpha: 0);
+        border: none;
+        padding: 0;
 
-  input:focus {
-    outline: none;
-  }
+    }
 
-  input[type='number']::-webkit-outer-spin-button,
-  input[type='number']::-webkit-inner-spin-button {
-    -webkit-appearance: none;
-    margin: 0;
-  }
+    input:focus {
+        outline: none;
+    }
 
-  ::-moz-selection {
-    /* Code for Firefox */
-    color: white;
-    background-color: black;
-  }
+    input[type="number"]::-webkit-outer-spin-button,
+    input[type="number"]::-webkit-inner-spin-button {
+        -webkit-appearance: none;
+        margin: 0;
+    }
 
-  ::selection {
-    color: white;
-    background-color: black;
-  }
+    ::-moz-selection {
+        /* Code for Firefox */
+        color: white;
+        background-color: black;
+    }
+
+    ::selection {
+        color: white;
+        background-color: black;
+    }
 }
