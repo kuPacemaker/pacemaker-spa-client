@@ -18,13 +18,13 @@ const inputForms = [
     title: 'NAME',
     type: 'text',
     fontSize: '1.35em',
-    max: 30,
+    max: 28,
   },
   {
     title: 'E-MAIL',
     type: 'email',
     fontSize: '1.35em',
-    max: 30,
+    max: 28,
   },
 ];
 

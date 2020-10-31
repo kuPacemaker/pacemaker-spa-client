@@ -12,7 +12,7 @@ const inputForms = [
     title: 'TITLE',
     type: 'text',
     fontSize: '1.5em',
-    max: 25,
+    max: 20,
   },
 ];
 
@@ -23,30 +23,19 @@ const CreateUnitContainer = ({
   index,
   channelId,
   createUnit: create,
-  show,
+  show: showModalHandler,
 }) => {
-  const [state, setState] = useState({
-    title: '',
-  });
+  const [unitName, setUnitName] = useState('');
 
-  const onChangeHandler = (type) => (data) => {
-    switch (type) {
-      case 'TITLE':
-        setState({ ...state, title: data });
-        return;
-      default:
-        return;
-    }
+  const onChangeHandler = (data) => {
+    setUnitName(data);
   };
 
   const requestCreateUnit = () => {
-    create(
-      { token, channel: channelId, title: state.title },
-      (state, message) => {
-        if (state) changeHandler();
-        else show('ERROR MODAL', { message });
-      }
-    );
+    create({ token, channel: channelId, title: unitName }, (state, message) => {
+      if (state) changeHandler();
+      else showModalHandler('ERROR MODAL', { message });
+    });
   };
   return (
     <CreateUnit
