@@ -28,7 +28,7 @@ export const signIn = async (payload) => {
 
 export const signOut = async (payload) => {
   return new Promise((resolve) =>
-    resolve({ state: 'success', message: 'Sign Out Success' })
+    resolve({ data: { state: 'success', message: 'Sign Out Success' } })
   );
 };
 
