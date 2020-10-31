@@ -34,7 +34,7 @@ const CreateUnit = ({
                 type={input.type}
                 size={input.fontSize}
                 maxLength={input.max}
-                onChangeHandler={onChangeHandler(input.title)}
+                onChangeHandler={onChangeHandler}
               />
             </div>
           </div>

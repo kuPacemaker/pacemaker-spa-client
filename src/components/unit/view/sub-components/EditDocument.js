@@ -4,7 +4,7 @@ const DocumentEdit = ({ title, body, documentHandler }) => (
   <div>
     <div className="DocumentTitle">
       <input
-        maxLength={70}
+        maxLength={30}
         value={title}
         onChange={(e) => documentHandler('title')(e.target.value)}
       />
