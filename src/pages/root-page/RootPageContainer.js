@@ -8,21 +8,13 @@ import { refresh } from 'store/modules/action/refresh';
 import LocalPath from 'common/local-path';
 import { decode } from 'common/security/common';
 import RootPage from './RootPage';
+import { preload } from 'common/utility/preload';
 
-// import Images from 'resources/images';
-// const preload = (images) => {
-//   for (const key in images) {
-//     if (images.hasOwnProperty(key)) {
-//       const element = images[key];
-//       let image = new Image();
-//       image.src = element;
-//     }
-//   }
-// };
+import Images from 'resources/images';
 
 const RootPageContainer = (props) => {
   useEffect(() => {
-    // preload(Images);
+    preload(Images);
     if (localStorage.hasOwnProperty('account')) {
       try {
         props.requestSignIn(
