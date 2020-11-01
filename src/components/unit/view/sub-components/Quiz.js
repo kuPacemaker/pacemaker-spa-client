@@ -25,7 +25,7 @@ const Quiz = ({ data, onVerifyHandler }) => {
       ...state,
       hideAnswer: true,
     });
-  }, [data.id]);
+  }, []);
 
   const answers = data.answer_set.split('|^|');
 

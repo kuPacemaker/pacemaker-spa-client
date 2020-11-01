@@ -20,8 +20,13 @@ const RootPageContainer = (props) => {
       try {
         props.requestSignIn(
           decode(localStorage.getItem('account')),
-          (token) => {
-            props.refresh({ token });
+          (success, token) => {
+            if (success)
+              props.refresh({ token }, (success, message) => {
+                if (success);
+                else props.show('ERROR MODAL', { message });
+              });
+            else props.show('ERROR MODAL', { message: 'Invalid account' });
           }
         );
       } catch (e) {
