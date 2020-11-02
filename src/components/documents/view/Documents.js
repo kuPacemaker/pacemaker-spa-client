@@ -45,7 +45,7 @@ const Documents = ({ email, visible, goBackHandler }) => {
           <div className="Path">/{email}/</div>
         </div>
         <div className="IconContainer">
-          <FloatingIcons icons={iconMap['document']} />
+          <FloatingIcons icons={iconMap.document} />
         </div>
       </div>
       <div className="Cover" onClick={goBackHandler}>
