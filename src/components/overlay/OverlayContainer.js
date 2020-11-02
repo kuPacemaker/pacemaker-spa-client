@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 
@@ -6,6 +6,11 @@ import { show, hide } from 'store/modules/creators/modal';
 import Overlay from './view/Overlay';
 
 const OverlayContainer = (props) => {
+  useEffect(() => {
+    window.onpopstate = () => {
+      props.hide();
+    };
+  }, []);
   const overlayHandler = (type) => {
     const { show: showOverlay, hide: hideOverlay } = props;
     if (type === undefined) hideOverlay();
