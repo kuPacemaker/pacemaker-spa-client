@@ -12,4 +12,3 @@ const mapStateToProps = ({ account }) => ({
 });
 
 export default connect(mapStateToProps, null)(HomePageContainer);
-// export default HomePageContainer;
