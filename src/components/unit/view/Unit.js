@@ -194,6 +194,7 @@ const Unit = (props) => {
               type={props.type}
               title={props.document.title}
               body={props.document.body}
+              tfidf={props.tfidf}
               changeTab={changeTab}
             />
           </div>

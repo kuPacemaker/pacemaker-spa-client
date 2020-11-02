@@ -1,7 +1,6 @@
 import { update_document } from '../creators/unit';
 import { update_tfidf } from '../creators/document';
-import document from 'api/document';
-import { tfidf } from 'api/qa';
+import document, { tfidf } from 'api/document';
 
 /**
  *

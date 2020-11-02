@@ -163,6 +163,7 @@ const UnitContainer = ({
   verifyQuestion: verifyHandler,
   createDocs,
   updateDocs,
+  tfidf,
 }) => {
   const history = useHistory();
 
@@ -182,8 +183,6 @@ const UnitContainer = ({
     setPaper(data.unit.paper);
   }, [data.unit.document, data.unit.paper]);
 
-  //AXIOS 시작하면 isReady: true->false
-  //AXIOS 종료되면 isReady: false->true
   if (!isReady || data.channel === null) return <div />;
   if (!data.unit.isOpened) history.goBack();
   return (
@@ -193,6 +192,7 @@ const UnitContainer = ({
       unit={data.unit}
       tab={tab}
       document={document}
+      tfidf={tfidf}
       paper={paper}
       onRemoveUnitHandler={onRemoveUnitHandler(showModalHandler, history)(
         token,
@@ -219,10 +219,11 @@ const UnitContainer = ({
   );
 };
 
-const mapStateToProps = ({ account, unit }) => ({
+const mapStateToProps = ({ account, unit, document }) => ({
   token: account.token,
   data: unit.data,
   isReady: unit.state.ready,
+  tfidf: document.data.tfidf,
 });
 
 const mapDispatchToProps = (dispatch) =>

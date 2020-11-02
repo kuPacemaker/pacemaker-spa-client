@@ -7,7 +7,7 @@ const initialState = {
     ready: false,
   },
   data: {
-    tfidf: null,
+    tfidf: ['god', 'God'],
   },
 };
 
