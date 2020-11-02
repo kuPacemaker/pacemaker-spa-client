@@ -16,14 +16,14 @@ const Document = ({ type, title, body, tfidf, changeTab }) => {
         )}
       </div>
       <div className="DocumentBody">
-        {body.split('\n').map((line, i) => (
-          <p key={i}>
-            {line.split(' ').map((span, i) => {
-              if (tfidf.includes(span)) return <b key={i}>{span}</b>;
-              else return span;
-            })}
-          </p>
-        ))}
+        {body.split('\n').map((l, i) => {
+          let line = l;
+          tfidf.forEach((span) => {
+            line = line.replaceAll(span, span.bold());
+          });
+          return <p key={i} dangerouslySetInnerHTML={{ __html: line }} />;
+        })}
+        )
       </div>
     </>
   );

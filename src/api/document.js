@@ -1,5 +1,6 @@
 import { axios } from 'common/api-wrapper';
 import { app, unilm } from 'common/server-path';
+import { removeTag } from 'common/security/common';
 
 const bocuments = {};
 
@@ -42,8 +43,8 @@ export const update = async (payload) => {
     token: payload.token,
     bkd_id: payload.document.id,
     visible: true,
-    title: payload.document.title,
-    body: payload.document.body,
+    title: removeTag(payload.document.title),
+    body: removeTag(payload.document.body),
   });
 };
 
