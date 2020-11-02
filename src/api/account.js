@@ -2,22 +2,23 @@ import { axios } from 'common/api-wrapper';
 import { app } from 'common/server-path';
 
 const account = {};
-account['signin'] =
+
+account.signin =
   process.env.NODE_ENV === 'development'
     ? app.api + app.signIn
     : app.account.signin();
 
-account['signup'] =
+account.signup =
   process.env.NODE_ENV === 'development'
     ? app.api + app.signUp
     : app.account.signup();
 
-account['find'] =
+account.find =
   process.env.NODE_ENV === 'development'
     ? app.api + app.findAccount
     : app.account.find();
 
-account['modify'] =
+account.modify =
   process.env.NODE_ENV === 'development'
     ? app.api + app.modifyAccount
     : app.account.modify();
