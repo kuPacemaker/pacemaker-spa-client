@@ -17,7 +17,7 @@ const inputForms = [
     title: 'NAME',
     type: 'text',
     fontSize: '1.35em',
-    max: 56,
+    max: 30,
   },
   {
     title: 'CURRENT PASSWARD',
