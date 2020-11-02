@@ -2,20 +2,23 @@ import { axios } from 'common/api-wrapper';
 import { app } from 'common/server-path';
 
 const paper = {};
-paper['generate'] =
+
+paper.generate =
   process.env.NODE_ENV === 'development'
     ? app.api + app.generateQuestion
     : app.paper.generateQuestion();
-paper['verify'] =
+
+paper.verify =
   process.env.NODE_ENV === 'development'
     ? app.api + app.verifyQuestion
     : app.paper.verifyQuestion();
-paper['reservation'] =
+
+paper.reservation =
   process.env.NODE_ENV === 'development'
     ? app.api + app.makeReservation
     : app.paper.makeReservation();
 
-paper['submit'] =
+paper.submit =
   process.env.NODE_ENV === 'development'
     ? app.api + app.submitPaper
     : app.paper.submitPaper();
