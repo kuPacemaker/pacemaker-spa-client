@@ -85,7 +85,7 @@ const Unit = (props) => {
           onClickHandler: () => props.showModalHandler('QA'),
         },
         {
-          type: 'cross',
+          type: 'search',
           onClickHandler: props.searchSpans,
         },
         {
@@ -198,7 +198,7 @@ const Unit = (props) => {
               type={props.type}
               title={props.document.title}
               body={props.document.body}
-              tfidf={props.tfidf}
+              spans={props.spans}
               changeTab={changeTab}
             />
           </div>

@@ -197,6 +197,7 @@ const UnitContainer = ({
 
   if (!isReady || data.channel === null) return <div />;
   if (!data.unit.isOpened) history.goBack();
+
   return (
     <Unit
       type={type}
@@ -204,7 +205,7 @@ const UnitContainer = ({
       unit={data.unit}
       tab={tab}
       document={document}
-      tfidf={spans}
+      spans={spans}
       paper={paper}
       onRemoveUnitHandler={onRemoveUnitHandler(showModalHandler, history)(
         token,
