@@ -5,7 +5,7 @@ import { show } from 'store/modules/creators/modal';
 import { createChannel } from 'store/modules/action/board';
 import CreateChannel from './view/CreateChannel';
 
-const title = 'OPEN MY NEW CLASS';
+const title = 'OPEN MY NEW CHANNEL';
 
 const inputForms = [
   {
