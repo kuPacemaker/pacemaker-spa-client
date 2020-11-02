@@ -5,7 +5,7 @@ const articles = [
   ['Title', 'ABOUT US'],
   [
     'MainArticle',
-    `FOR A PERFECT REMOTE CLASS, 
+    `FOR A PERFECT REMOTE CHANNEL, 
     YOU NEED A PERFET PACEMAKER 
     TO RUN WITH YOU`,
   ],
