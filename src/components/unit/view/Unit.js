@@ -85,6 +85,10 @@ const Unit = (props) => {
           onClickHandler: () => props.showModalHandler('QA'),
         },
         {
+          type: 'cross',
+          onClickHandler: props.searchSpans,
+        },
+        {
           type: 'upload_line',
           onClickHandler: () => props.showModalHandler('SUBMIT DOCUMENT'),
         },

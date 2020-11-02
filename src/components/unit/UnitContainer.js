@@ -13,7 +13,7 @@ import { update, reset } from 'store/modules/creators/unit';
 import { show } from 'store/modules/creators/modal';
 
 import { LocalMainPage } from 'common/local-path';
-import unitDocument from 'store/modules/action/document';
+import unitDocument, { searchSpans } from 'store/modules/action/document';
 
 import Unit from './view/Unit';
 
@@ -147,6 +147,14 @@ const onRemoveUnitHandler = (modal, history) => (
   );
 };
 
+const searchSpansHandler = (search, callbackHandler) => (document) => () => {
+  search(document, (state, response) => {
+    if (state) callbackHandler(response);
+    else;
+  });
+};
+const updateSpans = (setSpans) => (response) => setSpans(response);
+
 const UnitContainer = ({
   type,
   channelId,
@@ -163,12 +171,13 @@ const UnitContainer = ({
   verifyQuestion: verifyHandler,
   createDocs,
   updateDocs,
-  tfidf,
+  searchSpans,
 }) => {
   const history = useHistory();
 
-  const [document, setDocument] = useState(data.unit.document);
-  const [paper, setPaper] = useState(data.unit.paper);
+  const [document, setDocument] = useState('');
+  const [paper, setPaper] = useState('');
+  const [spans, setSpans] = useState([]);
 
   useEffect(() => {
     if (token === null) return;
@@ -179,9 +188,12 @@ const UnitContainer = ({
   }, []);
 
   useEffect(() => {
-    setDocument(data.unit.document);
     setPaper(data.unit.paper);
-  }, [data.unit.document, data.unit.paper]);
+  }, [data.unit.paper]);
+
+  useEffect(() => {
+    setDocument(data.unit.document);
+  }, [data.unit.document]);
 
   if (!isReady || data.channel === null) return <div />;
   if (!data.unit.isOpened) history.goBack();
@@ -192,7 +204,7 @@ const UnitContainer = ({
       unit={data.unit}
       tab={tab}
       document={document}
-      tfidf={tfidf}
+      tfidf={spans}
       paper={paper}
       onRemoveUnitHandler={onRemoveUnitHandler(showModalHandler, history)(
         token,
@@ -200,6 +212,10 @@ const UnitContainer = ({
         unitId
       )}
       showModalHandler={showModalHandler}
+      searchSpans={searchSpansHandler(
+        searchSpans,
+        updateSpans(setSpans)
+      )(data.unit.document)}
       createDocument={createDocument(createDocs)(token, channelId, unitId)}
       updateDocument={updateDocument(updateDocs)(token, document)}
       cancelDoceument={cancelDoceument(setDocument)(
@@ -237,6 +253,7 @@ const mapDispatchToProps = (dispatch) =>
       reservation: makeReservation,
       createDocs: unitDocument.create,
       updateDocs: unitDocument.update,
+      searchSpans,
     },
     dispatch
   );

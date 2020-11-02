@@ -40,7 +40,7 @@ export const update = (payload, callbackHandler) => async (dispatch) => {
   }
 };
 
-export const makeTFIDF = (payload, callbackHandler) => async (dispatch) => {
+export const searchSpans = (payload, callbackHandler) => async (dispatch) => {
   try {
     console.log(payload);
     const response = await tfidf(payload);
@@ -48,7 +48,7 @@ export const makeTFIDF = (payload, callbackHandler) => async (dispatch) => {
     // const data = response.data.passages[0].aqset[0][0];
     // const answer = data.charAt(0).toUpperCase() + data.slice(1);
     // dispatch(update_answer(answer));
-    if (callbackHandler) callbackHandler();
+    if (callbackHandler) callbackHandler(true, ['god']);
   } catch (e) {
     console.log(e);
   }
