@@ -28,7 +28,7 @@ const Homepage = ({ preface, token }) => {
           <Link
             draggable="false"
             className="ArrowLink"
-            to={token === '' ? LocalPath.admission.root : LocalPath.main.root}
+            to={token === null ? LocalPath.admission.root : LocalPath.main.root}
           >
             <img draggable="false" className="Arrow" src={arrow} alt="" />
           </Link>
