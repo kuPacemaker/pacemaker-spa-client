@@ -1,5 +1,5 @@
 import { axios } from 'common/api-wrapper';
-import { app } from 'common/server-path';
+import { app, unilm } from 'common/server-path';
 
 const bocuments = {};
 
@@ -12,6 +12,13 @@ bocuments.update =
   process.env.NODE_ENV === 'development'
     ? app.api + app.editBKD
     : app.documents.edit();
+
+const uni = {};
+
+uni.tfidf =
+  process.env.NODE_ENV === 'development'
+    ? unilm.api + unilm.tfidf
+    : unilm.makeTFIDF();
 
 /**
  *
@@ -37,6 +44,16 @@ export const update = async (payload) => {
     visible: true,
     title: payload.document.title,
     body: payload.document.body,
+  });
+};
+
+/**
+ *
+ * @param {document} payload
+ */
+export const tfidf = async (payload) => {
+  return await axios.post(uni.tfidf, {
+    bkd: payload.document.body,
   });
 };
 

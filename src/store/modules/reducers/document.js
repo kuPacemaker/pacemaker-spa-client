@@ -6,14 +6,16 @@ const initialState = {
   state: {
     ready: false,
   },
-  data: null,
+  data: {
+    tfidf: null,
+  },
 };
 
 export default handleActions(
   {
     [TFIDF]: (state, action) =>
       produce(state, (draft) => {
-        draft.data = action.payload;
+        draft.data.tfidf = action.payload;
       }),
   },
   initialState
