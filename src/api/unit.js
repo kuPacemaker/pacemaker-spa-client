@@ -2,19 +2,23 @@ import { axios } from 'common/api-wrapper';
 import { app } from 'common/server-path';
 
 const unit = {};
-unit['create'] =
+
+unit.create =
   process.env.NODE_ENV === 'development'
     ? app.api + app.createUnit
     : app.unit.create();
-unit['edit'] =
+
+unit.edit =
   process.env.NODE_ENV === 'development'
     ? app.api + app.editUnit
     : app.unit.edit();
-unit['delete'] =
+
+unit.delete =
   process.env.NODE_ENV === 'development'
     ? app.api + app.deleteUnit
     : app.unit.delete();
-unit['request'] =
+
+unit.request =
   process.env.NODE_ENV === 'development'
     ? app.api + app.requestUnit
     : app.unit.request();

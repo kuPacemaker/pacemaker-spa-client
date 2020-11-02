@@ -2,23 +2,28 @@ import { axios } from 'common/api-wrapper';
 import { app } from 'common/server-path';
 
 const channel = {};
-channel['request'] =
+
+channel.request =
   process.env.NODE_ENV === 'development'
     ? app.api + app.requestChannel
     : app.channel.request();
-channel['create'] =
+
+channel.create =
   process.env.NODE_ENV === 'development'
     ? app.api + app.createChannel
     : app.channel.create();
-channel['delete'] =
+
+channel.delete =
   process.env.NODE_ENV === 'development'
     ? app.api + app.deleteChannel
     : app.channel.delete();
-channel['enter'] =
+
+channel.enter =
   process.env.NODE_ENV === 'development'
     ? app.api + app.enterChannel
     : app.channel.enter();
-channel['exit'] =
+
+channel.exit =
   process.env.NODE_ENV === 'development'
     ? app.api + app.exitChannel
     : app.channel.exit();

@@ -2,12 +2,13 @@ import { axios } from 'common/api-wrapper';
 import { app } from 'common/server-path';
 
 const bocuments = {};
-bocuments['create'] =
+
+bocuments.create =
   process.env.NODE_ENV === 'development'
     ? app.api + app.createBKD
     : app.documents.create();
 
-bocuments['update'] =
+bocuments.update =
   process.env.NODE_ENV === 'development'
     ? app.api + app.editBKD
     : app.documents.edit();
