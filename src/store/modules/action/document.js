@@ -1,5 +1,7 @@
 import { update_document } from '../creators/unit';
+import { update_tfidf } from '../creators/document';
 import document from 'api/document';
+import { tfidf } from 'api/qa';
 
 /**
  *
@@ -34,6 +36,20 @@ export const update = (payload, callbackHandler) => async (dispatch) => {
       dispatch(update_document(data));
     }
     if (callbackHandler) callbackHandler(state === 'success', message);
+  } catch (e) {
+    console.log(e);
+  }
+};
+
+export const makeTFIDF = (payload, callbackHandler) => async (dispatch) => {
+  try {
+    console.log(payload);
+    const response = await tfidf(payload);
+    console.log(response);
+    // const data = response.data.passages[0].aqset[0][0];
+    // const answer = data.charAt(0).toUpperCase() + data.slice(1);
+    // dispatch(update_answer(answer));
+    if (callbackHandler) callbackHandler();
   } catch (e) {
     console.log(e);
   }
