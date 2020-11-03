@@ -147,7 +147,6 @@ const onRemoveUnitHandler = (modal, history) => (
   );
 };
 
-//TODO: Search Span update 부분. 아래 callback이 updateSpans임
 const searchSpansHandler = (showModal, search, callbackHandler) => (
   document
 ) => () => {
@@ -158,7 +157,6 @@ const searchSpansHandler = (showModal, search, callbackHandler) => (
   });
 };
 
-//TODO: 실제로 spans에 데이터를 쓰는 부분.
 const updateSpans = (setSpans) => (response) => setSpans(response);
 
 const UnitContainer = ({
