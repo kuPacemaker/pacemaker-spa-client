@@ -6,6 +6,7 @@ import './Paper.scss';
 import arrow_left from 'resources/images/icon/arrow-left.png';
 import arrow_right from 'resources/images/icon/arrow-right.png';
 import check from 'resources/images/icon/check-symbol.png';
+import { startUpperCase } from 'common/utility/string';
 
 const alphabat = 'ABCDEFGHIJKLMNOPQUSTUVWXYZ';
 
@@ -41,7 +42,7 @@ const Paper = ({ questions, onAnswerHandler, isEnd }) => {
                 src={check}
                 alt=""
               />
-              {`${alphabat.charAt(i)}) ${answer}`}
+              {`${alphabat.charAt(i)}) ${startUpperCase(answer)}`}
             </div>
           ))}
         </div>

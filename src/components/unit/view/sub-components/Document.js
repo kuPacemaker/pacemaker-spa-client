@@ -1,5 +1,6 @@
 import React from 'react';
 import edit from 'resources/images/icon/edit.png';
+import { startUpperCase } from 'common/utility/string';
 
 const Document = ({ type, title, body, spans, changeTab }) => {
   return (
@@ -20,8 +21,8 @@ const Document = ({ type, title, body, spans, changeTab }) => {
           if (l.length > 0) {
             let line = l;
             spans.forEach((span) => {
-              const regExp = new RegExp(span, 'g');
-              line = line.replace(regExp, `<b>${span}</b>`);
+              const regExp = new RegExp(span, 'gi');
+              line = line.replace(regExp, `<b>${startUpperCase(span)}</b>`);
             });
             return <p key={i} dangerouslySetInnerHTML={{ __html: line }} />;
           } else return null;
