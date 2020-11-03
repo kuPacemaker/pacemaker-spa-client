@@ -1,23 +1,23 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "739b7423a906df37737720fb0fda5137",
+    "revision": "0acecf4d7aae51eabff55c8a4de764c4",
     "url": "/pacemaker-spa-client/index.html"
   },
   {
-    "revision": "a3f6a6492d25981b60ca",
-    "url": "/pacemaker-spa-client/static/css/main.22936b11.chunk.css"
+    "revision": "db94787d6a82416d1b8d",
+    "url": "/pacemaker-spa-client/static/css/main.1864fa37.chunk.css"
   },
   {
-    "revision": "3975a5e2e3d1f587514e",
-    "url": "/pacemaker-spa-client/static/js/2.c15270b6.chunk.js"
+    "revision": "bb7e848007ea341ff5aa",
+    "url": "/pacemaker-spa-client/static/js/2.e4da0a06.chunk.js"
   },
   {
     "revision": "5235a5429e626c15d61916dfe11adc52",
-    "url": "/pacemaker-spa-client/static/js/2.c15270b6.chunk.js.LICENSE.txt"
+    "url": "/pacemaker-spa-client/static/js/2.e4da0a06.chunk.js.LICENSE.txt"
   },
   {
-    "revision": "a3f6a6492d25981b60ca",
-    "url": "/pacemaker-spa-client/static/js/main.d431bf9b.chunk.js"
+    "revision": "db94787d6a82416d1b8d",
+    "url": "/pacemaker-spa-client/static/js/main.4ec91241.chunk.js"
   },
   {
     "revision": "4c0919c190be8dbbde4d",
@@ -272,6 +272,10 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/pacemaker-spa-client/static/media/channel-image-7.998b089a.jpg"
   },
   {
+    "revision": "8d7ca611e21529dbae1c92acd8133c9a",
+    "url": "/pacemaker-spa-client/static/media/close.8d7ca611.png"
+  },
+  {
     "revision": "2b0effb8bfe3757b1951d2a92fda9963",
     "url": "/pacemaker-spa-client/static/media/feed-image-1.2b0effb8.png"
   },
@@ -294,6 +298,10 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
     "revision": "c7d6d2ac4229410749d47cc36af9df2b",
     "url": "/pacemaker-spa-client/static/media/home-image.c7d6d2ac.jpg"
+  },
+  {
+    "revision": "257cb7446a2369519a764f834446aa18",
+    "url": "/pacemaker-spa-client/static/media/search.257cb744.png"
   },
   {
     "revision": "236976872da9d07ab9437201d7b4bfd7",
