@@ -147,12 +147,15 @@ const onRemoveUnitHandler = (modal, history) => (
   );
 };
 
+//TODO: Search Span update 부분. 아래 callback이 updateSpans임
 const searchSpansHandler = (search, callbackHandler) => (document) => () => {
   search(document, (state, response) => {
     if (state) callbackHandler(response);
     else;
   });
 };
+
+//TODO: 실제로 spans에 데이터를 쓰는 부분.
 const updateSpans = (setSpans) => (response) => setSpans(response);
 
 const UnitContainer = ({
@@ -184,6 +187,9 @@ const UnitContainer = ({
     getUnitHandler({ token: token, channel: channelId, unit: unitId });
     return () => {
       resetHandler();
+      setDocument('');
+      setPaper('');
+      setSpans([]);
     };
   }, []);
 
@@ -240,7 +246,7 @@ const mapStateToProps = ({ account, unit, document }) => ({
   token: account.token,
   data: unit.data,
   isReady: unit.state.ready,
-  tfidf: document.data.tfidf,
+  nouns: document.data.nouns,
 });
 
 const mapDispatchToProps = (dispatch) =>

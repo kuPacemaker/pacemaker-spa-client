@@ -7,7 +7,7 @@ const initialState = {
     ready: false,
   },
   data: {
-    nouns: ['god', 'God'],
+    nouns: [],
   },
 };
 

@@ -17,13 +17,15 @@ const Document = ({ type, title, body, spans, changeTab }) => {
       </div>
       <div className="DocumentBody">
         {body.split('\n').map((l, i) => {
-          let line = l;
-          spans.forEach((span) => {
-            line = line.replaceAll(span, `<b>${span}</b>`);
-          });
-          return <p key={i} dangerouslySetInnerHTML={{ __html: line }} />;
+          if (l.length > 0) {
+            let line = l;
+            spans.forEach((span) => {
+              console.log(span);
+              line = line.replaceAll(span, `<b>${span}</b>`);
+            });
+            return <p key={i} dangerouslySetInnerHTML={{ __html: line }} />;
+          }
         })}
-        )
       </div>
     </>
   );

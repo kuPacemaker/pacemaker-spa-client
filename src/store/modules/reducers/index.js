@@ -6,6 +6,7 @@ import board from './board';
 import channel from './channel';
 import modal from './modal';
 import unit from './unit';
+import document from './document';
 import newsfeed from './newsfeed';
 
 export default (history) =>
@@ -15,6 +16,7 @@ export default (history) =>
     channel,
     modal,
     unit,
+    document,
     newsfeed,
     router: connectRouter(history),
     // 다른 리듀서를 만들게되면 여기에 넣어줌..
