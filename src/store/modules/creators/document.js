@@ -1,4 +1,4 @@
 import { createAction } from 'redux-actions';
-import { TFIDF } from '../type/document';
+import { UPDATE_NOUNS } from '../type/document';
 
-export const update_tfidf = createAction(TFIDF, (data) => data);
+export const update_nouns = createAction(UPDATE_NOUNS, (data) => data);

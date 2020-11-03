@@ -1,21 +1,21 @@
 import { handleActions } from 'redux-actions';
 import produce from 'immer';
-import { TFIDF } from '../type/document';
+import { UPDATE_NOUNS } from '../type/document';
 
 const initialState = {
   state: {
     ready: false,
   },
   data: {
-    tfidf: ['god', 'God'],
+    nouns: ['god', 'God'],
   },
 };
 
 export default handleActions(
   {
-    [TFIDF]: (state, action) =>
+    [UPDATE_NOUNS]: (state, action) =>
       produce(state, (draft) => {
-        draft.data.tfidf = action.payload;
+        draft.data.nouns = action.payload;
       }),
   },
   initialState

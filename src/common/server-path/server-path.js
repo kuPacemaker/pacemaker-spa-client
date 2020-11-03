@@ -73,8 +73,8 @@ export const unilm = {
   api: '/restful/',
   qg: 'qg/',
   qa: 'qa/',
-  tfidf: 'tfidf/',
+  nouns: 'nouns',
   generateQuestion: () => unilm.base + unilm.api + unilm.qg,
   answerQuestion: () => unilm.base + unilm.api + unilm.qa,
-  makeTFIDF: () => unilm.base + unilm.api + unilm.tfidf,
+  searchNouns: () => unilm.base + unilm.api + unilm.qg + unilm.nouns,
 };

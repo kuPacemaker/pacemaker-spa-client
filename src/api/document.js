@@ -16,10 +16,10 @@ bocuments.update =
 
 const uni = {};
 
-uni.tfidf =
+uni.search =
   process.env.NODE_ENV === 'development'
-    ? unilm.api + unilm.tfidf
-    : unilm.makeTFIDF();
+    ? unilm.api + unilm.qg + unilm.nouns
+    : unilm.searchNouns();
 
 /**
  *
@@ -52,8 +52,8 @@ export const update = async (payload) => {
  *
  * @param {document} payload
  */
-export const tfidf = async (payload) => {
-  return await axios.post(uni.tfidf, {
+export const search = async (payload) => {
+  return await axios.post(uni.search, {
     bkd: payload.document.body,
   });
 };
