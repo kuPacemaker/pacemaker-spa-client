@@ -41,7 +41,6 @@ export const searchSpans = (payload, callbackHandler) => async (dispatch) => {
   try {
     const response = await search(payload);
     const { nouns } = response.data;
-    console.log(nouns);
     if (callbackHandler) callbackHandler(true, nouns);
   } catch (e) {
     console.log(e);
