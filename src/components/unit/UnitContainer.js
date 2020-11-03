@@ -148,10 +148,13 @@ const onRemoveUnitHandler = (modal, history) => (
 };
 
 //TODO: Search Span update 부분. 아래 callback이 updateSpans임
-const searchSpansHandler = (search, callbackHandler) => (document) => () => {
-  search(document, (state, response) => {
-    if (state) callbackHandler(response);
-    else;
+const searchSpansHandler = (showModal, search, callbackHandler) => (
+  document
+) => () => {
+  showModal('SEARCH NOUNS', {
+    api: search,
+    payload: document,
+    callbackHandler,
   });
 };
 
@@ -220,6 +223,7 @@ const UnitContainer = ({
       )}
       showModalHandler={showModalHandler}
       searchSpans={searchSpansHandler(
+        showModalHandler,
         searchSpans,
         updateSpans(setSpans)
       )(data.unit.document)}
@@ -242,11 +246,10 @@ const UnitContainer = ({
   );
 };
 
-const mapStateToProps = ({ account, unit, document }) => ({
+const mapStateToProps = ({ account, unit }) => ({
   token: account.token,
   data: unit.data,
   isReady: unit.state.ready,
-  nouns: document.data.nouns,
 });
 
 const mapDispatchToProps = (dispatch) =>

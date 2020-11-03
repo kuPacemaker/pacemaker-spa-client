@@ -18,7 +18,7 @@ const uni = {};
 
 uni.search =
   process.env.NODE_ENV === 'development'
-    ? unilm.api + unilm.qg + unilm.nouns
+    ? unilm.api + unilm.qg + unilm.search
     : unilm.searchNouns();
 
 /**
