@@ -12,7 +12,7 @@ import Reservation from './sub-components/Reservation';
 import Paper from './sub-components/Paper';
 
 import create_document from 'resources/images/icon/create-document.png';
-import close from 'resources/images/icon/close.png';
+import exit from 'resources/images/icon/exit.png';
 
 import arrow_left from 'resources/images/icon/arrow-left.png';
 import './Unit.scss';
@@ -83,6 +83,10 @@ const Unit = (props) => {
         {
           type: 'qa',
           onClickHandler: () => props.showModalHandler('QA'),
+        },
+        {
+          type: 'search',
+          onClickHandler: props.searchSpans,
         },
         {
           type: 'upload_line',
@@ -178,7 +182,7 @@ const Unit = (props) => {
             <img
               draggable="false"
               className="RootImage"
-              src={props.type === 'leader' ? create_document : close}
+              src={props.type === 'leader' ? create_document : exit}
               alt=""
               onClick={
                 props.type === 'leader'
@@ -194,6 +198,7 @@ const Unit = (props) => {
               type={props.type}
               title={props.document.title}
               body={props.document.body}
+              spans={props.spans}
               changeTab={changeTab}
             />
           </div>

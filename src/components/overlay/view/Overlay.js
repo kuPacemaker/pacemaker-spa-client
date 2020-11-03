@@ -15,6 +15,7 @@ import SubmitPaper from 'components/overlay-contexts/submit-paper';
 import ModifyAccount from 'components/overlay-contexts/modify-account';
 import Menu from 'components/overlay-contexts/overlay-menu';
 import QAModal from 'components/overlay-contexts/qa-modal';
+import SearchNounsModal from 'components/overlay-contexts/search-nouns';
 import AlertModal from 'components/overlay-contexts/alert-modal';
 import ErrorModal from 'components/overlay-contexts/error-modal';
 import RemoveUnit from 'components/overlay-contexts/remove-unit';
@@ -86,6 +87,11 @@ const Overlay = ({ visible, type, active, overlayHandler }) => {
       break;
     case 'QA':
       context = <QAModal visible={visible} changeHandler={overlayHandler} />;
+      break;
+    case 'SEARCH NOUNS':
+      context = (
+        <SearchNounsModal visible={visible} changeHandler={overlayHandler} />
+      );
       break;
     case 'ALERT MODAL':
       context = <AlertModal visible={visible} changeHandler={overlayHandler} />;
