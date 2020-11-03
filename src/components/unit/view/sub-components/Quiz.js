@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import classNames from 'classnames';
 import remove from 'resources/images/icon/remove.png';
 import restore from 'resources/images/icon/restore.png';
+import { startUpperCase } from 'common/utility/string';
 
 import './Quiz.scss';
 
@@ -60,7 +61,7 @@ const Quiz = ({ data, onVerifyHandler }) => {
             className={classNames('Answer', {
               Checked: answer === data.answer,
             })}
-          >{`${alphabat.charAt(index)}) ${answer}`}</span>
+          >{`${alphabat.charAt(index)}) ${startUpperCase(answer)}`}</span>
         ))}
       </div>
     </div>

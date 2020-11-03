@@ -4,11 +4,12 @@ import { connect } from 'react-redux';
 import QAModal from './view/QAModal';
 import { askQuestion } from 'store/modules/action/qa';
 import { active, sleep } from 'store/modules/creators/modal';
+import { startUpperCase } from 'common/utility/string';
 
 const title = 'ASK ME ANYTHING!';
 
 const onChangeQuestion = (setQuestion) => (data) => {
-  const question = data.charAt(0).toUpperCase() + data.slice(1);
+  const question = startUpperCase(data);
   setQuestion(question);
 };
 
@@ -59,7 +60,7 @@ const QAModalContainer = (props) => {
     setQuestion(question + '?');
     props.ask(token, document, q + '?', (response) => {
       props.setActive();
-      setAnswer(response);
+      setAnswer(startUpperCase(response));
       resetRecognition(recognition, setRecognition);
     });
     props.setSleep();
