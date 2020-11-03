@@ -20,7 +20,7 @@ const Document = ({ type, title, body, spans, changeTab }) => {
           if (l.length > 0) {
             let line = l;
             spans.forEach((span) => {
-              const regExp = new RegExp(span, 'g');
+              const regExp = new RegExp(span, 'gi');
               line = line.replace(regExp, `<b>${span}</b>`);
               //FIXME: 현재 대소문자 문제 발생. 위 방식으로 할 경우 강제로 소문자행
               // line = line.replaceAll(span, `<b>${span}</b>`);
