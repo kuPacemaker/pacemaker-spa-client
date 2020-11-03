@@ -12,3 +12,5 @@ export const decode = (data, salt = key) => {
     CryptoJS.AES.decrypt(data, salt).toString(CryptoJS.enc.Utf8)
   );
 };
+
+export const removeTag = (string) => string.replace(/<(.|\n)*\/.*>/g, '');

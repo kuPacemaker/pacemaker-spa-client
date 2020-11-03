@@ -85,6 +85,10 @@ const Unit = (props) => {
           onClickHandler: () => props.showModalHandler('QA'),
         },
         {
+          type: 'search',
+          onClickHandler: props.searchSpans,
+        },
+        {
           type: 'upload_line',
           onClickHandler: () => props.showModalHandler('SUBMIT DOCUMENT'),
         },
@@ -194,6 +198,7 @@ const Unit = (props) => {
               type={props.type}
               title={props.document.title}
               body={props.document.body}
+              spans={props.spans}
               changeTab={changeTab}
             />
           </div>

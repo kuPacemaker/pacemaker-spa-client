@@ -1,5 +1,5 @@
 import { update_document } from '../creators/unit';
-import document from 'api/document';
+import document, { search } from 'api/document';
 
 /**
  *
@@ -32,6 +32,17 @@ export const update = (payload, callbackHandler) => async (dispatch) => {
       dispatch(update_document(data));
     }
     if (callbackHandler) callbackHandler(state === 'success', message);
+  } catch (e) {
+    console.log(e);
+  }
+};
+
+export const searchSpans = (payload, callbackHandler) => async (dispatch) => {
+  try {
+    const response = await search(payload);
+    const { nouns } = response.data;
+    console.log(nouns);
+    if (callbackHandler) callbackHandler(true, nouns);
   } catch (e) {
     console.log(e);
   }
