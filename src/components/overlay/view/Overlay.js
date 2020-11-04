@@ -11,7 +11,7 @@ import CreateUnit from 'components/overlay-contexts/create-unit';
 import EditUnit from 'components/overlay-contexts/edit-unit';
 import SubmitDocument from 'components/overlay-contexts/submit-document';
 import SubmitPaper from 'components/overlay-contexts/submit-paper';
-
+import SubmitModal from 'components/overlay-contexts/submit-modal';
 import ModifyAccount from 'components/overlay-contexts/modify-account';
 import Menu from 'components/overlay-contexts/overlay-menu';
 import QAModal from 'components/overlay-contexts/qa-modal';
@@ -83,6 +83,11 @@ const Overlay = ({ visible, type, active, overlayHandler }) => {
     case 'SUBMIT PAPER':
       context = (
         <SubmitPaper visible={visible} changeHandler={overlayHandler} />
+      );
+      break;
+    case 'SUBMIT MODAL':
+      context = (
+        <SubmitModal visible={visible} changeHandler={overlayHandler} />
       );
       break;
     case 'QA':

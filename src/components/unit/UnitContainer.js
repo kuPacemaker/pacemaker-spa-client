@@ -3,6 +3,8 @@ import { useHistory } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 
+import { checkIsASCII } from 'common/utility/string';
+
 import {
   getUnit,
   makeReservation,
@@ -12,7 +14,6 @@ import {
 import { update, reset } from 'store/modules/creators/unit';
 import { show } from 'store/modules/creators/modal';
 
-import { LocalMainPage } from 'common/local-path';
 import unitDocument, { searchSpans } from 'store/modules/action/document';
 
 import Unit from './view/Unit';
@@ -65,13 +66,27 @@ const createDocument = (createDocs) => (token, channel, unit) => (
   });
 };
 
-const updateDocument = (updateDocs) => (token, document) => (
+const updateDocument = (updateDocs, showModalHandler) => (token, document) => (
   callbackHandler
 ) => () => {
-  updateDocs({ token, document }, (state, message) => {
-    if (state) callbackHandler();
-    else show('ERROR MODAL', { message });
-  });
+  if (checkIsASCII(document.title) && checkIsASCII(document.body)) {
+    updateDocs({ token, document }, (state, message) => {
+      if (state) callbackHandler();
+      else show('ERROR MODAL', { message });
+    });
+  } else {
+    showModalHandler('SUBMIT MODAL', {
+      title: 'OOPS..!\nWATCH OUT!',
+      body:
+        'Non-English languages are mixed in this document!\nWe can only handle documents in English.\nIf you choose YES, all non-English languages will be gone.',
+      callbackHandler: () => {
+        updateDocs({ token, document }, (state, message) => {
+          if (state) callbackHandler();
+          else show('ERROR MODAL', { message });
+        });
+      },
+    });
+  }
 };
 
 const cancelDoceument = (updateHandler) => (state, action) => (
@@ -133,17 +148,14 @@ const onRemoveUnitHandler = (modal, history) => (
   channel,
   unit
 ) => () => {
-  modal(
-    'REMOVE UNIT',
-    {
-      token,
-      channel,
-      unit,
+  modal('REMOVE UNIT', {
+    token,
+    channel,
+    unit,
+    callbackHandler: () => {
+      history.goBack();
     },
-    () => {
-      history(LocalMainPage.root);
-    }
-  );
+  });
 };
 
 const searchSpansHandler = (showModal, search, callbackHandler) => (
@@ -225,7 +237,10 @@ const UnitContainer = ({
         updateSpans(setSpans)
       )(data.unit.document)}
       createDocument={createDocument(createDocs)(token, channelId, unitId)}
-      updateDocument={updateDocument(updateDocs)(token, document)}
+      updateDocument={updateDocument(updateDocs, showModalHandler)(
+        token,
+        document
+      )}
       cancelDoceument={cancelDoceument(setDocument)(
         document,
         data.unit.document
