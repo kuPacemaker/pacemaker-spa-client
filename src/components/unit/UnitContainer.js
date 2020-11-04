@@ -134,17 +134,14 @@ const onRemoveUnitHandler = (modal, history) => (
   channel,
   unit
 ) => () => {
-  modal(
-    'REMOVE UNIT',
-    {
-      token,
-      channel,
-      unit,
+  modal('REMOVE UNIT', {
+    token,
+    channel,
+    unit,
+    callbackHandler: () => {
+      history.goBack();
     },
-    () => {
-      history(LocalMainPage.root);
-    }
-  );
+  });
 };
 
 const searchSpansHandler = (showModal, search, callbackHandler) => (
