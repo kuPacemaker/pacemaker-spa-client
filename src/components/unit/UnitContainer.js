@@ -202,7 +202,11 @@ const UnitContainer = ({
       { token: token, channel: channelId, unit: unitId },
       (state, message) => {
         if (state);
-        else showModalHandler('ERROR MODAL', { message });
+        else
+          showModalHandler('ERROR MODAL', {
+            message,
+            callbackHandler: () => history.push(LocalMainPage.root),
+          });
       }
     );
     return () => {
