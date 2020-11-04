@@ -22,6 +22,7 @@ const ErrorModalContainer = (props) => {
     {
       name: 'OK',
       onClickHandelr: () => {
+        if (props.callbackHandler) props.callbackHandler();
         props.changeHandler();
       },
     },
@@ -39,6 +40,7 @@ const ErrorModalContainer = (props) => {
 
 const mapStateToProps = ({ modal }) => ({
   message: modal.argument.message,
+  callbackHandler: modal.argument.callbackHandler,
 });
 const mapDispatchToProps = (dispatch) =>
   bindActionCreators({ requestSignOut }, dispatch);
