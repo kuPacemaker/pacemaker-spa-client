@@ -3,6 +3,8 @@ import { useHistory } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 
+import { checkIsASCII } from 'common/utility/string';
+
 import {
   getUnit,
   makeReservation,
@@ -64,13 +66,27 @@ const createDocument = (createDocs) => (token, channel, unit) => (
   });
 };
 
-const updateDocument = (updateDocs) => (token, document) => (
+const updateDocument = (updateDocs, showModalHandler) => (token, document) => (
   callbackHandler
 ) => () => {
-  updateDocs({ token, document }, (state, message) => {
-    if (state) callbackHandler();
-    else show('ERROR MODAL', { message });
-  });
+  if (checkIsASCII(document.title) && checkIsASCII(document.body)) {
+    updateDocs({ token, document }, (state, message) => {
+      if (state) callbackHandler();
+      else show('ERROR MODAL', { message });
+    });
+  } else {
+    showModalHandler('SUBMIT MODAL', {
+      title: 'OOPS..!\nWATCH OUT!',
+      body:
+        'Non-English languages are mixed in this document!\nWe can only handle documents in English.\nIf you choose YES, all non-English languages will be gone.',
+      callbackHandler: () => {
+        updateDocs({ token, document }, (state, message) => {
+          if (state) callbackHandler();
+          else show('ERROR MODAL', { message });
+        });
+      },
+    });
+  }
 };
 
 const cancelDoceument = (updateHandler) => (state, action) => (
@@ -221,7 +237,10 @@ const UnitContainer = ({
         updateSpans(setSpans)
       )(data.unit.document)}
       createDocument={createDocument(createDocs)(token, channelId, unitId)}
-      updateDocument={updateDocument(updateDocs)(token, document)}
+      updateDocument={updateDocument(updateDocs, showModalHandler)(
+        token,
+        document
+      )}
       cancelDoceument={cancelDoceument(setDocument)(
         document,
         data.unit.document
