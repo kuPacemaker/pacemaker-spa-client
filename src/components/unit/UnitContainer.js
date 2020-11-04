@@ -12,7 +12,6 @@ import {
 import { update, reset } from 'store/modules/creators/unit';
 import { show } from 'store/modules/creators/modal';
 
-import { LocalMainPage } from 'common/local-path';
 import unitDocument, { searchSpans } from 'store/modules/action/document';
 
 import Unit from './view/Unit';
