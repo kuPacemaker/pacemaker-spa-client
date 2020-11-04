@@ -3,6 +3,7 @@ import { useHistory } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 
+import { LocalMainPage } from 'common/local-path';
 import { checkIsASCII } from 'common/utility/string';
 
 import {
@@ -153,7 +154,7 @@ const onRemoveUnitHandler = (modal, history) => (
     channel,
     unit,
     callbackHandler: () => {
-      history.goBack();
+      history.push(`${LocalMainPage.channel.root}leader?id=${channel}`);
     },
   });
 };
@@ -196,7 +197,13 @@ const UnitContainer = ({
 
   useEffect(() => {
     if (token === null) return;
-    getUnitHandler({ token: token, channel: channelId, unit: unitId });
+    getUnitHandler(
+      { token: token, channel: channelId, unit: unitId },
+      (state, message) => {
+        if (state);
+        else showModalHandler('ERROR MODAL', { message });
+      }
+    );
     return () => {
       resetHandler();
       setDocument('');
