@@ -12,7 +12,6 @@ import {
 import { update, reset } from 'store/modules/creators/unit';
 import { show } from 'store/modules/creators/modal';
 
-import { LocalMainPage } from 'common/local-path';
 import unitDocument, { searchSpans } from 'store/modules/action/document';
 
 import Unit from './view/Unit';
@@ -133,17 +132,14 @@ const onRemoveUnitHandler = (modal, history) => (
   channel,
   unit
 ) => () => {
-  modal(
-    'REMOVE UNIT',
-    {
-      token,
-      channel,
-      unit,
+  modal('REMOVE UNIT', {
+    token,
+    channel,
+    unit,
+    callbackHandler: () => {
+      history.goBack();
     },
-    () => {
-      history(LocalMainPage.root);
-    }
-  );
+  });
 };
 
 const searchSpansHandler = (showModal, search, callbackHandler) => (

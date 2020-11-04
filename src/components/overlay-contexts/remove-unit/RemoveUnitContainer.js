@@ -16,8 +16,10 @@ const RemoveUnitContainer = (props) => {
         props.remove(
           { token: props.token, channel: props.channel, unit: props.unit },
           (state, message) => {
-            if (state) props.changeHandler();
-            else {
+            if (state) {
+              if (props.callbackHandler) props.callbackHandler();
+              props.changeHandler();
+            } else {
               props.onShowWarningModal(message);
             }
           }
@@ -40,10 +42,11 @@ const RemoveUnitContainer = (props) => {
   );
 };
 
-const mapStateToProps = ({ account, modal }) => ({
-  token: account.token,
+const mapStateToProps = ({ modal }) => ({
+  token: modal.argument.token,
   channel: modal.argument.channel,
   unit: modal.argument.unit,
+  callbackHandler: modal.argument.callbackHandler,
 });
 
 const mapDispatchToProps = (dispatch) => ({
