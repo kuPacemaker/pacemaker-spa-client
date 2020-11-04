@@ -1,9 +1,13 @@
 import React, { useEffect } from 'react';
 import { connect } from 'react-redux';
+import { useHistory } from 'react-router-dom';
+
 import { show } from 'store/modules/creators/modal';
 import { fetchChannel } from 'store/modules/action/channel';
+import { LocalMainPage } from 'common/local-path';
 
 import Channel from './view/Channel';
+
 const ChannelContainer = ({
   type,
   id: channelId,
@@ -18,11 +22,12 @@ const ChannelContainer = ({
   onClickNotReadyFunction,
   onShowWarningModal,
 }) => {
+  const history = useHistory();
   useEffect(() => {
     if (token === null) return;
     getChannelHandler(token, type, channelId, (state, message) => {
       if (state);
-      else onShowWarningModal(message);
+      else onShowWarningModal(message, () => history.push(LocalMainPage.root));
     });
   }, []);
 
@@ -65,7 +70,8 @@ const mapDispatchToProps = (dispatch) => ({
   onClickRemoveChannel: () => dispatch(show('REMOVE CHANNEL')),
   onClickExitChannel: () => dispatch(show('EXIT UNIT')),
   onClickNotReadyFunction: (arg) => dispatch(show('ALERT MODAL', arg)),
-  onShowWarningModal: (message) => dispatch(show('ERROR MODAL', { message })),
+  onShowWarningModal: (message, callbackHandler) =>
+    dispatch(show('ERROR MODAL', { message, callbackHandler })),
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(ChannelContainer);
