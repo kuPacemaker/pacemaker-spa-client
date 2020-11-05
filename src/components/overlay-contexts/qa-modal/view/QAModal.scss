@@ -2,14 +2,7 @@
 @import 'shared/Animations.scss';
 
 .QAModal {
-  $modalH: 575px;
-  $modalW: 950px;
-  width: $modalW;
-  height: $modalH;
-  top: calc(50% - #{$modalH/2});
-  left: calc(50% - #{$modalW/2});
-
-  position: absolute;
+  @include centerPosition(575px, 950px);
   display: block;
   border: 1px black solid;
   background-color: white;

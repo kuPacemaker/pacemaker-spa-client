@@ -2,12 +2,8 @@
 @import 'shared/Animations.scss';
 
 .EditUnit {
-  position: relative;
+  @include centerPosition(425px, 800px);
   display: block;
-  margin: 0 auto;
-  margin-top: 13%;
-  width: 800px;
-  height: 425px;
   border: 1px black solid;
   background-color: white;
   opacity: 1;
