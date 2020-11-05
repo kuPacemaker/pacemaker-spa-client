@@ -92,7 +92,7 @@ const SignUpContainer = (props) => {
               title: 'SIGN-UP SUCCESS\nSIGN-IN TO PACEMAKER!',
               body:
                 'Now You are one of the PACEMAKER members!\nWe Cheer the way you go.',
-              callback: () => historyHandler(LocalAdmission.signin),
+              callbackHandler: () => historyHandler(LocalAdmission.signin),
             });
           } else {
             props.show('ALERT MODAL', {

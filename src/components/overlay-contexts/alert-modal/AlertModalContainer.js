@@ -6,12 +6,11 @@ import Modal from '../default-modal';
  * 로그인 실패, 회원가입 성공/실패, 회원찾기 성공/실패, 회원정보 수정 성공/실패
  */
 const AlertModalContainer = (props) => {
-  if (props.argument === undefined) return <div />;
   const buttons = [
     {
       name: 'OK',
       onClickHandelr: () => {
-        if (props.argument.callback) props.argument.callback();
+        if (props.callbackHandler) props.callbackHandler();
         props.changeHandler();
       },
     },
@@ -20,15 +19,17 @@ const AlertModalContainer = (props) => {
     <Modal
       show={props.visible}
       changeHandler={props.changeHandler}
-      title={props.argument.title}
-      body={props.argument.body}
+      title={props.title}
+      body={props.body}
       buttons={buttons}
     />
   );
 };
 
 const mapStateToProps = ({ modal }) => ({
-  argument: modal.argument,
+  title: modal.argument.title,
+  body: modal.argument.body,
+  callbackHandler: modal.argument.callbackHandler,
 });
 
 export default connect(mapStateToProps, null)(AlertModalContainer);

@@ -108,7 +108,7 @@ const updatePaper = (updateHandler) => (state, action) => () => {
   });
 };
 
-const verifyPaper = (verifyHandler) => (
+const verifyPaper = (verifyHandler, showModalHandler) => (
   token,
   unit,
   local,
@@ -120,13 +120,14 @@ const verifyPaper = (verifyHandler) => (
     if (question.verified) verified.push(question);
     else removed.push({ pair_id: question.id });
   });
-  setLocalState({
-    ...local,
-    questions: verified,
-  });
+
   verifyHandler({ token, unit, removed }, (state, message) => {
-    if (state);
-    else show('ERROR MODAL', { message });
+    if (state) {
+      setLocalState({
+        ...local,
+        questions: verified,
+      });
+    } else showModalHandler('ERROR MODAL', { message });
   });
 };
 
@@ -198,7 +199,7 @@ const UnitContainer = ({
   useEffect(() => {
     if (token === null) return;
     getUnitHandler(
-      { token: token, channel: channelId, unit: unitId },
+      { token: token, channel: channelId, unit: unitId, type },
       (state, message) => {
         if (state);
         else
@@ -258,7 +259,12 @@ const UnitContainer = ({
       )}
       documentHandler={documentHandler(document, setDocument)}
       updatePaper={updatePaper(updateHandler)(data, paper)}
-      verifyPaper={verifyPaper(verifyHandler)(token, unitId, paper, setPaper)}
+      verifyPaper={verifyPaper(verifyHandler, showModalHandler)(
+        token,
+        unitId,
+        paper,
+        setPaper
+      )}
       onVerifyHandler={onVerifyHandler(paper, setPaper)}
       onAnswerHandler={onAnswerHandler(paper, setPaper)}
       onReservationHandler={onReservationHandler(reservation, showModalHandler)(
