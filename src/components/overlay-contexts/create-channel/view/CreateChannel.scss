@@ -2,12 +2,7 @@
 @import 'shared/Animations.scss';
 
 .CreateChannel {
-  position: relative;
-  display: block;
-  margin: 0 auto;
-  margin-top: 9%;
-  width: 1000px;
-  height: 600px;
+  @include centerPosition(600px, 1000px);
   border: 1px black solid;
   background-color: white;
   opacity: 1;

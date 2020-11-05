@@ -2,12 +2,8 @@
 @import 'shared/Animations.scss';
 
 .EnterChannel {
-  position: relative;
+  @include centerPosition(450px, 850px);
   display: block;
-  margin: 0 auto;
-  margin-top: 12.5%;
-  width: 850px;
-  height: 450px;
   border: 1px black solid;
   background-color: white;
   opacity: 1;

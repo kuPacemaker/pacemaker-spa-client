@@ -2,12 +2,8 @@
 @import 'shared/Animations.scss';
 
 .QAModal {
-  position: relative;
+  @include centerPosition(575px, 950px);
   display: block;
-  margin: 0 auto;
-  margin-top: 10%;
-  width: 950px;
-  height: 575px;
   border: 1px black solid;
   background-color: white;
   opacity: 1;
