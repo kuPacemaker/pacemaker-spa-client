@@ -14,17 +14,21 @@ const SubmitDocumentContainer = (props) => {
       name: 'YES',
       onClickHandelr: () => {
         if (props.paper.isStart || props.paper.isEnd) {
-          props.onShowSubmitModal('OOPS..!\nWATCH OUT!', '', () => {
-            props.onCreateQuestion(
-              { token: props.token, unit: props.unit },
-              (state, message) => {
-                if (state);
-                else {
-                  props.onShowWarningModal(message);
+          props.onShowSubmitModal(
+            'OOPS..!\nWATCH OUT!',
+            'Papers have already been delivered!\nIf you generate new questions, all papers will be disappear.\nDo you really want to generate new questions?',
+            () => {
+              props.onCreateQuestion(
+                { token: props.token, unit: props.unit },
+                (state, message) => {
+                  if (state);
+                  else {
+                    props.onShowWarningModal(message);
+                  }
                 }
-              }
-            );
-          });
+              );
+            }
+          );
         } else {
           props.onCreateQuestion(
             { token: props.token, unit: props.unit },

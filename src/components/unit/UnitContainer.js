@@ -263,8 +263,7 @@ const UnitContainer = ({
       onAnswerHandler={onAnswerHandler(paper, setPaper)}
       onReservationHandler={onReservationHandler(reservation, showModalHandler)(
         token,
-        unitId,
-        data.unit.paper
+        unitId
       )}
     />
   );
