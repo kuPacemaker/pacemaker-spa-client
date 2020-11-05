@@ -2,12 +2,8 @@
 @import 'shared/Animations.scss';
 
 .CreateUnit {
-  position: relative;
+  @include centerPosition(425px, 800px);
   display: block;
-  margin: 0 auto;
-  margin-top: 250px;
-  width: 800px;
-  height: 425px;
   border: 1px black solid;
   background-color: white;
   opacity: 1;

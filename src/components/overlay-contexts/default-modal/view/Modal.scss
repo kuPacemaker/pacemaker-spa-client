@@ -2,12 +2,8 @@
 @import 'shared/Animations.scss';
 
 .Modal {
-  position: relative;
+  @include centerPosition(450px, 700px);
   display: block;
-  margin: 0 auto;
-  margin-top: 14%;
-  width: 700px;
-  height: 450px;
   border: 1px black solid;
   background-color: white;
   opacity: 1;
