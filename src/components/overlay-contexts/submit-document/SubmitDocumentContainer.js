@@ -9,6 +9,21 @@ const body =
   'It will take few minutes,\nand it can’t be cancelled in progress.';
 
 const SubmitDocumentContainer = (props) => {
+  const createQuestion = () => {
+    props.onCreateQuestion(
+      { token: props.token, unit: props.unit },
+      (state, message) => {
+        if (state) {
+          props.onShowAlertModal(
+            'YOUR QUESTION IS\nNOW DELIVERED!',
+            'New questions have been generated!\nCheck it out at Newspeed!'
+          );
+        } else {
+          props.onShowWarningModal(message);
+        }
+      }
+    );
+  };
   const buttons = [
     {
       name: 'YES',
@@ -17,28 +32,10 @@ const SubmitDocumentContainer = (props) => {
           props.onShowSubmitModal(
             'OOPS..!\nWATCH OUT!',
             'Papers have already been delivered!\nIf you generate new questions, all papers will be disappear.\nDo you really want to generate new questions?',
-            () => {
-              props.onCreateQuestion(
-                { token: props.token, unit: props.unit },
-                (state, message) => {
-                  if (state);
-                  else {
-                    props.onShowWarningModal(message);
-                  }
-                }
-              );
-            }
+            createQuestion
           );
         } else {
-          props.onCreateQuestion(
-            { token: props.token, unit: props.unit },
-            (state, message) => {
-              if (state);
-              else {
-                props.onShowWarningModal(message);
-              }
-            }
-          );
+          createQuestion();
           props.changeHandler();
         }
       },
@@ -67,11 +64,13 @@ const mapStateToProps = ({ account, unit }) => ({
 });
 
 const mapDispatchToProps = (dispatch) => ({
-  onCreateQuestion: (document, callbackHandler) =>
-    dispatch(makeQuestion(document, callbackHandler)),
+  onCreateQuestion: (payload, callbackHandler) =>
+    dispatch(makeQuestion(payload, callbackHandler)),
   onShowWarningModal: (message) => dispatch(show('ERROR MODAL', { message })),
   onShowSubmitModal: (title, body, callbackHandler) =>
     dispatch(show('SUBMIT MODAL', { title, body, callbackHandler })),
+  onShowAlertModal: (title, body) =>
+    dispatch(show('ALERT MODAL', { title, body })),
 });
 
 export default connect(
