@@ -76,8 +76,8 @@ export const makeReservation = (payload, callbackHandler) => async (
 ) => {
   try {
     const response = await reservation(payload);
-    const { state, message } = response.data;
-    if (state === 'success');
+    const { state, message, ...data } = response.data;
+    if (state === 'success') dispatch(update(data));
     if (callbackHandler) callbackHandler(state === 'success', message);
   } catch (e) {
     console.log(e);
