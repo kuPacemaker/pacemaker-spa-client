@@ -2,12 +2,15 @@
 @import 'shared/Animations.scss';
 
 .QAModal {
-  position: relative;
+  $modalH: 575px;
+  $modalW: 950px;
+  width: $modalW;
+  height: $modalH;
+  top: calc(50% - #{$modalH/2});
+  left: calc(50% - #{$modalW/2});
+
+  position: absolute;
   display: block;
-  margin: 0 auto;
-  margin-top: 10%;
-  width: 950px;
-  height: 575px;
   border: 1px black solid;
   background-color: white;
   opacity: 1;
