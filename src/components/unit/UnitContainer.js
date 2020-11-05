@@ -135,7 +135,6 @@ const onReservationHandler = (reservation, showModalHandler) => (
   unit
 ) => () => {
   reservation({ token, unit }, (state, message) => {
-    console.log(state, message);
     if (state)
       showModalHandler('ALERT MODAL', {
         title: 'MAKE RESERVATIN\nPAPER IS DELIVERED!',
@@ -264,7 +263,8 @@ const UnitContainer = ({
       onAnswerHandler={onAnswerHandler(paper, setPaper)}
       onReservationHandler={onReservationHandler(reservation, showModalHandler)(
         token,
-        unitId
+        unitId,
+        data.unit.paper
       )}
     />
   );

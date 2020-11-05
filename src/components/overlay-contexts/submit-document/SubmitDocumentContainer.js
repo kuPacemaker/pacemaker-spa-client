@@ -13,16 +13,30 @@ const SubmitDocumentContainer = (props) => {
     {
       name: 'YES',
       onClickHandelr: () => {
-        props.onCreateQuestion(
-          { token: props.token, unit: props.unit },
-          (state, message) => {
-            if (state);
-            else {
-              props.onShowWarningModal(message);
+        if (props.paper.isStart || props.paper.isEnd) {
+          props.onShowSubmitModal('OOPS..!\nWATCH OUT!', '', () => {
+            props.onCreateQuestion(
+              { token: props.token, unit: props.unit },
+              (state, message) => {
+                if (state);
+                else {
+                  props.onShowWarningModal(message);
+                }
+              }
+            );
+          });
+        } else {
+          props.onCreateQuestion(
+            { token: props.token, unit: props.unit },
+            (state, message) => {
+              if (state);
+              else {
+                props.onShowWarningModal(message);
+              }
             }
-          }
-        );
-        props.changeHandler();
+          );
+          props.changeHandler();
+        }
       },
     },
 
@@ -45,12 +59,15 @@ const SubmitDocumentContainer = (props) => {
 const mapStateToProps = ({ account, unit }) => ({
   token: account.token,
   unit: unit.data.unit.id,
+  paper: unit.data.unit.paper,
 });
 
 const mapDispatchToProps = (dispatch) => ({
   onCreateQuestion: (document, callbackHandler) =>
     dispatch(makeQuestion(document, callbackHandler)),
   onShowWarningModal: (message) => dispatch(show('ERROR MODAL', { message })),
+  onShowSubmitModal: (title, body, callbackHandler) =>
+    dispatch(show('SUBMIT MODAL', { title, body, callbackHandler })),
 });
 
 export default connect(
