@@ -14,7 +14,7 @@
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/4.3.1/workbox-sw.js");
 
 importScripts(
-  "/pacemaker-spa-client/precache-manifest.dd81fc1170b5882ceae0101631d6fcba.js"
+  "/pacemaker-spa-client/precache-manifest.14b211260c436dc52a630e73baba815d.js"
 );
 
 self.addEventListener('message', (event) => {
