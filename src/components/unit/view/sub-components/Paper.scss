@@ -9,9 +9,7 @@
 
   .QuizPaper {
     position: relative;
-    margin-top: 2vw;
-    margin-left: $sidemargin;
-    margin-right: $sidemargin;
+    margin: 5vh $sidemargin 5vh $sidemargin;
     text-align: center;
 
     .QuizNumber {
@@ -29,7 +27,6 @@
 
   .AnswerContainer {
     position: relative;
-    margin-top: 3vw;
     text-align: center;
 
     .AnswerSet {
