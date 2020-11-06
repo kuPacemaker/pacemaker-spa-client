@@ -48,7 +48,9 @@ const TopIconSet = ({ type, unit, onClickHandler, onRemoveUnitHandler }) => {
           })}
           src={unit.paper.isStart && unit.paper.isEnd ? answer : quiz}
           alt=""
-          onClick={onClickHandler('paper')}
+          onClick={onClickHandler(
+            unit.paper.isStart && unit.paper.isEnd ? 'answer' : 'paper'
+          )}
         />
         <img
           draggable="false"
