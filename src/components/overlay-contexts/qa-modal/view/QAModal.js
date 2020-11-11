@@ -50,7 +50,13 @@ const QAModal = ({
 
       <div className="InputLine">
         <div className="Tag">Q.</div>
-        <textarea className="Body Question" readOnly={true} value={question} />
+        <textarea
+          className={`Body Question ${
+            question.length < 37 ? 'Normal' : 'Expanded'
+          }`}
+          readOnly={true}
+          value={question}
+        />
       </div>
       <div className="InputLine">
         <div className="Tag">A.</div>
