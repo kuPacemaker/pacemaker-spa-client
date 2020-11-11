@@ -25,6 +25,8 @@
     vertical-align: bottom;
     margin-top: 5px;
     font-size: $channelTab;
+    user-select: all;
+    -webkit-user-select: all;
     @include animate();
 
     &.Remove {
@@ -57,5 +59,16 @@
     &.Remove {
       opacity: 0.5;
     }
+  }
+
+  ::-moz-selection {
+    /* Code for Firefox */
+    color: white;
+    background-color: black;
+  }
+
+  ::selection {
+    color: white;
+    background-color: black;
   }
 }
