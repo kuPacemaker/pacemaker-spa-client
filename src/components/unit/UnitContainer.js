@@ -15,7 +15,10 @@ import {
 import { update, reset } from 'store/modules/creators/unit';
 import { show } from 'store/modules/creators/modal';
 
-import unitDocument, { searchSpans } from 'store/modules/action/document';
+import unitDocument, {
+  searchSpans,
+  searchBibleSpans,
+} from 'store/modules/action/document';
 
 import Unit from './view/Unit';
 
@@ -189,6 +192,7 @@ const UnitContainer = ({
   createDocs,
   updateDocs,
   searchSpans,
+  searchBibleSpans,
 }) => {
   const history = useHistory();
 
@@ -248,6 +252,11 @@ const UnitContainer = ({
         searchSpans,
         updateSpans(setSpans)
       )(data.unit.document)}
+      searchBibleSpans={searchSpansHandler(
+        showModalHandler,
+        searchBibleSpans,
+        updateSpans(setSpans)
+      )(data.unit.document)}
       createDocument={createDocument(createDocs)(token, channelId, unitId)}
       updateDocument={updateDocument(updateDocs, showModalHandler)(
         token,
@@ -293,6 +302,7 @@ const mapDispatchToProps = (dispatch) =>
       createDocs: unitDocument.create,
       updateDocs: unitDocument.update,
       searchSpans,
+      searchBibleSpans,
     },
     dispatch
   );
