@@ -1,5 +1,5 @@
 import { update_document } from '../creators/unit';
-import document, { search } from 'api/document';
+import document, { search, searchBible } from 'api/document';
 
 /**
  *
@@ -40,6 +40,18 @@ export const update = (payload, callbackHandler) => async (dispatch) => {
 export const searchSpans = (payload, callbackHandler) => async (dispatch) => {
   try {
     const response = await search(payload);
+    const { nouns } = response.data;
+    if (callbackHandler) callbackHandler(true, nouns);
+  } catch (e) {
+    console.log(e);
+  }
+};
+
+export const searchBibleSpans = (payload, callbackHandler) => async (
+  dispatch
+) => {
+  try {
+    const response = await searchBible(payload);
     const { nouns } = response.data;
     if (callbackHandler) callbackHandler(true, nouns);
   } catch (e) {

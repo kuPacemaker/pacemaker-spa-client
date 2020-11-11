@@ -21,6 +21,11 @@ uni.search =
     ? unilm.api + unilm.qg + unilm.search
     : unilm.searchNouns();
 
+uni.searchBible =
+  process.env.NODE_ENV === 'development'
+    ? unilm.api + unilm.qg + unilm.bible
+    : unilm.searchNounsBible();
+
 /**
  *
  * @param {token, channel, unit} payload
@@ -54,6 +59,16 @@ export const update = async (payload) => {
  */
 export const search = async (payload) => {
   return await axios.post(uni.search, {
+    bkd: payload.document.body,
+  });
+};
+
+/**
+ *
+ * @param {document} payload
+ */
+export const searchBible = async (payload) => {
+  return await axios.post(uni.searchBible, {
     bkd: payload.document.body,
   });
 };

@@ -74,7 +74,9 @@ export const unilm = {
   qg: 'qg/',
   qa: 'qa/',
   search: 'nouns',
+  bible: 'bible_nouns',
   generateQuestion: () => unilm.base + unilm.api + unilm.qg,
   answerQuestion: () => unilm.base + unilm.api + unilm.qa,
   searchNouns: () => unilm.base + unilm.api + unilm.qg + unilm.search,
+  searchNounsBible: () => unilm.base + unilm.api + unilm.qg + unilm.bible,
 };
