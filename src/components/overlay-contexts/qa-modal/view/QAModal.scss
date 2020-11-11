@@ -57,7 +57,13 @@
 
       &.Question {
         font-size: 32px;
-        height: 45px;
+
+        &.Normal {
+          height: 45px;
+        }
+        &.Expanded {
+          height: 90px;
+        }
       }
 
       &.Answer {
