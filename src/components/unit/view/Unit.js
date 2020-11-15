@@ -85,10 +85,6 @@ const Unit = (props) => {
           onClickHandler: () => props.showModalHandler('QA'),
         },
         {
-          type: 'bible',
-          onClickHandler: props.searchBibleSpans,
-        },
-        {
           type: 'search',
           onClickHandler: props.searchSpans,
         },
