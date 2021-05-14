@@ -58,11 +58,15 @@ const SignInContainer = (props) => {
         historyHandler(LocalMainPage.newspeed.path);
       } else {
         props.show('ALERT MODAL', {
-          title: 'SIGN-IN DENIED\nID OR PW DO NOT MATCH!',
-          body:
-            'Did you forget your password?\nYou can reset your password from below button.',
+          title: 'SERVER OFF\nONLY CAN USE DUMMY',
+          body: 'App server is down!\nPlease use "id:test, pw:test" to access dummy data.',
           callback: () => console.log('로그인 실패!'),
         });
+        // props.show('ALERT MODAL', {
+        //   title: 'SIGN-IN DENIED\nID OR PW DO NOT MATCH!',
+        //   body: 'Did you forget your password?\nYou can reset your password from below button.',
+        //   callback: () => console.log('로그인 실패!'),
+        // });
       }
     });
   };
