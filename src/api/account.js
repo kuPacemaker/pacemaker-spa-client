@@ -2,10 +2,10 @@
 const sleep = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
 
 const DUMMY_ACCOUNT = {
-  admin: {
-    name: 'Lumy Kelvin',
-    type: 'ADMIN',
-    token: 'admin',
+  test: {
+    name: 'Dummy Tester',
+    type: 'DUMMY',
+    token: 'dummy',
   },
 };
 /**
@@ -15,7 +15,7 @@ const DUMMY_ACCOUNT = {
 // FIXME: 추후 대체될 것
 export const apiSignIn = async (payload) => {
   await sleep(250);
-  if (DUMMY_ACCOUNT.hasOwnProperty(payload.id)) {
+  if (DUMMY_ACCOUNT.hasOwnProperty(payload.id) && payload.id === payload.pw) {
     return new Promise((resolve) =>
       resolve({
         id: payload.id,
