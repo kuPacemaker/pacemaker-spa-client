@@ -191,7 +191,15 @@ let testData = {
         },
       },
     ],
-    runners: ['AA', 'BB', 'CC', 'DD', 'EE', 'FF', 'GG'],
+    runners: [
+      'Amelia',
+      'Avery',
+      'Adela',
+      'Bonita',
+      'Charlotte',
+      'Frances',
+      'Erica',
+    ],
   },
 };
 
