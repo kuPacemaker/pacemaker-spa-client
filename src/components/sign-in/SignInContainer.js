@@ -59,7 +59,7 @@ const SignInContainer = (props) => {
       } else {
         props.show('ALERT MODAL', {
           title: 'SERVER OFF\nONLY CAN USE DUMMY',
-          body: 'App server is down!\nPlease use "id:test, pw:test" to access dummy data.',
+          body: 'App server is down!\nPlease use "id:test, pw:test" to access dummy account.',
           callback: () => console.log('로그인 실패!'),
         });
         // props.show('ALERT MODAL', {
