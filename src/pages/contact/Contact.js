@@ -31,7 +31,7 @@ const collaborators = [
 const contributors = [
   {
     name: 'Changhoon Lee',
-    position: ['Brand Marketer', 'Web Designer', ''],
+    position: ['Product Manager', 'Brand Marketer', 'Web Designer'],
     email: 'lsgrt77@gmail.com',
     github: 'https://www.instagram.com/chhn_hoon/',
   },
