@@ -10,37 +10,22 @@ const body =
 
 const SubmitDocumentContainer = (props) => {
   const createQuestion = () => {
-    props.onCreateQuestion(
-      { token: props.token, unit: props.unit },
-      (state, message) => {
-        if (state) {
-          props.onShowAlertModal(
-            'YOUR QUESTION IS\nNOW DELIVERED!',
-            'New questions have been generated!\nCheck it out at Newspeed!'
-          );
-        } else {
-          props.onShowWarningModal(message);
-        }
-      }
-    );
+    props.onCreateQuestion(props.document, () => {
+      props.onShowAlertModal(
+        'YOUR QUESTION IS\nNOW DELIVERED!',
+        'New questions have been generated!\nCheck it out at Newspeed!'
+      );
+    });
   };
+
   const buttons = [
     {
       name: 'YES',
       onClickHandelr: () => {
-        if (props.paper.isStart || props.paper.isEnd) {
-          props.onShowSubmitModal(
-            'OOPS..!\nWATCH OUT!',
-            'Papers have already been delivered!\nIf you generate new questions, all papers will be disappear.\nDo you really want to generate new questions?',
-            createQuestion
-          );
-        } else {
-          createQuestion();
-          props.changeHandler();
-        }
+        createQuestion();
+        props.changeHandler();
       },
     },
-
     {
       name: 'NO',
       onClickHandelr: () => props.changeHandler(),
@@ -59,13 +44,12 @@ const SubmitDocumentContainer = (props) => {
 
 const mapStateToProps = ({ account, unit }) => ({
   token: account.token,
-  unit: unit.data.unit.id,
-  paper: unit.data.unit.paper,
+  document: unit.data.unit.document,
 });
 
 const mapDispatchToProps = (dispatch) => ({
-  onCreateQuestion: (payload, callbackHandler) =>
-    dispatch(makeQuestion(payload, callbackHandler)),
+  onCreateQuestion: (document, callbackHandler) =>
+    dispatch(makeQuestion(document, callbackHandler)),
   onShowWarningModal: (message) => dispatch(show('ERROR MODAL', { message })),
   onShowSubmitModal: (title, body, callbackHandler) =>
     dispatch(show('SUBMIT MODAL', { title, body, callbackHandler })),
