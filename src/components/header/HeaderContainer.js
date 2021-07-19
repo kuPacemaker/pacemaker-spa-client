@@ -4,6 +4,7 @@ import { connect } from 'react-redux';
 import { show } from 'store/modules/creators/modal';
 import Header from './view/Header';
 import LocalPath from 'common/local-path';
+import { Logger } from '../../utils/logger/debugger';
 
 const buttons = {
   signin: {

@@ -9,7 +9,7 @@ import LocalPath from 'common/local-path';
 import { checkPassword } from 'common/security/check-password';
 
 import ModifyAccount from './view/ModifyAccount';
-import { Logger } from '../../utils/logger/debugger';
+import { Logger } from '../../../utils/logger/debugger';
 
 const title = 'MODIFY ACCOUNT INFORMATION';
 

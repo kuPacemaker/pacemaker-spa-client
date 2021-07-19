@@ -3,7 +3,7 @@ import { update, update_question, pending, success } from '../creators/unit';
 import { makePaper } from 'common/paper/make-paper';
 import { fetch } from 'api/unit';
 import { generateQuestion, markPaper } from 'api/paper';
-import { Logger } from '../../utils/logger/debugger';
+import { Logger } from '../../../utils/logger/debugger';
 /**
  *
  * @param {token, channel, unit} payload
