@@ -1,11 +1,11 @@
 import React from 'react';
 
 import Footer from './view/Footer';
-
+import { Logger } from '../../utils/logger/debugger';
 const icons = ['Facebook', 'Instargram', 'Youtube'];
 
 const clickEvent = (icon) => {
-  console.log('Redirect to ' + icon);
+  Logger('Redirect to ' + icon);
 };
 
 const FooterContainer = () => {

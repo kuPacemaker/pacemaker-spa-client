@@ -6,7 +6,6 @@ import { changeColor } from 'store/modules/creators/counter';
 class PaletteContainer extends Component {
   handleSelect = (color) => {
     const { changeColor } = this.props;
-    console.log('what');
     changeColor(color);
   };
 

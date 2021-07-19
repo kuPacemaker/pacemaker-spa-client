@@ -1,6 +1,7 @@
 import { update } from '../creators/board';
 import { fetch } from 'api/board';
 import { create, enter } from 'api/channel';
+import { Logger } from '../../../utils/logger/debugger';
 
 export const getBoard = (payload) => async (dispatch) => {
   try {
@@ -8,7 +9,7 @@ export const getBoard = (payload) => async (dispatch) => {
 
     dispatch(update(data));
   } catch (e) {
-    console.log(e);
+    Logger(e);
   }
 };
 
@@ -23,7 +24,7 @@ export const createChannel = (payload) => async (dispatch) => {
     // 최신화된 데이터를 리덕스 스토어에 반영
     dispatch(update(data));
   } catch (e) {
-    console.log(e);
+    Logger(e);
   }
 };
 
@@ -38,7 +39,7 @@ export const enterChannel = (payload) => async (dispatch) => {
     // 최신화된 데이터를 리덕스 스토어에 반영
     dispatch(update(data));
   } catch (e) {
-    console.log(e);
+    Logger(e);
   }
 };
 

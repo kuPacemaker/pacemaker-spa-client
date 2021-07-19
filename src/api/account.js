@@ -1,3 +1,5 @@
+import { Logger } from '../utils/logger/debugger';
+
 // FIXME: 추후 대체될 것
 const sleep = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
 
@@ -33,8 +35,8 @@ export const apiSignIn = async (payload) => {
 // FIXME: 추후 대체될 것
 export const modifyAccount = async (payload) => {
   await sleep(250);
-  console.log(DUMMY_ACCOUNT);
-  console.log(payload.id);
+  Logger(DUMMY_ACCOUNT);
+  Logger(payload.id);
 
   if (DUMMY_ACCOUNT.hasOwnProperty(payload.id)) {
     return new Promise((resolve) =>

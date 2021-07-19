@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 
 import { show } from 'store/modules/creators/modal';
 import Board from './view/Board';
-
+import { Logger } from '../../utils/logger/debugger';
 const title = {
   en: {
     leader: 'FOR LEADER',
@@ -20,7 +20,7 @@ const BoardContainer = ({
   const createChannelHandler = (_type) => () => {
     if (_type === 'leader') showOverlay('CREATE CHANNEL');
     else if (_type === 'runner') showOverlay('ENTER CHANNEL');
-    else console.log('기능이 구현되지 않았습니다.');
+    else Logger('기능이 구현되지 않았습니다.');
   };
   return (
     <Board

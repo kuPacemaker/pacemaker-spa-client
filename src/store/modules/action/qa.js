@@ -1,5 +1,6 @@
 import { update_question, update_answer } from '../creators/qa';
 import { ask } from 'api/qa';
+import { Logger } from '../../../utils/logger/debugger';
 
 export const askQuestion = (payload) => async (dispatch) => {
   try {
@@ -9,6 +10,6 @@ export const askQuestion = (payload) => async (dispatch) => {
     const answer = data.charAt(0).toUpperCase() + data.slice(1);
     dispatch(update_answer(answer));
   } catch (e) {
-    console.log(e);
+    Logger(e);
   }
 };

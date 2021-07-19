@@ -7,7 +7,7 @@ import { getUnit, makeReservation } from 'store/modules/action/unit';
 import { update } from 'store/modules/creators/unit';
 import { show } from 'store/modules/creators/modal';
 import unitDocument from 'store/modules/action/document';
-
+import { Logger } from '../../utils/logger/debugger';
 import Unit from './view/Unit';
 
 const documentHandler = (state, setState) => (type) => (data) => {
@@ -49,28 +49,25 @@ const onVerifyHandler = (state, setState) => (id) => () => {
   });
 };
 
-const createDocument = (createDocs) => (token, channel, unit) => (
-  callbackHandler
-) => () => {
-  createDocs({ token, channel, unit }, callbackHandler);
-};
+const createDocument =
+  (createDocs) => (token, channel, unit) => (callbackHandler) => () => {
+    createDocs({ token, channel, unit }, callbackHandler);
+  };
 
-const updateDocument = (updateDocs) => (token, document) => (
-  callbackHandler
-) => () => {
-  updateDocs({ token, document }, callbackHandler);
-};
+const updateDocument =
+  (updateDocs) => (token, document) => (callbackHandler) => () => {
+    updateDocs({ token, document }, callbackHandler);
+  };
 
-const cancelDoceument = (updateHandler) => (state, action) => (
-  callbackHandler
-) => () => {
-  updateHandler({
-    ...state,
-    title: action.title,
-    body: action.body,
-  });
-  callbackHandler();
-};
+const cancelDoceument =
+  (updateHandler) => (state, action) => (callbackHandler) => () => {
+    updateHandler({
+      ...state,
+      title: action.title,
+      body: action.body,
+    });
+    callbackHandler();
+  };
 
 const updatePaper = (updateHandler) => (state, action) => () => {
   updateHandler({
@@ -84,32 +81,29 @@ const updatePaper = (updateHandler) => (state, action) => () => {
 
 // const editDocument = (token, document) => () => {};
 
-const verifyPaper = (updateHandler) => (
-  state,
-  local,
-  updateLocalState
-) => () => {
-  const questions = local.questions.filter((question) => question.verified);
+const verifyPaper =
+  (updateHandler) => (state, local, updateLocalState) => () => {
+    const questions = local.questions.filter((question) => question.verified);
 
-  updateLocalState({
-    ...local,
-    questions: questions,
-  });
+    updateLocalState({
+      ...local,
+      questions: questions,
+    });
 
-  updateHandler({
-    ...state,
-    unit: {
-      ...state.unit,
-      paper: {
-        ...local,
-        questions: questions,
+    updateHandler({
+      ...state,
+      unit: {
+        ...state.unit,
+        paper: {
+          ...local,
+          questions: questions,
+        },
       },
-    },
-  });
-};
+    });
+  };
 
 const onReservationHandler = (reservation, payload) => () => {
-  reservation(payload, () => console.log('callback'));
+  reservation(payload, () => Logger('callback'));
 };
 
 const UnitContainer = ({

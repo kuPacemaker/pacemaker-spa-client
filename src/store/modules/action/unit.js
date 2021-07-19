@@ -3,7 +3,7 @@ import { update, update_question, pending, success } from '../creators/unit';
 import { makePaper } from 'common/paper/make-paper';
 import { fetch } from 'api/unit';
 import { generateQuestion, markPaper } from 'api/paper';
-
+import { Logger } from '../../utils/logger/debugger';
 /**
  *
  * @param {token, channel, unit} payload
@@ -18,7 +18,7 @@ export const getUnit = (payload, callbackHandler) => async (dispatch) => {
 
     if (callbackHandler) callbackHandler();
   } catch (e) {
-    console.log(e);
+    Logger(e);
   }
 };
 
@@ -30,7 +30,7 @@ export const getUnit = (payload, callbackHandler) => async (dispatch) => {
 export const makeQuestion = (payload, callbackHandler) => async (dispatch) => {
   try {
     const response = await generateQuestion(payload);
-    console.log(response);
+    Logger(response);
     const passages = response.data.passages;
     const nouns = response.data.nouns;
     const qaSets = [];
@@ -38,12 +38,12 @@ export const makeQuestion = (payload, callbackHandler) => async (dispatch) => {
       qaSets.push(...passage.aqset);
     });
     const paper = makePaper(qaSets, nouns);
-    console.log(paper);
+    Logger(paper);
     dispatch(update_question(paper));
 
     if (callbackHandler) callbackHandler();
   } catch (e) {
-    console.log(e);
+    Logger(e);
   }
 };
 
@@ -52,17 +52,16 @@ export const makeQuestion = (payload, callbackHandler) => async (dispatch) => {
  * @param {token, document} payload
  * @param {*} historyHandler
  */
-export const makeReservation = (payload, callbackHandler) => async (
-  dispatch
-) => {
-  try {
-    console.log(payload);
-    console.log('Make Reservation!!');
-    if (callbackHandler) callbackHandler();
-  } catch (e) {
-    console.log(e);
-  }
-};
+export const makeReservation =
+  (payload, callbackHandler) => async (dispatch) => {
+    try {
+      Logger(payload);
+      Logger('Make Reservation!!');
+      if (callbackHandler) callbackHandler();
+    } catch (e) {
+      Logger(e);
+    }
+  };
 
 /**
  *
@@ -76,7 +75,7 @@ export const submitPaper = (payload, callbackHandler) => async (dispatch) => {
     // historyHandler();
     if (callbackHandler) callbackHandler();
   } catch (e) {
-    console.log(e);
+    Logger(e);
   }
 };
 

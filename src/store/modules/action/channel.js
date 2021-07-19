@@ -1,7 +1,7 @@
 import { update, pending, success } from '../creators/channel';
 import { fetch } from 'api/channel';
 import { create, remove, edit } from 'api/unit';
-
+import { Logger } from '../../../utils/logger/debugger';
 export const updateChannel = (data) => (dispatch) => {
   dispatch(update(data));
 };
@@ -14,7 +14,7 @@ export const fetchChannel = (payload, callbackHandler) => async (dispatch) => {
     dispatch(update(data));
     if (callbackHandler) callbackHandler();
   } catch (e) {
-    console.log(e);
+    Logger(e);
   }
 };
 /**
@@ -27,11 +27,11 @@ export const createUnit = (payload, callbackHandler) => async (dispatch) => {
     dispatch(update(data));
     if (callbackHandler) callbackHandler();
   } catch (e) {
-    console.log(e);
+    Logger(e);
   }
 };
 // export const createChannel = (payload) => (dispatch) => {
-//   console.log('Test');
+//   Logger('Test');
 // };
 
 /**
@@ -44,7 +44,7 @@ export const removeUnit = (payload, callbackHandler) => async (dispatch) => {
     dispatch(update(data));
     if (callbackHandler) callbackHandler();
   } catch (e) {
-    console.log(e);
+    Logger(e);
   }
 };
 
@@ -58,6 +58,6 @@ export const editUnit = (payload, callbackHandler) => async (dispatch) => {
     dispatch(update(data));
     if (callbackHandler) callbackHandler();
   } catch (e) {
-    console.log(e);
+    Logger(e);
   }
 };

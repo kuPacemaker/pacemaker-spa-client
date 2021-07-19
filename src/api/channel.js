@@ -1,3 +1,4 @@
+import { Logger } from '../utils/logger/debugger';
 const dummy = {
   leader: [
     {
@@ -246,7 +247,7 @@ export const create = async (payload) => {
  * @param {token, accessCode} payload
  */
 export const enter = async (payload) => {
-  console.log(payload);
+  Logger(payload);
   await sleep(250);
 
   return new Promise((resolve) => resolve(dummy));

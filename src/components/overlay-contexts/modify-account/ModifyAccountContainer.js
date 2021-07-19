@@ -9,6 +9,7 @@ import LocalPath from 'common/local-path';
 import { checkPassword } from 'common/security/check-password';
 
 import ModifyAccount from './view/ModifyAccount';
+import { Logger } from '../../utils/logger/debugger';
 
 const title = 'MODIFY ACCOUNT INFORMATION';
 
@@ -82,8 +83,7 @@ const ModifyAccountContainer = ({
     if (invalid) {
       showModal('ALERT MODAL', {
         title: `${invalid}\nCHECK YOUR PASSWORD`,
-        body:
-          'Please check your password again!\nMake your password 6 or more\nwith a combination of letters, numbers and marks',
+        body: 'Please check your password again!\nMake your password 6 or more\nwith a combination of letters, numbers and marks',
       });
     } else {
       modifyAccount(
@@ -95,22 +95,20 @@ const ModifyAccountContainer = ({
           name: state.name,
         },
         (success) => {
-          console.log(success);
+          Logger(success);
           if (success) {
-            console.log('YES');
+            Logger('YES');
             changeHandler();
             historyHandler(LocalPath.root);
             showModal('ALERT MODAL', {
               title: 'MODIFY SUCCESS\nSIGN-IN AGAIN!',
-              body:
-                'Your account data is changed!\nPlease sign-in with your new data.',
+              body: 'Your account data is changed!\nPlease sign-in with your new data.',
             });
           } else {
-            console.log('NO');
+            Logger('NO');
             showModal('ALERT MODAL', {
               title: 'MODIFY DENIED\nPASSWORD MISMATCH!',
-              body:
-                'The password you entered is incorrect!\nYou must enter the correct password to change the data.',
+              body: 'The password you entered is incorrect!\nYou must enter the correct password to change the data.',
             });
           }
         }

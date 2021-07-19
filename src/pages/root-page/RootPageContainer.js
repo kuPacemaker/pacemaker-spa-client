@@ -9,6 +9,7 @@ import LocalPath from 'common/local-path';
 import { decode } from 'common/security/common';
 import RootPage from './RootPage';
 
+import { Logger } from '../../utils/logger/debugger';
 // import Images from 'resources/images';
 // const preload = (images) => {
 //   for (const key in images) {
@@ -31,7 +32,7 @@ const RootPageContainer = (props) => {
           }
         );
       } catch (e) {
-        console.log(e);
+        Logger(e);
       }
     }
   }, []);

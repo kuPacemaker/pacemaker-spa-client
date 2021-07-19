@@ -1,12 +1,6 @@
 import axios from 'axios';
 import { gqqa } from 'common/server-path';
 
-// export const generateQuestion = async (payload) => {
-//   await sleep(250);
-//   console.log(payload);
-//   return new Promise((resolve) => resolve());
-// };
-
 const server = {};
 server['qg'] =
   process.env.NODE_ENV === 'development'

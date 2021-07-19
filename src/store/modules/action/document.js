@@ -1,6 +1,6 @@
 import { update_document } from '../creators/unit';
 import document from 'api/document';
-
+import { Logger } from '../../../utils/logger/debugger';
 /**
  *
  * @param {token, channelId, unitId} payload
@@ -12,7 +12,7 @@ export const create = (payload, callbackHandler) => async (dispatch) => {
     dispatch(update_document(docs));
     if (callbackHandler) callbackHandler();
   } catch (e) {
-    console.log(e);
+    Logger(e);
   }
 };
 
@@ -27,7 +27,7 @@ export const update = (payload, callbackHandler) => async (dispatch) => {
     dispatch(update_document(docs));
     if (callbackHandler !== undefined) callbackHandler();
   } catch (e) {
-    console.log(e);
+    Logger(e);
   }
 };
 
